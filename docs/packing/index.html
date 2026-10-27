@@ -3,16 +3,1076 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>아이칸 포장 카운트 사용 설명서 (준비 중)</title>
-<meta name="description" content="하루치 원본 데이터를 지역별 상판·뒷턱 개수로 집계하고, 파렛트 수를 적어 엑셀로 저장·인쇄합니다.">
+<title>아이칸 포장 카운트 사용 설명서 0.1.11</title>
+<meta name="description" content="하루치 원본 데이터를 지역별 상판·뒷턱·타공 개수로 집계하고, 파렛트를 적어 Excel로 저장·인쇄합니다.">
 <link rel="icon" href="../assets/icons/packing.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link rel="stylesheet" href="../assets/ikan.css?v=67567309">
+<link rel="stylesheet" href="../assets/ikan.css?v=b49ee229">
 </head>
 <body class="ik-app-packing">
 <a class="ik-skip" href="#main">본문 바로가기</a>
-<header class="ik-bar"><div class="ik-bar-in"><a class="ik-bar-home" href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg><span>매뉴얼 홈</span></a><i class="ik-bar-sep"></i><div class="ik-bar-title"><img class="ik-bar-icon" src="../assets/icons/packing.png" alt=""><span><small>IKAN PACKING COUNT · USER MANUAL</small><b>아이칸 포장 카운트</b></span></div><div class="ik-bar-tools"><span class="ik-bar-ver ik-bar-hide-s">0.1.0</span><details class="ik-apps"><summary class="ik-bar-btn" aria-label="다른 프로그램 매뉴얼"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.2"/></svg><span class="ik-bar-hide-s">다른 매뉴얼</span></summary><div class="ik-apps-menu"><a href="../index.html"><span style="display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--ik-navy);color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg></span><span><b>매뉴얼 홈</b><span>모든 프로그램 · 전체 검색</span></span></a><hr><a href="../workorders/index.html"><img src="../assets/icons/workorders.svg" alt=""><span><b>아이칸 작업지시서 관리자</b><span>0.24.7</span></span></a><a href="../plot/index.html"><img src="../assets/icons/plot.svg" alt=""><span><b>도면 확대 인쇄</b><span>v2.6</span></span></a><a href="../packing/index.html" aria-current="page" class="is-draft"><img src="../assets/icons/packing.png" alt=""><span><b>아이칸 포장 카운트</b><span>매뉴얼 준비 중</span></span></a><a href="../labels/index.html"><img src="../assets/icons/labels.svg" alt=""><span><b>아이칸 라벨 출력기</b><span>v2</span></span></a></div></details></div></div></header>
-<div class="ik-shell" style="grid-template-columns:minmax(0,1fr)"><main class="ik-sheet" id="main" style="max-width:900px;margin:0 auto;width:100%"><section class="ik-chapter is-first"><div class="ik-cover"><img class="ik-cover-icon" src="../assets/icons/packing.png" alt="아이칸 포장 카운트 아이콘"><div><p class="ik-cover-kind">USER MANUAL · 0.1.0</p><h1 class="ik-cover-title">아이칸 포장 카운트</h1><p class="ik-cover-meta"><span>하루치 원본 데이터를 지역별 상판·뒷턱 개수로 집계하고, 파렛트 수를 적어 엑셀로 저장·인쇄합니다.</span></p></div></div><ul class="ik-docinfo"><li><b>환경</b>Windows 10/11</li><li>설치 파일(MSI)</li></ul><div class="ik-div ik-div-dim" role="separator" aria-label="아이칸 주식회사"><i class="ik-div-tick"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M0 5 L12 0.8 V9.2 Z"/></svg><i class="ik-div-line"></i><span class="ik-div-label"><span class="ik-div-ko">아이칸 주식회사</span><span class="ik-div-en">IKAN CO., LTD.</span></span><i class="ik-div-line"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M12 5 L0 0.8 V9.2 Z"/></svg><i class="ik-div-tick"></i></div><div class="ik-note is-caution"><p class="ik-note-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4M12 17h.01"/></svg>매뉴얼 준비 중</p><p>이 프로그램의 사용 설명서를 작성하고 있습니다. 완성되면 이 주소에 바로 올라옵니다. 그 전에는 프로그램을 만든 담당자에게 사용법을 물어 주세요.</p></div><p><a href="../index.html">← 매뉴얼 홈으로</a></p></section><div class="ik-div ik-div-stamp" role="separator" aria-label="검수 완료"><span class="ik-div-layers is-left"><i></i><i></i><i></i></span><span class="ik-stamp"><span><b>검수</b><small>IKAN</small></span></span><span class="ik-div-layers is-right"><i></i><i></i><i></i></span></div></main></div>
-<script src="../assets/ikan.js?v=67567309"></script>
+<header class="ik-bar"><div class="ik-bar-in"><a class="ik-bar-home" href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg><span>매뉴얼 홈</span></a><i class="ik-bar-sep"></i><div class="ik-bar-title"><img class="ik-bar-icon" src="../assets/icons/packing.png" alt=""><span><small>IKAN PACKING COUNT · USER MANUAL</small><b>아이칸 포장 카운트</b></span></div><div class="ik-bar-tools"><span class="ik-bar-ver ik-bar-hide-s">0.1.11</span><button class="ik-bar-btn ik-bar-hide-s" type="button" data-font="-1" aria-label="본문 글자 작게">가−</button><button class="ik-bar-btn ik-bar-hide-s" type="button" data-font="1" aria-label="본문 글자 크게">가+</button><button class="ik-bar-btn ik-bar-hide-s" type="button" data-print><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></svg>인쇄</button><details class="ik-apps"><summary class="ik-bar-btn" aria-label="다른 프로그램 매뉴얼"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.2"/></svg><span class="ik-bar-hide-s">다른 매뉴얼</span></summary><div class="ik-apps-menu"><a href="../index.html"><span style="display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--ik-navy);color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg></span><span><b>매뉴얼 홈</b><span>모든 프로그램 · 전체 검색</span></span></a><hr><a href="../workorders/index.html"><img src="../assets/icons/workorders.svg" alt=""><span><b>아이칸 작업지시서 관리자</b><span>0.24.7</span></span></a><a href="../plot/index.html"><img src="../assets/icons/plot.svg" alt=""><span><b>도면 확대 인쇄</b><span>v2.6</span></span></a><a href="../packing/index.html" aria-current="page"><img src="../assets/icons/packing.png" alt=""><span><b>아이칸 포장 카운트</b><span>0.1.11</span></span></a><a href="../labels/index.html"><img src="../assets/icons/labels.svg" alt=""><span><b>아이칸 라벨 출력기</b><span>v2</span></span></a></div></details></div></div></header>
+<div class="ik-shell">
+<nav class="ik-toc" aria-label="목차"><details open id="toc-box"><summary>목차 · 이 매뉴얼에서 찾기</summary><div class="ik-find"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><label class="sr" for="find">이 매뉴얼에서 찾기</label><input id="find" type="search" placeholder="이 매뉴얼에서 찾기  /" autocomplete="off"></div><div class="ik-find-state" id="find-state" role="status" aria-live="polite"></div><div class="ik-toc-label">Contents · 20장</div><ol><li><a href="#setup"><span class="n">01</span><span>설치와 실행 준비</span></a></li><li><a href="#quick-start"><span class="n">02</span><span>처음 사용하는 분을 위한 빠른 순서</span></a></li><li><a href="#screen"><span class="n">03</span><span>화면 구성과 버튼 안내</span></a></li><li><a href="#source"><span class="n">04</span><span>원본 Excel 불러오기와 시공일 선택</span></a></li><li><a href="#dates"><span class="n">05</span><span>포장일·입고일·고객일 설정</span></a></li><li><a href="#regions"><span class="n">06</span><span>지역 분류와 목록 순서</span></a></li><li><a href="#tops"><span class="n">07</span><span>상판 개수 집계 규칙</span></a></li><li><a href="#backs"><span class="n">08</span><span>뒷턱 집계 규칙</span></a></li><li><a href="#holes"><span class="n">09</span><span>타공 개수 집계 규칙</span></a></li><li><a href="#workdata"><span class="n">10</span><span>작업 데이터 연동</span></a></li><li><a href="#manual"><span class="n">11</span><span>집계표 수기 수정과 파렛트 입력</span></a></li><li><a href="#reset"><span class="n">12</span><span>기준 집계로 되돌리기</span></a></li><li><a href="#evidence"><span class="n">13</span><span>집계 근거와 확인 사항 읽기</span></a></li><li><a href="#excel"><span class="n">14</span><span>Excel로 저장하기</span></a></li><li><a href="#summary-print"><span class="n">15</span><span>포장 집계표 인쇄·미리보기</span></a></li><li><a href="#audit-print"><span class="n">16</span><span>집계근거 인쇄·미리보기</span></a></li><li><a href="#handover"><span class="n">17</span><span>분담 작업과 결과 보관</span></a></li><li><a href="#troubleshooting"><span class="n">18</span><span>오류 해결과 자주 묻는 질문</span></a></li><li><a href="#checklist"><span class="n">19</span><span>출력 전 체크리스트</span></a></li><li><a href="#reference"><span class="n">20</span><span>용어·지원 범위·조작 요약</span></a></li></ol><div class="ik-toc-foot">기준 버전 <b>0.1.11</b> · 정리 2026-10-27<br>인터넷 없이도 이 페이지를 저장해 볼 수 있습니다.</div></details></nav>
+<main class="ik-sheet" id="main" data-manual="packing">
+<section class="ik-chapter is-first" id="cover"><div class="ik-cover"><img class="ik-cover-icon" src="../assets/icons/packing.png" alt="아이칸 포장 카운트 아이콘"><div><p class="ik-cover-kind">USER MANUAL · 0.1.11</p><h1 class="ik-cover-title">아이칸 포장 카운트</h1><p class="ik-cover-meta"><span>하루치 원본 데이터를 지역별 상판·뒷턱·타공 개수로 집계하고, 파렛트를 적어 Excel로 저장·인쇄합니다.</span></p></div></div><ul class=ik-docinfo><li><b>기준 버전</b>0.1.11</li><li><b>기준일</b>2026-10-27</li><li><b>운영체제</b>Windows 10/11 64비트</li><li><b>필요</b>Microsoft Excel 데스크톱</li></ul><div class=ik-cover-intro><p>이 매뉴얼은 <strong>아이칸 포장 카운트</strong>의 현재 화면과 실제 집계 동작을 기준으로 작성했습니다. 아이칸 작업지시서 관리자와는 별도 프로그램입니다.</p><p>원본 Excel을 읽으면 선택한 시공일의 품목을 지역별로 나누어 <strong>상판·뒷턱·타공</strong>을 계산합니다. <strong>파렛트는 직접 입력</strong>합니다. 필요하면 작업지시서 관리자의 작업 데이터를 연결해 실제 도면에 적용된 타공 내역을 반영하고, 집계표를 수기로 보정한 다음 Excel로 저장하거나 인쇄합니다.</p><div class="ik-note is-caution"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 3 2.5 20h19z"></path><path d="M12 10v4M12 17h.01"></path></svg>주의 · 가장 중요한 구분</p>
+<p><strong>포장 집계표</strong>는 사용자가 수기 수정한 최종 수량입니다.<br/>
+<strong>집계 근거</strong>는 원본 데이터와 작업 데이터 연동으로 계산한 품목별 근거입니다.<br/>
+집계표를 수기로 고쳐도 품목별 근거 원문이 함께 바뀌지는 않습니다.</p>
+</div></div><div class=ik-quick><a href="#quick-start"><b>처음 사용하는 분</b><small>빠른 순서 9단계</small></a><a href="#evidence"><b>수량이 왜 이렇게 나왔는지</b><small>집계 근거와 확인 사항</small></a><a href="#troubleshooting"><b>막힌 부분을 찾는 분</b><small>오류 해결·자주 묻는 질문</small></a></div><div class="ik-div ik-div-dim" role="separator" aria-label="아이칸 주식회사"><i class="ik-div-tick"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M0 5 L12 0.8 V9.2 Z"/></svg><i class="ik-div-line"></i><span class="ik-div-label"><span class="ik-div-ko">아이칸 주식회사</span><span class="ik-div-en">IKAN CO., LTD.</span></span><i class="ik-div-line"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M12 5 L0 0.8 V9.2 Z"/></svg><i class="ik-div-tick"></i></div></section>
+<div id="find-empty" class="ik-empty" hidden><b>일치하는 장이 없습니다.</b>더 짧은 단어나 다른 표현으로 찾아보세요. 예: 싱크볼 → 씽크볼, 뒤턱 → 뒷턱</div>
+<section class="ik-chapter" id="setup" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 01</p><h1>설치와 실행 준비</h1></header><h2 id="11-필요한-환경">1.1 필요한 환경</h2><ul>
+<li>Windows 10/11 64비트 PC.</li>
+<li>Microsoft Excel 데스크톱 프로그램.</li>
+<li>회사에서 받는 정해진 형식의 원본 데이터 Excel.</li>
+<li>종이 출력 시 Windows에 설치된 프린터와 해당 드라이버.</li>
+<li>작업 데이터 연동 시 작업지시서 관리자의 <code>.ikanwork</code> 파일.</li>
+</ul><p>설치판에는 실행에 필요한 Python 환경이 포함되어 있으므로 일반 사용자가 Python을 따로 설치하지 않아도 됩니다.</p><p><code>.xlsx</code> 원본을 읽는 작업과 Excel 출력 파일 생성은 프로그램이 처리합니다. <strong><code>.xls</code> 원본 읽기, 실제 Excel 인쇄 페이지 미리보기·인쇄에는 설치된 Excel을 사용</strong>합니다.</p><h2 id="12-설치업데이트">1.2 설치·업데이트</h2><ol class="ik-steps is-plain"><li><div><p>실행 중인 <strong>아이칸 포장 카운트</strong>를 닫습니다.</p></div></li><li><div><p><code>IkanPackingCount_0.1.11.msi</code>를 실행합니다.</p></div></li><li><div><p>설치 마법사의 안내에 따라 설치합니다.</p></div></li><li><div><p>시작 메뉴 또는 바로가기로 <strong>아이칸 포장 카운트</strong>를 실행합니다.</p></div></li></ol><p>기존 설치가 있으면 같은 프로그램의 업데이트로 설치합니다. <strong>작업지시서 관리자 설치파일과 포장 카운트 설치파일은 별도</strong>입니다.</p><h2 id="13-준비할-파일">1.3 준비할 파일</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>파일</th>
+<th>필수 여부</th>
+<th>용도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>원본 데이터 <code>.xlsx</code> 또는 <code>.xls</code></td>
+<td>기본 필수</td>
+<td>지역·시공일·제품·수량·가공정보 집계</td>
+</tr>
+<tr>
+<td>작업 데이터 <code>.ikanwork</code></td>
+<td>필요할 때</td>
+<td>관리자에서 적용한 도면·표의 실제 타공 내역 반영</td>
+</tr>
+<tr>
+<td>저장할 포장 카운트 Excel</td>
+<td>결과물</td>
+<td>최종 집계표와 근거 보관·공유</td>
+</tr>
+</tbody>
+</table></div><p>완성된 작업지시서 Excel이나 바코드 PDF를 원본 Excel 대신 넣는 방식은 지원하지 않습니다. 완성 작업의 타공 수정 내역을 반영하려면 관리자의 <strong>완성 엑셀 수정 상태를 포함한 작업 데이터</strong>를 저장해 연결합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-next" href="#quick-start"><small>다음 장 02 →</small><b>처음 사용하는 분을 위한 빠른 순서</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="quick-start" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 02</p><h1>처음 사용하는 분을 위한 빠른 순서</h1></header><ol class="ik-steps is-plain"><li><div><p><strong>원본 엑셀 불러오기</strong>로 해당 업무의 원본 파일을 선택합니다.</p></div></li><li><div><p>여러 날짜가 있으면 <strong>원본 시공일 선택</strong>에서 집계할 날짜를 고릅니다.</p></div></li><li><div><p>왼쪽의 <strong>포장일 / 그레이박스 출고일·입고 / 시공일·고객</strong>을 확인합니다.</p></div></li><li><div><p><strong>확인 사항</strong>에 경고가 있는지 확인합니다.</p></div></li><li><div><p>필요하면 <strong>작업 데이터 연동</strong>으로 최종 적용된 타공 내역을 연결합니다.</p></div></li><li><div><p><strong>집계 근거</strong> 탭에서 상판·뒷턱·타공 수가 계산된 이유를 확인합니다.</p></div></li><li><div><p><strong>포장 집계표</strong>에서 필요한 수량을 더블클릭해 고치고, <strong>파렛트</strong>를 입력합니다.</p></div></li><li><div><p><strong>엑셀로 저장</strong>으로 최종 결과를 보관합니다.</p></div></li><li><div><p><strong>인쇄 · 미리보기</strong>에서 집계표를, <strong>집계근거 인쇄 · 미리보기</strong>에서 상세 근거를 확인·인쇄합니다.</p></div></li></ol><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>수동 삭제한 타공까지 반영해야 한다면, 관리자에서 도면 <strong>적용</strong>을 마친 최신 <code>.ikanwork</code>를 사용하세요. 원본 Excel만으로는 사람이 도면에서 삭제한 이력을 알 수 없습니다.</p>
+</div><h2 id="하루-작업-예시">하루 작업 예시</h2><p>시공일이 <strong>2026-10-22 목요일</strong>인 원본을 읽었다면 기본 날짜는 다음과 같습니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>항목</th>
+<th>기본 날짜</th>
+<th>출력표 제목</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>포장일</td>
+<td>2026-10-20 화요일</td>
+<td>20일 포장</td>
+</tr>
+<tr>
+<td>그레이박스 출고일</td>
+<td>2026-10-21 수요일</td>
+<td>21일 입고</td>
+</tr>
+<tr>
+<td>시공일</td>
+<td>2026-10-22 목요일</td>
+<td>22일 고객</td>
+</tr>
+</tbody>
+</table></div><p>해당 시공일의 수도권·지방별 수량을 확인하고, 파렛트를 직접 입력한 뒤 저장·출력합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#setup"><small>← 앞 장 01</small><b>설치와 실행 준비</b></a><a class="is-next" href="#screen"><small>다음 장 03 →</small><b>화면 구성과 버튼 안내</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="screen" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 03</p><h1>화면 구성과 버튼 안내</h1></header><!-- 포장 카운트 화면 구성 (3장). 실제 캡처가 아닌 위치 안내 -->
+<figure class="ik-map pk-screen">
+<div class="ik-map-win">
+<div class="ik-map-row is-top">아이칸 포장 카운트 <span>불러온 원본 파일 이름</span></div>
+<div class="ik-map-cols pk-screen-cols">
+<div>
+<em>3.1 · 왼쪽</em><b>원본과 날짜</b>
+<ol class="pk-left">
+<li><span class="pk-btn is-primary">원본 엑셀 불러오기</span></li>
+<li><span class="pk-field"><small>원본 시공일 선택</small>집계할 날짜</span></li>
+<li class="pk-dates">
+<span class="pk-field"><small>포장일</small>YYYY-MM-DD</span>
+<span class="pk-field"><small>그레이박스 출고일 · 입고</small>YYYY-MM-DD</span>
+<span class="pk-field"><small>시공일 · 고객</small>YYYY-MM-DD</span>
+</li>
+<li><span class="pk-btn">원본 기준 날짜로 복원</span></li>
+</ol>
+</div>
+<div class="is-main">
+<em>3.2 · 오른쪽 위</em><b>최종 집계와 공통 도구</b>
+<div aria-label="상단 합계 표시" class="pk-stats">
+<span><small>오더</small>선택일 근거</span><span><small>상판</small>집계표 합계</span><span><small>뒷턱</small>집계표 합계</span><span><small>타공</small>집계표 합계</span><span><small>파렛트</small>집계표 합계</span>
+</div>
+<div class="pk-tools">
+<span class="pk-btn is-primary">엑셀로 저장</span><span class="pk-btn is-primary">인쇄 · 미리보기</span>
+<i></i>
+<span class="pk-btn">작업 데이터 연동</span><span class="pk-btn">연동 해제</span>
+<i></i>
+<span class="pk-btn">지역 행 추가</span><span class="pk-btn">기준 집계로 되돌리기</span><span class="pk-btn is-warn">확인 사항</span><span class="pk-flag">수기 수정됨</span>
+</div>
+<em class="pk-sub">3.3 · 두 개의 탭</em>
+<div class="pk-tabs"><span class="is-on">포장 집계표</span><span>집계 근거</span></div>
+<div aria-label="포장 집계표 모양" class="pk-grid">
+<span class="h">지역</span><span class="h">상판 개수</span><span class="h">뒷턱</span><span class="h">타공</span><span class="h">파렛트</span>
+<span>수도권</span><span class="n"></span><span class="n"></span><span class="n is-hand">수기</span><span class="n is-hand">입력</span>
+<span>대구</span><span class="n"></span><span class="n"></span><span class="n"></span><span class="n is-hand">입력</span>
+<span class="e"></span><span class="e"></span><span class="e"></span><span class="e"></span><span class="e"></span>
+</div>
+<p class="pk-hint">칸을 <b>더블클릭</b>해 고칩니다. <i class="pk-swatch"></i> 노란 칸은 자동 기준과 다른 값입니다.</p>
+</div>
+</div>
+<div class="ik-map-row is-bottom">3.4 · 상태줄 <span>읽기 · 연동 · 저장 · 미리보기 준비 · 인쇄 전송 상태</span></div>
+</div>
+<figcaption>포장 카운트 화면 구성도입니다. 실제 화면 캡처가 아닌 기능 위치 안내이며, 번호는 이 장의 절 번호입니다.</figcaption>
+</figure>
+<h2 id="31-왼쪽-원본과-날짜">3.1 왼쪽: 원본과 날짜</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>화면 항목</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>원본 엑셀 불러오기</td>
+<td>원본 파일을 읽고 지역·품목별로 계산</td>
+</tr>
+<tr>
+<td>원본 시공일 선택</td>
+<td>원본에 들어 있는 날짜 중 현재 집계할 날짜 선택</td>
+</tr>
+<tr>
+<td>포장일</td>
+<td>출력물의 포장 날짜</td>
+</tr>
+<tr>
+<td>그레이박스 출고일 · 입고</td>
+<td>출력물의 입고 날짜</td>
+</tr>
+<tr>
+<td>시공일 · 고객</td>
+<td>출력물의 고객 날짜</td>
+</tr>
+<tr>
+<td>원본 기준 날짜로 복원</td>
+<td>선택한 원본 시공일로부터 기본 날짜를 다시 계산</td>
+</tr>
+</tbody>
+</table></div><h2 id="32-오른쪽-상단-최종-집계와-공통-도구">3.2 오른쪽 상단: 최종 집계와 공통 도구</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>버튼·표시</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>오더 / 상판 / 뒷턱 / 타공 / 파렛트</td>
+<td>선택한 시공일의 오더 수와 현재 집계표 합계</td>
+</tr>
+<tr>
+<td>엑셀로 저장</td>
+<td>현재 날짜·집계표·선택일 근거·안내를 Excel로 저장</td>
+</tr>
+<tr>
+<td>인쇄 · 미리보기</td>
+<td>최종 포장 집계표 한 장을 미리보기·인쇄</td>
+</tr>
+<tr>
+<td>작업 데이터 연동</td>
+<td><code>.ikanwork</code>의 적용된 표·도면을 타공 집계에 반영</td>
+</tr>
+<tr>
+<td>연동 해제</td>
+<td>원본 타공 집계로 돌아가되 기존 수기 입력 유지</td>
+</tr>
+<tr>
+<td>지역 행 추가</td>
+<td>빈 지역 행을 추가</td>
+</tr>
+<tr>
+<td>기준 집계로 되돌리기</td>
+<td>현재 원본/연동 기준으로 집계표를 다시 만듦</td>
+</tr>
+<tr>
+<td>확인 사항</td>
+<td>원본 및 연동 과정의 경고·판정 안내</td>
+</tr>
+<tr>
+<td>수기 수정됨</td>
+<td>수량·지역·날짜 등의 수기 변경이 있음을 표시</td>
+</tr>
+</tbody>
+</table></div><p><strong>오더 수</strong>는 선택일 근거의 서로 다른 오더 수입니다. <strong>상판·뒷턱·타공·파렛트 합계</strong>는 사용자가 수정한 현재 집계표를 따릅니다. 지역 행을 추가했다고 오더 수가 늘어나는 것은 아닙니다.</p><h2 id="33-두-개의-탭">3.3 두 개의 탭</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>탭</th>
+<th>목적</th>
+<th>직접 수정</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>포장 집계표</td>
+<td>지역별 최종 수량을 확인·보정</td>
+<td>표를 더블클릭해 가능</td>
+</tr>
+<tr>
+<td>집계 근거</td>
+<td>각 품목의 원본·계산·연동 근거 확인</td>
+<td>조회용</td>
+</tr>
+</tbody>
+</table></div><h2 id="34-처리-상태">3.4 처리 상태</h2><p>화면 아래 상태줄에서 읽기·연동·저장·미리보기 준비·인쇄 전송 상태를 확인합니다. 진행 중에는 관련 버튼이 비활성화됩니다. 처리 중 버튼을 반복해서 누르지 말고 완료 또는 오류 표시를 기다립니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#quick-start"><small>← 앞 장 02</small><b>처음 사용하는 분을 위한 빠른 순서</b></a><a class="is-next" href="#source"><small>다음 장 04 →</small><b>원본 Excel 불러오기와 시공일 선택</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="source" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 04</p><h1>원본 Excel 불러오기와 시공일 선택</h1></header><h2 id="41-불러오기">4.1 불러오기</h2><ol class="ik-steps is-plain"><li><div><p><strong>원본 엑셀 불러오기</strong>를 누릅니다.</p></div></li><li><div><p>원본 <code>.xlsx</code> 또는 <code>.xls</code>를 선택합니다.</p></div></li><li><div><p>데이터 읽기가 끝나면 파일명, 상태줄의 오더·품목 수, 선택한 시공일을 확인합니다.</p></div></li><li><div><p><strong>확인 사항</strong>이 자동으로 열리면 내용을 검토합니다.</p></div></li></ol><p>원본은 읽기 용도로 사용합니다. 집계표를 고쳐도 원본 Excel을 수정하지 않습니다.</p><h2 id="42-원본-양식-조건">4.2 원본 양식 조건</h2><p>원본의 열 위치와 머리글을 유지해야 합니다. 프로그램은 <strong>현재 활성 시트</strong>를 읽으며, 2행의 주요 머리글과 3행부터의 데이터를 사용합니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>원본 위치</th>
+<th>확인하는 항목</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G2</td>
+<td>오더번호</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>제품명</td>
+</tr>
+<tr>
+<td>N2</td>
+<td>수량</td>
+</tr>
+<tr>
+<td>AL2</td>
+<td>대리점명</td>
+</tr>
+<tr>
+<td>AM2</td>
+<td>영업사원</td>
+</tr>
+<tr>
+<td>AN2</td>
+<td>연락처</td>
+</tr>
+</tbody>
+</table></div><p><code>원본 G2에 오더번호 항목이 필요합니다</code> 같은 오류가 나면 다음을 확인합니다.</p><ul>
+<li>원본 대신 완성 작업지시서나 포장 결과표를 넣지 않았는가?</li>
+<li>실제 데이터가 있는 시트가 활성 시트인가?</li>
+<li>열·행을 삽입하거나 머리글을 바꾸지 않았는가?</li>
+<li>제품명·오더번호·수량이 빠진 데이터 행이 없는가?</li>
+</ul><p>원본의 수량은 <strong>1 이상의 정수</strong>, 제작사이즈의 가로·세로는 <strong>양수</strong>여야 합니다. 잘못된 값은 원본 행 번호와 함께 오류로 안내합니다. 의미 없는 서식 때문에 사용 영역이 비정상적으로 큰 파일도 읽기가 제한될 수 있습니다.</p><h2 id="43-여러-날짜가-들어-있는-경우">4.3 여러 날짜가 들어 있는 경우</h2><p>원본에 시공일이 여러 개 있으면 날짜 선택 목록이 만들어집니다. 처음에는 날짜순 첫 시공일이 선택되므로, 원하는 날짜가 맞는지 직접 확인합니다.</p><p><strong>원본 시공일 선택</strong>을 바꾸면:</p><ul>
+<li>해당 날짜의 지역별 수량을 다시 집계합니다.</li>
+<li>집계 근거도 해당 날짜의 품목으로 바뀝니다.</li>
+<li>출력 날짜를 원본 기본값으로 다시 계산합니다.</li>
+<li>현재 표의 수기 수정이 있으면 비우고 다시 집계할지 확인합니다.</li>
+</ul><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>날짜를 바꾸기 전에 필요한 수기 결과를 Excel로 저장하세요. 각 날짜의 수기 편집을 별도 작업 탭처럼 계속 보관하는 기능은 아닙니다.</p>
+</div><h2 id="44-다른-원본을-다시-읽는-경우">4.4 다른 원본을 다시 읽는 경우</h2><p>새 원본을 읽으면 기존 원본 기반으로 연결했던 <strong>작업 데이터 연동은 해제</strong>됩니다. 필요하면 새 원본과 맞는 <code>.ikanwork</code>를 다시 연결합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#screen"><small>← 앞 장 03</small><b>화면 구성과 버튼 안내</b></a><a class="is-next" href="#dates"><small>다음 장 05 →</small><b>포장일·입고일·고객일 설정</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="dates" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 05</p><h1>포장일·입고일·고객일 설정</h1></header><h2 id="51-기본-계산">5.1 기본 계산</h2><p>원본의 <strong>공장출고일을 시공일</strong>로 해석합니다.</p><!-- 출력 날짜 기본 계산 (5.1). 토·일 제외, 공휴일은 직접 확인 -->
+<figure class="ik-fig pk-dates-fig">
+<ol aria-label="날짜 계산 순서" class="pk-chain">
+<li class="is-pack"><small>포장일</small><b>20일 포장</b><span>그레이박스 출고일 −1영업일</span></li>
+<li aria-hidden="true" class="pk-arrow"><span>1영업일 전</span></li>
+<li class="is-in"><small>그레이박스 출고일 · 입고</small><b>21일 입고</b><span>시공일 −1영업일</span></li>
+<li aria-hidden="true" class="pk-arrow"><span>1영업일 전</span></li>
+<li class="is-cust"><small>시공일 · 고객</small><b>22일 고객</b><span>원본 공장출고일 = 선택한 원본 시공일</span></li>
+</ol>
+<p class="pk-cal-title">월요일 시공이면 주말을 건너뜁니다 <small>2026년 10월 예시</small></p>
+<div aria-label="10월 15일 목요일 포장, 16일 금요일 입고, 17·18일 주말 제외, 19일 월요일 고객" class="pk-cal" role="img">
+<span class="is-pack"><small>목</small><b>15</b><em>포장</em></span>
+<span class="is-in"><small>금</small><b>16</b><em>입고</em></span>
+<span class="is-off"><small>토</small><b>17</b><em>제외</em></span>
+<span class="is-off"><small>일</small><b>18</b><em>제외</em></span>
+<span class="is-cust"><small>월</small><b>19</b><em>고객</em></span>
+</div>
+<figcaption>기본 날짜는 토·일요일만 건너뜁니다. 공휴일·회사 휴무·특별 물류 일정은 자동으로 반영되지 않으니 직접 확인해 고칩니다. 저장·인쇄할 때는 포장일 ≤ 그레이박스 출고일 ≤ 시공일 순서여야 합니다.</figcaption>
+</figure>
+<p>현재 영업일 계산은 <strong>토요일·일요일을 제외</strong>합니다. 공휴일·회사 휴무·특별 물류 일정은 자동 반영되는 회사 달력이 아니므로 사용자가 확인해 조정합니다.</p><p>월요일 시공 사례:</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>항목</th>
+<th>날짜</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>고객·시공일</td>
+<td>2026-10-19 월요일</td>
+</tr>
+<tr>
+<td>입고·그레이박스 출고일</td>
+<td>2026-10-16 금요일</td>
+</tr>
+<tr>
+<td>포장일</td>
+<td>2026-10-15 목요일</td>
+</tr>
+</tbody>
+</table></div><h2 id="52-날짜-직접-수정">5.2 날짜 직접 수정</h2><p>날짜는 <code>YYYY-MM-DD</code> 형식으로 입력합니다. 입력 후 Enter를 누르거나 다른 칸으로 이동해 반영합니다.</p><ul>
+<li><strong>그레이박스 출고일을 변경하면 포장일도 −1영업일로 자동 변경</strong>됩니다.</li>
+<li>포장일을 별도 일정으로 쓰려면 그레이박스 출고일을 먼저 수정하고 포장일을 마지막에 조정합니다.</li>
+<li>고객 날짜만 직접 고쳤다고 다른 날짜가 모두 재계산되는 것은 아닙니다. 세 날짜를 함께 확인합니다.</li>
+</ul><p>저장·인쇄 시 다음 순서가 맞아야 합니다.</p><pre class="ik-pre"><code class="language-text">포장일 ≤ 그레이박스 출고일 ≤ 시공일
+</code></pre><h2 id="53-원본-시공일-선택과-출력-날짜는-다릅니다">5.3 원본 시공일 선택과 출력 날짜는 다릅니다</h2><p><strong>원본 시공일 선택</strong>은 어떤 데이터의 수량을 셀지 정합니다. <strong>출력 날짜 입력칸</strong>은 결과표에 표시할 일정입니다.</p><p>예를 들어 원본 시공일 선택이 10월22일인 상태에서 고객 날짜를 10월23일로 직접 고쳐도, <strong>10월23일 품목을 새로 집계하는 것은 아닙니다.</strong> 실제 집계 대상을 바꾸려면 원본 시공일 선택을 바꿉니다.</p><h2 id="54-날짜만-복원하기">5.4 날짜만 복원하기</h2><p><strong>원본 기준 날짜로 복원</strong>은 현재 선택한 원본 시공일의 기본 날짜로 돌립니다. 지역별 수기 수량을 지우는 버튼은 아닙니다.</p><p>출력표의 큰 제목은 <code>20일 포장</code>처럼 일자를 중심으로 표시합니다. 다른 달·연도의 파일과 혼동하지 않도록 입력칸의 전체 날짜와 저장 파일명도 확인하세요.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#source"><small>← 앞 장 04</small><b>원본 Excel 불러오기와 시공일 선택</b></a><a class="is-next" href="#regions"><small>다음 장 06 →</small><b>지역 분류와 목록 순서</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="regions" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 06</p><h1>지역 분류와 목록 순서</h1></header><h2 id="61-분류-기준">6.1 분류 기준</h2><p>작업지시서 관리자가 E17 지역을 만드는 데 사용하는 것과 같은 원본 센터 정보를 기준으로 분류합니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>원본 센터 정보 예시</th>
+<th>분류</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>설치센터_부엌(그레이박스)</td>
+<td>수도권</td>
+</tr>
+<tr>
+<td>대구센터</td>
+<td>대구</td>
+</tr>
+<tr>
+<td>광주센터</td>
+<td>광주</td>
+</tr>
+<tr>
+<td>전주센터</td>
+<td>전주</td>
+</tr>
+<tr>
+<td>빈 지역 정보</td>
+<td>미분류 + 확인 사항</td>
+</tr>
+</tbody>
+</table></div><p>일반 지방 명칭은 원본 값에서 <code>센터</code> 앞부분을 사용합니다. 알려지지 않은 지역명을 임의로 기존 지역에 끼워 넣지 않습니다.</p><h2 id="62-표에-나오는-순서">6.2 표에 나오는 순서</h2><ul>
+<li>선택한 시공일의 원본에 존재하는 지역만 표시합니다.</li>
+<li>수도권이 있으면 맨 앞에 표시합니다.</li>
+<li>다른 지역은 원본에서 등장한 순서를 기준으로 이어집니다.</li>
+<li>기본 양식은 최소13행을 확보하므로 남는 행은 빈칸입니다.</li>
+<li>지역이 많으면 모든 지역이 포함되며, 필요한 경우 지역 행을 더 추가할 수 있습니다.</li>
+</ul><p>수도권 품목이 없는 날에는 수도권을 0으로 만들어 반드시 표시하는 방식이 아닙니다.</p><h2 id="63-같은-주문의-지역이-다른-경우">6.3 같은 주문의 지역이 다른 경우</h2><p>같은 오더번호에 묶인 원본 행들의 지역이 다르면 <strong>그 주문 첫 행의 지역</strong>을 사용하고 확인 사항에 남깁니다. 해당 원본을 확인한 뒤 필요하면 집계표를 수기로 보정합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#dates"><small>← 앞 장 05</small><b>포장일·입고일·고객일 설정</b></a><a class="is-next" href="#tops"><small>다음 장 07 →</small><b>상판 개수 집계 규칙</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="tops" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 07</p><h1>상판 개수 집계 규칙</h1></header><h2 id="71-기본-원칙">7.1 기본 원칙</h2><p>상판 개수는 제작할 <strong>조각 개수</strong>로 이해합니다. 주문 수나 제품명이 서로 다른 종류 수가 아닙니다.</p><pre class="ik-pre"><code class="language-text">일반 품목의 상판 개수 = 원본 수량
+</code></pre><ul>
+<li>같은 제품명이 다른 원본 행에 반복되어도 해당 행과 수량을 따로 집계합니다.</li>
+<li>같은 오더에 품목이 여러 개면 각 품목 수량을 합칩니다.</li>
+<li>TB 계열의 자체 뒷턱은 상판에서 제외하고 뒷턱으로 셉니다.</li>
+<li>PP 계열 벽체도 TB 자체 뒷턱이 아니므로 제작 조각으로 상판 개수에 포함합니다.</li>
+<li>관리자의 제작사이즈 표가 최대11품목이라는 화면 제한과 별개로, 포장 집계는 원본 품목을 기준으로 합니다.</li>
+</ul><h2 id="72-자체-뒷턱-제외">7.2 자체 뒷턱 제외</h2><p><code>TBW</code>처럼 코드가 <strong>TB로 시작</strong>하는 품목은:</p><pre class="ik-pre"><code class="language-text">상판 = 0
+별도 뒷턱 = 원본 수량
+</code></pre><h2 id="73-z-코드-분할-상판">7.3 Z 코드 분할 상판</h2><p>일반 상판 구분자에 Z가 있으면 한 수량을 두 조각으로 셉니다.</p><pre class="ik-pre"><code class="language-text">Z 상판 개수 = 원본 수량 ×2
+</code></pre><p>예: <code>SBZU (2485*150*0*0 X)</code>를 AO 정보의 50·100으로 나누는 작업에서 원본 수량이2이면 상판은4개입니다.</p><p>AO 분할 치수가 모호하더라도 포장 카운트는 Z 규칙으로 수량당2개를 집계하고 확인 사항을 남깁니다. 관리자의 도면 생성에서 분할 근거 확인이 필요한 것과 구분하세요. Z라는 이유로 씽크볼·쿡탑 타공 수까지 자동2배 하는 규칙은 아닙니다.</p><h2 id="74-예시">7.4 예시</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>제작 품목</th>
+<th style="text-align: right;">원본 수량</th>
+<th style="text-align: right;">상판 집계</th>
+<th>뒷턱 쪽 집계</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TWDN 일반 상판</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td>부착 뒷턱 없음</td>
+</tr>
+<tr>
+<td>TPUBW 상판</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td>부착 뒷턱 예외</td>
+</tr>
+<tr>
+<td>PPS 벽체</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td>부착 뒷턱 없음</td>
+</tr>
+<tr>
+<td>TBW 자체 뒷턱</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td>별도 뒷턱4개</td>
+</tr>
+<tr>
+<td>SBZU 분할 상판</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td>해당 품목의 별도 규칙 확인</td>
+</tr>
+</tbody>
+</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#regions"><small>← 앞 장 06</small><b>지역 분류와 목록 순서</b></a><a class="is-next" href="#backs"><small>다음 장 08 →</small><b>뒷턱 집계 규칙</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="backs" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 08</p><h1>뒷턱 집계 규칙</h1></header><h2 id="81-합계의-구성">8.1 합계의 구성</h2><pre class="ik-pre"><code class="language-text">뒷턱 합계 = 별도 뒷턱 파츠 수 + 부착 뒷턱 조각 수
+</code></pre><p>서로 다른 치수의 종류 수가 아니라 <strong>실제 필요한 조각 수</strong>를 셉니다.</p><h2 id="82-별도-뒷턱">8.2 별도 뒷턱</h2><p><code>TBW</code>처럼 TB로 시작하는 자체 뒷턱은 원본 수량만큼 셉니다.</p><pre class="ik-pre"><code class="language-text">15 샌드크림 TBW (587*50*0*0 X), 수량4
+→ 상판0개 / 별도 뒷턱4개
+</code></pre><p>이 품목은 자체가 뒷턱이므로 부착 뒷턱을 추가 계산해 이중으로 세지 않습니다.</p><h2 id="83-부착-뒷턱-대상">8.3 부착 뒷턱 대상</h2><p>기본적으로 다음 조건을 만족하는 구분자에 부착 뒷턱을 계산합니다.</p><ul>
+<li>맨 앞이 T로 시작.</li>
+<li>구분자에 N이 없음.</li>
+<li>TB 자체 뒷턱, TPUB 계열 예외에 해당하지 않음.</li>
+</ul><p>따라서 <code>DTSUW</code>, <code>PPS</code>, N이 있는 상판, <code>TPUBW</code>, <code>TBW</code> 등을 단순히 “N이 없다”는 이유만으로 부착 뒷턱 대상에 넣지 않습니다.</p><h2 id="84-일반-상판과-코너-상판">8.4 일반 상판과 코너 상판</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>종류</th>
+<th>부착 뒷턱 치수</th>
+<th style="text-align: right;">수량1일 때 개수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>일반 대상 상판</td>
+<td>첫 번째 치수(가로)×50</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>코너 C 대상 상판</td>
+<td>첫 번째 치수×50 + 두 번째 치수(세로)×50</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table></div><p>예:</p><!-- 코너 상판 부착 뒷턱 읽는 법 (8.4) -->
+<figure class="ik-fig pk-corner">
+<p aria-label="15 캄브리아 TCDUW (1840*660*0*700 R), 수량1" class="pk-code">
+<span class="pk-code-name">15 캄브리아 TCDUW</span>
+<span class="pk-dims">(<span class="d is-1"><b>1840</b><small>① 가로</small></span>*<span class="d is-2"><b>660</b><small>② 세로</small></span>*<span class="d is-x"><b>0</b><small>③</small></span>*<span class="d is-no"><b>700</b><small>④ 읽지 않음</small></span> R)</span>
+<span class="pk-qty">수량 1</span>
+</p>
+<div aria-hidden="true" class="pk-bars">
+<div class="pk-bar is-1"><i style="width:100%"></i><span>가로 뒷턱 <b>1840×50</b></span></div>
+<div class="pk-bar is-2"><i style="width:35.87%"></i><span>코너 세로 뒷턱 <b>660×50</b></span></div>
+</div>
+<p class="pk-result"><span>코너 C 상판 · 수량 1</span><b>뒷턱 2개</b><span class="pk-result-note">수량 2이면 같은 세트가 두 번 → 4개</span></p>
+<figcaption>코너 상판은 첫 번째 치수(가로)와 두 번째 치수(세로)로 뒷턱을 하나씩 만듭니다. 네 번째 치수 700은 코너 뒷턱 길이로 읽지 않습니다. 막대 길이는 실제 치수 비율입니다.</figcaption>
+</figure>
+<p><strong>700은 네 번째 치수이므로 코너 뒷턱 길이로 읽지 않습니다.</strong> 이 경우 코너 세로 뒷턱은 두 번째 치수인660입니다.</p><p>원본 수량이2이면 같은 부착 뒷턱 세트가2번 필요하므로4개입니다.</p><h2 id="85-합산-예시">8.5 합산 예시</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>품목</th>
+<th style="text-align: right;">수량</th>
+<th style="text-align: right;">상판</th>
+<th style="text-align: right;">별도 뒷턱</th>
+<th style="text-align: right;">부착 뒷턱</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TCDUW (1840*660*0*700 R)</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>TWDW (1470*700*0*0 X)</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>TBW (875*50*0*0 X)</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><strong>합계</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>2</strong></td>
+<td style="text-align: right;"><strong>2</strong></td>
+<td style="text-align: right;"><strong>3</strong></td>
+</tr>
+</tbody>
+</table></div><p>집계표의 뒷턱 칸에는 <strong>2+3=5개</strong>가 들어갑니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#tops"><small>← 앞 장 07</small><b>상판 개수 집계 규칙</b></a><a class="is-next" href="#holes"><small>다음 장 09 →</small><b>타공 개수 집계 규칙</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="holes" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 09</p><h1>타공 개수 집계 규칙</h1></header><h2 id="91-무엇을-세나요">9.1 무엇을 세나요?</h2><p>타공은 원본 품목에 설치되는 <strong>씽크볼 + 쿡탑</strong>을 셉니다. 상판이나 뒷턱과 별개의 합계입니다.</p><pre class="ik-pre"><code class="language-text">한 상판에 씽크볼1개 + 쿡탑1개, 원본 수량2
+→ 타공 = (1+1)×2 = 4개
+</code></pre><p><strong>원본 AJ열의 추가타공 숫자는 이 타공 합계에 포함하지 않습니다.</strong> 이 열은 현재 씽크볼·쿡탑 타공 개수입니다.</p><h2 id="92-규격과-실제-위치를-계산합니다">9.2 규격과 실제 위치를 계산합니다</h2><p>프로그램은 관리자의 규격 조회·위치 계산 방식을 공유해 실제 mm 기준으로 판단합니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>대상</th>
+<th>좌시작 계산</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>씽크볼</td>
+<td>상판 가로 − 우시작 − 씽크볼 가로</td>
+</tr>
+<tr>
+<td>쿡탑 우센터</td>
+<td>상판 가로 − 우센터 − 쿡탑 가로÷2</td>
+</tr>
+<tr>
+<td>쿡탑 좌센터</td>
+<td>좌센터 − 쿡탑 가로÷2</td>
+</tr>
+</tbody>
+</table></div><p>전면값과 타공 깊이가 상판 안에 들어가는지도 확인합니다. 모델명에 컬러가 붙은 <code>CSQ816B</code>는 등록된 <code>CSQ816</code>과 같은 규격으로 처리합니다.</p><h2 id="93-확정-제외">9.3 확정 제외</h2><p>다음은 실제 공장 타공으로 세지 않습니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>조건</th>
+<th>처리</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X, 999999 등 취소·불가능한 타공값</td>
+<td>해당 타공 제외</td>
+</tr>
+<tr>
+<td>정상 계산한 좌시작 또는 우시작이30mm 미만</td>
+<td>현장타공으로 제외</td>
+</tr>
+<tr>
+<td>작업 데이터의 표에서 취소·모델 삭제가 확인됨</td>
+<td>연동된 해당 종류 제외</td>
+</tr>
+<tr>
+<td>적용 도면에서 현장타공 표시가 확인됨</td>
+<td>해당 종류 제외</td>
+</tr>
+<tr>
+<td>자동 도면에 있던 타공 본체가 적용 도면에서 삭제된 근거가 있음</td>
+<td>해당 종류 제외</td>
+</tr>
+</tbody>
+</table></div><p><strong>정확히30mm는 30mm 미만 조건으로 제외하지 않습니다.</strong> 다른 조건도 정상인지 함께 확인합니다.</p><h2 id="94-임시-제외-범위를-벗어난-것이-확인된-경우">9.4 임시 제외: 범위를 벗어난 것이 확인된 경우</h2><p>다음처럼 알려진 치수로 계산해 실제 범위를 벗어나면 <strong>임시 제외(0개)</strong>하고 확인 사항에 이유를 남깁니다.</p><ul>
+<li>타공 시작 위치가 음수.</li>
+<li>타공이 상판의 가로 범위를 넘어감.</li>
+<li>전면값이 음수.</li>
+<li>전면값+타공 깊이가 상판의 세로 깊이를 넘어감.</li>
+</ul><p>경고 예:</p><pre class="ik-pre"><code class="language-text">원본 ○행 쿡탑: 타공 위치가 상판 가로 범위 밖.
+타공2개를 임시 제외했으니 확인 후 수정하세요.
+</code></pre><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p><strong>범위 초과는 임시 포함이 아닙니다.</strong> 현재 규칙은 임시 제외입니다. 실제 작업을 확인해 타공 수를 보정하세요.</p>
+</div><h2 id="95-임시-포함-계산-근거가-부족한-경우">9.5 임시 포함: 계산 근거가 부족한 경우</h2><p>다음은 타공이 없다고 단정하지 않고 <strong>원본 수량만큼 임시 포함</strong>합니다.</p><ul>
+<li>규격표에 없는 모델.</li>
+<li>숫자를 읽지 못해 위치 계산이 불가능함.</li>
+<li>쿡탑이 좌센터인지 우센터인지 확정되지 않음.</li>
+</ul><p>확인 사항과 집계 근거의 타공 판정에 이유를 남깁니다. 현장 확인, 작업 데이터 연동 또는 집계표 수기 수정으로 최종값을 결정합니다.</p><h2 id="96-같은-행의-두-타공은-독립입니다">9.6 같은 행의 두 타공은 독립입니다</h2><p>씽크볼이 비정상이라고 같은 상판의 정상 쿡탑까지 함께 빼지 않습니다. 반대도 같습니다.</p><p>예: 원본 수량2인 상판에서 씽크볼은 X, 쿡탑은 정상이라면:</p><pre class="ik-pre"><code class="language-text">씽크볼0 + 쿡탑2 = 타공2개
+</code></pre><h2 id="97-원본만으로-알-수-없는-내용">9.7 원본만으로 알 수 없는 내용</h2><p>원본 Excel은 작업자가 도면에서 직접 삭제한 이력을 알지 못합니다. 최종 도면에서 제거한 타공을 반영하려면 <strong>최신 적용 상태의 작업 데이터</strong>를 연동하거나 집계표에서 타공 수를 직접 고칩니다.</p><p>새 규격이 관리자의 최신판에 추가됐더라도 포장 프로그램이 실행 중 실시간으로 규격을 내려받는 기능은 아닙니다. 미등록 경고가 나면 정확한 규격을 확인하고 포장 프로그램 업데이트 여부도 확인합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#backs"><small>← 앞 장 08</small><b>뒷턱 집계 규칙</b></a><a class="is-next" href="#workdata"><small>다음 장 10 →</small><b>작업 데이터 연동</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="workdata" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 10</p><h1>작업 데이터 연동</h1></header><h2 id="101-연동-목적과-범위">10.1 연동 목적과 범위</h2><p>관리자가 작성·편집한 결과를 사용해 <strong>타공 수만 보정</strong>합니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>항목</th>
+<th>연동 시 동작</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>씽크볼·쿡탑 타공</td>
+<td>검증된 적용 상태로 보정</td>
+</tr>
+<tr>
+<td>상판·뒷턱</td>
+<td>원본 집계 유지</td>
+</tr>
+<tr>
+<td>파렛트</td>
+<td>기존 수기 입력 유지</td>
+</tr>
+<tr>
+<td>집계표 수기 수정·추가 행</td>
+<td>기존 입력 유지</td>
+</tr>
+<tr>
+<td>출력 날짜</td>
+<td>기존 입력 유지</td>
+</tr>
+</tbody>
+</table></div><p>관리자에서 작업지시서 하나를 작성 목록에서 삭제했다고 포장 카운트의 해당 오더 상판·뒷턱을 통째로 지우는 기능은 아닙니다. 연동되지 않은 주문은 원본을 유지하므로 필요한 수량은 별도로 확인합니다.</p><h2 id="102-관리자에서-준비">10.2 관리자에서 준비</h2><ol class="ik-steps is-plain"><li><div><p>관리자에서 최종 표와 도면을 확인합니다.</p></div></li><li><div><p>에디터의 <strong>적용</strong>을 누릅니다. 미적용 편집 초안만 저장한 상태와 구분합니다.</p></div></li><li><div><p>작업 데이터 저장 옵션에서 필요한 <strong>작업지시서 작성</strong> 또는 <strong>완성 엑셀 수정</strong> 상태를 포함합니다.</p></div></li><li><div><p><code>.ikanwork</code>를 저장합니다.</p></div></li></ol><p>수정 비교 탭에 아직 제안만 만들어 놓은 수정안은 최종 적용 상태로 사용하지 않습니다. 기존 작업에 반영한 뒤 작업 데이터를 저장합니다.</p><h2 id="103-포장-카운트에서-연결">10.3 포장 카운트에서 연결</h2><ol class="ik-steps is-plain"><li><div><p>먼저 <strong>원본 엑셀 불러오기</strong>를 실행합니다.</p></div></li><li><div><p><strong>작업 데이터 연동</strong>을 누릅니다.</p></div></li><li><div><p>원본과 같은 시점의 <code>.ikanwork</code>를 선택합니다.</p></div></li><li><div><p>작성 자료와 완성 엑셀 수정 자료가 둘 다 있으면 사용할 한 종류를 고릅니다.</p></div></li><li><div><p><strong>연동 적용</strong> 후 파일명·대상·연동 오더 수를 확인합니다.</p></div></li><li><div><p>변경 품목 수, 유지한 수기 칸, 확인 사항을 읽습니다.</p></div></li><li><div><p>집계 근거의 <strong>타공 기준 자료</strong>와 <strong>타공 판정</strong>을 확인합니다.</p></div></li></ol><p>두 자료를 함께 더하지 않습니다. 같은 업무를 두 번 세지 않도록 <strong>작성 자료 / 완성 엑셀 수정 중 하나</strong>를 사용합니다.</p><h2 id="104-연결이-맞는지-확인하는-기준">10.4 연결이 맞는지 확인하는 기준</h2><p>단순히 오더번호만 같다고 덮어쓰지 않습니다.</p><ul>
+<li>앞0을 정리한 오더번호.</li>
+<li>같은 시공일.</li>
+<li>같은 원본 품목·수량·제조 정보·가공정보·담당 등의 연결 근거.</li>
+<li>같은 품목이 반복된 경우 그 반복 수까지 일치.</li>
+</ul><p>연결이 다르면 해당 주문을 임의로 추정하지 않고 원본 집계를 유지합니다. 같은 원본 행 번호를 우선 대응하고 반복 품목도 합쳐 버리지 않습니다.</p><h2 id="105-도면에서-무엇을-확인하나요">10.5 도면에서 무엇을 확인하나요?</h2><ul>
+<li>상판에 부착된 실제 씽크볼·쿡탑 <strong>본체</strong>를 셉니다.</li>
+<li>부속 숫자·화살표·그룹을 타공으로 중복 계산하지 않습니다.</li>
+<li>상판에 배정되지 않고 재료로 놓인 세트를 설치된 타공으로 세지 않습니다.</li>
+<li>적용 표의 취소·삭제와 현장타공 표시도 사용합니다.</li>
+<li>오래된 도면, 도면 없음, 생성되지 않은 타공 등 근거가 부족한 경우 “없다”고 단정하지 않습니다.</li>
+</ul><p><strong>확정 근거가 없음</strong>은 타공0이라는 뜻이 아닙니다. 해당 씽크볼/쿡탑은 기존 원본 판정을 유지하며, 임시 포함·제외 경고도 근거 없이 지우지 않습니다.</p><h2 id="106-수기-수정값-유지의-의미">10.6 수기 수정값 유지의 의미</h2><p>연동 전 수도권 타공을 사용자가8로 직접 고쳐 놓았다면, 연동 결과의 자동 기준이7로 바뀌어도 최종 집계표의 수기8은 유지될 수 있습니다. 타공 근거는7, 최종 표는8이 될 수 있으므로 노란 칸과 근거를 확인합니다.</p><p>수기 수정까지 지우고 새 연동 기준값을 쓰려면 <strong>기준 집계로 되돌리기</strong>를 사용합니다.</p><h2 id="107-연동-해제">10.7 연동 해제</h2><p><strong>연동 해제</strong>를 누르면 타공 자동 기준을 원본 계산으로 되돌립니다. 다음은 유지합니다.</p><ul>
+<li>집계표의 기존 수기 수정.</li>
+<li>파렛트 입력.</li>
+<li>추가 지역 행.</li>
+<li>직접 조정한 날짜.</li>
+</ul><p>원본 기준값 그대로 돌아가려면 연동 해제 후 <strong>기준 집계로 되돌리기</strong>까지 실행합니다.</p><h2 id="108-연동이-안-되는-경우">10.8 연동이 안 되는 경우</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>안내</th>
+<th>확인할 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>먼저 원본 엑셀을 불러오세요</td>
+<td>원본 읽기부터 실행</td>
+</tr>
+<tr>
+<td>같은 오더번호·시공일·원본 품목으로 연결되는 작업이 없음</td>
+<td>같은 날짜·같은 수정 시점의 원본과 작업 데이터인가</td>
+</tr>
+<tr>
+<td>원본 품목·수량·가공정보가 달라 연동하지 않음</td>
+<td>관리자에서 재읽기/수정한 자료와 현재 원본의 버전이 같은가</td>
+</tr>
+<tr>
+<td>작성 자료 또는 완성 엑셀 수정 자료가 없는 파일</td>
+<td>비교 제안만 저장했거나 작성 목록이 비어 있는가</td>
+</tr>
+<tr>
+<td>더 최신 버전의 작업 데이터</td>
+<td>포장 카운트 업데이트 필요 여부</td>
+</tr>
+<tr>
+<td>무결성 검사 실패</td>
+<td>전송 파일 손상 여부, 다른 보관본 사용</td>
+</tr>
+</tbody>
+</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#holes"><small>← 앞 장 09</small><b>타공 개수 집계 규칙</b></a><a class="is-next" href="#manual"><small>다음 장 11 →</small><b>집계표 수기 수정과 파렛트 입력</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="manual" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 11</p><h1>집계표 수기 수정과 파렛트 입력</h1></header><h2 id="111-수정-가능한-칸">11.1 수정 가능한 칸</h2><p>포장 집계표의 다음 다섯 열을 직접 수정할 수 있습니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>지역</th>
+<th style="text-align: right;">상판 개수</th>
+<th style="text-align: right;">뒷턱</th>
+<th style="text-align: right;">타공</th>
+<th style="text-align: right;">파렛트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>지역명 입력</td>
+<td style="text-align: right;">정수 입력</td>
+<td style="text-align: right;">정수 입력</td>
+<td style="text-align: right;">정수 입력</td>
+<td style="text-align: right;">수기 입력</td>
+</tr>
+</tbody>
+</table></div><h2 id="112-입력-순서">11.2 입력 순서</h2><ol class="ik-steps is-plain"><li><div><p>수정할 칸을 <strong>더블클릭</strong>합니다.</p></div></li><li><div><p>값을 입력합니다.</p></div></li><li><div><p><kbd>Enter</kbd> / <kbd>Tab</kbd>으로 확정하고 다음 칸으로 이동합니다.</p></div></li><li><div><p>현재 입력을 버리려면 <kbd>Esc</kbd>를 누릅니다.</p></div></li><li><div><p>다른 칸으로 이동해도 입력을 확정합니다. 잘못된 값이면 상태줄에 이유가 표시됩니다.</p></div></li></ol><h2 id="113-입력-조건">11.3 입력 조건</h2><ul>
+<li>개수는0 이상의 정수입니다.</li>
+<li>빈칸은 숫자가 없는 값으로 보관합니다.</li>
+<li><code>1,200</code>처럼 쉼표를 넣어 입력할 수 있습니다.</li>
+<li>음수·소수·문자는 수량 칸에 넣을 수 없습니다.</li>
+<li>수량 입력 범위는0~1,000,000,000입니다.</li>
+<li>숫자가 있는 행에는 지역명이 필요합니다.</li>
+<li>같은 지역명이 두 행에 중복되면 저장·인쇄 전에 한 행으로 합치거나 이름을 구분해야 합니다.</li>
+</ul><h2 id="114-파렛트는-자동-계산하지-않습니다">11.4 파렛트는 자동 계산하지 않습니다</h2><p>현장의 실제 파렛트 수를 입력합니다. 자동 기준은 빈칸입니다. 상판 수가 늘었다는 이유로 파렛트가 자동으로 늘어나지는 않습니다.</p><h2 id="115-0은-공백으로-보입니다">11.5 0은 공백으로 보입니다</h2><p>표의 수치와 합계가0이면 화면·Excel·인쇄에서 <strong>0 대신 공백</strong>으로 보입니다. 내부 숫자와 합계 계산은 유지됩니다.</p><p>이는 최종 집계표의 표시 규칙입니다. 화면 상단 통계에는 합계0이 숫자로 보일 수 있습니다.</p><p>다음은 구분해야 합니다.</p><ul>
+<li><strong>0 입력:</strong> 숫자0이지만 표시만 빈칸.</li>
+<li><strong>빈칸 입력:</strong> 숫자 자체가 없는 값.</li>
+</ul><p>지역명을 지운 뒤 다른 숫자 칸에0만 남겨 두면, 화면은 비어 보여도 “숫자가 있는 행에는 지역을 입력하세요” 오류가 날 수 있습니다. 행을 비우려면 수량 칸도 실제 빈칸으로 지웁니다.</p><h2 id="116-노란-칸과-수기-수정됨">11.6 노란 칸과 수기 수정됨</h2><p><strong>노란 칸</strong>은 현재 값이 자동 기준 집계와 다르다는 뜻입니다. 반드시 오류라는 뜻은 아닙니다. 파렛트나 현장 확인 수량을 직접 입력하면 정상적으로 나타날 수 있습니다.</p><p>수기 합계는 상단 통계와 하단 합계에 반영됩니다. 원본 품목별 근거가 수기 값으로 바뀌지는 않습니다.</p><h2 id="117-지역-행-추가비우기">11.7 지역 행 추가·비우기</h2><ul>
+<li><strong>지역 행 추가:</strong> 표 아래에 빈 행을 추가하고 그 위치로 이동합니다.</li>
+<li>추가한 행에도 지역과 수량을 같은 방식으로 입력합니다.</li>
+<li>별도의 행 삭제 버튼은 없습니다. 사용하지 않을 행은 지역명과 숫자를 모두 지워 빈칸으로 둡니다.</li>
+</ul><p>지역을 너무 많이 추가하면 한 장으로 맞추는 일반 집계표의 인쇄 글자가 작아질 수 있으므로 미리보기로 확인합니다.</p><h2 id="118-원본-없이-수기-집계표-만들기">11.8 원본 없이 수기 집계표 만들기</h2><p>자동 집계가 필요하지 않다면 실행 직후의 빈 표에 지역·수량·파렛트를 직접 입력해 저장·인쇄할 수도 있습니다.</p><ol class="ik-steps is-plain"><li><div><p>출력 날짜 세 칸을 실제 일정에 맞게 지정합니다. 초기 날짜는 오늘을 고객일로 계산한 값이므로 확인합니다.</p></div></li><li><div><p>빈 표를 더블클릭해 지역과 수량을 입력합니다.</p></div></li><li><div><p>필요한 경우 지역 행을 추가합니다.</p></div></li><li><div><p>Excel로 저장하거나 일반 집계표를 미리보기·인쇄합니다.</p></div></li></ol><p>이 경우 원본에서 읽은 오더·품목별 근거가 없으므로 오더 통계는 표시할 근거가 없고, <strong>집계근거 인쇄는 사용할 수 없습니다.</strong> 자동 집계를 한 것으로 보관하지 않도록 전달할 때 수기 작성임을 알려주세요.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#workdata"><small>← 앞 장 10</small><b>작업 데이터 연동</b></a><a class="is-next" href="#reset"><small>다음 장 12 →</small><b>기준 집계로 되돌리기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="reset" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 12</p><h1>기준 집계로 되돌리기</h1></header><p><strong>기준 집계로 되돌리기</strong>는 현재 선택한 시공일의 집계표를 자동 계산값으로 다시 만듭니다. 수기 수정이 있으면 버리고 다시 집계할지 확인합니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>현재 상태</th>
+<th>되돌아가는 기준</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>작업 데이터 연동 안 함</td>
+<td>원본 Excel 계산값</td>
+</tr>
+<tr>
+<td>작업 데이터 연동 중</td>
+<td>현재 연동을 반영한 계산값</td>
+</tr>
+</tbody>
+</table></div><p>이 동작은 다음을 다시 설정합니다.</p><ul>
+<li>상판·뒷턱·타공 등 표의 수기 값.</li>
+<li>파렛트 수기 입력.</li>
+<li>추가한 수기 지역 행.</li>
+<li>출력 날짜의 수기 조정.</li>
+</ul><p>파렛트는 자동 기준인 빈칸으로, 날짜는 선택한 원본 시공일 기준으로 돌아갑니다.</p><h2 id="버튼-세-가지의-차이">버튼 세 가지의 차이</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>버튼</th>
+<th>날짜</th>
+<th>수기 집계표</th>
+<th>연동</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>원본 기준 날짜로 복원</td>
+<td>기본값으로 복원</td>
+<td>유지</td>
+<td>유지</td>
+</tr>
+<tr>
+<td>연동 해제</td>
+<td>유지</td>
+<td>유지</td>
+<td>해제</td>
+</tr>
+<tr>
+<td>기준 집계로 되돌리기</td>
+<td>기본값으로 복원</td>
+<td>초기화</td>
+<td>현재 연동 상태 유지</td>
+</tr>
+</tbody>
+</table></div><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>어떤 값으로 돌아가는지 헷갈리면 먼저 현재 결과를 Excel로 저장한 뒤 진행합니다.</p>
+</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#manual"><small>← 앞 장 11</small><b>집계표 수기 수정과 파렛트 입력</b></a><a class="is-next" href="#evidence"><small>다음 장 13 →</small><b>집계 근거와 확인 사항 읽기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="evidence" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 13</p><h1>집계 근거와 확인 사항 읽기</h1></header><h2 id="131-집계-근거-탭">13.1 집계 근거 탭</h2><p>화면 상단에서 <strong>집계 근거</strong> 탭을 누릅니다. 현재 선택한 시공일의 원본 품목별 계산을 보여줍니다. 가로로 긴 표이므로 아래 가로 스크롤도 사용합니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>열</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>지역</td>
+<td>해당 품목을 집계한 지역</td>
+</tr>
+<tr>
+<td>오더번호</td>
+<td>앞0을 정리한 주문 번호</td>
+</tr>
+<tr>
+<td>담당</td>
+<td>원본 담당·영업사원 정보</td>
+</tr>
+<tr>
+<td>제작사이즈</td>
+<td>원본 제품명과 치수</td>
+</tr>
+<tr>
+<td>수량</td>
+<td>원본 품목 수량</td>
+</tr>
+<tr>
+<td>상판</td>
+<td>해당 품목에서 세는 상판 조각 수</td>
+</tr>
+<tr>
+<td>뒷턱</td>
+<td>별도 뒷턱+부착 뒷턱 수</td>
+</tr>
+<tr>
+<td>타공</td>
+<td>씽크볼+쿡탑 합계</td>
+</tr>
+<tr>
+<td>뒷턱 구성</td>
+<td>어떤 치수를 몇 세트 계산했는지</td>
+</tr>
+<tr>
+<td>타공 판정</td>
+<td>정상·현장타공·임시 포함·임시 제외·연동 이유</td>
+</tr>
+<tr>
+<td>타공 기준 자료</td>
+<td>원본 또는 연결한 작업 데이터와 대상</td>
+</tr>
+</tbody>
+</table></div><h2 id="132-근거와-최종-집계표가-다른-경우">13.2 근거와 최종 집계표가 다른 경우</h2><p>사용자가 집계표를 직접 고치면 차이가 생길 수 있습니다.</p><pre class="ik-pre"><code class="language-text">근거: 수도권 상판10 / 뒷턱5 / 타공6
+수기 표: 수도권 상판10 / 뒷턱5 / 타공5 / 파렛트2
+</code></pre><p>이 경우 최종 포장 집계표는 타공5·파렛트2를 사용합니다. 품목별 근거6은 보존하며, 집계근거 인쇄물 끝의 수기 변경 구역에서 차이를 설명합니다.</p><h2 id="133-확인-사항">13.3 확인 사항</h2><p><strong>확인 사항</strong> 버튼에서 다음을 확인합니다.</p><ul>
+<li>같은 주문의 지역 불일치 또는 미분류.</li>
+<li>원본에 시공일이 여러 개 있음.</li>
+<li>Z 분할 정보가 모호함.</li>
+<li>타공의 임시 포함·임시 제외.</li>
+<li>작업 데이터의 원본 불일치·미연동 주문.</li>
+<li>미적용 초안 제외 또는 확정 근거가 없는 타공.</li>
+</ul><p>확인 사항은 <strong>불러온 원본 전체</strong>의 내용을 포함할 수 있습니다. 선택한 시공일에 없는 경고가 보이더라도 곧바로 그 날짜의 수량에 포함됐다고 해석하지 않습니다. 오더·날짜·원본 행을 함께 확인합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#reset"><small>← 앞 장 12</small><b>기준 집계로 되돌리기</b></a><a class="is-next" href="#excel"><small>다음 장 14 →</small><b>Excel로 저장하기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="excel" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 14</p><h1>Excel로 저장하기</h1></header><h2 id="141-저장-순서">14.1 저장 순서</h2><ol class="ik-steps is-plain"><li><div><p>시공일 선택과 출력 날짜를 확인합니다.</p></div></li><li><div><p>편집 중인 칸을 확정합니다.</p></div></li><li><div><p><strong>엑셀로 저장</strong>을 누릅니다.</p></div></li><li><div><p>파일명과 저장 위치를 정합니다.</p></div></li><li><div><p>상태줄의 저장 완료와 결과 파일을 확인합니다.</p></div></li></ol><p>기본 파일명은 <strong>포장일</strong> 기준입니다.</p><pre class="ik-pre"><code class="language-text">포장일 2026-10-20
+→ 포장카운트_20261020.xlsx
+</code></pre><p>원본 Excel과 같은 경로·파일명으로 저장하는 것은 막습니다. 다른 기존 결과 파일에 저장할 때는 필요한 이전 결과가 덮이지 않도록 새 이름을 사용하는 것이 좋습니다.</p><h2 id="142-저장되는-세-시트">14.2 저장되는 세 시트</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>시트</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>포장카운트</td>
+<td>수기 수정까지 반영한 최종 지역별5열 표. A4 세로 한 장 기준</td>
+</tr>
+<tr>
+<td>집계근거</td>
+<td>선택한 시공일의 품목별 상세17열 자료. 필터·틀고정 제공</td>
+</tr>
+<tr>
+<td>안내</td>
+<td>원본 파일·날짜·집계 설명·연동 파일·확인 사항</td>
+</tr>
+</tbody>
+</table></div><p><code>집계근거</code> 시트에는 씽크볼 타공, 쿡탑 타공, 별도 뒷턱, 부착 뒷턱을 나누어 보관합니다. 화면/인쇄용 간단 표보다 상세합니다.</p><h2 id="143-excel의-합계-수식">14.3 Excel의 합계 수식</h2><p>포장카운트 시트의 하단 합계는 <code>SUM</code> 수식입니다. 저장 후 지역별 숫자를 Excel에서 수정하면 합계도 갱신됩니다.</p><p>반면 <code>집계근거</code>의 제품·수량을 고쳤다고 포장카운트 표를 다시 자동 분석하는 연동 수식은 아닙니다. 원본 기준으로 다시 계산하려면 프로그램에서 원본을 읽고 다시 집계합니다.</p><h2 id="144-저장-범위와-다시-열기">14.4 저장 범위와 다시 열기</h2><ul>
+<li>현재 선택한 시공일의 결과를 저장합니다.</li>
+<li>다른 날짜는 날짜를 바꾸어 따로 저장합니다.</li>
+<li>포장 결과 Excel을 프로그램의 <strong>원본 엑셀 불러오기</strong>로 읽어 편집 상태를 복원하는 기능은 없습니다.</li>
+<li>저장된 결과는 Excel에서 다시 열어 확인·수정합니다.</li>
+<li>포장 카운트에는 관리자처럼 자체 작업 데이터 저장/열기나 자동 백업 메뉴가 없습니다. 수기 결과는 종료 전에 Excel로 남깁니다.</li>
+</ul><p>저장 후에도 종료 시 수기 수정 경고가 다시 나올 수 있습니다. 실제 저장한 파일과 최신 입력이 일치하는지 확인한 뒤 종료하세요.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#evidence"><small>← 앞 장 13</small><b>집계 근거와 확인 사항 읽기</b></a><a class="is-next" href="#summary-print"><small>다음 장 15 →</small><b>포장 집계표 인쇄·미리보기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="summary-print" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 15</p><h1>포장 집계표 인쇄·미리보기</h1></header><h2 id="151-무엇이-인쇄되나요">15.1 무엇이 인쇄되나요?</h2><p>오른쪽 상단 <strong>인쇄 · 미리보기</strong>는 <strong>최종 포장 집계표 한 페이지</strong>를 출력합니다.</p><ul>
+<li>A4 세로.</li>
+<li>지역 / 상판 개수 / 뒷턱 / 타공 / 파렛트5열.</li>
+<li>현재 수기 입력과 날짜를 반영.</li>
+<li>하단 합계와 EA/PLT 단위.</li>
+<li>집계근거·안내 시트는 이 인쇄 작업에 포함하지 않음.</li>
+</ul><h2 id="152-미리보기">15.2 미리보기</h2><ol class="ik-steps is-plain"><li><div><p><strong>인쇄 · 미리보기</strong>를 누릅니다.</p></div></li><li><div><p>프린터를 선택합니다.</p></div></li><li><div><p><strong>엑셀 미리보기</strong>를 누릅니다.</p></div></li><li><div><p>날짜·지역·합계·글자 크기·한 장 배치를 확인합니다.</p></div></li></ol><p>선택한 프린터 기준의 실제 Excel 인쇄 페이지를 준비합니다. 일반 집계표 미리보기는 프린터 선택이 필요합니다.</p><h2 id="153-인쇄">15.3 인쇄</h2><ol class="ik-steps is-plain"><li><div><p>프린터를 확인합니다.</p></div></li><li><div><p><strong>인쇄 매수</strong>를1~999 사이로 지정합니다.</p></div></li><li><div><p><strong>인쇄</strong>를 누릅니다.</p></div></li><li><div><p>상태줄의 전송 결과와 실제 나온 종이를 확인합니다.</p></div></li></ol><p>예: 인쇄 매수3이면 집계표 한 장짜리를3장 전송합니다.</p><p>프로그램은 매수를 구성해 한 번의 묶음으로 전송하며 시스템 기본 프린터를 임의로 바꾸지 않습니다.</p><h2 id="154-화면을-바꾼-뒤에는-새로-여세요">15.4 화면을 바꾼 뒤에는 새로 여세요</h2><p>인쇄창은 열 때의 날짜·수량 상태를 기준으로 합니다. 이후 집계표를 고쳤다면 이전 인쇄창을 닫고 다시 열어 최신 내용을 확인한 뒤 출력합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#excel"><small>← 앞 장 14</small><b>Excel로 저장하기</b></a><a class="is-next" href="#audit-print"><small>다음 장 16 →</small><b>집계근거 인쇄·미리보기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="audit-print" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 16</p><h1>집계근거 인쇄·미리보기</h1></header><h2 id="161-여는-위치">16.1 여는 위치</h2><p><strong>집계 근거 탭 → 집계근거 인쇄 · 미리보기</strong>를 누릅니다.</p><p>이 기능은 Excel에 저장된 상세17열을 그대로 축소해서 뽑는 방식이 아닙니다. 읽기 좋고 종이를 줄이도록 별도의 <strong>7열 절약형 인쇄 양식</strong>을 만듭니다.</p><h2 id="162-절약형-양식">16.2 절약형 양식</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>인쇄 열</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>오더번호 / 담당</td>
+<td>한 줄 중심으로 결합</td>
+</tr>
+<tr>
+<td>제작사이즈 [원본 행]</td>
+<td>제품명·치수·코드와 대괄호 행 번호</td>
+</tr>
+<tr>
+<td>수량</td>
+<td>원본 수량</td>
+</tr>
+<tr>
+<td>상판</td>
+<td>품목의 상판 집계</td>
+</tr>
+<tr>
+<td>뒷턱</td>
+<td>별도+부착 뒷턱 합계</td>
+</tr>
+<tr>
+<td>타공</td>
+<td>씽크볼+쿡탑 타공 합계</td>
+</tr>
+<tr>
+<td>뒷턱 구성 / 타공 판정</td>
+<td>뒷턱 치수, 포함·제외 이유, 타공 기준 자료</td>
+</tr>
+</tbody>
+</table></div><p>제작사이즈 뒤의 <strong>[숫자]는 수량이나 제품코드가 아니라 원본 Excel 행 번호</strong>입니다.</p><pre class="ik-pre"><code class="language-text">15 샌드크림 TWDN (2000*650*0*0 X) [37]
+→ 원본 Excel37행을 참고
+</code></pre><h2 id="163-페이지-구성">16.3 페이지 구성</h2><ul>
+<li>A4 가로 한 장 너비에 맞춥니다.</li>
+<li>품목 수에 따라 여러 페이지가 됩니다.</li>
+<li>날짜·머리글을 반복 표시합니다.</li>
+<li>지역별 묶음과 지역 소계를 넣습니다.</li>
+<li>다음 페이지로 이어지면 지역 계속 표시를 넣습니다.</li>
+<li>본문10pt, 우측 메모9pt를 기본으로 사용합니다.</li>
+<li>원문이 아주 길면 여러 행으로 이어 쓰되 개수는 첫 행에만 적어 중복하지 않습니다.</li>
+<li>같은 제품이 반복되어도 임의로 합치거나 생략하지 않습니다.</li>
+</ul><p>0.1.11에서 실제 동일85품목을 기준으로 이전11쪽이5쪽으로 줄어든 것을 확인했습니다. 실제 페이지 수는 원문의 길이·확인 사항·프린터에 따라 달라지므로 항상 미리보기를 봅니다.</p><h2 id="164-끝부분의-추가-구역">16.4 끝부분의 추가 구역</h2><p><strong>집계표 수기 입력 · 변경</strong>에는 근거와 다른 최종 수량 및 입력한 파렛트를 따로 표시합니다. 원본의 품목별 수치를 수기 결과로 바꿔 쓴 것으로 오해하지 않도록 구분합니다.</p><p><strong>확인 사항 · 불러온 원본 전체</strong>에는 경고를 모아 표시합니다. 원본 전체 경고이므로 다른 시공일의 안내가 포함될 수 있습니다.</p><h2 id="165-미리보기와-페이지-이동">16.5 미리보기와 페이지 이동</h2><ol class="ik-steps is-plain"><li><div><p>집계근거 인쇄창에서 <strong>미리보기</strong>를 누릅니다.</p></div></li><li><div><p>상단의 <code>1 / 5쪽</code> 같은 페이지 표시를 확인합니다.</p></div></li><li><div><p><strong>이전 / 다음</strong> 또는 <kbd>Alt</kbd>+<kbd>←</kbd> / <kbd>Alt</kbd>+<kbd>→</kbd>로 이동합니다.</p></div></li><li><div><p>휠과 가로·세로 스크롤로 긴 페이지를 확인합니다.</p></div></li><li><div><p>전체 내용을 확인한 뒤 인쇄창 또는 미리보기의 <strong>인쇄</strong>를 누릅니다.</p></div></li></ol><p>집계근거 미리보기는 프린터가 없어도 준비할 수 있습니다. 실제 인쇄에는 프린터가 필요합니다. 또한 Excel 데스크톱은 필요합니다.</p><h2 id="166-인쇄-부수">16.6 인쇄 부수</h2><p>집계근거는 <strong>페이지 수 × 부수</strong>로 계산합니다.</p><pre class="ik-pre"><code class="language-text">집계근거5쪽 ×2부 = 총10장
+</code></pre><p>각 부의 페이지 번호는1/5~5/5로 구분합니다. 일반 집계표의 “한 장짜리 매수”와 혼동하지 마세요.</p><h2 id="167-현재-제공되지-않는-인쇄-옵션">16.7 현재 제공되지 않는 인쇄 옵션</h2><p>포장 카운트의 이 창에는 관리자 바코드 인쇄처럼 <code>1-3,5</code> 페이지 범위 입력이나 프로그램 내 Windows <strong>인쇄 설정…</strong> 버튼이 없습니다. 여기서는 프린터·매수/부수를 고릅니다.</p><p>프린터의 용지·컬러 등 별도 설정이 필요하면 출력 전에 Windows/프린터 쪽 설정을 확인하고 미리보기를 다시 준비합니다. Excel로 저장한 상세 자료를 다른 방식으로 출력하는 경우에도 해당 프로그램의 인쇄 설정을 별도로 사용합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#summary-print"><small>← 앞 장 15</small><b>포장 집계표 인쇄·미리보기</b></a><a class="is-next" href="#handover"><small>다음 장 17 →</small><b>분담 작업과 결과 보관</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="handover" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 17</p><h1>분담 작업과 결과 보관</h1></header><h2 id="171-권장-작업-흐름">17.1 권장 작업 흐름</h2><ol class="ik-steps is-plain"><li><div><p>사용할 원본 파일과 날짜를 정합니다.</p></div></li><li><div><p>관리자에서 분담 편집한 도면을 합쳐 최종 적용 상태의 작업 데이터를 준비합니다.</p></div></li><li><div><p>포장 카운트에서 원본과 그 작업 데이터를 연결합니다.</p></div></li><li><div><p>담당자가 최종 수량·파렛트를 확인하고 필요한 수기 보정을 합니다.</p></div></li><li><div><p>날짜별 결과 Excel을 저장합니다.</p></div></li><li><div><p>집계표와 필요한 집계근거를 출력합니다.</p></div></li></ol><p>포장 프로그램이 여러 동료의 <code>.ikanwork</code>를 순차 합산하는 방식은 아닙니다. 필요한 합치기는 관리자에서 마친 후 한 개의 검토된 결과를 연결하는 것이 좋습니다.</p><h2 id="172-보관하면-좋은-자료">17.2 보관하면 좋은 자료</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>자료</th>
+<th>남기는 이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>원본 Excel</td>
+<td>최초 수량과 시공일 확인</td>
+</tr>
+<tr>
+<td>연결한 .ikanwork</td>
+<td>실제 타공을 판단한 적용 상태 확인</td>
+</tr>
+<tr>
+<td>포장 카운트 결과 Excel</td>
+<td>수기 보정·파렛트까지 포함한 최종값 보관</td>
+</tr>
+<tr>
+<td>출력한 집계근거</td>
+<td>현장 수량 대조·확인 이유 공유</td>
+</tr>
+</tbody>
+</table></div><h2 id="173-프로그램-종료">17.3 프로그램 종료</h2><p>수기 수정은 Excel로 저장해야 남습니다. 종료 확인창이 뜨면 저장 여부를 확인합니다.</p><p>처리 중 닫으면 작업을 취소하고 정리가 끝난 뒤 종료할지 묻습니다. <strong>이미 프린터에 전송된 인쇄는 프로그램을 닫아도 취소되지 않습니다.</strong> 프린터 대기열에서 확인·취소해야 합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#audit-print"><small>← 앞 장 16</small><b>집계근거 인쇄·미리보기</b></a><a class="is-next" href="#troubleshooting"><small>다음 장 18 →</small><b>오류 해결과 자주 묻는 질문</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="troubleshooting" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 18</p><h1>오류 해결과 자주 묻는 질문</h1></header><details class="ik-qa" id="원본-머리글이-필요하다는-오류가-납니다"><summary>원본 머리글이 필요하다는 오류가 납니다</summary><div class="ik-qa-a"><div><ul>
+<li>원본 파일과 활성 시트가 맞는지 확인합니다.</li>
+<li>2행 머리글과 열 위치를 확인합니다.</li>
+<li>완성 작업지시서나 포장 결과표를 원본 대신 넣지 않았는지 확인합니다.</li>
+</ul></div></div></details><details class="ik-qa" id="수량코드치수-오류가-납니다"><summary>수량·코드·치수 오류가 납니다</summary><div class="ik-qa-a"><div><ul>
+<li>오류의 원본 행을 찾습니다.</li>
+<li>수량이1 이상의 정수인지 확인합니다.</li>
+<li>제품명에 구분자와 양수 가로·세로 치수가 있는지 확인합니다.</li>
+<li>빈 오더번호·제품명 행이나 불필요한 메모 행이 데이터에 섞였는지 확인합니다.</li>
+</ul></div></div></details><details class="ik-qa" id="일부-지역이-안-보입니다"><summary>일부 지역이 안 보입니다</summary><div class="ik-qa-a"><div><ul>
+<li>원본 시공일 선택이 맞는지 확인합니다.</li>
+<li>그 날짜에 실제 해당 지역 품목이 있는지 확인합니다.</li>
+<li>지역 정보가 비어 미분류에 들어갔는지 확인 사항을 봅니다.</li>
+<li>표 아래로 스크롤합니다.</li>
+</ul></div></div></details><details class="ik-qa" id="상판-수가-주문-수보다-많습니다"><summary>상판 수가 주문 수보다 많습니다</summary><div class="ik-qa-a"><div><p>정상일 수 있습니다. 한 주문의 여러 품목, 원본 수량, Z 분할을 모두 셉니다. 오더 수와 상판 조각 수는 다릅니다.</p></div></div></details><details class="ik-qa" id="tbw가-상판에-안-들어갑니다"><summary>TBW가 상판에 안 들어갑니다</summary><div class="ik-qa-a"><div><p>자체 뒷턱이므로 상판에서는 빼고 별도 뒷턱에 넣는 것이 정상입니다.</p></div></div></details><details class="ik-qa" id="코너-뒷턱이700이-아니라660으로-나옵니다"><summary>코너 뒷턱이700이 아니라660으로 나옵니다</summary><div class="ik-qa-a"><div><p>예를 들어 <code>(1840*660*0*700 R)</code>의 코너 세로 뒷턱은 <strong>두 번째 치수660</strong>입니다. 네 번째700은 뒷턱 길이로 읽지 않습니다.</p></div></div></details><details class="ik-qa" id="타공-수가-예상보다-적습니다"><summary>타공 수가 예상보다 적습니다</summary><div class="ik-qa-a"><div><ul>
+<li>X·특수수치인지 확인합니다.</li>
+<li>좌시작/우시작30mm 미만 현장타공인지 확인합니다.</li>
+<li>가로·깊이 범위 초과로 임시 제외됐는지 확인합니다.</li>
+<li>작업 데이터에서 표 취소나 실제 삭제가 적용됐는지 확인합니다.</li>
+</ul></div></div></details><details class="ik-qa" id="규격이-없는데-타공이-포함됐습니다"><summary>규격이 없는데 타공이 포함됐습니다</summary><div class="ik-qa-a"><div><p>미등록 규격은 “타공 없음”과 다릅니다. 현재는 임시 포함하고 경고를 남깁니다. 실제 작업 확인 후 수량을 고칩니다.</p></div></div></details><details class="ik-qa" id="도면에서-지운-타공이-그대로-셉니다"><summary>도면에서 지운 타공이 그대로 셉니다</summary><div class="ik-qa-a"><div><ul>
+<li>최신 <code>.ikanwork</code>를 연결했는지 확인합니다.</li>
+<li>도면을 적용한 뒤 저장한 파일인지 확인합니다.</li>
+<li>작성 자료와 완성 엑셀 수정 중 올바른 쪽을 골랐는지 확인합니다.</li>
+<li>해당 오더의 원본이 같은 시점인지 확인합니다.</li>
+<li>확정 근거가 부족해 원본을 유지한 항목인지 판정을 확인합니다.</li>
+</ul></div></div></details><details class="ik-qa" id="연동했는데-수기-타공-수가-바뀌지-않습니다"><summary>연동했는데 수기 타공 수가 바뀌지 않습니다</summary><div class="ik-qa-a"><div><p>수기 수정값을 보존하기 때문일 수 있습니다. 근거와 노란 칸을 확인하고, 수기를 버릴 때만 기준 집계로 되돌립니다.</p></div></div></details><details class="ik-qa" id="0을-넣었는데-빈칸입니다"><summary>0을 넣었는데 빈칸입니다</summary><div class="ik-qa-a"><div><p>현재 표시 규칙입니다. 내부0과 합계는 유지하며 화면·Excel·인쇄에서는 공백으로 보입니다.</p></div></div></details><details class="ik-qa" id="빈-행인데-지역을-입력하라는-오류가-납니다"><summary>빈 행인데 지역을 입력하라는 오류가 납니다</summary><div class="ik-qa-a"><div><p>지역이 비어 있는데 숫자0이 남아 있을 수 있습니다. 실제 빈칸으로 지우거나 지역명을 입력합니다.</p></div></div></details><details class="ik-qa" id="집계표와-집계근거-숫자가-다릅니다"><summary>집계표와 집계근거 숫자가 다릅니다</summary><div class="ik-qa-a"><div><p>집계표의 수기 수정 때문인지 확인합니다. 근거는 원본/연동 계산을 유지합니다. 집계근거 인쇄물 끝의 수기 변경 구역도 확인합니다.</p></div></div></details><details class="ik-qa" id="excel-저장이-실패합니다"><summary>Excel 저장이 실패합니다</summary><div class="ik-qa-a"><div><ul>
+<li>같은 파일을 Excel에서 열어 둔 상태인지 확인합니다.</li>
+<li>저장 폴더 권한·디스크 공간을 확인합니다.</li>
+<li>원본과 다른 파일명으로 저장합니다.</li>
+<li>기존 결과를 보존해야 하면 새 이름을 지정합니다.</li>
+</ul></div></div></details><details class="ik-qa" id="프린터가-목록에-없습니다"><summary>프린터가 목록에 없습니다</summary><div class="ik-qa-a"><div><ul>
+<li>Windows에 프린터가 설치됐는지 확인합니다.</li>
+<li>전원·네트워크·드라이버 상태를 확인합니다.</li>
+<li>프린터를 설치하거나 연결을 바꾼 뒤에는 프로그램을 다시 실행해 목록을 확인합니다.</li>
+</ul></div></div></details><details class="ik-qa" id="미리보기-준비가-오래-걸립니다"><summary>미리보기 준비가 오래 걸립니다</summary><div class="ik-qa-a"><div><p>실제 Excel 페이지를 준비하는 과정입니다. 상태줄과 진행 표시를 확인합니다. 긴 집계근거는 여러 페이지가 되므로 첫 준비와 페이지 이동 시 시간이 필요할 수 있습니다.</p></div></div></details><details class="ik-qa" id="인쇄-전송-결과-확인-필요가-뜹니다"><summary>인쇄 전송 결과 확인 필요가 뜹니다</summary><div class="ik-qa-a"><div><p>프로그램이 전송 결과를 확정하지 못한 상태입니다. 자동으로 재인쇄하지 않습니다.</p><ol class="ik-steps is-plain"><li><div><p>Windows 프린터 대기열을 확인합니다.</p></div></li><li><div><p>실제 나온 종이와 매수를 확인합니다.</p></div></li><li><div><p>이미 전송된 작업이 남아 있으면 중복되지 않도록 처리합니다.</p></div></li><li><div><p>필요한 경우에만 재전송 확인 후 다시 인쇄합니다.</p></div></li></ol><p>전송 완료는 실제 종이가 모두 나왔다는 보장이 아닙니다. 용지 걸림·용지 부족도 현장에서 확인합니다.</p></div></div></details><details class="ik-qa" id="설치-중-바로가기-속성-오류1946이-납니다"><summary>설치 중 바로가기 속성 오류1946이 납니다</summary><div class="ik-qa-a"><div><p>최신 포장 설치판을 사용했는지 확인합니다. 현재 설치판은 문제가 된 바로가기 추가 속성 쓰기를 제외합니다. 계속 발생하면 정확한 설치파일 버전과 경고 전체를 기록해 문의합니다.</p></div></div></details><h2 id="오류-문의-시-함께-전달할-것">오류 문의 시 함께 전달할 것</h2><ul>
+<li>포장 카운트 버전.</li>
+<li>원본 파일명과 선택한 원본 시공일.</li>
+<li>대상 오더번호·지역·원본 행.</li>
+<li>연결한 작업 데이터 파일명과 선택한 자료 종류.</li>
+<li>누른 버튼과 오류 전체 문구.</li>
+<li>기대한 수치와 실제 집계 수치.</li>
+<li>필요할 경우 재현 가능한 사본. 사용자 원본은 별도로 보관합니다.</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#handover"><small>← 앞 장 17</small><b>분담 작업과 결과 보관</b></a><a class="is-next" href="#checklist"><small>다음 장 19 →</small><b>출력 전 체크리스트</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="checklist" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 19</p><h1>출력 전 체크리스트</h1></header><h2 id="원본과-날짜">원본과 날짜</h2><ul class="ik-check">
+<li><span>올바른 원본 파일과 활성 시트를 사용했다.</span></li>
+<li><span>원본 시공일 선택이 실제 집계 대상 날짜다.</span></li>
+<li><span>포장일·그레이박스 출고일·고객일을 모두 확인했다.</span></li>
+<li><span>주말·공휴일·회사 휴무를 고려했다.</span></li>
+<li><span>날짜만 고친 것을 집계 대상을 바꾼 것으로 착각하지 않았다.</span></li>
+</ul><h2 id="수량과-연동">수량과 연동</h2><ul class="ik-check">
+<li><span>지역 불일치·미분류를 확인했다.</span></li>
+<li><span>상판 조각 수와 오더 수를 구분했다.</span></li>
+<li><span>TB 자체 뒷턱을 상판에서 제외했다.</span></li>
+<li><span>일반/코너 부착 뒷턱과 원본 수량을 확인했다.</span></li>
+<li><span>타공 임시 포함·임시 제외 경고를 확인했다.</span></li>
+<li><span>현장타공·취소·삭제한 타공을 확인했다.</span></li>
+<li><span>필요한 경우 최종 적용 <code>.ikanwork</code>를 연결했다.</span></li>
+<li><span>연동 자료 종류와 미연동 주문을 확인했다.</span></li>
+<li><span>유지된 수기 수정과 새 자동 기준의 차이를 확인했다.</span></li>
+<li><span>파렛트를 실제 현장 수량으로 입력했다.</span></li>
+</ul><h2 id="저장인쇄">저장·인쇄</h2><ul class="ik-check">
+<li><span>최종 수기 결과를 Excel로 저장했다.</span></li>
+<li><span>포장 집계표 날짜·합계·한 장 배치를 미리보기로 확인했다.</span></li>
+<li><span>근거 출력이 필요하면 별도 집계근거 미리보기를 확인했다.</span></li>
+<li><span>프린터와 매수/부수를 구분해 설정했다.</span></li>
+<li><span>이전 인쇄 작업이 남아 중복 출력되지 않는지 확인했다.</span></li>
+<li><span>출력물과 원본·작업 데이터·결과 Excel을 필요한 위치에 보관했다.</span></li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#troubleshooting"><small>← 앞 장 18</small><b>오류 해결과 자주 묻는 질문</b></a><a class="is-next" href="#reference"><small>다음 장 20 →</small><b>용어·지원 범위·조작 요약</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="reference" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 20</p><h1>용어·지원 범위·조작 요약</h1></header><h2 id="201-용어">20.1 용어</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>용어</th>
+<th>뜻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>원본 시공일</td>
+<td>원본 공장출고일을 읽어 집계 대상을 나누는 날짜</td>
+</tr>
+<tr>
+<td>고객일</td>
+<td>출력표에 기입하는 시공 날짜</td>
+</tr>
+<tr>
+<td>입고일</td>
+<td>출력표에 기입하는 그레이박스 출고일</td>
+</tr>
+<tr>
+<td>포장일</td>
+<td>그레이박스 출고일 이전의 포장 일정</td>
+</tr>
+<tr>
+<td>상판</td>
+<td>제작 조각 개수. 일반 품목·벽체·Z 분할을 해당 규칙대로 집계</td>
+</tr>
+<tr>
+<td>별도 뒷턱</td>
+<td>TBW 등 자체 코드로 존재하는 뒷턱</td>
+</tr>
+<tr>
+<td>부착 뒷턱</td>
+<td>대상 상판의 가로/코너 세로에서 계산한 뒷턱 조각</td>
+</tr>
+<tr>
+<td>타공</td>
+<td>실제 공장 작업 대상인 씽크볼·쿡탑 개수</td>
+</tr>
+<tr>
+<td>파렛트</td>
+<td>사용자가 입력하는 포장 단위 수</td>
+</tr>
+<tr>
+<td>기준 집계</td>
+<td>현재 원본 계산 또는 현재 연동을 반영한 자동 기준</td>
+</tr>
+<tr>
+<td>임시 포함</td>
+<td>근거 부족으로 우선 포함했으므로 확인이 필요한 타공</td>
+</tr>
+<tr>
+<td>임시 제외</td>
+<td>범위 초과가 확인되어 우선0으로 뺀 타공</td>
+</tr>
+<tr>
+<td>집계 근거</td>
+<td>원본/연동 기준의 품목별 계산과 판정 기록</td>
+</tr>
+</tbody>
+</table></div><h2 id="202-조작-요약">20.2 조작 요약</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>위치</th>
+<th>조작</th>
+<th>동작</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>포장 집계표</td>
+<td>더블클릭</td>
+<td>셀 편집</td>
+</tr>
+<tr>
+<td>셀 편집</td>
+<td><kbd>Enter</kbd> / <kbd>Tab</kbd></td>
+<td>확정하고 다음 칸</td>
+</tr>
+<tr>
+<td>셀 편집</td>
+<td><kbd>Esc</kbd></td>
+<td>현재 입력 취소</td>
+</tr>
+<tr>
+<td>표·미리보기</td>
+<td>마우스 휠</td>
+<td>세로 스크롤</td>
+</tr>
+<tr>
+<td>집계 근거</td>
+<td>아래 가로 스크롤</td>
+<td>오른쪽 판정·기준 자료 확인</td>
+</tr>
+<tr>
+<td>날짜 입력</td>
+<td>Enter / 다른 칸 이동</td>
+<td>날짜 변경 반영</td>
+</tr>
+<tr>
+<td>집계근거 미리보기</td>
+<td>이전 / 다음</td>
+<td>페이지 이동</td>
+</tr>
+<tr>
+<td>집계근거 미리보기</td>
+<td><kbd>Alt</kbd>+<kbd>←</kbd> / <kbd>Alt</kbd>+<kbd>→</kbd></td>
+<td>이전 / 다음 페이지</td>
+</tr>
+</tbody>
+</table></div><h2 id="203-현재-기능의-경계">20.3 현재 기능의 경계</h2><ul>
+<li>원본 Excel의 데이터를 바꾸는 편집기는 아닙니다.</li>
+<li>도면을 만들거나 편집하지 않습니다. 관리자 작업 데이터의 적용 상태를 읽습니다.</li>
+<li>파렛트 자동 산정은 하지 않습니다.</li>
+<li>추가타공 AJ를 씽크볼·쿡탑 타공 합계에 더하지 않습니다.</li>
+<li>작업 데이터 연동으로 상판·뒷턱까지 재산정하지 않습니다.</li>
+<li>포장 자체의 <code>.ikanwork</code> 내보내기·열기·자동 백업은 제공하지 않습니다.</li>
+<li>저장한 포장 결과 Excel을 원본으로 다시 불러와 화면 상태를 복원하지 않습니다.</li>
+<li>관리자 바코드 탭의 페이지 범위·인쇄 설정 UI와 포장 인쇄창은 다릅니다.</li>
+<li>대표 PC 서버 기반 실시간 공동 편집 프로그램은 아닙니다.</li>
+</ul><p><strong>문서 관리 안내</strong><br/>
+이 문서는 포장 카운트0.1.11 기준입니다. 버전이 달라지면 버튼명·집계 규칙·연동 지원 범위가 달라질 수 있습니다. 설명의 날짜·품목·수치는 사용 방법을 위한 예시입니다. 프로그램의 실제 집계 근거와 확인 사항을 함께 확인하세요.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#checklist"><small>← 앞 장 19</small><b>출력 전 체크리스트</b></a></nav></section>
+<div class="ik-div ik-div-stamp" role="separator" aria-label="검수 완료"><span class="ik-div-layers is-left"><i></i><i></i><i></i></span><span class="ik-stamp"><span><b>검수</b><small>IKAN</small></span></span><span class="ik-div-layers is-right"><i></i><i></i><i></i></span></div><p class="ik-small" style="text-align:center;max-width:none">아이칸 포장 카운트 사용 설명서 · 기준 버전 0.1.11 · 정리 2026-10-27 · (주) 아이칸 사내용</p>
+</main>
+</div>
+<script src="../assets/search-index.js?v=b49ee229"></script><script src="../assets/ikan.js?v=b49ee229"></script>
 </body>
 </html>

@@ -1,0 +1,19 @@
+<!-- 출력 날짜 기본 계산 (5.1). 토·일 제외, 공휴일은 직접 확인 -->
+<figure class="ik-fig pk-dates-fig">
+  <ol class="pk-chain" aria-label="날짜 계산 순서">
+    <li class="is-pack"><small>포장일</small><b>20일 포장</b><span>그레이박스 출고일 −1영업일</span></li>
+    <li class="pk-arrow" aria-hidden="true"><span>1영업일 전</span></li>
+    <li class="is-in"><small>그레이박스 출고일 · 입고</small><b>21일 입고</b><span>시공일 −1영업일</span></li>
+    <li class="pk-arrow" aria-hidden="true"><span>1영업일 전</span></li>
+    <li class="is-cust"><small>시공일 · 고객</small><b>22일 고객</b><span>원본 공장출고일 = 선택한 원본 시공일</span></li>
+  </ol>
+  <p class="pk-cal-title">월요일 시공이면 주말을 건너뜁니다 <small>2026년 10월 예시</small></p>
+  <div class="pk-cal" role="img" aria-label="10월 15일 목요일 포장, 16일 금요일 입고, 17·18일 주말 제외, 19일 월요일 고객">
+    <span class="is-pack"><small>목</small><b>15</b><em>포장</em></span>
+    <span class="is-in"><small>금</small><b>16</b><em>입고</em></span>
+    <span class="is-off"><small>토</small><b>17</b><em>제외</em></span>
+    <span class="is-off"><small>일</small><b>18</b><em>제외</em></span>
+    <span class="is-cust"><small>월</small><b>19</b><em>고객</em></span>
+  </div>
+  <figcaption>기본 날짜는 토·일요일만 건너뜁니다. 공휴일·회사 휴무·특별 물류 일정은 자동으로 반영되지 않으니 직접 확인해 고칩니다. 저장·인쇄할 때는 포장일 ≤ 그레이박스 출고일 ≤ 시공일 순서여야 합니다.</figcaption>
+</figure>

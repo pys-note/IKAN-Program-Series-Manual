@@ -6,6 +6,8 @@
       "자동 백업",
       "라벨 이어 쓰기",
       "부분엣지",
+      "파렛트",
+      "타공",
       "형광펜",
       "바코드",
       "위치 보정"
@@ -38,6 +40,18 @@
       [
         "팔레트",
         "파렛트"
+      ],
+      [
+        "그레이박스",
+        "그레이 박스"
+      ],
+      [
+        "엑셀",
+        "excel"
+      ],
+      [
+        "타공",
+        "구멍"
       ]
     ]
   },
@@ -190,18 +204,92 @@
       "en": "IKAN PACKING COUNT",
       "app": "ik-app-packing",
       "icon": "packing.png",
-      "version": "0.1.0",
-      "status": "draft",
-      "format": "draft",
-      "summary": "하루치 원본 데이터를 지역별 상판·뒷턱 개수로 집계하고, 파렛트 수를 적어 엑셀로 저장·인쇄합니다.",
+      "version": "0.1.11",
+      "updated": "2026-10-27",
+      "status": "ready",
+      "format": "md",
+      "source": "manuals/packing.md",
+      "code_keys": "combo",
+      "ui_brackets": false,
+      "summary": "하루치 원본 데이터를 지역별 상판·뒷턱·타공 개수로 집계하고, 파렛트를 적어 Excel로 저장·인쇄합니다.",
       "chips": [
         "Windows 10/11",
+        "Excel 데스크톱 필요",
         "설치 파일(MSI)"
+      ],
+      "info": [
+        [
+          "기준 버전",
+          "0.1.11"
+        ],
+        [
+          "기준일",
+          "2026-10-27"
+        ],
+        [
+          "운영체제",
+          "Windows 10/11 64비트"
+        ],
+        [
+          "필요",
+          "Microsoft Excel 데스크톱"
+        ]
+      ],
+      "figures": [
+        {
+          "start": "screen",
+          "file": "packing-screen.html"
+        },
+        {
+          "find": "포장 날짜 = 그레이박스 출고일",
+          "file": "packing-dates.html"
+        },
+        {
+          "find": "TCDUW (1840*660*0*700 R), 수량1",
+          "file": "packing-corner.html"
+        }
+      ],
+      "quick": [
+        {
+          "t": "처음 사용하는 분",
+          "s": "빠른 순서 9단계",
+          "h": "#quick-start"
+        },
+        {
+          "t": "수량이 왜 이렇게 나왔는지",
+          "s": "집계 근거와 확인 사항",
+          "h": "#evidence"
+        },
+        {
+          "t": "막힌 부분을 찾는 분",
+          "s": "오류 해결·자주 묻는 질문",
+          "h": "#troubleshooting"
+        }
       ],
       "tasks": [
         {
-          "t": "하루 포장 물량(상판·뒷턱) 세기",
-          "h": ""
+          "t": "원본 엑셀로 하루 포장 수량 세기",
+          "h": "#quick-start"
+        },
+        {
+          "t": "포장일·입고일·고객일 맞추기",
+          "h": "#dates"
+        },
+        {
+          "t": "도면에서 지운 타공까지 반영하기",
+          "h": "#workdata"
+        },
+        {
+          "t": "수량 고치고 파렛트 적기",
+          "h": "#manual"
+        },
+        {
+          "t": "집계표 Excel로 저장·인쇄하기",
+          "h": "#excel"
+        },
+        {
+          "t": "집계근거 뽑아 현장과 대조하기",
+          "h": "#audit-print"
         }
       ]
     },

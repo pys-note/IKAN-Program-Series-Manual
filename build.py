@@ -103,7 +103,7 @@ def replace_with(soup, node, markup):
     node.replace_with(*list(frag.contents))
 
 
-def inline_marks(soup, root, code_keys):
+def inline_marks(soup, root, code_keys, brackets=True):
     # **[버튼]** / [버튼] → 화면 이름 칩 (링크가 아닌 대괄호)
     for st in list(root.find_all(['strong', 'b'])):
         t = st.get_text()
@@ -127,7 +127,7 @@ def inline_marks(soup, root, code_keys):
         if text.parent.name in ('code', 'pre', 'a', 'kbd', 'script', 'style') or text.find_parent(['pre', 'a', 'kbd', 'code']):
             continue
         s = str(text)
-        if '[' not in s:
+        if not brackets or '[' not in s:
             continue
         new = re.sub(r'\[([^\[\]\n]{1,30})\](?!\()', lambda m: f'<span class="ik-ui">{e(m.group(1))}</span>', e(s))
         if new != e(s):
@@ -164,6 +164,17 @@ def prepare_md(text):
         prev_item = re.match(r'^(\s*)([-*]|\d+\.)\s+', prev)
         if not fence and is_item and prev.strip() and not prev_item and not prev.startswith((' ', '\t', '|', '>')) and not is_item.group(1):
             out.append('')
+        # 인용문 안에서도: > **제목** 바로 아래 > - 목록
+        q_item = re.match(r'^>\s*([-*]|\d+\.)\s+', line)
+        q_prev = re.match(r'^>\s*(\S.*)$', prev)
+        if not fence and q_item and q_prev and not re.match(r'^([-*]|\d+\.)\s+', q_prev.group(1)):
+            out.append('>')
+        # 1840*660*0*700 같은 치수의 * 가 기울임으로 바뀌지 않게 (`코드` 안은 그대로)
+        if not fence and re.search(r'\d\*\d', line):
+            segs = line.split('`')
+            for i in range(0, len(segs), 2):
+                segs[i] = re.sub(r'(?<=\d)\*(?=\d)', r'\\*', segs[i])
+            line = '`'.join(segs)
         # 목록 안에 3칸 들여 쓴 표·코드를 4칸으로 (python-markdown 규칙)
         if not fence and re.match(r'^ {3}(\||```)', line):
             line = ' ' + line
@@ -172,11 +183,122 @@ def prepare_md(text):
     return '\n'.join(out)
 
 
-def figure_for(code_text, figures):
-    for needle, name in figures:
+def read_figure(name):
+    return (SRC / 'figures' / name).read_text(encoding='utf-8-sig')
+
+
+def figure_rules(prog):
+    """programs.json의 figures → (코드 블록 교체 규칙, 장 앞머리에 넣을 그림).
+    ["코드 블록 속 말", "파일.html"]       코드 블록(글자 그림)을 그림으로 교체
+    {"find": "코드 블록 속 말", "file": …}  위와 같음
+    {"start": "장 id", "file": …}           그 장 본문 맨 앞에 그림 삽입"""
+    finds, starts = [], {}
+    for f in prog.get('figures', []):
+        if isinstance(f, dict):
+            if f.get('start'):
+                starts.setdefault(f['start'], []).append(f['file'])
+            elif f.get('find'):
+                finds.append((f['find'], f['file']))
+        else:
+            finds.append((f[0], f[1]))
+    return finds, starts
+
+
+def figure_for(code_text, finds):
+    for needle, name in finds:
         if needle in code_text:
-            return (SRC / 'figures' / name).read_text(encoding='utf-8-sig')
+            return read_figure(name)
     return None
+
+
+def info_from_bold(p):
+    """**기준 버전: 0.1.11** 처럼 굵은 '이름: 값' 줄만으로 된 문단 → [(이름, 값)]"""
+    strongs = p.find_all('strong', recursive=False)
+    if not strongs:
+        return None
+    rest = ''.join(str(c) for c in p.contents if not (isinstance(c, Tag) and c.name in ('strong', 'br')))
+    if rest.strip():
+        return None
+    out = []
+    for st in strongs:
+        t = st.get_text(' ', strip=True)
+        if ':' not in t:
+            return None
+        k, v = t.split(':', 1)
+        out.append((k.strip(), v.strip()))
+    return out
+
+
+def lone_anchor(n):
+    """<a id="setup"></a> 만 있는 문단이면 그 id"""
+    if not (isinstance(n, Tag) and n.name == 'p' and not n.get_text(strip=True)):
+        return None
+    a = n.find('a', id=True)
+    return a['id'] if a and len(n.find_all(True)) == 1 else None
+
+
+def blockquote_title(bq):
+    """> **주의:** 본문  또는  > **제목**(줄바꿈) 본문  → 제목을 떼어 돌려준다."""
+    first = bq.find(['p', 'ol', 'ul'])
+    if not (first and first.name == 'p' and first.contents and getattr(first.contents[0], 'name', None) == 'strong'):
+        return ''
+    st = first.contents[0]
+    lead = st.get_text().strip()
+    nxt = st.next_sibling
+    while isinstance(nxt, NavigableString) and not nxt.strip():
+        nxt = nxt.next_sibling
+    if lead.endswith((':', '：')):
+        title = lead.rstrip(':：').strip()
+    elif nxt is None or (isinstance(nxt, Tag) and nxt.name == 'br'):
+        title = lead
+        if isinstance(nxt, Tag):
+            nxt.extract()
+    else:
+        return ''
+    st.extract()
+    if first.contents and isinstance(first.contents[0], NavigableString):
+        first.contents[0].replace_with(first.contents[0].lstrip())
+    if not first.get_text(strip=True) and not first.find(True):
+        first.extract()
+    return title
+
+
+def checklists(box):
+    """- [ ] 항목 목록 → 체크 상자 목록"""
+    for ul in box.find_all('ul'):
+        lis = ul.find_all('li', recursive=False)
+        if lis and all(re.match(r'^\s*\[[ xX]\]', li.get_text()) for li in lis):
+            ul['class'] = ['ik-check']
+            for li in lis:
+                for t in li.find_all(string=True):
+                    if re.match(r'^\s*\[[ xX]\]\s*', t):
+                        t.replace_with(re.sub(r'^\s*\[[ xX]\]\s*', '', t))
+                        break
+                wrap = BeautifulSoup('<span></span>', 'html.parser').span
+                for c in list(li.contents):
+                    wrap.append(c.extract())
+                li.append(wrap)
+
+
+def is_question(text):
+    t = text.strip()
+    return t.endswith(('?', '요', '요.', '다', '다.', '니까'))
+
+
+def faq_headings(soup, box):
+    """문제 해결 장의 '### 질문 제목' + 아래 내용 → 질문 상자 (질문이 아닌 제목은 그대로)"""
+    for h in list(box.find_all('h2')):
+        if not is_question(h.get_text()):
+            continue
+        parts = []
+        sib = h.next_sibling
+        while sib is not None and not (isinstance(sib, Tag) and sib.name in ('h2', 'h3')):
+            nx = sib.next_sibling
+            parts.append(sib.extract())
+            sib = nx
+        body = ''.join(str(x) for x in parts if not (isinstance(x, NavigableString) and not x.strip()))
+        replace_with(soup, h, f'<details class="ik-qa" id="{e(h.get("id", ""))}"><summary>{h.decode_contents()}</summary>'
+                              f'<div class="ik-qa-a"><div>{body}</div></div></details>')
 
 
 def md_manual(prog):
@@ -184,59 +306,70 @@ def md_manual(prog):
     body = markdown.markdown(prepare_md(text), extensions=['tables', 'fenced_code', 'sane_lists'], output_format='html')
     soup = BeautifulSoup(body, 'html.parser')
     nodes = [n for n in soup.contents if not (isinstance(n, NavigableString) and not n.strip())]
-    info, chapters, cur = [], [], None
-    skipping = False
+    finds, starts = figure_rules(prog)
+    info, intro, chapters, cur = [], [], [], None
+    skipping, anchor = False, None
     for n in nodes:
-        if isinstance(n, Tag) and n.name == 'h1':
+        if isinstance(n, Tag) and n.name in ('h1', 'hr'):
             continue
-        if isinstance(n, Tag) and n.name == 'hr':
+        aid = lone_anchor(n)
+        if aid:
+            anchor = aid
             continue
-        if isinstance(n, Tag) and n.name == 'blockquote' and not chapters and cur is None and not info:
-            for li in n.find_all('li'):
-                t = li.get_text(' ', strip=True)
-                if ':' in t:
-                    k, v = t.split(':', 1)
+        if not chapters and isinstance(n, Tag):
+            if n.name == 'blockquote' and not info and n.find('li') and all(':' in li.get_text() for li in n.find_all('li')):
+                for li in n.find_all('li'):
+                    k, v = li.get_text(' ', strip=True).split(':', 1)
                     info.append((k.strip(), v.strip()))
-            continue
+                continue
+            if n.name == 'p' and not intro and info_from_bold(n):
+                info.extend(info_from_bold(n))
+                continue
         if isinstance(n, Tag) and n.name == 'h2':
             title = n.get_text(' ', strip=True)
             if title.replace(' ', '') == '목차':
-                skipping = True
-                cur = None
+                skipping, cur, anchor = True, None, None
                 continue
             skipping = False
             m = re.match(r'^(\d+)\.\s*(.+)$', title)
-            cur = {'id': slug(n.get_text()), 'num': m.group(1) if m else str(len(chapters) + 1),
+            cur = {'id': anchor or slug(n.get_text()), 'num': m.group(1) if m else str(len(chapters) + 1),
                    'title': m.group(2) if m else title, 'lead': '', 'nodes': []}
+            anchor = None
             chapters.append(cur)
             continue
-        if skipping or cur is None:
+        if skipping:
             continue
-        cur['nodes'].append(n)
+        (intro if cur is None else cur['nodes']).append(n)
 
-    out = []
+    used = set()
+
+    def uniq(i):
+        base, k = i, 0
+        while i in used:
+            k += 1
+            i = f'{base}-{k}'
+        used.add(i)
+        return i
+
     for ch in chapters:
+        ch['id'] = uniq(ch['id'])
+
+    def render(nodes, faq=False, start_figs=()):
         frag = BeautifulSoup('<div id="__c"></div>', 'html.parser')
         box = frag.find(id='__c')
-        for n in ch['nodes']:
+        for name in start_figs:
+            for x in list(BeautifulSoup(read_figure(name), 'html.parser').contents):
+                box.append(x)
+        for n in nodes:
             box.append(n)
-        faq = 'faq' in ch['title'].lower() or '문제 해결' in ch['title']
-        last_heading = ''
         for h in box.find_all(['h3', 'h4']):
-            h['id'] = slug(h.get_text())
+            h['id'] = uniq(slug(h.get_text()))
             h.name = 'h2' if h.name == 'h3' else 'h3'
+        checklists(box)
         for bq in list(box.find_all('blockquote')):
             prev = bq.find_previous(['h2', 'h3'])
             last_heading = prev.get_text() if prev else ''
-            first = bq.find(['p', 'ol', 'ul'])
-            title = ''
-            if first and first.name == 'p' and first.contents and getattr(first.contents[0], 'name', None) == 'strong':
-                lead = first.contents[0].get_text().strip()
-                if lead.endswith(':') or lead.endswith('：'):
-                    title = lead.rstrip(':：').strip()
-                    first.contents[0].extract()
-                    if first.contents and isinstance(first.contents[0], NavigableString):
-                        first.contents[0].replace_with(first.contents[0].lstrip())
+            title = blockquote_title(bq)
             t = (title + ' ' + bq.get_text()).strip()
             if '사용 예' in last_heading or t.startswith('예'):
                 replace_with(frag, bq, f'<div class="ik-example"><span class="ik-example-tag">예시</span>{"".join(str(c) for c in bq.contents)}</div>')
@@ -244,7 +377,7 @@ def md_manual(prog):
             kind = 'caution' if re.search(r'주의|경고|중요', title) else 'tip' if re.search(r'활용|팁|권장', title) else 'info'
             replace_with(frag, bq, note_html(kind, title, bq.contents))
         for pre in list(box.find_all('pre')):
-            fig = figure_for(pre.get_text(), prog.get('figures', []))
+            fig = figure_for(pre.get_text(), finds)
             if fig:
                 replace_with(frag, pre, fig)
             else:
@@ -252,18 +385,24 @@ def md_manual(prog):
         for tbl in list(box.find_all('table')):
             if tbl.parent.name == 'div' and 'ik-table' in tbl.parent.get('class', []):
                 continue
-            wrap = frag.new_tag('div', attrs={'class': 'ik-table'})
-            tbl.wrap(wrap)
+            tbl.wrap(frag.new_tag('div', attrs={'class': 'ik-table'}))
         for ol in list(box.find_all('ol')):
-            if ol.find_parent(['li', 'td', 'blockquote']) or ol.find_parent('div', class_='ik-note') or ol.find_parent('div', class_='ik-example'):
+            if ol.find_parent(['li', 'td', 'blockquote', 'figure']) or ol.find_parent('div', class_='ik-note') or ol.find_parent('div', class_='ik-example'):
                 continue
             replace_with(frag, ol, steps_html(ol))
         if faq:
             faq_groups(frag, box)
-        inline_marks(frag, box, prog.get('code_keys', 'combo'))
+            faq_headings(frag, box)
+        inline_marks(frag, box, prog.get('code_keys', 'combo'), prog.get('ui_brackets', True))
+        return box.decode_contents()
+
+    out = []
+    for ch in chapters:
+        low = ch['title'].lower()
+        faq = 'faq' in low or '문제 해결' in low or '자주 묻는' in low
         out.append({'id': ch['id'], 'eyebrow': f'CHAPTER {int(ch["num"]):02d}', 'num': f'{int(ch["num"]):02d}',
-                    'title': ch['title'], 'lead': ch['lead'], 'html': box.decode_contents()})
-    return {'info': info, 'chapters': out}
+                    'title': ch['title'], 'lead': ch['lead'], 'html': render(ch['nodes'], faq, starts.get(ch['id'], ()))})
+    return {'info': info, 'intro': render(intro) if intro else '', 'chapters': out}
 
 
 def faq_groups(soup, box):
@@ -397,7 +536,8 @@ def manual_page(prog, data, programs, css_v):
     rel = '../'
     chapters = data['chapters']
     toc = ''.join(f'<li><a href="#{e(c["id"])}"><span class="n">{e(c["num"])}</span><span>{e(c["title"])}</span></a></li>' for c in chapters)
-    info = prog.get('info') or [(k, v) for k, v in data['info'] if k in ('문서 기준 버전', '운영체제', '사용 라벨지', '성격', '대체하는 기존 방식')]
+    keep = ('기준 버전', '문서 기준 버전', '기준일', '문서 기준일', '운영체제', '필요', '사용 라벨지', '성격', '대체하는 기존 방식')
+    info = prog.get('info') or [(k, v) for k, v in data.get('info', []) if k in keep]
     info_html = ''.join(f'<li><b>{e(k)}</b>{e(re.sub(r"[*`]", "", v))}</li>' for k, v in info)
     quick = ''.join(f'<a href="{e(q["h"])}"><b>{e(q["t"])}</b><small>{e(q["s"])}</small></a>' for q in prog.get('quick', []))
     body = []
@@ -438,6 +578,7 @@ def manual_page(prog, data, programs, css_v):
              f'<div><p class="ik-cover-kind">USER MANUAL · {e(prog["version"])}</p><h1 class="ik-cover-title">{e(prog["name"])}</h1>'
              f'<p class="ik-cover-meta"><span>{e(prog["summary"])}</span></p></div></div>'
              f'{"<ul class=ik-docinfo>" + info_html + "</ul>" if info_html else ""}'
+             f'{"<div class=ik-cover-intro>" + data["intro"] + "</div>" if data.get("intro") else ""}'
              f'{"<div class=ik-quick>" + quick + "</div>" if quick else ""}{DIV_DIM}</section>\n'
              f'<div id="find-empty" class="ik-empty" hidden><b>일치하는 장이 없습니다.</b>더 짧은 단어나 다른 표현으로 찾아보세요. 예: 싱크볼 → 씽크볼, 뒤턱 → 뒷턱</div>\n'
              f'{"".join(body)}\n{DIV_STAMP}'
