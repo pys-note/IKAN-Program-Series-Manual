@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="board" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3A4A6B"/>
+      <stop offset="1" stop-color="#1E2840"/>
+    </linearGradient>
+    <linearGradient id="boardEdge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#56688F"/>
+      <stop offset="1" stop-color="#2A3552"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EEF1F4"/>
+    </linearGradient>
+    <linearGradient id="clip" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F2F4F7"/>
+      <stop offset="0.45" stop-color="#C3CAD4"/>
+      <stop offset="0.55" stop-color="#9CA6B4"/>
+      <stop offset="1" stop-color="#D8DDE4"/>
+    </linearGradient>
+    <linearGradient id="blueMark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4F9DFF"/>
+      <stop offset="1" stop-color="#1D5FD4"/>
+    </linearGradient>
+    <linearGradient id="stamp" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF8A4C"/>
+      <stop offset="1" stop-color="#E0461E"/>
+    </linearGradient>
+    <filter id="blur6" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <filter id="blur2" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+  </defs>
+
+  <!-- ===== Clipboard ===== -->
+  <rect x="40" y="28" width="176" height="216" rx="18" fill="#0B1222" opacity="0.30" filter="url(#blur6)"/>
+  <rect x="38" y="22" width="176" height="216" rx="18" fill="url(#boardEdge)"/>
+  <rect x="40" y="24" width="172" height="212" rx="16.5" fill="url(#board)"/>
+
+  <!-- paper (slight stack) -->
+  <rect x="57" y="50" width="142" height="174" rx="5" fill="#C9D1DB"/>
+  <rect x="54" y="46" width="144" height="176" rx="6" fill="#0B1222" opacity="0.25" filter="url(#blur2)"/>
+  <rect x="54" y="44" width="144" height="176" rx="6" fill="url(#paper)"/>
+
+  <!-- title band -->
+  <rect x="66" y="60" width="66" height="8" rx="4" fill="#27324D"/>
+  <rect x="138" y="61" width="26" height="6" rx="3" fill="#A9B3C2"/>
+  <path d="M66 76 H186" stroke="#27324D" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- spec table -->
+  <rect x="66" y="84" width="120" height="44" rx="3" fill="#FFFFFF" stroke="#C6CFD9" stroke-width="1.4"/>
+  <rect x="66.7" y="84.7" width="34" height="42.6" rx="2.4" fill="#E8EDF5"/>
+  <path d="M66 98.7 H186 M66 113.3 H186 M101 84 V128 M146 84 V128" stroke="#C6CFD9" stroke-width="1.2"/>
+  <g fill="#8693A6">
+    <rect x="71" y="89" width="24" height="5" rx="2.5"/>
+    <rect x="71" y="103.7" width="18" height="5" rx="2.5"/>
+    <rect x="71" y="118.3" width="22" height="5" rx="2.5"/>
+  </g>
+  <g fill="#AEB8C6">
+    <rect x="107" y="89" width="30" height="5" rx="2.5"/>
+    <rect x="152" y="89" width="22" height="5" rx="2.5"/>
+    <rect x="107" y="103.7" width="22" height="5" rx="2.5"/>
+    <rect x="152" y="103.7" width="28" height="5" rx="2.5"/>
+    <rect x="107" y="118.3" width="26" height="5" rx="2.5"/>
+  </g>
+  <rect x="152" y="118.3" width="20" height="5" rx="2.5" fill="#2F7BEA"/>
+
+  <!-- drawing area -->
+  <rect x="66" y="138" width="120" height="70" rx="3" fill="#F6F8FB" stroke="#C6CFD9" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <!-- L countertop as exploded rectangles -->
+  <rect x="76" y="176" width="70" height="20" rx="1.5" fill="#FFFFFF" stroke="#27324D" stroke-width="2"/>
+  <rect x="150" y="146" width="20" height="50" rx="1.5" fill="#FFFFFF" stroke="#27324D" stroke-width="2"/>
+  <!-- sink cut-out -->
+  <rect x="98" y="180" width="22" height="12" rx="3" fill="none" stroke="#8693A6" stroke-width="1.5"/>
+  <!-- edge marks -->
+  <rect x="78" y="190.5" width="66" height="3.5" rx="1" fill="url(#blueMark)"/>
+  <rect x="152" y="190.5" width="16" height="3.5" rx="1" fill="url(#blueMark)"/>
+  <rect x="164.5" y="148" width="3.5" height="40" rx="1" fill="url(#blueMark)"/>
+  <!-- dimension -->
+  <g stroke="#6B7890" stroke-width="1.4" stroke-linecap="round">
+    <path d="M76 202 H146 M76 199 V205 M146 199 V205"/>
+    <path d="M178 146 V196 M175 146 H181 M175 196 H181"/>
+  </g>
+
+  <!-- ===== Clip ===== -->
+  <rect x="94" y="14" width="64" height="30" rx="9" fill="#0B1222" opacity="0.3" filter="url(#blur2)"/>
+  <path d="M104 12 h44 a8 8 0 0 1 8 8 v10 a6 6 0 0 1 -6 6 h-40 a6 6 0 0 1 -6 -6 v-10 a8 8 0 0 1 8 -8 z" fill="url(#clip)" transform="translate(0 0)"/>
+  <rect x="94" y="30" width="64" height="12" rx="5" fill="url(#clip)"/>
+  <rect x="96" y="31" width="60" height="1.6" rx="0.8" fill="#FFFFFF" opacity="0.85"/>
+  <rect x="116" y="17" width="20" height="8" rx="4" fill="#2A3552"/>
+
+  <!-- ===== Print-check stamp ===== -->
+  <g transform="rotate(-12 196 206)">
+    <circle cx="196" cy="206" r="30" fill="#0B1222" opacity="0.3" filter="url(#blur6)"/>
+    <circle cx="196" cy="204" r="28" fill="url(#stamp)"/>
+    <circle cx="196" cy="204" r="22" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 3" opacity="0.75"/>
+    <path d="M185 205 l7.5 7.5 l14 -15" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

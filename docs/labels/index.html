@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>아이칸 라벨 출력기 사용 설명서 v2</title>
+<meta name="description" content="아이라벨 CL920 라벨지(A4·20칸)에 現場名·ITEM·色·SIZE·號室 제품 라벨을 블루·레드로 채워 바로 인쇄합니다.">
+<link rel="icon" href="../assets/icons/labels.svg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="../assets/ikan.css?v=67567309">
+</head>
+<body class="ik-app-labels">
+<a class="ik-skip" href="#main">본문 바로가기</a>
+<header class="ik-bar"><div class="ik-bar-in"><a class="ik-bar-home" href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg><span>매뉴얼 홈</span></a><i class="ik-bar-sep"></i><div class="ik-bar-title"><img class="ik-bar-icon" src="../assets/icons/labels.svg" alt=""><span><small>IKAN LABELS · USER MANUAL</small><b>아이칸 라벨 출력기</b></span></div><div class="ik-bar-tools"><span class="ik-bar-ver ik-bar-hide-s">v2</span><button class="ik-bar-btn ik-bar-hide-s" type="button" data-font="-1" aria-label="본문 글자 작게">가−</button><button class="ik-bar-btn ik-bar-hide-s" type="button" data-font="1" aria-label="본문 글자 크게">가+</button><button class="ik-bar-btn ik-bar-hide-s" type="button" data-print><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></svg>인쇄</button><details class="ik-apps"><summary class="ik-bar-btn" aria-label="다른 프로그램 매뉴얼"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.2"/></svg><span class="ik-bar-hide-s">다른 매뉴얼</span></summary><div class="ik-apps-menu"><a href="../index.html"><span style="display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--ik-navy);color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg></span><span><b>매뉴얼 홈</b><span>모든 프로그램 · 전체 검색</span></span></a><hr><a href="../workorders/index.html"><img src="../assets/icons/workorders.svg" alt=""><span><b>아이칸 작업지시서 관리자</b><span>0.24.7</span></span></a><a href="../plot/index.html"><img src="../assets/icons/plot.svg" alt=""><span><b>도면 확대 인쇄</b><span>v2.6</span></span></a><a href="../packing/index.html" class="is-draft"><img src="../assets/icons/packing.png" alt=""><span><b>아이칸 포장 카운트</b><span>매뉴얼 준비 중</span></span></a><a href="../labels/index.html" aria-current="page"><img src="../assets/icons/labels.svg" alt=""><span><b>아이칸 라벨 출력기</b><span>v2</span></span></a></div></details></div></div></header>
+<div class="ik-shell">
+<nav class="ik-toc" aria-label="목차"><details open id="toc-box"><summary>목차 · 이 매뉴얼에서 찾기</summary><div class="ik-find"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><label class="sr" for="find">이 매뉴얼에서 찾기</label><input id="find" type="search" placeholder="이 매뉴얼에서 찾기  /" autocomplete="off"></div><div class="ik-find-state" id="find-state" role="status" aria-live="polite"></div><div class="ik-toc-label">Contents · 19장</div><ol><li><a href="#1-프로그램-개요"><span class="n">01</span><span>프로그램 개요</span></a></li><li><a href="#2-설치와-실행"><span class="n">02</span><span>설치와 실행</span></a></li><li><a href="#3-화면-구성"><span class="n">03</span><span>화면 구성</span></a></li><li><a href="#4-라벨-양식과-규격"><span class="n">04</span><span>라벨 양식과 규격</span></a></li><li><a href="#5-라벨-내용-입력하기"><span class="n">05</span><span>라벨 내용 입력하기</span></a></li><li><a href="#6-행-관리--추가복제삭제순서-바꾸기"><span class="n">06</span><span>행 관리 — 추가·복제·삭제·순서 바꾸기</span></a></li><li><a href="#7-라벨-색상-블루--레드"><span class="n">07</span><span>라벨 색상 (블루 / 레드)</span></a></li><li><a href="#8-엑셀에서-가져오기-붙여넣기"><span class="n">08</span><span>엑셀에서 가져오기 (붙여넣기)</span></a></li><li><a href="#9-인쇄-미리보기"><span class="n">09</span><span>인쇄 미리보기</span></a></li><li><a href="#10-남은-라벨지-이어-쓰기--장별-시작-칸"><span class="n">10</span><span>남은 라벨지 이어 쓰기 — 장별 시작 칸</span></a></li><li><a href="#11-인쇄-옵션"><span class="n">11</span><span>인쇄 옵션</span></a></li><li><a href="#12-인쇄하기"><span class="n">12</span><span>인쇄하기</span></a></li><li><a href="#13-프린터-위치-보정--정렬-테스트-인쇄"><span class="n">13</span><span>프린터 위치 보정 — 정렬 테스트 인쇄</span></a></li><li><a href="#14-저장불러오기와-자동-저장"><span class="n">14</span><span>저장·불러오기와 자동 저장</span></a></li><li><a href="#15-되돌리기"><span class="n">15</span><span>되돌리기</span></a></li><li><a href="#16-단축키-모음"><span class="n">16</span><span>단축키 모음</span></a></li><li><a href="#17-입력값-자동-정리-규칙"><span class="n">17</span><span>입력값 자동 정리 규칙</span></a></li><li><a href="#18-문제-해결-faq"><span class="n">18</span><span>문제 해결 (FAQ)</span></a></li><li><a href="#19-기술-참고-사항"><span class="n">19</span><span>기술 참고 사항</span></a></li></ol><div class="ik-toc-foot">기준 버전 <b>v2</b><br>인터넷 없이도 이 페이지를 저장해 볼 수 있습니다.</div></details></nav>
+<main class="ik-sheet" id="main" data-manual="labels">
+<section class="ik-chapter is-first" id="cover"><div class="ik-cover"><img class="ik-cover-icon" src="../assets/icons/labels.svg" alt="아이칸 라벨 출력기 아이콘"><div><p class="ik-cover-kind">USER MANUAL · v2</p><h1 class="ik-cover-title">아이칸 라벨 출력기</h1><p class="ik-cover-meta"><span>아이라벨 CL920 라벨지(A4·20칸)에 現場名·ITEM·色·SIZE·號室 제품 라벨을 블루·레드로 채워 바로 인쇄합니다.</span></p></div></div><div class=ik-quick><a href="#5-라벨-내용-입력하기"><b>처음 사용하는 분</b><small>라벨 내용 입력하기</small></a><a href="#10-남은-라벨지-이어-쓰기--장별-시작-칸"><b>남은 라벨지가 있을 때</b><small>장별 시작 칸 지정</small></a><a href="#13-프린터-위치-보정--정렬-테스트-인쇄"><b>라벨이 밀려 찍힐 때</b><small>정렬 테스트로 위치 보정</small></a></div><div class="ik-div ik-div-dim" role="separator" aria-label="아이칸 주식회사"><i class="ik-div-tick"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M0 5 L12 0.8 V9.2 Z"/></svg><i class="ik-div-line"></i><span class="ik-div-label"><span class="ik-div-ko">아이칸 주식회사</span><span class="ik-div-en">IKAN CO., LTD.</span></span><i class="ik-div-line"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M12 5 L0 0.8 V9.2 Z"/></svg><i class="ik-div-tick"></i></div></section>
+<div id="find-empty" class="ik-empty" hidden><b>일치하는 장이 없습니다.</b>더 짧은 단어나 다른 표현으로 찾아보세요. 예: 싱크볼 → 씽크볼, 뒤턱 → 뒷턱</div>
+<section class="ik-chapter" id="1-프로그램-개요" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 01</p><h1>프로그램 개요</h1></header><p>아이칸 라벨 출력기는 <strong>아이라벨 CL920 라벨지에 (주) 아이칸 제품 라벨을 찍는 전용 프로그램</strong>입니다.
+기존에는 엑셀에 도형으로 그려진 라벨을 하나씩 복사해서 고쳐 썼지만, 이 프로그램은 <strong>표에 내용만 입력하면 양식이 자동으로 채워지고 A4 라벨지 칸에 맞춰 바로 인쇄</strong>됩니다.</p><h2 id="주요-기능-한눈에-보기">주요 기능 한눈에 보기</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>기능</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>고정 양식</td>
+<td>現場名 · ITEM · 色 · SIZE · 號室 · (주) 아이칸 표가 미리 그려져 있음</td>
+</tr>
+<tr>
+<td>블루 / 레드 라벨</td>
+<td>라벨마다 바탕색 지정, 색상별로 시트를 나눠 출력 가능</td>
+</tr>
+<tr>
+<td>표 입력</td>
+<td>엑셀처럼 표에 입력, Enter로 다음 행 이동, 윗칸 복사 등</td>
+</tr>
+<tr>
+<td>매수</td>
+<td>같은 라벨 여러 장을 숫자 하나로 지정</td>
+</tr>
+<tr>
+<td>엑셀 붙여넣기</td>
+<td>엑셀 범위를 복사해 한 번에 입력</td>
+</tr>
+<tr>
+<td>순서 바꾸기</td>
+<td>손잡이 드래그 또는 Alt+↑/↓</td>
+</tr>
+<tr>
+<td>실시간 미리보기</td>
+<td>A4 실제 배치 그대로 화면에 표시</td>
+</tr>
+<tr>
+<td>장별 시작 칸</td>
+<td>쓰다 남은 라벨지를 장마다 원하는 칸부터 이어서 출력</td>
+</tr>
+<tr>
+<td>글자 자동 맞춤</td>
+<td>긴 현장명은 자동으로 작아지고 2줄로 접힘</td>
+</tr>
+<tr>
+<td>위치 보정</td>
+<td>프린터가 밀리는 만큼 mm 단위로 보정, PC에 저장</td>
+</tr>
+<tr>
+<td>정렬 테스트 인쇄</td>
+<td>칸 위치 확인용 테스트 시트 출력</td>
+</tr>
+<tr>
+<td>자동 저장 / 파일 저장</td>
+<td>입력 내용 자동 보관, JSON 작업 파일로 저장·불러오기</td>
+</tr>
+<tr>
+<td>되돌리기</td>
+<td>삭제·전체 변경 등 직전 작업 취소</td>
+</tr>
+</tbody>
+</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-next" href="#2-설치와-실행"><small>다음 장 02 →</small><b>설치와 실행</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="2-설치와-실행" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 02</p><h1>설치와 실행</h1></header><ul>
+<li><strong>설치가 필요 없습니다.</strong> <code>아이칸_라벨출력기_v2.html</code> 파일 하나가 프로그램 전체입니다.</li>
+<li>파일을 <strong>더블클릭</strong>하면 기본 웹브라우저에서 열립니다.</li>
+<li>권장 브라우저: <strong>Microsoft Edge</strong> 또는 <strong>Google Chrome</strong> (Windows 최신 버전)</li>
+<li><strong>인터넷 연결 없이도</strong> 모든 기능이 동작합니다.</li>
+<li>파일을 바탕화면이나 공용 폴더 등 <strong>항상 같은 위치</strong>에 두고 쓰는 것을 권장합니다.
+  (자동 저장은 브라우저가 파일 위치 기준으로 보관하므로, 파일을 옮기거나 다른 브라우저로 열면 이전 입력 내용이 안 보일 수 있습니다 → <a href="#14-저장불러오기와-자동-저장">14장</a> 참고)</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#1-프로그램-개요"><small>← 앞 장 01</small><b>프로그램 개요</b></a><a class="is-next" href="#3-화면-구성"><small>다음 장 03 →</small><b>화면 구성</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="3-화면-구성" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 03</p><h1>화면 구성</h1></header><p>화면은 크게 <strong>상단 바</strong>, <strong>왼쪽 입력 영역</strong>, <strong>오른쪽 미리보기 영역</strong> 세 부분입니다.
+(창 너비가 좁으면 입력 영역이 위, 미리보기가 아래로 배치됩니다.)</p><h2 id="3-1-상단-바">3-1. 상단 바</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>버튼</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>사용법</strong></td>
+<td>간단한 사용법 안내 창을 엽니다</td>
+</tr>
+<tr>
+<td><strong>작업 저장</strong></td>
+<td>현재 입력 내용을 JSON 파일로 내려받습니다</td>
+</tr>
+<tr>
+<td><strong>불러오기</strong></td>
+<td>저장해 둔 JSON 작업 파일을 엽니다</td>
+</tr>
+<tr>
+<td><strong>정렬 테스트 인쇄</strong></td>
+<td>칸 위치 확인용 테스트 시트를 인쇄합니다</td>
+</tr>
+<tr>
+<td><strong>인쇄 (Ctrl+P)</strong></td>
+<td>입력한 라벨을 인쇄합니다</td>
+</tr>
+</tbody>
+</table></div><h2 id="3-2-왼쪽--라벨-내용-입력">3-2. 왼쪽 — 라벨 내용 입력</h2><ul>
+<li><strong>새 행 색상</strong>: 새로 추가되는 행의 기본 라벨색 (블루 / 레드)</li>
+<li><strong>엑셀에서 붙여넣기</strong>: 엑셀 데이터 일괄 입력 창</li>
+<li><strong>전체 블루 / 전체 레드</strong>: 모든 행의 라벨색을 한 번에 변경</li>
+<li><strong>전체 비우기</strong>: 모든 행 삭제 (되돌리기 가능)</li>
+<li><strong>입력 표</strong>: 라벨 한 종류당 한 행</li>
+<li><strong>+ 행 추가</strong>: 표 맨 아래에 빈 행 추가</li>
+<li><strong>하단 상태 표시줄</strong>: 총 라벨 장수 · 블루 장수 · 레드 장수 · 시트(A4) 매수 · 자동 저장 상태</li>
+</ul><h2 id="3-3-오른쪽--인쇄-미리보기">3-3. 오른쪽 — 인쇄 미리보기</h2><ul>
+<li><strong>옵션 줄</strong>: 색상별 시트 나누기 · 바깥 테두리 · 색 번짐 · 보정 X / Y</li>
+<li><strong>시작 칸 안내 줄</strong>: 이어 쓰는 장 요약, <span class="ik-ui">모두 처음 칸부터</span> 버튼</li>
+<li><strong>시트 미리보기</strong>: A4 가로 한 장씩, 실제 인쇄 배치 그대로 표시</li>
+<li>각 장 위에 <code>n / 전체 매</code>, 색상 표시, 그 장의 라벨 장수, 시작 칸 표시</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#2-설치와-실행"><small>← 앞 장 02</small><b>설치와 실행</b></a><a class="is-next" href="#4-라벨-양식과-규격"><small>다음 장 04 →</small><b>라벨 양식과 규격</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="4-라벨-양식과-규격" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 04</p><h1>라벨 양식과 규격</h1></header><h2 id="4-1-라벨-한-장의-구성">4-1. 라벨 한 장의 구성</h2><!-- 라벨 한 장의 구성 (4-1). 비율은 실제 50×38mm, 값은 매뉴얼 본문의 입력 예 -->
+<figure class="ik-fig">
+<div class="ik-fig-row">
+<div class="lb" style="--lb:#00B0F0">
+<div class="lb-site"><span class="k">現場名</span><span class="v">田畑邸(堺)</span></div>
+<div class="lb-grid">
+<span class="k">ITEM</span><span class="k">色</span><span class="k">SIZE</span><span class="k">號室</span>
+<span class="v">V</span><span class="v">RU657</span><span class="v">1810*600</span><span class="v">403</span>
+</div>
+<div class="lb-foot"><span class="co">(주) 아이칸</span><span class="no">2097-1</span></div>
+</div>
+<div class="lb" style="--lb:#FF7C80">
+<div class="lb-site"><span class="k">現場名</span><span class="v">田畑邸(堺)</span></div>
+<div class="lb-grid">
+<span class="k">ITEM</span><span class="k">色</span><span class="k">SIZE</span><span class="k">號室</span>
+<span class="v">K</span><span class="v">CT402</span><span class="v">1810*600</span><span class="v">403</span>
+</div>
+<div class="lb-foot"><span class="co">(주) 아이칸</span><span class="no">2101-1</span></div>
+</div>
+</div>
+<ul class="ik-swatch" style="justify-content:center;margin:16px 0 0">
+<li><i style="--sw:#00B0F0"></i>블루 #00B0F0 · 도쿄 블루라벨</li>
+<li><i style="--sw:#FF7C80"></i>레드 #FF7C80 · 오사카 레드라벨</li>
+</ul>
+<figcaption>라벨 한 장(50×38mm)의 구성. 작은 회색 글자는 양식에 고정된 머리글이고, 굵은 글자가 표에 입력하는 값입니다. 화면 설명용 그림이며 실제 인쇄 크기·글꼴은 4-2와 같습니다.</figcaption>
+</figure>
+<div class="ik-table"><table>
+<thead>
+<tr>
+<th>구분</th>
+<th>항목</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>고정 (양식에 인쇄됨)</strong></td>
+<td>現場名, ITEM, 色, SIZE, 號室, (주) 아이칸</td>
+<td>입력하지 않음</td>
+</tr>
+<tr>
+<td><strong>입력 (도면 보고 채움)</strong></td>
+<td>현장명, ITEM 값, 色(색상코드), SIZE, 號室(호실), No.(우측 하단 번호)</td>
+<td>표에 입력</td>
+</tr>
+</tbody>
+</table></div><h2 id="4-2-글꼴과-크기-기존-엑셀-양식과-동일">4-2. 글꼴과 크기 (기존 엑셀 양식과 동일)</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>요소</th>
+<th>크기</th>
+<th>굵기</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>머리글 (現場名 · ITEM · 色 · SIZE · 號室)</td>
+<td>7pt</td>
+<td>보통</td>
+</tr>
+<tr>
+<td>입력값 (현장명 · ITEM · 色 · SIZE · 號室)</td>
+<td>8pt</td>
+<td>굵게</td>
+</tr>
+<tr>
+<td>No. (우측 하단 번호)</td>
+<td>8pt</td>
+<td>굵게</td>
+</tr>
+<tr>
+<td>(주) 아이칸</td>
+<td>6pt</td>
+<td>굵게</td>
+</tr>
+</tbody>
+</table></div><ul>
+<li>글꼴: <strong>맑은 고딕</strong> (일본어 글자가 없을 경우 Yu Gothic / Meiryo로 자동 대체)</li>
+<li>칸 위치·선 굵기는 기존 엑셀 도형 좌표를 그대로 mm로 환산해 재현했습니다.</li>
+</ul><h2 id="4-3-글자-자동-맞춤">4-3. 글자 자동 맞춤</h2><ul>
+<li><strong>현장명</strong>: 칸을 넘치면 글자가 6.5pt까지 줄어듭니다. 그래도 길면 <strong>2줄로 접히며</strong>, 두 줄 길이가 고르게 나뉘도록 줄바꿈합니다. (필요하면 4pt까지 더 줄어듦)</li>
+<li><strong>ITEM · 色 · SIZE · 號室 · No.</strong>: 칸을 넘치면 한 줄을 유지한 채 4.5pt까지 줄어듭니다.</li>
+<li>미리보기와 인쇄물은 같은 방식으로 계산되므로, <strong>미리보기에서 보이는 그대로 인쇄</strong>됩니다.</li>
+</ul><h2 id="4-4-라벨-색상">4-4. 라벨 색상</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>색</th>
+<th>색상값</th>
+<th>기존 엑셀 시트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>블루</td>
+<td><code>#00B0F0</code></td>
+<td>도쿄 블루라벨</td>
+</tr>
+<tr>
+<td>레드</td>
+<td><code>#FF7C80</code></td>
+<td>오사카 레드라벨</td>
+</tr>
+</tbody>
+</table></div><h2 id="4-5-라벨지-규격--아이라벨-cl920">4-5. 라벨지 규격 — 아이라벨 CL920</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>항목</th>
+<th>제조사 규격 (세로 기준)</th>
+<th>프로그램 출력 (가로 기준)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>용지</td>
+<td>A4 210×297mm</td>
+<td>A4 가로 297×210mm</td>
+</tr>
+<tr>
+<td>라벨 크기</td>
+<td>38×50mm</td>
+<td><strong>50×38mm</strong></td>
+</tr>
+<tr>
+<td>칸 수</td>
+<td>4열 × 5행 = 20칸</td>
+<td><strong>5열 × 4행 = 20칸</strong></td>
+</tr>
+<tr>
+<td>좌우 여백</td>
+<td>18.5mm</td>
+<td>15.5mm</td>
+</tr>
+<tr>
+<td>상하 여백</td>
+<td>15.5mm</td>
+<td>18.5mm</td>
+</tr>
+<tr>
+<td>가로 간격</td>
+<td>7mm</td>
+<td>4mm</td>
+</tr>
+<tr>
+<td>세로 간격</td>
+<td>4mm</td>
+<td>7mm</td>
+</tr>
+<tr>
+<td>모서리</td>
+<td>R2</td>
+<td>R2</td>
+</tr>
+</tbody>
+</table></div><ul>
+<li>기존 엑셀 양식과 같은 <strong>가로 방향</strong>으로 출력합니다. 라벨지를 평소대로 프린터에 넣으면 됩니다.</li>
+<li>칸 번호는 <strong>왼쪽 위 1번 → 오른쪽으로 5번</strong>, 다음 줄 6~10번 … 마지막 20번 순서입니다.</li>
+</ul><!-- 아이라벨 CL920 가로 배치 (4-5). 칸 위치는 mm 값을 %로 환산 -->
+<figure class="ik-fig">
+<div aria-label="A4 가로 297×210mm에 50×38mm 라벨 20칸이 5열 4행으로 놓인 배치. 왼쪽 위가 1번, 오른쪽 아래가 20번." class="sheet" role="img">
+<span class="sheet-dim is-w">297mm</span><span class="sheet-dim is-h">210mm</span>
+<div aria-hidden="true" class="sheet-cells">
+<i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i><i>10</i>
+<i>11</i><i>12</i><i>13</i><i>14</i><i>15</i><i>16</i><i>17</i><i>18</i><i>19</i><i>20</i>
+</div>
+</div>
+<figcaption>A4 가로에 5열 × 4행 = 20칸. 라벨 50×38mm, 좌우 여백 15.5mm · 상하 여백 18.5mm, 가로 간격 4mm · 세로 간격 7mm. 칸 번호는 왼쪽 위 1번에서 오른쪽으로 5번, 다음 줄 6–10번 순서입니다.</figcaption>
+</figure>
+<nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#3-화면-구성"><small>← 앞 장 03</small><b>화면 구성</b></a><a class="is-next" href="#5-라벨-내용-입력하기"><small>다음 장 05 →</small><b>라벨 내용 입력하기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="5-라벨-내용-입력하기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 05</p><h1>라벨 내용 입력하기</h1></header><h2 id="5-1-입력-표의-열">5-1. 입력 표의 열</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>열</th>
+<th>내용</th>
+<th>입력 예</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>#</strong></td>
+<td>행 번호 + ⠿ 순서 손잡이</td>
+<td>—</td>
+<td>자동</td>
+</tr>
+<tr>
+<td><strong>색</strong></td>
+<td>라벨 바탕색 칩</td>
+<td>—</td>
+<td>클릭해서 블루 ↔ 레드</td>
+</tr>
+<tr>
+<td><strong>現場名 (현장명)</strong></td>
+<td>현장 이름</td>
+<td><code>田畑邸(堺)</code></td>
+<td>이전 입력값 자동완성</td>
+</tr>
+<tr>
+<td><strong>ITEM</strong></td>
+<td>품목 구분</td>
+<td><code>V</code>, <code>K</code>, <code>U</code>, <code>BG</code></td>
+<td>선택 목록 제공, 대문자 변환</td>
+</tr>
+<tr>
+<td><strong>色 (색상코드)</strong></td>
+<td>자재 색상 코드</td>
+<td><code>RU657</code>, <code>CT402</code></td>
+<td>이전 입력값 자동완성, 대문자 변환</td>
+</tr>
+<tr>
+<td><strong>SIZE</strong></td>
+<td>치수</td>
+<td><code>1810*600</code></td>
+<td><code>1810x600</code>도 자동 변환</td>
+</tr>
+<tr>
+<td><strong>號室 (호실)</strong></td>
+<td>호실</td>
+<td><code>403</code></td>
+<td>비워도 됨</td>
+</tr>
+<tr>
+<td><strong>No. (우측하단)</strong></td>
+<td>라벨 우측 하단 번호</td>
+<td><code>2097-1</code></td>
+<td>작업/주문 번호 등</td>
+</tr>
+<tr>
+<td><strong>매수</strong></td>
+<td>같은 라벨 장수</td>
+<td><code>1</code> ~ <code>999</code></td>
+<td>비우거나 0이면 1장</td>
+</tr>
+<tr>
+<td>(버튼)</td>
+<td>⧉ 복제 / ✕ 삭제</td>
+<td>—</td>
+<td></td>
+</tr>
+</tbody>
+</table></div><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p><strong>빈 행은 인쇄되지 않습니다.</strong> 현장명·ITEM·色·SIZE·號室·No. 중 하나라도 입력된 행만 라벨이 됩니다.</p>
+</div><h2 id="5-2-기본-입력-흐름">5-2. 기본 입력 흐름</h2><ol class="ik-steps is-plain"><li><div><p>표의 <strong>現場名</strong> 칸을 클릭하고 현장명을 입력합니다.</p></div></li><li><div><p><kbd>Tab</kbd>으로 오른쪽 칸(ITEM → 色 → SIZE → 號室 → No. → 매수)으로 이동하며 입력합니다.</p></div></li><li><div><p><kbd>Enter</kbd>를 누르면 <strong>같은 열의 아래 행</strong>으로 내려갑니다.
+   - 마지막 행에서 Enter를 누르면 <strong>새 행이 자동으로 추가</strong>됩니다. 새 행의 라벨색은 바로 위 행과 같습니다.</p></div></li><li><div><p>입력하는 즉시 오른쪽 미리보기에 반영됩니다.</p></div></li></ol><h2 id="5-3-자동완성-선택-목록">5-3. 자동완성 (선택 목록)</h2><ul>
+<li><strong>ITEM</strong>: <code>V</code> · <code>K</code> · <code>U</code> · <code>BG</code> 목록이 나타납니다. 목록에 없는 값도 직접 입력할 수 있습니다.</li>
+<li><strong>現場名</strong>: 최근 입력한 현장명 최대 80개가 목록으로 나타납니다.</li>
+<li><strong>色</strong>: 최근 입력한 색상코드 최대 60개가 목록으로 나타납니다.</li>
+<li>자동완성 목록은 입력할 때마다 쌓이며, PC에 함께 자동 저장됩니다.</li>
+</ul><h2 id="5-4-입력을-빠르게-하는-기능">5-4. 입력을 빠르게 하는 기능</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>기능</th>
+<th>방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>윗칸 내용 그대로 복사</td>
+<td>칸에서 <kbd>Ctrl</kbd>+<kbd>D</kbd></td>
+</tr>
+<tr>
+<td>현재 행을 통째로 복제해 아래에 추가</td>
+<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> 또는 ⧉ 버튼</td>
+</tr>
+<tr>
+<td>위 행으로 이동</td>
+<td><kbd>Shift</kbd>+<kbd>Enter</kbd></td>
+</tr>
+<tr>
+<td>위/아래 행으로 이동 (SIZE · 號室 · No. · 매수 칸)</td>
+<td><kbd>↑</kbd> / <kbd>↓</kbd></td>
+</tr>
+<tr>
+<td>엑셀 범위를 표에 바로 붙이기</td>
+<td>시작할 칸 클릭 후 <kbd>Ctrl</kbd>+<kbd>V</kbd> (<a href="#8-엑셀에서-가져오기-붙여넣기">8장</a>)</td>
+</tr>
+</tbody>
+</table></div><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>現場名 · ITEM · 色 칸은 ↑/↓ 키가 자동완성 목록 선택에 쓰이므로 행 이동은 Enter / Shift+Enter를 사용하세요.</p>
+</div><h2 id="5-5-매수">5-5. 매수</h2><ul>
+<li>같은 내용의 라벨이 여러 장 필요하면 행을 여러 개 만들 필요 없이 <strong>매수</strong>만 늘리면 됩니다.</li>
+<li>매수만큼 라벨이 <strong>연속으로</strong> 배치됩니다.</li>
+<li>최대 999장, 숫자가 아니거나 0이면 1장으로 처리됩니다.</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#4-라벨-양식과-규격"><small>← 앞 장 04</small><b>라벨 양식과 규격</b></a><a class="is-next" href="#6-행-관리--추가복제삭제순서-바꾸기"><small>다음 장 06 →</small><b>행 관리 — 추가·복제·삭제·순서 바꾸기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="6-행-관리--추가복제삭제순서-바꾸기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 06</p><h1>행 관리 — 추가·복제·삭제·순서 바꾸기</h1></header><h2 id="6-1-추가">6-1. 추가</h2><ul>
+<li>표 아래 <span class="ik-ui">+ 행 추가</span> 버튼 → 맨 아래에 빈 행 추가 (라벨색은 '새 행 색상' 설정을 따름)</li>
+<li>마지막 행에서 <kbd>Enter</kbd> → 같은 색의 새 행 자동 추가</li>
+</ul><h2 id="6-2-복제">6-2. 복제</h2><ul>
+<li>행 오른쪽 <strong>⧉</strong> 버튼 또는 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> → 그 행과 똑같은 행이 바로 아래에 생깁니다.</li>
+<li>같은 현장의 비슷한 라벨(예: <code>2101-1</code>, <code>2101-2</code>)을 만들 때 복제 후 다른 부분만 고치면 빠릅니다.</li>
+</ul><h2 id="6-3-삭제">6-3. 삭제</h2><ul>
+<li>행 오른쪽 <strong>✕</strong> 버튼 → 즉시 삭제, 하단에 <span class="ik-ui">되돌리기</span> 알림이 잠깐 표시됩니다.</li>
+<li>마지막 남은 행을 지우면 빈 행 하나가 남습니다.</li>
+</ul><h2 id="6-4-순서-바꾸기">6-4. 순서 바꾸기</h2><p><strong>라벨은 표의 위→아래 순서대로 1번 칸부터 찍힙니다.</strong> 순서를 바꾸는 방법은 두 가지입니다.</p><p><strong>① 드래그</strong></p><ol class="ik-steps is-plain"><li><div><p>행 번호 왼쪽의 <strong>⠿ 손잡이</strong>에 마우스를 올리면 손 모양 커서가 됩니다.</p></div></li><li><div><p>누른 채로 위아래로 끌면, 놓을 위치에 <strong>검은 줄</strong>이 표시됩니다.</p></div></li><li><div><p>원하는 위치에서 놓으면 이동합니다. 이동한 행은 잠깐 노란색으로 반짝입니다.</p></div></li><li><div><p>목록이 길면 표의 위·아래 끝으로 끌 때 <strong>자동으로 스크롤</strong>됩니다.</p></div></li></ol><p><strong>② 키보드</strong></p><ul>
+<li>옮길 행의 아무 칸에 커서를 두고 <kbd>Alt</kbd>+<kbd>↑</kbd> (한 칸 위로) / <kbd>Alt</kbd>+<kbd>↓</kbd> (한 칸 아래로)</li>
+<li>커서가 행을 따라가므로 여러 번 눌러 연속으로 옮길 수 있습니다.</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#5-라벨-내용-입력하기"><small>← 앞 장 05</small><b>라벨 내용 입력하기</b></a><a class="is-next" href="#7-라벨-색상-블루--레드"><small>다음 장 07 →</small><b>라벨 색상 (블루 / 레드)</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="7-라벨-색상-블루--레드" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 07</p><h1>라벨 색상 (블루 / 레드)</h1></header><div class="ik-table"><table>
+<thead>
+<tr>
+<th>기능</th>
+<th>방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>한 행의 색 바꾸기</td>
+<td>행 맨 앞 <strong>색 칩</strong> 클릭 (블루 ↔ 레드)</td>
+</tr>
+<tr>
+<td>새로 추가될 행의 기본 색</td>
+<td>상단 <strong>새 행 색상</strong> <span class="ik-ui">블루</span> / <span class="ik-ui">레드</span> 선택</td>
+</tr>
+<tr>
+<td>모든 행 한꺼번에</td>
+<td><span class="ik-ui">전체 블루</span> / <span class="ik-ui">전체 레드</span> (되돌리기 가능)</td>
+</tr>
+<tr>
+<td>엑셀 붙여넣기 시 지정</td>
+<td>8번째 열에 <code>블루</code> / <code>레드</code> 입력 (<a href="#8-엑셀에서-가져오기-붙여넣기">8장</a>)</td>
+</tr>
+</tbody>
+</table></div><ul>
+<li>'새 행 색상'을 바꾸면 <strong>아직 아무것도 입력되지 않은 빈 행</strong>도 함께 그 색으로 바뀝니다.</li>
+<li>블루와 레드를 한 시트에 섞을지, 시트를 나눌지는 <strong>색상별 시트 나누기</strong> 옵션으로 정합니다 (<a href="#11-인쇄-옵션">11장</a>).</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#6-행-관리--추가복제삭제순서-바꾸기"><small>← 앞 장 06</small><b>행 관리 — 추가·복제·삭제·순서 바꾸기</b></a><a class="is-next" href="#8-엑셀에서-가져오기-붙여넣기"><small>다음 장 08 →</small><b>엑셀에서 가져오기 (붙여넣기)</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="8-엑셀에서-가져오기-붙여넣기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 08</p><h1>엑셀에서 가져오기 (붙여넣기)</h1></header><p>두 가지 방법이 있습니다.</p><h2 id="8-1-엑셀에서-붙여넣기-창-사용">8-1. <span class="ik-ui">엑셀에서 붙여넣기</span> 창 사용</h2><ol class="ik-steps is-plain"><li><div><p>엑셀에서 아래 <strong>순서대로 된 열</strong>을 범위 선택 후 복사(Ctrl+C)합니다.</p>
+<div class="ik-table"><table>
+<thead>
+<tr>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>現場名</td>
+<td>ITEM</td>
+<td>色</td>
+<td>SIZE</td>
+<td>號室</td>
+<td>No.</td>
+<td>매수</td>
+<td>라벨색</td>
+</tr>
+</tbody>
+</table></div></div></li></ol><ul>
+<li><strong>뒤쪽 열은 없어도 됩니다.</strong> (예: 1~6열만 복사해도 됨)</li>
+<li>매수가 비어 있으면 1장</li>
+<li>라벨색은 <code>블루</code> / <code>레드</code> (또는 <code>B</code> / <code>R</code>, <code>blue</code> / <code>red</code>, <code>파랑</code> / <code>빨강</code>, <code>도쿄</code> / <code>오사카</code> 등). 비어 있으면 '새 행 색상'을 따릅니다.
+2. 프로그램에서 <span class="ik-ui">엑셀에서 붙여넣기</span> 클릭 → 입력란에 붙여넣기(Ctrl+V)
+3. 필요하면 <strong>"기존 내용을 지우고 새로 채우기"</strong> 체크</li>
+<li>체크 안 함: 기존 행 뒤에 이어서 추가 (기존의 빈 행은 정리됨)</li>
+<li>체크함: 기존 행을 모두 지우고 붙여넣은 내용만 남김
+4. <span class="ik-ui">추가하기</span> 클릭 → 하단에 "n행을 추가했어요" 알림 (되돌리기 가능)</li>
+</ul><h2 id="8-2-표에-바로-ctrlv">8-2. 표에 바로 Ctrl+V</h2><ol class="ik-steps is-plain"><li><div><p>엑셀에서 여러 칸(여러 행/열)을 복사합니다.</p></div></li><li><div><p>프로그램 표에서 <strong>채우기 시작할 칸</strong>을 클릭하고 <kbd>Ctrl</kbd>+<kbd>V</kbd></p></div></li><li><div><p>클릭한 칸부터 오른쪽·아래로 채워지며, 행이 모자라면 <strong>자동으로 추가</strong>됩니다.
+   - 열 순서: 現場名 → ITEM → 色 → SIZE → 號室 → No. → 매수 (라벨색 열은 이 방법에선 쓰이지 않음)
+   - 예: SIZE 칸을 클릭하고 붙이면 SIZE · 號室 · No. … 순서로 들어갑니다.</p></div></li><li><div><p>한 칸짜리 내용을 붙이면 일반 붙여넣기처럼 그 칸에만 들어갑니다.</p></div></li></ol><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>엑셀 셀 안의 줄바꿈은 공백 한 칸으로 바뀌어 들어갑니다.</p>
+</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#7-라벨-색상-블루--레드"><small>← 앞 장 07</small><b>라벨 색상 (블루 / 레드)</b></a><a class="is-next" href="#9-인쇄-미리보기"><small>다음 장 09 →</small><b>인쇄 미리보기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="9-인쇄-미리보기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 09</p><h1>인쇄 미리보기</h1></header><ul>
+<li>오른쪽에 <strong>A4 가로 시트가 실제 배치 그대로</strong> 표시됩니다. 창 크기에 맞춰 자동으로 확대·축소됩니다.</li>
+<li>시트마다 위에 표시되는 정보:</li>
+<li><code>1 / 2 매</code> — 몇 번째 장인지</li>
+<li>색 표시 — 색상별 시트 나누기 사용 시 그 장의 색</li>
+<li>시작 칸 표시 — 이어 쓰는 장이면 <code>6번 칸부터 [처음부터]</code></li>
+<li>오른쪽 끝 — 그 장에 찍히는 라벨 장수</li>
+<li>칸 표시:</li>
+<li><strong>점선 칸</strong> — 비어 있는 칸 (칸 번호 표시)</li>
+<li><strong>빗금 칸 "사용됨"</strong> — 이어 쓰기로 건너뛰는 칸</li>
+<li><strong>"시작" 표시</strong> — 그 장의 첫 인쇄 칸</li>
+<li>점선·빗금·번호·"시작" 표시는 <strong>화면에만</strong> 보이고 인쇄되지 않습니다.</li>
+<li>하단 상태 표시줄에 <strong>총 라벨 장수 / 블루 장수 / 레드 장수 / 시트 매수</strong>가 표시됩니다. 라벨지를 몇 장 준비할지 확인할 때 쓰세요.</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#8-엑셀에서-가져오기-붙여넣기"><small>← 앞 장 08</small><b>엑셀에서 가져오기 (붙여넣기)</b></a><a class="is-next" href="#10-남은-라벨지-이어-쓰기--장별-시작-칸"><small>다음 장 10 →</small><b>남은 라벨지 이어 쓰기 — 장별 시작 칸</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="10-남은-라벨지-이어-쓰기--장별-시작-칸" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 10</p><h1>남은 라벨지 이어 쓰기 — 장별 시작 칸</h1></header><p>앞부분을 이미 써 버린 라벨지를 다시 쓸 때, <strong>그 장의 몇 번 칸부터 찍을지</strong> 정할 수 있습니다.
+<strong>장마다 따로</strong> 정할 수 있어서, 남은 라벨지 여러 장을 한꺼번에 소진할 수 있습니다.</p><h2 id="10-1-시작-칸-정하기">10-1. 시작 칸 정하기</h2><ol class="ik-steps is-plain"><li><div><p>미리보기에서 해당 장의 <strong>시작할 칸을 클릭</strong>합니다. (라벨이 이미 그려진 칸도 클릭 가능)</p></div></li><li><div><p>그 장은 클릭한 칸부터 라벨이 채워지고, 앞 칸들은 <strong>"사용됨"</strong> 빗금으로 비워집니다.</p></div></li><li><div><p>밀려난 라벨은 다음 장으로 넘어갑니다.</p></div></li></ol><h2 id="10-2-시작-칸-해제">10-2. 시작 칸 해제</h2><ul>
+<li>한 장만 해제: 그 장 제목 오른쪽 <code>n번 칸부터</code> 옆 <span class="ik-ui">처음부터</span> 클릭</li>
+<li>모든 장 해제: 미리보기 맨 위 <span class="ik-ui">모두 처음 칸부터</span> 클릭</li>
+<li><span class="ik-ui">전체 비우기</span>를 하면 시작 칸 설정도 모두 초기화됩니다.</li>
+</ul><h2 id="10-3-사용-예">10-3. 사용 예</h2><div class="ik-example"><span class="ik-example-tag">예시</span>
+<p>1번 칸부터 3칸을 쓴 라벨지 1장, 앞 5칸을 쓴 라벨지 1장, 새 라벨지 여러 장이 있을 때
+1. 미리보기 <strong>1매째</strong>에서 <strong>4번 칸</strong> 클릭
+2. <strong>2매째</strong>에서 <strong>6번 칸</strong> 클릭
+3. 3매째부터는 그대로 (1번 칸부터)
+4. 프린터에 <strong>4번부터 쓸 장 → 6번부터 쓸 장 → 새 라벨지</strong> 순서로 겹쳐 넣고 한 번에 인쇄</p>
+</div><h2 id="10-4-주의할-점">10-4. 주의할 점</h2><ul>
+<li>시작 칸은 <strong>"몇 번째 장인지"에 붙어 있습니다.</strong> 시작 칸을 정한 뒤 라벨을 많이 추가·삭제하거나 매수를 바꾸면 장 구성이 달라져서, 이어 쓸 라벨지가 의도와 다른 장에 걸릴 수 있습니다.
+  → <strong>내용 입력을 모두 마친 뒤, 인쇄 직전에 시작 칸을 지정</strong>하는 것을 권장합니다.</li>
+<li>'색상별 시트 나누기'를 켠 경우, 장 번호는 블루 장들 → 레드 장들 순서로 이어집니다. (예: 블루 2장, 레드 1장이면 레드 장은 3매째)</li>
+<li>프린터에 넣는 <strong>라벨지 순서와 방향</strong>이 미리보기 장 순서와 같아야 합니다.</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#9-인쇄-미리보기"><small>← 앞 장 09</small><b>인쇄 미리보기</b></a><a class="is-next" href="#11-인쇄-옵션"><small>다음 장 11 →</small><b>인쇄 옵션</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="11-인쇄-옵션" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 11</p><h1>인쇄 옵션</h1></header><p>미리보기 위 옵션 줄에서 설정합니다. 설정은 자동 저장됩니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>옵션</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>색상별 시트 나누기</strong></td>
+<td>켬</td>
+<td>블루 라벨을 먼저 모아 찍고, 레드 라벨은 <strong>새 장</strong>에서 시작합니다. 끄면 표 순서대로 색을 섞어 이어 찍습니다.</td>
+</tr>
+<tr>
+<td><strong>바깥 테두리</strong></td>
+<td>켬</td>
+<td>라벨 가장자리의 진한 테두리선 (기존 엑셀 양식에 있던 선). 프린터가 조금만 밀려도 칼선 옆으로 선이 보일 수 있어, 거슬리면 끄세요.</td>
+</tr>
+<tr>
+<td><strong>색 번짐</strong></td>
+<td>0.6mm</td>
+<td>바탕색을 라벨 칼선 바깥으로 조금 넘겨 찍습니다. 프린터가 살짝 밀려도 라벨 가장자리에 흰 틈이 안 생기게 합니다. 0 ~ 2mm</td>
+</tr>
+<tr>
+<td><strong>보정 X</strong></td>
+<td>0mm</td>
+<td>인쇄 위치 좌우 보정. <strong>+는 오른쪽</strong>, −는 왼쪽. −10 ~ +10mm, 0.1mm 단위</td>
+</tr>
+<tr>
+<td><strong>보정 Y</strong></td>
+<td>0mm</td>
+<td>인쇄 위치 상하 보정. <strong>+는 아래쪽</strong>, −는 위쪽. −10 ~ +10mm, 0.1mm 단위</td>
+</tr>
+</tbody>
+</table></div><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>색상별로 나누기를 켜 두면 블루 라벨지 묶음과 레드 라벨지 묶음을 따로 관리하기 쉽습니다. 블루와 레드 라벨이 모두 있으면 최소 2장이 사용됩니다.</p>
+</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#10-남은-라벨지-이어-쓰기--장별-시작-칸"><small>← 앞 장 10</small><b>남은 라벨지 이어 쓰기 — 장별 시작 칸</b></a><a class="is-next" href="#12-인쇄하기"><small>다음 장 12 →</small><b>인쇄하기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="12-인쇄하기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 12</p><h1>인쇄하기</h1></header><h2 id="12-1-인쇄-순서">12-1. 인쇄 순서</h2><ol class="ik-steps is-plain"><li><div><p>미리보기에서 배치와 내용을 확인합니다.</p></div></li><li><div><p>상단 <span class="ik-ui">인쇄</span> 버튼 또는 <kbd>Ctrl</kbd>+<kbd>P</kbd>를 누릅니다.</p></div></li><li><div><p>브라우저 인쇄 창에서 아래 설정을 <strong>반드시</strong> 확인합니다.</p></div></li></ol><div class="ik-table"><table>
+<thead>
+<tr>
+<th>설정</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>프린터</td>
+<td>라벨지를 넣은 프린터</td>
+</tr>
+<tr>
+<td>용지 크기</td>
+<td><strong>A4</strong></td>
+</tr>
+<tr>
+<td>레이아웃(방향)</td>
+<td><strong>가로</strong></td>
+</tr>
+<tr>
+<td>여백</td>
+<td><strong>없음</strong></td>
+</tr>
+<tr>
+<td>배율</td>
+<td><strong>기본값 (100%)</strong> — '페이지에 맞춤' 사용 금지</td>
+</tr>
+<tr>
+<td>배경 그래픽</td>
+<td><strong>체크</strong> (안 하면 바탕색이 안 나옴)</td>
+</tr>
+<tr>
+<td>머리글/바닥글</td>
+<td>체크 해제</td>
+</tr>
+</tbody>
+</table></div><ol class="ik-steps is-plain" start="4" style="counter-reset:ik-step 3"><li><div><p><span class="ik-ui">인쇄</span> 를 누릅니다.</p></div></li></ol><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>인쇄 창의 설정은 브라우저가 기억하므로 보통 처음 한 번만 맞추면 됩니다.</p>
+</div><h2 id="12-2-인쇄되는-것--안-되는-것">12-2. 인쇄되는 것 / 안 되는 것</h2><ul>
+<li>인쇄됨: 라벨 바탕색, 표 선, 고정 머리글, 입력 내용, (주) 아이칸, No.</li>
+<li>인쇄 안 됨: 화면의 점선 칸, 칸 번호, "사용됨" 빗금, "시작" 표시, 프로그램 화면</li>
+</ul><h2 id="12-3-인쇄할-라벨이-없을-때">12-3. 인쇄할 라벨이 없을 때</h2><ul>
+<li>입력된 행이 하나도 없으면 "인쇄할 라벨이 없어요" 알림이 뜨고 인쇄 창이 열리지 않습니다.</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#11-인쇄-옵션"><small>← 앞 장 11</small><b>인쇄 옵션</b></a><a class="is-next" href="#13-프린터-위치-보정--정렬-테스트-인쇄"><small>다음 장 13 →</small><b>프린터 위치 보정 — 정렬 테스트 인쇄</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="13-프린터-위치-보정--정렬-테스트-인쇄" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 13</p><h1>프린터 위치 보정 — 정렬 테스트 인쇄</h1></header><p>프린터마다 종이를 끌어들이는 위치가 조금씩 달라서, 라벨이 칸에서 몇 mm 밀려 찍힐 수 있습니다. <strong>처음 사용할 때 한 번</strong> 맞춰 두세요.</p><h2 id="13-1-보정-순서">13-1. 보정 순서</h2><ol class="ik-steps is-plain"><li><div><p>상단 <span class="ik-ui">정렬 테스트 인쇄</span> 클릭</p></div></li><li><div><p><strong>일반 A4 용지</strong>에 인쇄합니다. (인쇄 설정은 12장과 동일)
+   - 20칸 위치에 <strong>칸 테두리, 가운데 십자선, 칸 번호(1~20)</strong> 가 찍힙니다.</p></div></li><li><div><p>인쇄한 종이를 <strong>빈 라벨지 위에 겹쳐 빛에 비춰</strong> 봅니다.</p></div></li><li><div><p>찍힌 칸이 라벨 칼선보다
+   - 왼쪽으로 밀렸으면 → <strong>보정 X에 +값</strong> (예: 1mm 왼쪽으로 밀림 → <code>1</code>)
+   - 오른쪽으로 밀렸으면 → <strong>보정 X에 −값</strong>
+   - 위로 밀렸으면 → <strong>보정 Y에 +값</strong>
+   - 아래로 밀렸으면 → <strong>보정 Y에 −값</strong></p></div></li><li><div><p>다시 정렬 테스트 인쇄로 확인하고, 맞을 때까지 반복합니다.</p></div></li></ol><h2 id="13-2-참고">13-2. 참고</h2><ul>
+<li>보정값은 <strong>이 PC의 이 브라우저에 저장</strong>됩니다. 다른 PC·프린터에서는 따로 맞춰야 합니다.</li>
+<li>작업 파일을 <strong>불러오기</strong> 해도 현재 PC의 보정값은 <strong>바뀌지 않고 유지</strong>됩니다. (보정은 PC·프린터 고유 설정이기 때문)</li>
+<li>정렬 테스트 인쇄에도 보정값이 적용되므로, 보정 후 결과를 바로 확인할 수 있습니다.</li>
+<li>바탕색이 가장자리에서 살짝 모자라 보이면 <strong>색 번짐</strong>을 조금 늘리세요 (예: 0.8~1.0mm).</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#12-인쇄하기"><small>← 앞 장 12</small><b>인쇄하기</b></a><a class="is-next" href="#14-저장불러오기와-자동-저장"><small>다음 장 14 →</small><b>저장·불러오기와 자동 저장</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="14-저장불러오기와-자동-저장" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 14</p><h1>저장·불러오기와 자동 저장</h1></header><h2 id="14-1-자동-저장">14-1. 자동 저장</h2><ul>
+<li>입력·옵션 변경 내용은 <strong>입력할 때마다 자동 저장</strong>됩니다. 하단 오른쪽에 "자동 저장됨"이 표시됩니다.</li>
+<li>프로그램을 닫았다 다시 열어도 마지막 내용이 그대로 남아 있습니다.</li>
+<li>자동 저장되는 것: 입력 표 전체, 새 행 색상, 인쇄 옵션, 보정값, 장별 시작 칸, 자동완성 목록</li>
+<li>자동 저장은 <strong>브라우저 안</strong>에 보관됩니다. 따라서</li>
+<li>다른 PC, 다른 브라우저(엣지 ↔ 크롬), 파일 위치를 옮긴 경우에는 보이지 않습니다.</li>
+<li>브라우저 인터넷 사용 기록(사이트 데이터)을 지우면 함께 지워집니다.</li>
+<li>시크릿(InPrivate) 창에서는 저장되지 않을 수 있습니다. 이때 하단에 "이 환경에선 자동 저장이 안 돼요 — '작업 저장'을 써주세요"가 표시됩니다.</li>
+</ul><h2 id="14-2-작업-저장-파일로-보관">14-2. 작업 저장 (파일로 보관)</h2><ul>
+<li>상단 <span class="ik-ui">작업 저장</span> → <code>아이칸라벨_YYYYMMDD_HHMM.json</code> 파일이 내려받기 폴더에 저장됩니다.</li>
+<li>예: <code>아이칸라벨_20261027_1430.json</code></li>
+<li>저장 내용: 모든 행(색·현장명·ITEM·色·SIZE·號室·No.·매수), 인쇄 옵션, 장별 시작 칸</li>
+<li>용도: 작업 보관, 다른 PC로 옮기기, 재출력용 백업</li>
+</ul><h2 id="14-3-불러오기">14-3. 불러오기</h2><ul>
+<li>상단 <span class="ik-ui">불러오기</span> → 저장해 둔 <code>.json</code> 작업 파일 선택</li>
+<li>현재 표 내용이 <strong>파일 내용으로 교체</strong>됩니다. (실수했으면 하단 알림의 <span class="ik-ui">되돌리기</span>)</li>
+<li>파일의 현장명·색상코드는 자동완성 목록에도 추가됩니다.</li>
+<li>현재 PC의 <strong>보정 X/Y는 유지</strong>됩니다.</li>
+<li>라벨 작업 파일이 아니면 "이 파일은 라벨 작업 파일이 아니에요" 알림이 뜹니다.</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#13-프린터-위치-보정--정렬-테스트-인쇄"><small>← 앞 장 13</small><b>프린터 위치 보정 — 정렬 테스트 인쇄</b></a><a class="is-next" href="#15-되돌리기"><small>다음 장 15 →</small><b>되돌리기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="15-되돌리기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 15</p><h1>되돌리기</h1></header><p>아래 작업 직후 하단에 알림과 <span class="ik-ui">되돌리기</span> 버튼이 약 4초간 표시됩니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>되돌릴 수 있는 작업</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>행 삭제 (✕)</td>
+</tr>
+<tr>
+<td>전체 블루 / 전체 레드</td>
+</tr>
+<tr>
+<td>전체 비우기</td>
+</tr>
+<tr>
+<td>엑셀에서 붙여넣기 (창 / 표에 바로 Ctrl+V)</td>
+</tr>
+<tr>
+<td>작업 파일 불러오기</td>
+</tr>
+</tbody>
+</table></div><ul>
+<li><strong>직전 작업 한 번만</strong> 되돌릴 수 있습니다.</li>
+<li>칸에 글자를 입력·수정한 것은 되돌리기 대상이 아닙니다 (입력 칸에서 일반 Ctrl+Z는 브라우저 기본 기능으로 동작).</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#14-저장불러오기와-자동-저장"><small>← 앞 장 14</small><b>저장·불러오기와 자동 저장</b></a><a class="is-next" href="#16-단축키-모음"><small>다음 장 16 →</small><b>단축키 모음</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="16-단축키-모음" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 16</p><h1>단축키 모음</h1></header><h2 id="입력-표">입력 표</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>단축키</th>
+<th>동작</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd></td>
+<td>오른쪽 / 왼쪽 칸</td>
+</tr>
+<tr>
+<td><kbd>Enter</kbd></td>
+<td>같은 열 아래 행 (마지막 행이면 새 행 추가)</td>
+</tr>
+<tr>
+<td><kbd>Shift</kbd>+<kbd>Enter</kbd></td>
+<td>같은 열 위 행</td>
+</tr>
+<tr>
+<td><kbd>↑</kbd> / <kbd>↓</kbd></td>
+<td>위 / 아래 행 (SIZE · 號室 · No. · 매수 칸)</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>D</kbd></td>
+<td>바로 윗칸 내용 복사</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd></td>
+<td>현재 행 복제 (아래에 추가)</td>
+</tr>
+<tr>
+<td><kbd>Alt</kbd>+<kbd>↑</kbd> / <kbd>Alt</kbd>+<kbd>↓</kbd></td>
+<td>현재 행을 위 / 아래로 이동</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>V</kbd> (여러 칸)</td>
+<td>엑셀 범위 붙여넣기</td>
+</tr>
+</tbody>
+</table></div><h2 id="전체">전체</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>단축키</th>
+<th>동작</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>P</kbd></td>
+<td>인쇄</td>
+</tr>
+<tr>
+<td><kbd>Esc</kbd></td>
+<td>열린 창(붙여넣기 / 사용법) 닫기</td>
+</tr>
+</tbody>
+</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#15-되돌리기"><small>← 앞 장 15</small><b>되돌리기</b></a><a class="is-next" href="#17-입력값-자동-정리-규칙"><small>다음 장 17 →</small><b>입력값 자동 정리 규칙</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="17-입력값-자동-정리-규칙" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 17</p><h1>입력값 자동 정리 규칙</h1></header><p>칸에서 다른 칸으로 이동하면(입력 확정 시) 아래처럼 자동 정리됩니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>칸</th>
+<th>정리 규칙</th>
+<th>예</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SIZE</strong></td>
+<td>두 숫자 사이의 <code>x</code>, <code>X</code>, <code>×</code>, <code>＊</code>, 공백, <code>,</code>, <code>/</code> → <code>*</code></td>
+<td><code>1810x600</code>, <code>1810 600</code>, <code>1810×600</code> → <code>1810*600</code></td>
+</tr>
+<tr>
+<td><strong>SIZE</strong></td>
+<td>전각 숫자 → 반각</td>
+<td><code>１８１０＊６００</code> → <code>1810*600</code></td>
+</tr>
+<tr>
+<td><strong>ITEM</strong></td>
+<td>전각 → 반각, 앞뒤 공백 제거, <strong>대문자</strong></td>
+<td><code>bg</code> → <code>BG</code></td>
+</tr>
+<tr>
+<td><strong>色</strong></td>
+<td>전각 → 반각, 앞뒤 공백 제거, <strong>대문자</strong></td>
+<td><code>ru657</code> → <code>RU657</code></td>
+</tr>
+<tr>
+<td><strong>號室 / No.</strong></td>
+<td>전각 → 반각, 앞뒤 공백 제거</td>
+<td><code>２０９７－１</code> → <code>2097-1</code></td>
+</tr>
+<tr>
+<td><strong>매수</strong></td>
+<td>숫자만 인정, 1~999</td>
+<td><code>0</code>, 빈칸, 문자 → <code>1</code></td>
+</tr>
+<tr>
+<td><strong>現場名</strong></td>
+<td>입력한 그대로 (일본어·한자·영문 혼용 가능)</td>
+<td><code>BeCITYキャナルウィング403(T)</code></td>
+</tr>
+</tbody>
+</table></div><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>SIZE는 "숫자 + 구분기호 + 숫자" 형태일 때만 변환됩니다. 다른 형태로 입력하면 입력값 그대로 인쇄됩니다.</p>
+</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#16-단축키-모음"><small>← 앞 장 16</small><b>단축키 모음</b></a><a class="is-next" href="#18-문제-해결-faq"><small>다음 장 18 →</small><b>문제 해결 (FAQ)</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="18-문제-해결-faq" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 18</p><h1>문제 해결 (FAQ)</h1></header><details class="ik-qa"><summary>인쇄했더니 바탕색(파랑/빨강)이 안 나와요.</summary><div class="ik-qa-a"><div><p>인쇄 창의 <strong>"배경 그래픽"</strong> 을 체크하세요. (더 많은 설정 → 옵션 → 배경 그래픽)</p></div></div></details><details class="ik-qa"><summary>라벨이 칸에서 밀려서 찍혀요.</summary><div class="ik-qa-a"><div><p>① 인쇄 창의 <strong>여백 '없음'</strong>, <strong>배율 '기본값(100%)'</strong> 인지 확인 → ② 그래도 밀리면 <a href="#13-프린터-위치-보정--정렬-테스트-인쇄">13장 정렬 테스트 인쇄</a>로 보정 X/Y를 맞추세요.</p></div></div></details><details class="ik-qa"><summary>라벨이 전체적으로 작게(또는 크게) 찍혀요.</summary><div class="ik-qa-a"><div><p>배율이 100%가 아닌 경우입니다. 인쇄 창에서 <strong>'페이지에 맞춤'을 끄고 배율을 기본값/100%</strong> 로 하세요. 보정 X/Y로는 크기를 고칠 수 없습니다.</p></div></div></details><details class="ik-qa"><summary>라벨 가장자리에 흰 틈이 생겨요.</summary><div class="ik-qa-a"><div><p><strong>색 번짐</strong> 값을 조금 올리세요 (예: 0.6 → 1.0mm).</p></div></div></details><details class="ik-qa"><summary>라벨 가장자리에 진한 선이 칼선과 어긋나 보여요.</summary><div class="ik-qa-a"><div><p><strong>바깥 테두리</strong> 옵션을 끄세요.</p></div></div></details><details class="ik-qa"><summary>세로로 인쇄돼요.</summary><div class="ik-qa-a"><div><p>인쇄 창에서 레이아웃을 <strong>가로</strong>로 하세요.</p></div></div></details><details class="ik-qa"><summary>현장명이 너무 작게 나와요.</summary><div class="ik-qa-a"><div><p>현장명이 길어 칸에 맞추느라 줄어든 것입니다. 괄호 속 지역명 등 꼭 필요하지 않은 부분을 줄이면 커집니다.</p></div></div></details><details class="ik-qa"><summary>어제 입력한 내용이 사라졌어요.</summary><div class="ik-qa-a"><div><p>다른 브라우저로 열었거나, 파일 위치가 바뀌었거나, 브라우저 기록을 지운 경우입니다. 원래 쓰던 브라우저·위치로 열어 보세요. 중요한 작업은 <span class="ik-ui">작업 저장</span> 으로 파일을 남겨 두세요.</p></div></div></details><details class="ik-qa"><summary>미리보기에 라벨이 안 보여요.</summary><div class="ik-qa-a"><div><p>행에 내용이 하나도 없으면 라벨로 치지 않습니다. 현장명 등 한 칸 이상 입력하세요.</p></div></div></details><details class="ik-qa"><summary>이어 쓰기를 했더니 이상한 장에 칸이 비어 있어요.</summary><div class="ik-qa-a"><div><p>시작 칸을 정한 뒤 라벨 수가 바뀌어 장 구성이 달라진 경우입니다. 미리보기 맨 위 <span class="ik-ui">모두 처음 칸부터</span> 를 누르고 시작 칸을 다시 지정하세요.</p></div></div></details><details class="ik-qa"><summary>블루랑 레드를 한 장에 같이 찍고 싶어요.</summary><div class="ik-qa-a"><div><p><strong>색상별 시트 나누기</strong>를 끄세요. 표 순서대로 섞여서 찍힙니다.</p></div></div></details><details class="ik-qa"><summary>일본어 글자가 □로 나와요.</summary><div class="ik-qa-a"><div><p>PC에 일본어 글꼴이 없는 경우입니다. Windows 설정 → 시간 및 언어 → 언어에서 <strong>일본어 보충 글꼴</strong>을 설치하세요. (일반적인 Windows 10/11에는 기본 포함)</p></div></div></details><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#17-입력값-자동-정리-규칙"><small>← 앞 장 17</small><b>입력값 자동 정리 규칙</b></a><a class="is-next" href="#19-기술-참고-사항"><small>다음 장 19 →</small><b>기술 참고 사항</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="19-기술-참고-사항" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 19</p><h1>기술 참고 사항</h1></header><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>통합 매뉴얼 작성 및 유지보수용 정보입니다.</p>
+</div><div class="ik-table"><table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>형태</td>
+<td>단일 HTML 파일 (HTML + CSS + JavaScript, 외부 라이브러리·인터넷 불필요)</td>
+</tr>
+<tr>
+<td>인코딩</td>
+<td>UTF-8 (BOM 포함 저장)</td>
+</tr>
+<tr>
+<td>인쇄 방식</td>
+<td>브라우저 인쇄, CSS <code>@page { size: A4 landscape; margin: 0 }</code>, 모든 좌표 mm 단위 절대 배치</td>
+</tr>
+<tr>
+<td>색 인쇄 강제</td>
+<td><code>print-color-adjust: exact</code></td>
+</tr>
+<tr>
+<td>자동 저장</td>
+<td>브라우저 localStorage, 키 <code>ikanLabels.v1</code></td>
+</tr>
+<tr>
+<td>작업 파일</td>
+<td>JSON (<code>app: "IkanLabels"</code>, <code>version: 1</code>, <code>rows</code>, <code>settings</code>)</td>
+</tr>
+<tr>
+<td>라벨 데이터 필드</td>
+<td><code>color</code>(blue/red), <code>site</code>, <code>item</code>, <code>col</code>, <code>size</code>, <code>room</code>, <code>no</code>, <code>qty</code></td>
+</tr>
+<tr>
+<td>설정 필드</td>
+<td><code>defaultColor</code>, <code>split</code>, <code>outline</code>, <code>bleed</code>, <code>offX</code>, <code>offY</code>, <code>starts</code>(장별 시작 칸 배열, 0부터)</td>
+</tr>
+<tr>
+<td>하위 호환</td>
+<td>v1의 첫 장 시작 칸(<code>start</code>)은 v2에서 <code>starts[0]</code>으로 자동 변환</td>
+</tr>
+<tr>
+<td>양식 좌표 출처</td>
+<td>기존 엑셀 라벨 양식의 도형 좌표(EMU)를 50×38mm로 환산</td>
+</tr>
+<tr>
+<td>관련 프로그램</td>
+<td>아이칸 작업지시서 관리자 (IkanWorkorders) — 향후 작업지시서 데이터에서 라벨 자동 채움 연동 가능</td>
+</tr>
+</tbody>
+</table></div><h2 id="버전-이력">버전 이력</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>버전</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v1</td>
+<td>최초 버전 — 고정 양식, 블루/레드, 표 입력, 엑셀 붙여넣기, 매수, 미리보기, 첫 장 시작 칸, 색상별 시트 나누기, 바깥 테두리, 색 번짐, 위치 보정, 정렬 테스트 인쇄, 자동 저장, 작업 저장/불러오기, 되돌리기</td>
+</tr>
+<tr>
+<td>v2</td>
+<td>행 순서 바꾸기 (드래그 손잡이, Alt+↑/↓) · <strong>장별 시작 칸 지정</strong> (모든 장에서 클릭, 장별 해제 버튼, 전체 해제)</td>
+</tr>
+</tbody>
+</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#18-문제-해결-faq"><small>← 앞 장 18</small><b>문제 해결 (FAQ)</b></a></nav></section>
+<div class="ik-div ik-div-stamp" role="separator" aria-label="검수 완료"><span class="ik-div-layers is-left"><i></i><i></i><i></i></span><span class="ik-stamp"><span><b>검수</b><small>IKAN</small></span></span><span class="ik-div-layers is-right"><i></i><i></i><i></i></span></div><p class="ik-small" style="text-align:center;max-width:none">아이칸 라벨 출력기 사용 설명서 · 기준 버전 v2 · (주) 아이칸 사내용</p>
+</main>
+</div>
+<script src="../assets/search-index.js?v=67567309"></script><script src="../assets/ikan.js?v=67567309"></script>
+</body>
+</html>

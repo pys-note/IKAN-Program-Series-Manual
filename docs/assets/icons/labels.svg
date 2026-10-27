@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- 임시 아이콘: 라벨 출력기 정식 아이콘이 정해지면 이 파일만 교체 -->
+  <g transform="rotate(-9 52 58)">
+    <rect x="10" y="24" width="78" height="62" rx="7" fill="#00B0F0" stroke="#1F2B47" stroke-width="4"/>
+    <rect x="19" y="33" width="60" height="13" rx="2" fill="#FFFFFF"/>
+    <rect x="19" y="51" width="60" height="11" rx="2" fill="#FFFFFF" opacity=".8"/>
+    <rect x="19" y="67" width="34" height="9" rx="2" fill="#FFFFFF" opacity=".8"/>
+  </g>
+  <g transform="rotate(6 76 76)">
+    <rect x="36" y="44" width="78" height="62" rx="7" fill="#FF7C80" stroke="#1F2B47" stroke-width="4"/>
+    <rect x="45" y="53" width="60" height="13" rx="2" fill="#FFFFFF"/>
+    <rect x="45" y="71" width="60" height="11" rx="2" fill="#FFFFFF" opacity=".8"/>
+    <rect x="45" y="87" width="34" height="9" rx="2" fill="#FFFFFF" opacity=".8"/>
+  </g>
+  <circle cx="104" cy="104" r="17" fill="#E5541C" stroke="#FFFFFF" stroke-width="4"/>
+  <path d="M96.5 104.5l5.2 5.2 9.3-10.2" fill="none" stroke="#FFFFFF" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

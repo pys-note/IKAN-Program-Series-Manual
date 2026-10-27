@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- 임시 아이콘: 도면확대인쇄 정식 아이콘이 정해지면 이 파일만 교체 -->
+  <rect x="14" y="8" width="72" height="96" rx="6" fill="#FFFFFF" stroke="#1F2B47" stroke-width="4"/>
+  <path d="M25 26h36M25 37h50M25 48h28" stroke="#AEB7C4" stroke-width="5" stroke-linecap="round"/>
+  <rect x="24" y="62" width="30" height="22" rx="1" fill="none" stroke="#2F6FE0" stroke-width="3.5" stroke-dasharray="6 4"/>
+  <circle cx="80" cy="76" r="24" fill="#E2F2F3" stroke="#0F7A86" stroke-width="8"/>
+  <path d="M70 76h20M80 66v20" stroke="#0F7A86" stroke-width="6" stroke-linecap="round"/>
+  <path d="M97 94l18 18" stroke="#1F2B47" stroke-width="11" stroke-linecap="round"/>
+  <circle cx="104" cy="24" r="14" fill="#E5541C" stroke="#FFFFFF" stroke-width="4"/>
+  <path d="M98 24h12M104 18v12" stroke="#FFFFFF" stroke-width="3.6" stroke-linecap="round"/>
+</svg>
