@@ -120,9 +120,71 @@
     });
   });
   document.querySelectorAll('[data-print]').forEach(function (b) {
-    b.addEventListener('click', function () { document.querySelectorAll('.ik-qa').forEach(function (d) { d.open = true; }); window.print(); });
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.ik-qa').forEach(function (d) { d.open = true; });
+      var imgs = [].slice.call(document.querySelectorAll('img[loading=lazy]'));
+      imgs.forEach(function (img) { img.loading = 'eager'; });
+      Promise.all(imgs.map(function (img) { return img.complete ? 0 : new Promise(function (r) { img.onload = img.onerror = r; }); })).then(function () { window.print(); });
+    });
   });
-  window.addEventListener('beforeprint', function () { document.querySelectorAll('.ik-qa').forEach(function (d) { d.open = true; }); });
+  window.addEventListener('beforeprint', function () {
+    document.querySelectorAll('.ik-qa').forEach(function (d) { d.open = true; });
+    document.querySelectorAll('img[loading=lazy]').forEach(function (img) { img.loading = 'eager'; });
+  });
+
+  /* 실제 화면: 번호 ↔ 설명 강조, 크게 보기 */
+  document.querySelectorAll('.ik-shot').forEach(function (fig) {
+    var on = function (n, flag) { fig.querySelectorAll('[data-pin="' + n + '"]').forEach(function (el) { el.classList.toggle('is-on', flag); }); };
+    fig.querySelectorAll('[data-pin]').forEach(function (el) {
+      var n = el.getAttribute('data-pin');
+      el.addEventListener('mouseenter', function () { on(n, true); });
+      el.addEventListener('mouseleave', function () { on(n, false); });
+      el.addEventListener('focus', function () { on(n, true); });
+      el.addEventListener('blur', function () { on(n, false); });
+      if (el.classList.contains('ik-pin')) {
+        el.addEventListener('click', function () {
+          var li = fig.querySelector('li[data-pin="' + n + '"]');
+          if (!li) return;
+          li.scrollIntoView({ block: 'nearest' });
+          li.classList.add('is-on');
+          setTimeout(function () { li.classList.remove('is-on'); }, 1800);
+        });
+      }
+    });
+  });
+  var dlg = document.getElementById('ik-zoom');
+  if (dlg && typeof dlg.showModal === 'function') {
+    var zb = document.getElementById('ik-zoom-body'), zn = document.getElementById('ik-zoom-note'), zt = document.getElementById('ik-zoom-title');
+    document.querySelectorAll('.ik-shot-frame img').forEach(function (img) {
+      img.addEventListener('click', function () { var b = img.closest('.ik-shot').querySelector('[data-zoom]'); if (b) b.click(); });
+    });
+    document.querySelectorAll('.ik-shot [data-zoom]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var fig = btn.closest('.ik-shot'), frame = fig.querySelector('.ik-shot-frame').cloneNode(true), img = frame.querySelector('img');
+        frame.removeAttribute('style');
+        img.loading = 'eager';
+        frame.style.width = img.getAttribute('width') + 'px';
+        zb.innerHTML = ''; zb.appendChild(frame);
+        var capText = fig.querySelector('.ik-shot-cap');
+        zt.textContent = capText ? capText.textContent : '화면 크게 보기';
+        var pins = frame.querySelectorAll('.ik-pin');
+        zn.textContent = pins.length ? '번호를 누르면 설명이 여기에 나옵니다.' : '';
+        pins.forEach(function (pin) {
+          pin.addEventListener('click', function () {
+            var li = fig.querySelector('li[data-pin="' + pin.getAttribute('data-pin') + '"]');
+            zn.innerHTML = li ? '<b>' + pin.getAttribute('data-pin') + '</b>' + li.lastElementChild.innerHTML : '';
+            pins.forEach(function (x) { x.classList.toggle('is-on', x === pin); });
+          });
+        });
+        dlg.showModal();
+        zb.scrollTop = 0; zb.scrollLeft = 0;
+      });
+    });
+    dlg.querySelector('[data-zoom-close]').addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  } else {
+    document.querySelectorAll('.ik-shot [data-zoom]').forEach(function (b) { b.hidden = true; });
+  }
 
   /* 목차 현재 위치 */
   var links = [].slice.call(document.querySelectorAll('.ik-toc a[href^="#"]'));

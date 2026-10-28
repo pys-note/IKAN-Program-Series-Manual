@@ -7,7 +7,7 @@
 <meta name="description" content="하루치 원본 데이터를 지역별 상판·뒷턱·타공 개수로 집계하고, 파렛트를 적어 Excel로 저장·인쇄합니다.">
 <link rel="icon" href="../assets/icons/packing.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link rel="stylesheet" href="../assets/ikan.css?v=b49ee229">
+<link rel="stylesheet" href="../assets/ikan.css?v=0b2556df">
 </head>
 <body class="ik-app-packing">
 <a class="ik-skip" href="#main">본문 바로가기</a>
@@ -19,7 +19,7 @@
 <p><strong>포장 집계표</strong>는 사용자가 수기 수정한 최종 수량입니다.<br/>
 <strong>집계 근거</strong>는 원본 데이터와 작업 데이터 연동으로 계산한 품목별 근거입니다.<br/>
 집계표를 수기로 고쳐도 품목별 근거 원문이 함께 바뀌지는 않습니다.</p>
-</div></div><div class=ik-quick><a href="#quick-start"><b>처음 사용하는 분</b><small>빠른 순서 9단계</small></a><a href="#evidence"><b>수량이 왜 이렇게 나왔는지</b><small>집계 근거와 확인 사항</small></a><a href="#troubleshooting"><b>막힌 부분을 찾는 분</b><small>오류 해결·자주 묻는 질문</small></a></div><div class="ik-div ik-div-dim" role="separator" aria-label="아이칸 주식회사"><i class="ik-div-tick"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M0 5 L12 0.8 V9.2 Z"/></svg><i class="ik-div-line"></i><span class="ik-div-label"><span class="ik-div-ko">아이칸 주식회사</span><span class="ik-div-en">IKAN CO., LTD.</span></span><i class="ik-div-line"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M12 5 L0 0.8 V9.2 Z"/></svg><i class="ik-div-tick"></i></div></section>
+</div></div><div class=ik-quick><a href="#quick-start"><b>처음 사용하는 분</b><small>빠른 순서 9단계</small></a><a href="#evidence"><b>수량이 왜 이렇게 나왔는지</b><small>집계 근거와 확인 사항</small></a><a href="#troubleshooting"><b>막힌 부분을 찾는 분</b><small>오류 해결·자주 묻는 질문</small></a></div><div class="ik-div ik-div-dim" role="separator" aria-label="주식회사 아이칸"><i class="ik-div-tick"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M0 5 L12 0.8 V9.2 Z"/></svg><i class="ik-div-line"></i><span class="ik-div-label"><span class="ik-div-ko">주식회사 아이칸</span><span class="ik-div-en">IKAN CO., LTD.</span></span><i class="ik-div-line"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M12 5 L0 0.8 V9.2 Z"/></svg><i class="ik-div-tick"></i></div></section>
 <div id="find-empty" class="ik-empty" hidden><b>일치하는 장이 없습니다.</b>더 짧은 단어나 다른 표현으로 찾아보세요. 예: 싱크볼 → 씽크볼, 뒤턱 → 뒷턱</div>
 <section class="ik-chapter" id="setup" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 01</p><h1>설치와 실행 준비</h1></header><h2 id="11-필요한-환경">1.1 필요한 환경</h2><ul>
 <li>Windows 10/11 64비트 PC.</li>
@@ -79,52 +79,7 @@
 <td>22일 고객</td>
 </tr>
 </tbody>
-</table></div><p>해당 시공일의 수도권·지방별 수량을 확인하고, 파렛트를 직접 입력한 뒤 저장·출력합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#setup"><small>← 앞 장 01</small><b>설치와 실행 준비</b></a><a class="is-next" href="#screen"><small>다음 장 03 →</small><b>화면 구성과 버튼 안내</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="screen" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 03</p><h1>화면 구성과 버튼 안내</h1></header><!-- 포장 카운트 화면 구성 (3장). 실제 캡처가 아닌 위치 안내 -->
-<figure class="ik-map pk-screen">
-<div class="ik-map-win">
-<div class="ik-map-row is-top">아이칸 포장 카운트 <span>불러온 원본 파일 이름</span></div>
-<div class="ik-map-cols pk-screen-cols">
-<div>
-<em>3.1 · 왼쪽</em><b>원본과 날짜</b>
-<ol class="pk-left">
-<li><span class="pk-btn is-primary">원본 엑셀 불러오기</span></li>
-<li><span class="pk-field"><small>원본 시공일 선택</small>집계할 날짜</span></li>
-<li class="pk-dates">
-<span class="pk-field"><small>포장일</small>YYYY-MM-DD</span>
-<span class="pk-field"><small>그레이박스 출고일 · 입고</small>YYYY-MM-DD</span>
-<span class="pk-field"><small>시공일 · 고객</small>YYYY-MM-DD</span>
-</li>
-<li><span class="pk-btn">원본 기준 날짜로 복원</span></li>
-</ol>
-</div>
-<div class="is-main">
-<em>3.2 · 오른쪽 위</em><b>최종 집계와 공통 도구</b>
-<div aria-label="상단 합계 표시" class="pk-stats">
-<span><small>오더</small>선택일 근거</span><span><small>상판</small>집계표 합계</span><span><small>뒷턱</small>집계표 합계</span><span><small>타공</small>집계표 합계</span><span><small>파렛트</small>집계표 합계</span>
-</div>
-<div class="pk-tools">
-<span class="pk-btn is-primary">엑셀로 저장</span><span class="pk-btn is-primary">인쇄 · 미리보기</span>
-<i></i>
-<span class="pk-btn">작업 데이터 연동</span><span class="pk-btn">연동 해제</span>
-<i></i>
-<span class="pk-btn">지역 행 추가</span><span class="pk-btn">기준 집계로 되돌리기</span><span class="pk-btn is-warn">확인 사항</span><span class="pk-flag">수기 수정됨</span>
-</div>
-<em class="pk-sub">3.3 · 두 개의 탭</em>
-<div class="pk-tabs"><span class="is-on">포장 집계표</span><span>집계 근거</span></div>
-<div aria-label="포장 집계표 모양" class="pk-grid">
-<span class="h">지역</span><span class="h">상판 개수</span><span class="h">뒷턱</span><span class="h">타공</span><span class="h">파렛트</span>
-<span>수도권</span><span class="n"></span><span class="n"></span><span class="n is-hand">수기</span><span class="n is-hand">입력</span>
-<span>대구</span><span class="n"></span><span class="n"></span><span class="n"></span><span class="n is-hand">입력</span>
-<span class="e"></span><span class="e"></span><span class="e"></span><span class="e"></span><span class="e"></span>
-</div>
-<p class="pk-hint">칸을 <b>더블클릭</b>해 고칩니다. <i class="pk-swatch"></i> 노란 칸은 자동 기준과 다른 값입니다.</p>
-</div>
-</div>
-<div class="ik-map-row is-bottom">3.4 · 상태줄 <span>읽기 · 연동 · 저장 · 미리보기 준비 · 인쇄 전송 상태</span></div>
-</div>
-<figcaption>포장 카운트 화면 구성도입니다. 실제 화면 캡처가 아닌 기능 위치 안내이며, 번호는 이 장의 절 번호입니다.</figcaption>
-</figure>
-<h2 id="31-왼쪽-원본과-날짜">3.1 왼쪽: 원본과 날짜</h2><div class="ik-table"><table>
+</table></div><p>해당 시공일의 수도권·지방별 수량을 확인하고, 파렛트를 직접 입력한 뒤 저장·출력합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#setup"><small>← 앞 장 01</small><b>설치와 실행 준비</b></a><a class="is-next" href="#screen"><small>다음 장 03 →</small><b>화면 구성과 버튼 안내</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="screen" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 03</p><h1>화면 구성과 버튼 안내</h1></header><figure class="ik-shot" id="shot-pk_03_edited"><div class="ik-shot-frame" style="aspect-ratio:1440/900;max-width:1440px"><img alt="원본을 읽고 파렛트를 입력한 포장 카운트 화면" decoding="async" height="900" loading="lazy" src="../assets/shots/packing/pk_03_edited.webp" width="1440"/><button aria-label="1번 원본 엑셀 불러오기" class="ik-pin" data-pin="1" style="left:3.33%;top:20.22%" type="button">1</button><button aria-label="2번 원본 시공일 선택" class="ik-pin" data-pin="2" style="left:3.33%;top:29.56%" type="button">2</button><button aria-label="3번 출력 날짜" class="ik-pin" data-pin="3" style="left:3.33%;top:40.44%" type="button">3</button><button aria-label="4번 원본 기준 날짜로 복원" class="ik-pin" data-pin="4" style="left:3.33%;top:65.33%" type="button">4</button><button aria-label="5번 합계" class="ik-pin" data-pin="5" style="left:25.56%;top:19.11%" type="button">5</button><button aria-label="6번 저장 · 인쇄" class="ik-pin" data-pin="6" style="left:79.03%;top:13.11%" type="button">6</button><button aria-label="7번 작업 데이터 연동" class="ik-pin" data-pin="7" style="left:25.56%;top:28.44%" type="button">7</button><button aria-label="8번 행 · 되돌리기 · 확인" class="ik-pin" data-pin="8" style="left:73.19%;top:23.78%" type="button">8</button><button aria-label="9번 수기 수정됨" class="ik-pin" data-pin="9" style="left:32.64%;top:13.78%" type="button">9</button><button aria-label="10번 두 개의 탭" class="ik-pin" data-pin="10" style="left:26.39%;top:38.89%" type="button">10</button><button aria-label="11번 결과표 제목" class="ik-pin" data-pin="11" style="left:26.46%;top:44.67%" type="button">11</button><button aria-label="12번 노란 칸" class="ik-pin" data-pin="12" style="left:70.35%;top:56.00%" type="button">12</button><button aria-label="13번 상태줄" class="ik-pin" data-pin="13" style="left:1.25%;top:97.89%" type="button">13</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">포장 카운트 화면 (익명 샘플 데이터, 시공일 2026-10-22). 번호를 누르면 아래에 설명이 강조됩니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>원본 엑셀 불러오기</b>원본 .xlsx/.xls를 읽어 지역·품목별로 계산합니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>원본 시공일 선택</b>원본에 날짜가 여러 개면 여기서 집계할 날짜를 고릅니다.</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>출력 날짜</b>포장일 · 그레이박스 출고일(입고) · 시공일(고객). 결과표 제목에 쓰입니다.</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>원본 기준 날짜로 복원</b>날짜만 기본값으로 돌립니다. 집계표의 수기 수량은 그대로입니다.</span></li><li data-pin="5"><span class="ik-pin-n">5</span><span><b>합계</b>오더 수와 지금 집계표의 상판 · 뒷턱 · 타공 · 파렛트 합계.</span></li><li data-pin="6"><span class="ik-pin-n">6</span><span><b>저장 · 인쇄</b>엑셀로 저장, 인쇄 · 미리보기.</span></li><li data-pin="7"><span class="ik-pin-n">7</span><span><b>작업 데이터 연동</b>관리자의 .ikanwork를 연결해 실제 도면의 타공을 반영합니다. <span class="ik-ui">연동 해제</span>로 원본 집계로 돌아갑니다.</span></li><li data-pin="8"><span class="ik-pin-n">8</span><span><b>행 · 되돌리기 · 확인</b>지역 행 추가, 기준 집계로 되돌리기, 확인 사항(경고 수 표시).</span></li><li data-pin="9"><span class="ik-pin-n">9</span><span><b>수기 수정됨</b>표를 손으로 고치면 나타납니다.</span></li><li data-pin="10"><span class="ik-pin-n">10</span><span><b>두 개의 탭</b>포장 집계표(최종 수량) · 집계 근거(품목별 계산).</span></li><li data-pin="11"><span class="ik-pin-n">11</span><span><b>결과표 제목</b>날짜 칸의 일자로 '20일 포장 · 21일 입고 · 22일 고객'이 만들어집니다.</span></li><li data-pin="12"><span class="ik-pin-n">12</span><span><b>노란 칸</b>자동 기준과 다른 값입니다. 파렛트처럼 직접 넣은 값도 노랗게 보입니다.</span></li><li data-pin="13"><span class="ik-pin-n">13</span><span><b>상태줄</b>선택한 시공일의 오더 · 품목 수와 읽기 · 저장 · 인쇄 진행 상태.</span></li></ol></figure><h2 id="31-왼쪽-원본과-날짜">3.1 왼쪽: 원본과 날짜</h2><div class="ik-table"><table>
 <thead>
 <tr>
 <th>화면 항목</th>
@@ -307,7 +262,13 @@
 <td>2026-10-15 목요일</td>
 </tr>
 </tbody>
-</table></div><h2 id="52-날짜-직접-수정">5.2 날짜 직접 수정</h2><p>날짜는 <code>YYYY-MM-DD</code> 형식으로 입력합니다. 입력 후 Enter를 누르거나 다른 칸으로 이동해 반영합니다.</p><ul>
+</table></div><!-- 직접 해 보기: 출력 날짜 계산해 보기 (동작은 assets/sims.js) -->
+<figure class="ik-sim" data-sim="pk-dates">
+<div class="ik-sim-head"><span class="ik-sim-tag">직접 해 보기</span><b>출력 날짜 계산해 보기</b><small>시공일을 바꾸면 포장일·입고일이 프로그램과 같은 규칙(토·일 제외 −1영업일)으로 계산됩니다.</small></div>
+<div class="ik-sim-body" data-noindex=""><p class="sim-nojs">이 체험은 스크립트가 켜진 브라우저에서 동작합니다.</p></div>
+<figcaption>화면 안에서만 계산하는 연습용입니다. 실제 프로그램·파일에는 영향이 없습니다.</figcaption>
+</figure>
+<h2 id="52-날짜-직접-수정">5.2 날짜 직접 수정</h2><p>날짜는 <code>YYYY-MM-DD</code> 형식으로 입력합니다. 입력 후 Enter를 누르거나 다른 칸으로 이동해 반영합니다.</p><ul>
 <li><strong>그레이박스 출고일을 변경하면 포장일도 −1영업일로 자동 변경</strong>됩니다.</li>
 <li>포장일을 별도 일정으로 쓰려면 그레이박스 출고일을 먼저 수정하고 포장일을 마지막에 조정합니다.</li>
 <li>고객 날짜만 직접 고쳤다고 다른 날짜가 모두 재계산되는 것은 아닙니다. 세 날짜를 함께 확인합니다.</li>
@@ -479,7 +440,13 @@
 <td style="text-align: right;"><strong>3</strong></td>
 </tr>
 </tbody>
-</table></div><p>집계표의 뒷턱 칸에는 <strong>2+3=5개</strong>가 들어갑니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#tops"><small>← 앞 장 07</small><b>상판 개수 집계 규칙</b></a><a class="is-next" href="#holes"><small>다음 장 09 →</small><b>타공 개수 집계 규칙</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="holes" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 09</p><h1>타공 개수 집계 규칙</h1></header><h2 id="91-무엇을-세나요">9.1 무엇을 세나요?</h2><p>타공은 원본 품목에 설치되는 <strong>씽크볼 + 쿡탑</strong>을 셉니다. 상판이나 뒷턱과 별개의 합계입니다.</p><pre class="ik-pre"><code class="language-text">한 상판에 씽크볼1개 + 쿡탑1개, 원본 수량2
+</table></div><p>집계표의 뒷턱 칸에는 <strong>2+3=5개</strong>가 들어갑니다.</p><!-- 직접 해 보기: 상판·뒷턱 세어 보기 (동작은 assets/sims.js) -->
+<figure class="ik-sim" data-sim="pk-count">
+<div class="ik-sim-head"><span class="ik-sim-tag">직접 해 보기</span><b>상판·뒷턱 세어 보기</b><small>제작사이즈와 수량을 넣으면 프로그램과 같은 규칙으로 상판·별도 뒷턱·부착 뒷턱을 셉니다. 샘플 원본 187품목으로 프로그램 결과와 같은지 확인했습니다.</small></div>
+<div class="ik-sim-body" data-noindex=""><p class="sim-nojs">이 체험은 스크립트가 켜진 브라우저에서 동작합니다.</p></div>
+<figcaption>화면 안에서만 계산하는 연습용입니다. 실제 프로그램·파일에는 영향이 없습니다.</figcaption>
+</figure>
+<nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#tops"><small>← 앞 장 07</small><b>상판 개수 집계 규칙</b></a><a class="is-next" href="#holes"><small>다음 장 09 →</small><b>타공 개수 집계 규칙</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="holes" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 09</p><h1>타공 개수 집계 규칙</h1></header><h2 id="91-무엇을-세나요">9.1 무엇을 세나요?</h2><p>타공은 원본 품목에 설치되는 <strong>씽크볼 + 쿡탑</strong>을 셉니다. 상판이나 뒷턱과 별개의 합계입니다.</p><pre class="ik-pre"><code class="language-text">한 상판에 씽크볼1개 + 쿡탑1개, 원본 수량2
 → 타공 = (1+1)×2 = 4개
 </code></pre><p><strong>원본 AJ열의 추가타공 숫자는 이 타공 합계에 포함하지 않습니다.</strong> 이 열은 현재 씽크볼·쿡탑 타공 개수입니다.</p><h2 id="92-규격과-실제-위치를-계산합니다">9.2 규격과 실제 위치를 계산합니다</h2><p>프로그램은 관리자의 규격 조회·위치 계산 방식을 공유해 실제 mm 기준으로 판단합니다.</p><div class="ik-table"><table>
 <thead>
@@ -710,7 +677,7 @@
 </tbody>
 </table></div><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
 <p>어떤 값으로 돌아가는지 헷갈리면 먼저 현재 결과를 Excel로 저장한 뒤 진행합니다.</p>
-</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#manual"><small>← 앞 장 11</small><b>집계표 수기 수정과 파렛트 입력</b></a><a class="is-next" href="#evidence"><small>다음 장 13 →</small><b>집계 근거와 확인 사항 읽기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="evidence" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 13</p><h1>집계 근거와 확인 사항 읽기</h1></header><h2 id="131-집계-근거-탭">13.1 집계 근거 탭</h2><p>화면 상단에서 <strong>집계 근거</strong> 탭을 누릅니다. 현재 선택한 시공일의 원본 품목별 계산을 보여줍니다. 가로로 긴 표이므로 아래 가로 스크롤도 사용합니다.</p><div class="ik-table"><table>
+</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#manual"><small>← 앞 장 11</small><b>집계표 수기 수정과 파렛트 입력</b></a><a class="is-next" href="#evidence"><small>다음 장 13 →</small><b>집계 근거와 확인 사항 읽기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="evidence" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 13</p><h1>집계 근거와 확인 사항 읽기</h1></header><h2 id="131-집계-근거-탭">13.1 집계 근거 탭</h2><figure class="ik-shot" id="shot-pk_04_audit"><div class="ik-shot-frame" style="aspect-ratio:1440/900;max-width:1440px"><img alt="포장 카운트의 집계 근거 탭" decoding="async" height="900" loading="lazy" src="../assets/shots/packing/pk_04_audit.webp" width="1440"/><button aria-label="1번 집계 근거 탭" class="ik-pin" data-pin="1" style="left:33.47%;top:38.89%" type="button">1</button><button aria-label="2번 집계근거 인쇄" class="ik-pin" data-pin="2" style="left:85.76%;top:43.44%" type="button">2</button><button aria-label="3번 열 구성" class="ik-pin" data-pin="3" style="left:25.56%;top:48.33%" type="button">3</button><button aria-label="4번 가로 스크롤" class="ik-pin" data-pin="4" style="left:25.56%;top:90.00%" type="button">4</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">집계 근거 탭. 품목 한 줄마다 상판 · 뒷턱 · 타공을 어떻게 셌는지 보여 줍니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>집계 근거 탭</b>조회용입니다. 수량을 고치려면 포장 집계표 탭에서 고칩니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>집계근거 인쇄</b>7열 절약형 양식으로 미리보기 · 인쇄합니다.</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>열 구성</b>지역 · 오더번호 · 담당 · 제작사이즈 · 수량 · 상판 · 뒷턱 · 타공, 오른쪽으로 뒷턱 구성 · 타공 판정 · 타공 기준 자료.</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>가로 스크롤</b>오른쪽 열(판정 · 기준 자료)은 아래 가로 스크롤로 봅니다.</span></li></ol></figure><p>화면 상단에서 <strong>집계 근거</strong> 탭을 누릅니다. 현재 선택한 시공일의 원본 품목별 계산을 보여줍니다. 가로로 긴 표이므로 아래 가로 스크롤도 사용합니다.</p><div class="ik-table"><table>
 <thead>
 <tr>
 <th>열</th>
@@ -1070,9 +1037,10 @@
 <li>대표 PC 서버 기반 실시간 공동 편집 프로그램은 아닙니다.</li>
 </ul><p><strong>문서 관리 안내</strong><br/>
 이 문서는 포장 카운트0.1.11 기준입니다. 버전이 달라지면 버튼명·집계 규칙·연동 지원 범위가 달라질 수 있습니다. 설명의 날짜·품목·수치는 사용 방법을 위한 예시입니다. 프로그램의 실제 집계 근거와 확인 사항을 함께 확인하세요.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#checklist"><small>← 앞 장 19</small><b>출력 전 체크리스트</b></a></nav></section>
-<div class="ik-div ik-div-stamp" role="separator" aria-label="검수 완료"><span class="ik-div-layers is-left"><i></i><i></i><i></i></span><span class="ik-stamp"><span><b>검수</b><small>IKAN</small></span></span><span class="ik-div-layers is-right"><i></i><i></i><i></i></span></div><p class="ik-small" style="text-align:center;max-width:none">아이칸 포장 카운트 사용 설명서 · 기준 버전 0.1.11 · 정리 2026-10-27 · (주) 아이칸 사내용</p>
+<div class="ik-div ik-div-stamp" role="separator" aria-label="검수 완료"><span class="ik-div-layers is-left"><i></i><i></i><i></i></span><span class="ik-stamp"><span><b>검수</b><small>IKAN</small></span></span><span class="ik-div-layers is-right"><i></i><i></i><i></i></span></div><p class="ik-small" style="text-align:center;max-width:none">아이칸 포장 카운트 사용 설명서 · 기준 버전 0.1.11 · 정리 2026-10-27 · 주식회사 아이칸 사내용</p>
 </main>
 </div>
-<script src="../assets/search-index.js?v=b49ee229"></script><script src="../assets/ikan.js?v=b49ee229"></script>
+<dialog class="ik-zoom" id="ik-zoom" aria-label="화면 크게 보기"><div class="ik-zoom-bar"><b id="ik-zoom-title">화면 크게 보기</b><span>번호를 누르면 설명이 나옵니다 · Esc로 닫기</span><button type="button" class="ik-bar-btn" data-zoom-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>닫기</button></div><div class="ik-zoom-body" id="ik-zoom-body"></div><p class="ik-zoom-note" id="ik-zoom-note" aria-live="polite"></p></dialog>
+<script src="../assets/search-index.js?v=0b2556df"></script><script src="../assets/ikan.js?v=0b2556df"></script><script src="../assets/sims.js?v=0b2556df"></script>
 </body>
 </html>
