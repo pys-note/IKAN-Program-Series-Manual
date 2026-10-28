@@ -273,22 +273,90 @@
       var w = num(wi.value, 1, 2000, 113), h = num(hi.value, 1, 2000, 60), s = num(si.value, 10, 500, 160), pp = PAPER[pi.value];
       var aw = pp[0] - 2 * M, ah = pp[1] - 2 * M, pw = w * s / 100, ph = h * s / 100, over = pw > aw + 1e-9 || ph > ah + 1e-9;
       var eff = s;
-      if (over && fi.checked) eff = Math.floor(Math.min(aw / w, ah / h) * 100);
+      if (over && fi.checked) eff = Math.min(aw / w, ah / h) * 100;  /* 프로그램과 같이 내림 없이 계산, 이름표는 반올림 */
       var fw = w * eff / 100, fh = h * eff / 100, K = 300 / Math.max(pp[0], pp[1]);
       var rw = (over && !fi.checked ? pw : fw) * K, rh = (over && !fi.checked ? ph : fh) * K;
       out.innerHTML = '<svg viewBox="-20 -20 ' + (pp[0] * K + 40) + ' ' + (pp[1] * K + 40) + '" role="img" aria-label="용지 위 인쇄 영역 크기">' +
         '<rect class="p-sheet" width="' + pp[0] * K + '" height="' + pp[1] * K + '"/><rect class="p-safe" x="' + M * K + '" y="' + M * K + '" width="' + aw * K + '" height="' + ah * K + '"/>' +
         '<rect class="p-region' + (over && !fi.checked ? ' is-over' : over ? ' is-fit' : '') + '" x="' + (pp[0] * K - rw) / 2 + '" y="' + (pp[1] * K - rh) / 2 + '" width="' + rw + '" height="' + rh + '"/>' +
-        '<text class="p-label" x="' + pp[0] * K / 2 + '" y="' + pp[1] * K / 2 + '">' + (over && fi.checked ? s + '→' + eff + '%' : over ? '용지 초과' : s + '%') + '</text></svg>' +
+        '<text class="p-label" x="' + pp[0] * K / 2 + '" y="' + pp[1] * K / 2 + '">' + (over && fi.checked ? s + '→' + Math.round(eff) + '%' : over ? '용지 초과' : s + '%') + '</text></svg>' +
         '<p class="sim-legend"><i class="lg-safe"></i>인쇄 가능 범위(여백 6.35mm) <i class="lg-region"></i>인쇄 영역</p>';
       note.innerHTML = '원본 ' + Math.round(w) + '×' + Math.round(h) + 'mm → 인쇄 <b>' + Math.round(over && fi.checked ? fw : pw) + '×' + Math.round(over && fi.checked ? fh : ph) + 'mm</b> · ' + pi.value + ' 인쇄 가능 ' + aw.toFixed(1) + '×' + ah.toFixed(1) + 'mm. ' +
-        (!over ? '<b class="sim-ok">용지 안에 들어갑니다.</b>' : fi.checked ? '<b class="sim-warn">넘쳐서 ' + s + '→' + eff + '%로 자동 축소</b> (이름표가 주황으로 표시됩니다).' :
+        (!over ? '<b class="sim-ok">용지 안에 들어갑니다.</b>' : fi.checked ? '<b class="sim-warn">넘쳐서 실제 약 ' + eff.toFixed(1) + '%로 자동 축소</b> (이름표에는 주황으로 ' + s + '→' + Math.round(eff) + '%).' :
           '<b class="sim-err-inline">용지 초과</b> — 자동 축소가 꺼져 있어 인쇄를 막습니다. 배율을 낮추거나 더 큰 용지를 고르세요.');
     }
     [wi, hi, si].forEach(function (x) { x.addEventListener('input', run); }); [pi, fi].forEach(function (x) { x.addEventListener('change', run); }); run();
   }
 
-  var SIMS = { 'pk-dates': pkDates, 'pk-count': pkCount, 'wo-dates': woDates, 'wo-partial': woPartial, 'lb-start': lbStart, 'lb-offset': lbOffset, 'lb-preview': lbPreview, 'pl-scale': plScale };
+  /* ── 도면 확대 인쇄: 놓을 때마다 번호 +1 (프로그램 bump_number와 같은 규칙) ── */
+  function bump(t) {
+    var m = /(\d+)(?!.*\d)/.exec(t);
+    if (!m) return t;
+    var d = m[1], n;
+    try { n = (BigInt(d) + BigInt(1)).toString(); } catch (e) { n = String(+d + 1); }
+    while (n.length < d.length) n = '0' + n;
+    return t.slice(0, m.index) + n + t.slice(m.index + d.length);
+  }
+  function plBump(body) {
+    var P = ['24117', 'No. 009', 'A12-B03', 'No. 99', '메모'];
+    body.innerHTML = '<div class="sim-row"><label class="sim-field is-grow"><span>작업번호 · 문구 입력칸</span><input type="text" value="24117" maxlength="40" data-t></label>' +
+      '<label class="sim-field is-num"><span>놓는 횟수</span><input type="number" min="1" max="12" value="5" data-n></label>' +
+      '<label class="sim-check"><input type="checkbox" checked data-on> 놓을 때마다 번호 +1</label></div>' +
+      '<div class="sim-presets"><span>예시</span>' + chips(P.map(function (x) { return { label: x }; })) + '</div>' +
+      '<ol class="sim-drops" data-out></ol><p class="sim-note" data-note aria-live="polite"></p>';
+    var ti = body.querySelector('[data-t]'), ni = body.querySelector('[data-n]'), on = body.querySelector('[data-on]');
+    var out = body.querySelector('[data-out]'), note = body.querySelector('[data-note]');
+    body.querySelectorAll('.ik-sim-chip').forEach(function (b) { b.addEventListener('click', function () { ti.value = P[+b.dataset.i]; run(); }); });
+    function run() {
+      var t = ti.value, n = Math.round(num(ni.value, 1, 12, 5)), list = [];
+      for (var i = 0; i < n; i++) { list.push(t); if (on.checked) t = bump(t); }
+      out.innerHTML = list.map(function (x, i) { return '<li><small>' + (i + 1) + '번째 클릭</small><b>' + (esc(x) || '&nbsp;') + '</b></li>'; }).join('');
+      var m = /(\d+)(?!.*\d)/.exec(ti.value);
+      note.innerHTML = !on.checked ? '체크를 끄면 같은 문구가 계속 놓입니다.' :
+        !m ? '<b class="sim-warn">숫자가 없는 문구</b>는 그대로 반복됩니다.' :
+        '바뀌는 부분: 마지막 숫자 묶음 <code>' + esc(m[1]) + '</code>' + (m[1].length > 1 && m[1][0] === '0' ? ' · 앞자리 0을 살려 자리 수를 유지합니다.' : '') +
+        ' 입력칸에는 다음에 놓일 <b>' + esc(t) + '</b>이(가) 남습니다.';
+    }
+    [ti, ni].forEach(function (x) { x.addEventListener('input', run); }); on.addEventListener('change', run); run();
+  }
+
+  /* ── 도면 확대 인쇄: 숫자키로 동그라미 번호 고르기 (1 다음 0.9초 안에 0~5 → ⑩~⑮) ── */
+  function plNum(body) {
+    var WAIT = 900, cur = 1, pend = 0, timer = null, raf = null;
+    body.innerHTML = '<div class="sim-numpick" tabindex="0" aria-label="숫자키를 눌러 보세요" data-box>' +
+      '<div class="sim-numnow"><span class="sim-circ is-big" data-now>1</span><div><small>지금 고른 번호</small><b data-what>①</b><i class="sim-numbar" aria-hidden="true"><i data-bar></i></i></div></div>' +
+      '<div class="sim-numrow" data-row>' + Array.apply(null, Array(15)).map(function (_, i) { return '<span class="sim-circ" data-k="' + (i + 1) + '">' + (i + 1) + '</span>'; }).join('') + '</div>' +
+      '<div class="sim-keys" role="group" aria-label="숫자키">' + '1234567890'.split('').map(function (k) { return '<button type="button" class="sim-key" data-key="' + k + '">' + k + '</button>'; }).join('') + '</div></div>' +
+      '<p class="sim-note" data-note aria-live="polite">위 버튼을 누르거나, 상자를 클릭한 뒤 키보드 숫자키를 눌러 보세요. 예: <b>1</b> 다음 바로 <b>2</b> → ⑫</p>';
+    var box = body.querySelector('[data-box]'), now = body.querySelector('[data-now]'), what = body.querySelector('[data-what]');
+    var bar = body.querySelector('[data-bar]'), note = body.querySelector('[data-note]');
+    var C = '①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮';
+    function show(msg) {
+      now.textContent = cur; what.textContent = C[cur - 1];
+      body.querySelectorAll('[data-k]').forEach(function (x) { x.classList.toggle('is-on', +x.dataset.k === cur); });
+      if (msg) note.innerHTML = msg;
+    }
+    function startWait() {
+      pend = Date.now(); clearTimeout(timer); cancelAnimationFrame(raf);
+      (function tick() { var r = Math.max(0, 1 - (Date.now() - pend) / WAIT); bar.style.width = (r * 100) + '%'; if (r > 0) raf = requestAnimationFrame(tick); })();
+      timer = setTimeout(function () { pend = 0; bar.style.width = '0'; }, WAIT);
+    }
+    function press(k) {
+      var d = +k, waiting = pend && Date.now() - pend <= WAIT;
+      clearTimeout(timer); cancelAnimationFrame(raf); bar.style.width = '0';
+      if (waiting && d <= 5) { pend = 0; cur = 10 + d; show('<b>1</b> → <b>' + k + '</b> (0.9초 안) = <b>' + C[cur - 1] + '</b>'); return; }
+      pend = 0;
+      if (d === 0) { show('단독 <b>0</b>은 번호를 바꾸지 않습니다. ⑩은 <b>1</b> → <b>0</b>.'); return; }
+      cur = d;
+      if (d === 1) { show('<b>①</b> 선택 · 0.9초 안에 <b>0~5</b>를 누르면 ⑩~⑮로 바뀝니다.'); startWait(); return; }
+      show('<b>' + C[cur - 1] + '</b> 선택' + (waiting ? ' (6~9는 새 번호로 처리)' : '') + '.');
+    }
+    body.querySelectorAll('[data-key]').forEach(function (b) { b.addEventListener('click', function () { press(b.dataset.key); }); });
+    box.addEventListener('keydown', function (e) { if (/^[0-9]$/.test(e.key)) { e.preventDefault(); press(e.key); } });
+    show();
+  }
+
+  var SIMS = { 'pk-dates': pkDates, 'pk-count': pkCount, 'wo-dates': woDates, 'wo-partial': woPartial, 'lb-start': lbStart, 'lb-offset': lbOffset, 'lb-preview': lbPreview, 'pl-scale': plScale, 'pl-bump': plBump, 'pl-num': plNum };
   document.querySelectorAll('.ik-sim[data-sim]').forEach(function (fig) {
     var fn = SIMS[fig.getAttribute('data-sim')], body = fig.querySelector('.ik-sim-body');
     if (!fn || !body) return;

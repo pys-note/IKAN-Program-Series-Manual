@@ -786,3 +786,29 @@ img{max-width:100%}
 .ik-sim-tag.is-inline{grid-row:auto;padding:1px 8px;font-size:11px;vertical-align:1px}
 .ik-sim-tag.is-inline::before{border-left-width:5px;border-top-width:3.5px;border-bottom-width:3.5px}
 .hub-common .ik-shot-tag{font-size:10.5px;vertical-align:1px}
+
+/* 도면 확대 인쇄 체험: 번호 +1 · 동그라미 번호 숫자키 */
+.sim-drops{list-style:none;margin:0!important;padding:0!important;display:flex;flex-wrap:wrap;gap:8px}
+.sim-drops li{margin:0;padding:8px 12px!important;display:grid;gap:1px;min-width:92px;border:1px solid var(--ik-line);border-left:3px solid #E02020;border-radius:7px;background:var(--ik-alt)}
+.sim-drops li::before{content:none;display:none}
+.sim-drops small{font-size:11px;font-weight:700;color:var(--ik-ink-3)}
+.sim-drops b{font:800 17px/1.35 var(--ik-mono);color:#C81E1E;white-space:pre;overflow-wrap:anywhere}
+.sim-numpick{display:grid;gap:14px;padding:14px;border:1px solid var(--ik-line);border-radius:10px;background:var(--ik-alt);outline:none}
+.sim-numpick:focus-visible{box-shadow:0 0 0 2px var(--ik-accent)}
+.sim-numnow{display:flex;align-items:center;gap:14px}
+.sim-numnow>div{display:grid;gap:3px;min-width:0;flex:1}
+.sim-numnow small{font-size:11.5px;font-weight:700;color:var(--ik-ink-3)}
+.sim-numnow b{font-size:22px;color:#C81E1E;line-height:1.1}
+.sim-numbar{display:block;height:4px;max-width:220px;border-radius:2px;background:var(--ik-line)}
+.sim-numbar>i{display:block;width:0;height:100%;border-radius:2px;background:#E02020}
+.sim-circ{display:inline-grid;place-items:center;width:30px;height:30px;border:2px solid #E02020;border-radius:50%;background:rgba(255,255,255,.3);color:#E02020;font:800 13px/1 var(--ik-font);font-variant-numeric:tabular-nums;transition:background .15s,color .15s,transform .15s}
+.sim-circ.is-big{width:54px;height:54px;border-width:3px;font-size:22px;background:#fff}
+.sim-circ.is-on{background:#E02020;color:#fff;transform:scale(1.08)}
+.sim-numrow{display:flex;flex-wrap:wrap;gap:6px}
+.sim-keys{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:6px;max-width:520px}
+.sim-key{height:40px;border:1px solid var(--ik-line-2);border-bottom-width:3px;border-radius:7px;background:var(--ik-paper);color:var(--ik-ink);font:800 15px var(--ik-mono);cursor:pointer}
+.sim-key:hover{border-color:var(--ik-accent)}
+.sim-key:active{transform:translateY(1px);border-bottom-width:2px}
+@media (max-width:640px){.sim-keys{grid-template-columns:repeat(5,minmax(0,1fr))}.sim-circ{width:26px;height:26px;font-size:12px}}
+@media print{.sim-keys{display:none}}
+@media (max-width:640px){.ik-sim-head{grid-template-columns:minmax(0,1fr)}.ik-sim-tag{grid-row:auto;justify-self:start}.ik-sim-body{padding:14px 14px 6px}}

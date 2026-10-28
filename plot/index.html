@@ -3,245 +3,113 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>도면 확대 인쇄 사용 설명서 v2.6</title>
-<meta name="description" content="도면 PDF에서 필요한 그림만 골라 크게 확대하고, 작업번호·동그라미 번호·형광펜 표시를 얹어 한 장씩 인쇄합니다.">
+<title>도면 확대 인쇄 사용 설명서 v2.7</title>
+<meta name="description" content="도면 PDF에서 필요한 그림만 골라 크게 확대하고, 작업번호·동그라미 번호·형광펜 표시를 얹어 한 장씩 프린터로 바로 인쇄합니다.">
 <link rel="icon" href="../assets/icons/plot.svg">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link rel="stylesheet" href="../assets/ikan.css?v=0b2556df">
+<link rel="stylesheet" href="../assets/ikan.css?v=08c1c106">
 </head>
 <body class="ik-app-plot">
 <a class="ik-skip" href="#main">본문 바로가기</a>
-<header class="ik-bar"><div class="ik-bar-in"><a class="ik-bar-home" href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg><span>매뉴얼 홈</span></a><i class="ik-bar-sep"></i><div class="ik-bar-title"><img class="ik-bar-icon" src="../assets/icons/plot.svg" alt=""><span><small>DRAWING ENLARGE PRINT · USER MANUAL</small><b>도면 확대 인쇄</b></span></div><div class="ik-bar-tools"><span class="ik-bar-ver ik-bar-hide-s">v2.6</span><button class="ik-bar-btn ik-bar-hide-s" type="button" data-font="-1" aria-label="본문 글자 작게">가−</button><button class="ik-bar-btn ik-bar-hide-s" type="button" data-font="1" aria-label="본문 글자 크게">가+</button><button class="ik-bar-btn ik-bar-hide-s" type="button" data-print><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></svg>인쇄</button><details class="ik-apps"><summary class="ik-bar-btn" aria-label="다른 프로그램 매뉴얼"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.2"/></svg><span class="ik-bar-hide-s">다른 매뉴얼</span></summary><div class="ik-apps-menu"><a href="../index.html"><span style="display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--ik-navy);color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg></span><span><b>매뉴얼 홈</b><span>모든 프로그램 · 전체 검색</span></span></a><hr><a href="../workorders/index.html"><img src="../assets/icons/workorders.svg" alt=""><span><b>아이칸 작업지시서 관리자</b><span>0.24.9</span></span></a><a href="../plot/index.html" aria-current="page"><img src="../assets/icons/plot.svg" alt=""><span><b>도면 확대 인쇄</b><span>v2.6</span></span></a><a href="../packing/index.html"><img src="../assets/icons/packing.png" alt=""><span><b>아이칸 포장 카운트</b><span>0.1.11</span></span></a><a href="../labels/index.html"><img src="../assets/icons/labels.svg" alt=""><span><b>아이칸 라벨 출력기</b><span>v2</span></span></a></div></details></div></div></header>
+<header class="ik-bar"><div class="ik-bar-in"><a class="ik-bar-home" href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg><span>매뉴얼 홈</span></a><i class="ik-bar-sep"></i><div class="ik-bar-title"><img class="ik-bar-icon" src="../assets/icons/plot.svg" alt=""><span><small>DRAWING ENLARGE PRINT · USER MANUAL</small><b>도면 확대 인쇄</b></span></div><div class="ik-bar-tools"><span class="ik-bar-ver ik-bar-hide-s">v2.7</span><button class="ik-bar-btn ik-bar-hide-s" type="button" data-font="-1" aria-label="본문 글자 작게">가−</button><button class="ik-bar-btn ik-bar-hide-s" type="button" data-font="1" aria-label="본문 글자 크게">가+</button><button class="ik-bar-btn ik-bar-hide-s" type="button" data-print><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></svg>인쇄</button><details class="ik-apps"><summary class="ik-bar-btn" aria-label="다른 프로그램 매뉴얼"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.2"/></svg><span class="ik-bar-hide-s">다른 매뉴얼</span></summary><div class="ik-apps-menu"><a href="../index.html"><span style="display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--ik-navy);color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg></span><span><b>매뉴얼 홈</b><span>모든 프로그램 · 전체 검색</span></span></a><hr><a href="../workorders/index.html"><img src="../assets/icons/workorders.svg" alt=""><span><b>아이칸 작업지시서 관리자</b><span>0.24.9</span></span></a><a href="../plot/index.html" aria-current="page"><img src="../assets/icons/plot.svg" alt=""><span><b>도면 확대 인쇄</b><span>v2.7</span></span></a><a href="../packing/index.html"><img src="../assets/icons/packing.png" alt=""><span><b>아이칸 포장 카운트</b><span>0.1.11</span></span></a><a href="../labels/index.html"><img src="../assets/icons/labels.svg" alt=""><span><b>아이칸 라벨 출력기</b><span>v2</span></span></a></div></details></div></div></header>
 <div class="ik-shell">
-<nav class="ik-toc" aria-label="목차"><details open id="toc-box"><summary>목차 · 이 매뉴얼에서 찾기</summary><div class="ik-find"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><label class="sr" for="find">이 매뉴얼에서 찾기</label><input id="find" type="search" placeholder="이 매뉴얼에서 찾기  /" autocomplete="off"></div><div class="ik-find-state" id="find-state" role="status" aria-live="polite"></div><div class="ik-toc-label">Contents · 19장</div><ol><li><a href="#1-개요"><span class="n">01</span><span>개요</span></a></li><li><a href="#2-설치와-실행"><span class="n">02</span><span>설치와 실행</span></a></li><li><a href="#3-화면-구성"><span class="n">03</span><span>화면 구성</span></a></li><li><a href="#4-빠른-시작--기본-작업-흐름"><span class="n">04</span><span>빠른 시작 — 기본 작업 흐름</span></a></li><li><a href="#5-도구별-상세-사용법"><span class="n">05</span><span>도구별 상세 사용법</span></a></li><li><a href="#6-인쇄-설정--용지배율"><span class="n">06</span><span>인쇄 설정 — 용지·배율</span></a></li><li><a href="#7-개체-선택과-편집"><span class="n">07</span><span>개체 선택과 편집</span></a></li><li><a href="#8-pdf페이지-관리"><span class="n">08</span><span>PDF·페이지 관리</span></a></li><li><a href="#9-화면-보기-조작"><span class="n">09</span><span>화면 보기 조작</span></a></li><li><a href="#10-인쇄와-pdf-저장"><span class="n">10</span><span>인쇄와 PDF 저장</span></a></li><li><a href="#11-출력-화질"><span class="n">11</span><span>출력 화질</span></a></li><li><a href="#12-작업-파일-저장열기"><span class="n">12</span><span>작업 파일 저장·열기</span></a></li><li><a href="#13-단축키-전체-목록"><span class="n">13</span><span>단축키 전체 목록</span></a></li><li><a href="#14-메뉴-전체-목록"><span class="n">14</span><span>메뉴 전체 목록</span></a></li><li><a href="#15-기본값과-입력-범위"><span class="n">15</span><span>기본값과 입력 범위</span></a></li><li><a href="#16-자동으로-기억하는-것과-파일-위치"><span class="n">16</span><span>자동으로 기억하는 것과 파일 위치</span></a></li><li><a href="#17-문제-해결-faq"><span class="n">17</span><span>문제 해결 (FAQ)</span></a></li><li><a href="#18-버전-이력"><span class="n">18</span><span>버전 이력</span></a></li><li><a href="#19-기술-참고-관리자용"><span class="n">19</span><span>기술 참고 (관리자용)</span></a></li></ol><div class="ik-toc-foot">기준 버전 <b>v2.6</b><br>인터넷 없이도 이 페이지를 저장해 볼 수 있습니다.</div></details></nav>
+<nav class="ik-toc" aria-label="목차"><details open id="toc-box"><summary>목차 · 이 매뉴얼에서 찾기</summary><div class="ik-find"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><label class="sr" for="find">이 매뉴얼에서 찾기</label><input id="find" type="search" placeholder="이 매뉴얼에서 찾기  /" autocomplete="off"></div><div class="ik-find-state" id="find-state" role="status" aria-live="polite"></div><div class="ik-toc-label">Contents · 19장</div><ol><li><a href="#1-프로그램-개요와-실행"><span class="n">01</span><span>프로그램 개요와 실행</span></a></li><li><a href="#2-빠른-작업-순서"><span class="n">02</span><span>빠른 작업 순서</span></a></li><li><a href="#3-화면-구성"><span class="n">03</span><span>화면 구성</span></a></li><li><a href="#4-pdf와-원본-페이지-관리"><span class="n">04</span><span>PDF와 원본 페이지 관리</span></a></li><li><a href="#5-사각형다각형-인쇄-영역"><span class="n">05</span><span>사각형·다각형 인쇄 영역</span></a></li><li><a href="#6-용지인쇄-배율출력-순서"><span class="n">06</span><span>용지·인쇄 배율·출력 순서</span></a></li><li><a href="#7-작업번호와-일반-문구--t"><span class="n">07</span><span>작업번호와 일반 문구 — T</span></a></li><li><a href="#8-동그라미-번호--n"><span class="n">08</span><span>동그라미 번호 — N</span></a></li><li><a href="#9-형광-표시"><span class="n">09</span><span>형광 표시</span></a></li><li><a href="#10-개체-편집"><span class="n">10</span><span>개체 편집</span></a></li><li><a href="#11-화면-보기"><span class="n">11</span><span>화면 보기</span></a></li><li><a href="#12-인쇄-미리보기와-직접-인쇄"><span class="n">12</span><span>인쇄 미리보기와 직접 인쇄</span></a></li><li><a href="#13-출력-화질"><span class="n">13</span><span>출력 화질</span></a></li><li><a href="#14-인쇄용-pdf와-순서표-저장"><span class="n">14</span><span>인쇄용 PDF와 순서표 저장</span></a></li><li><a href="#15-작업-저장복원과-설정"><span class="n">15</span><span>작업 저장·복원과 설정</span></a></li><li><a href="#16-전체-단축키"><span class="n">16</span><span>전체 단축키</span></a></li><li><a href="#17-업무별-사용-예"><span class="n">17</span><span>업무별 사용 예</span></a></li><li><a href="#18-문제-해결과-지원-범위"><span class="n">18</span><span>문제 해결과 지원 범위</span></a></li><li><a href="#19-기본값파일기술-정보"><span class="n">19</span><span>기본값·파일·기술 정보</span></a></li></ol><div class="ik-toc-foot">기준 버전 <b>v2.7</b> · 정리 2026-10-28<br>인터넷 없이도 이 페이지를 저장해 볼 수 있습니다.</div></details></nav>
 <main class="ik-sheet" id="main" data-manual="plot">
-<section class="ik-chapter is-first" id="cover"><div class="ik-cover"><img class="ik-cover-icon" src="../assets/icons/plot.svg" alt="도면 확대 인쇄 아이콘"><div><p class="ik-cover-kind">USER MANUAL · v2.6</p><h1 class="ik-cover-title">도면 확대 인쇄</h1><p class="ik-cover-meta"><span>도면 PDF에서 필요한 그림만 골라 크게 확대하고, 작업번호·동그라미 번호·형광펜 표시를 얹어 한 장씩 인쇄합니다.</span></p></div></div><ul class=ik-docinfo><li><b>운영체제</b>Windows 10 / 11</li><li><b>성격</b>독립 실행형 도면 편집·출력 도구 (아이칸 작업지시서 관리자와는 별도 프로그램)</li></ul><div class=ik-quick><a href="#4-빠른-시작--기본-작업-흐름"><b>처음 사용하는 분</b><small>빠른 시작 8단계</small></a><a href="#5-도구별-상세-사용법"><b>도구를 익히는 분</b><small>영역·문구·번호·형광펜</small></a><a href="#17-문제-해결-faq"><b>인쇄가 이상할 때</b><small>자주 묻는 문제</small></a></div><div class="ik-div ik-div-dim" role="separator" aria-label="주식회사 아이칸"><i class="ik-div-tick"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M0 5 L12 0.8 V9.2 Z"/></svg><i class="ik-div-line"></i><span class="ik-div-label"><span class="ik-div-ko">주식회사 아이칸</span><span class="ik-div-en">IKAN CO., LTD.</span></span><i class="ik-div-line"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M12 5 L0 0.8 V9.2 Z"/></svg><i class="ik-div-tick"></i></div></section>
+<section class="ik-chapter is-first" id="cover"><div class="ik-cover"><img class="ik-cover-icon" src="../assets/icons/plot.svg" alt="도면 확대 인쇄 아이콘"><div><p class="ik-cover-kind">USER MANUAL · v2.7</p><h1 class="ik-cover-title">도면 확대 인쇄</h1><p class="ik-cover-meta"><span>도면 PDF에서 필요한 그림만 골라 크게 확대하고, 작업번호·동그라미 번호·형광펜 표시를 얹어 한 장씩 프린터로 바로 인쇄합니다.</span></p></div></div><ul class=ik-docinfo><li><b>기준 버전</b>v2.7</li><li><b>기준일</b>2026-10-28</li><li><b>운영체제</b>Windows 10/11</li><li><b>필요</b>없음 (Python 설치 불필요, 폴더째 실행)</li><li><b>성격</b>독립 실행형 도면 확대·출력 도구</li></ul><div class=ik-quick><a href="#2-빠른-작업-순서"><b>처음 사용하는 분</b><small>빠른 작업 순서 10단계</small></a><a href="#5-사각형다각형-인쇄-영역"><b>도구를 익히는 분</b><small>영역·문구·번호·형광</small></a><a href="#18-문제-해결과-지원-범위"><b>인쇄가 이상할 때</b><small>문제 해결과 지원 범위</small></a></div><div class="ik-div ik-div-dim" role="separator" aria-label="주식회사 아이칸"><i class="ik-div-tick"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M0 5 L12 0.8 V9.2 Z"/></svg><i class="ik-div-line"></i><span class="ik-div-label"><span class="ik-div-ko">주식회사 아이칸</span><span class="ik-div-en">IKAN CO., LTD.</span></span><i class="ik-div-line"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M12 5 L0 0.8 V9.2 Z"/></svg><i class="ik-div-tick"></i></div></section>
 <div id="find-empty" class="ik-empty" hidden><b>일치하는 장이 없습니다.</b>더 짧은 단어나 다른 표현으로 찾아보세요. 예: 싱크볼 → 씽크볼, 뒤턱 → 뒷턱</div>
-<section class="ik-chapter" id="1-개요" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 01</p><h1>개요</h1></header><h2 id="11-무엇을-하는-프로그램인가">1.1 무엇을 하는 프로그램인가</h2><p>도면 PDF에서 <strong>필요한 그림 부분만 골라 크게 확대해서 한 장씩 인쇄</strong>하는 프로그램입니다. 확대한 그림 위에 작업번호, 동그라미 번호(①~⑮), 형광펜 표시를 얹어서 현장에서 보기 좋은 출력물을 만듭니다.</p><h2 id="12-주요-특징">1.2 주요 특징</h2><div class="ik-table"><table>
+<section class="ik-chapter" id="1-프로그램-개요와-실행" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 01</p><h1>프로그램 개요와 실행</h1></header><p>원본 PDF를 읽어 작업 화면에 표시하고, 사용자가 지정한 영역마다 출력 한 장을 만듭니다. 문구와 형광 표시는 편집 데이터로 보관하며 원본 PDF에 기록하지 않습니다.</p><p>주요 기능은 다음과 같습니다.</p><div class="ik-table"><table>
 <thead>
 <tr>
-<th>특징</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>원본 보존</td>
-<td>원본 PDF는 절대 수정하지 않습니다. 편집 내용은 별도의 작업 파일(<code>.pdfregions</code>)에 저장됩니다.</td>
-</tr>
-<tr>
-<td>영역 1개 = 출력 1장</td>
-<td>인쇄 영역을 세 개 만들면 세 장이 출력됩니다. 영역마다 배율을 따로 정할 수 있습니다.</td>
-</tr>
-<tr>
-<td>사각형·다각형 영역</td>
-<td>L자·ㄷ자 상판처럼 필요한 부분만 꼭짓점으로 둘러싸면 바깥은 흰색으로 지워져 출력됩니다.</td>
-</tr>
-<tr>
-<td>표시 도구</td>
-<td>작업번호 문구, 동그라미 번호 ①~⑮, 형광펜 선, 형광 사각형, 형광 다각형.</td>
-</tr>
-<tr>
-<td>바로 인쇄</td>
-<td>PDF 뷰어를 거치지 않고 프로그램에서 프린터로 바로 보냅니다. 실제 크기 100%·단면·용지 방향이 자동으로 맞춰집니다.</td>
-</tr>
-<tr>
-<td>고화질 출력</td>
-<td>일반 PDF는 원본 선·글자를 그대로(벡터) 확대해 프린터 해상도로 선명하게 나오고, 스캔 도면은 자동으로 바탕을 하얗게 보정합니다.</td>
-</tr>
-<tr>
-<td>키보드 중심</td>
-<td>거의 모든 기능에 단축키가 있으며 한/영 상태나 Caps Lock과 관계없이 동작합니다.</td>
-</tr>
-</tbody>
-</table></div><h2 id="13-용어">1.3 용어</h2><div class="ik-table"><table>
-<thead>
-<tr>
-<th>용어</th>
-<th>뜻</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>원본 PDF</td>
-<td>불러온 도면 PDF 파일. 읽기만 합니다.</td>
-</tr>
-<tr>
-<td>인쇄 영역</td>
-<td>출력할 부분을 감싼 사각형 또는 다각형. 영역 하나가 출력 한 장입니다.</td>
-</tr>
-<tr>
-<td>배율</td>
-<td>원본 대비 출력 확대 비율(%). 영역마다 따로 가집니다.</td>
-</tr>
-<tr>
-<td>개체</td>
-<td>페이지 위에 만든 영역·문구·번호·형광 표시를 통틀어 부르는 말.</td>
-</tr>
-<tr>
-<td>작업 파일</td>
-<td>영역·문구·형광 표시를 저장한 <code>.pdfregions</code> 파일.</td>
-</tr>
-<tr>
-<td>인쇄용 PDF</td>
-<td>영역마다 한 장씩, 확대·표시가 반영되어 만들어진 출력 전용 PDF.</td>
-</tr>
-<tr>
-<td>pt (포인트)</td>
-<td>크기 단위. 1pt = 1/72인치 ≈ 0.353mm. 원본 도면 기준 크기입니다.</td>
-</tr>
-</tbody>
-</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-next" href="#2-설치와-실행"><small>다음 장 02 →</small><b>설치와 실행</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="2-설치와-실행" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 02</p><h1>설치와 실행</h1></header><h2 id="21-폴더-구성-배포본">2.1 폴더 구성 (배포본)</h2><pre class="ik-pre"><code>도면확대인쇄_v2.6/
-├─ 빌드.bat          ← 처음 한 번 더블클릭해서 실행 파일을 만듭니다
-├─ build.py
-├─ 빠른시작.txt
-├─ 사용방법.md
-├─ 소스/             ← 프로그램 소스 (app.py, core.py, ui.py, winprint.py, requirements.txt, README.md)
-└─ 라이선스/
-</code></pre><h2 id="22-처음-설치-한-번만">2.2 처음 설치 (한 번만)</h2><ol class="ik-steps is-plain"><li><div><p>Python 3.11 이상이 설치된 PC에서 <strong><code>빌드.bat</code>을 더블클릭</strong>합니다.</p></div></li><li><div><p>필요한 부품 설치 → 아이콘 생성 → 실행 파일 생성 순서로 진행되며 1~3분 걸립니다.</p></div></li><li><div><p>끝나면 같은 폴더에 <strong><code>도면확대인쇄.exe</code>와 <code>_internal</code> 폴더</strong>가 생깁니다.</p></div></li><li><div><p>이후로는 <code>도면확대인쇄.exe</code>만 실행하면 됩니다.</p></div></li></ol><div class="ik-note is-caution"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 3 2.5 20h19z"></path><path d="M12 10v4M12 17h.01"></path></svg>주의</p>
-<p>실행 파일을 다른 곳으로 옮길 때는 <code>_internal</code> 폴더를 포함한 <strong>폴더 전체</strong>를 함께 옮겨야 합니다.</p>
-<p>Python이 없으면 빌드.bat이 "Python is not installed" 안내를 띄우고 멈춥니다. python.org에서 Python을 설치한 뒤 다시 실행하세요.</p>
-</div><h2 id="23-실행하는-방법">2.3 실행하는 방법</h2><div class="ik-table"><table>
-<thead>
-<tr>
-<th>방법</th>
-<th>동작</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>도면확대인쇄.exe</code> 더블클릭</td>
-<td>빈 화면으로 시작합니다.</td>
-</tr>
-<tr>
-<td>PDF 파일을 <code>도면확대인쇄.exe</code> 아이콘에 끌어다 놓기</td>
-<td>그 PDF가 열린 상태로 시작합니다. 여러 개를 한 번에 놓아도 됩니다.</td>
-</tr>
-<tr>
-<td><code>.pdfregions</code> 파일을 아이콘에 끌어다 놓기</td>
-<td>그 작업이 열린 상태로 시작합니다.</td>
-</tr>
-<tr>
-<td>실행 중인 창 위로 PDF를 끌어다 놓기</td>
-<td>PDF가 목록에 추가됩니다 (<code>.pdfregions</code>는 작업 열기).</td>
-</tr>
-</tbody>
-</table></div><h2 id="24-시작-화면">2.4 시작 화면</h2><p>PDF를 열기 전에는 가운데에 아이콘과 <strong>PDF 추가 (Ctrl+O)</strong> 버튼, 3단계 안내가 표시됩니다.</p><ol class="ik-steps is-plain"><li><div><p>R 인쇄 영역(Shift+R 다각형)으로 그림 감싸기</p></div></li><li><div><p>T 작업번호 · L 형광펜 · N ①②③</p></div></li><li><div><p>Ctrl+P 미리보기 후 바로 인쇄</p></div></li></ol><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#1-개요"><small>← 앞 장 01</small><b>개요</b></a><a class="is-next" href="#3-화면-구성"><small>다음 장 03 →</small><b>화면 구성</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="3-화면-구성" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 03</p><h1>화면 구성</h1></header><!-- 도면 확대 인쇄 화면 구성 (3장). 실제 캡처가 아닌 위치 안내 -->
-<figure class="ik-map">
-<div class="ik-map-win">
-<div class="ik-map-row is-menu">메뉴 · 파일 · 편집 · 도구 · 배율 · 보기 · 도움말</div>
-<div class="ik-map-row is-top">상단바 <span>PDF 추가 · 작업 열기 · 저장 · ↶ ↷</span><span class="r">출력 예정 N장 · 단축키 · PDF로 저장 · 인쇄</span></div>
-<div class="ik-map-cols" style="grid-template-columns:.95fr 1.1fr 1.8fr 1.25fr">
-<div><em>왼쪽 끝</em><b>도구 막대</b><ul class="ik-map-tools"><li><span>선택</span><kbd>V</kbd></li><li><span>영역</span><kbd>R</kbd></li><li><span>다각영역</span><kbd>Shift+R</kbd></li><li><span>문구</span><kbd>T</kbd></li><li><span>번호</span><kbd>N</kbd></li><li><span>형광펜</span><kbd>L</kbd></li><li><span>사각형</span><kbd>M</kbd></li><li><span>다각형</span><kbd>P</kbd></li><li><span>화면 이동</span><kbd>H</kbd></li></ul></div>
-<div><em>왼쪽</em><b>PDF·원본 페이지</b><small>불러온 PDF와 페이지 목록<br/>오른쪽 숫자 = 출력 장수<br/>PDF 추가 · 빼기</small></div>
-<div class="is-main"><em>가운데</em><b>작업 캔버스</b><small>문서 제목 · 페이지 정보 · ◀ 1/2 ▶<br/>여기서 영역과 표시를 만듭니다</small></div>
-<div><em>오른쪽</em><b>설정 카드</b><small>인쇄 설정(항상)<br/>도구·선택에 따라 문구 · 형광 · 번호 카드<br/>이 페이지 개체 목록</small></div>
-</div>
-<div class="ik-map-row is-bottom">상태표시줄 · 현재 도구와 사용 요령 <span class="r">메시지 · －  100%  ＋ 맞춤</span></div>
-</div>
-<figcaption>도면 확대 인쇄 화면 구성도입니다. 실제 화면 캡처가 아닌 기능 위치 안내입니다.</figcaption>
-</figure>
-<h2 id="31-상단바">3.1 상단바</h2><div class="ik-table"><table>
-<thead>
-<tr>
-<th>항목</th>
 <th>기능</th>
-<th>단축키</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>PDF 추가</td>
-<td>도면 PDF를 불러옵니다 (여러 개 선택 가능).</td>
-<td><kbd>Ctrl</kbd>+<kbd>O</kbd></td>
-</tr>
-<tr>
-<td>작업 열기</td>
-<td>저장해 둔 작업 파일(<code>.pdfregions</code>)을 엽니다.</td>
-<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd></td>
-</tr>
-<tr>
-<td>저장</td>
-<td>작업을 저장합니다. 한 번 저장한 뒤로는 바로 덮어씁니다.</td>
-<td><kbd>Ctrl</kbd>+<kbd>S</kbd></td>
-</tr>
-<tr>
-<td>↶ / ↷</td>
-<td>실행 취소 / 다시 실행</td>
-<td><kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd></td>
-</tr>
-<tr>
-<td>출력 예정 N장 · 용지</td>
-<td>지금 만들어 둔 영역 수(= 출력 장수)와 용지를 보여줍니다.</td>
-<td>—</td>
-</tr>
-<tr>
-<td>단축키</td>
-<td>단축키 전체 목록 창을 엽니다.</td>
-<td><kbd>F1</kbd></td>
-</tr>
-<tr>
-<td>PDF로 저장</td>
-<td>인쇄용 PDF를 파일로 저장합니다.</td>
-<td><kbd>Ctrl</kbd>+<kbd>E</kbd></td>
-</tr>
-<tr>
-<td><strong>인쇄</strong></td>
-<td>미리보기 후 프린터로 바로 인쇄합니다.</td>
-<td><kbd>Ctrl</kbd>+<kbd>P</kbd></td>
-</tr>
-</tbody>
-</table></div><p>버튼에 마우스를 올리면 설명과 단축키가 말풍선으로 표시됩니다.</p><h2 id="32-도구-막대-왼쪽-세로">3.2 도구 막대 (왼쪽 세로)</h2><p>위에서부터 <strong>선택(V) · 영역(R) · 다각영역(Shift+R) · 문구(T) · 번호(N) · 형광펜(L) · 사각형(M) · 다각형(P) · 화면(H)</strong> 입니다. 선택된 도구는 파란색으로 표시되며, 상태표시줄 왼쪽에 도구 이름·단축키와 사용법이 나옵니다. 각 도구는 <a href="#5-도구별-상세-사용법">5장</a>에서 자세히 설명합니다.</p><h2 id="33-pdf원본-페이지-목록-왼쪽">3.3 PDF·원본 페이지 목록 (왼쪽)</h2><ul>
-<li>불러온 PDF와 각 페이지가 트리로 표시됩니다. 오른쪽 숫자는 그 PDF/페이지에서 출력될 장수입니다.</li>
-<li>영역이 있는 페이지는 파란 글씨, 없는 페이지는 흐린 글씨와 <code>—</code>로 표시됩니다.</li>
-<li>PDF 이름에 5자리 작업번호(예: <code>24117</code> 또는 <code>24117-24118</code>)가 있으면 이름 앞에 붙여 보여줍니다 (이미 이름이 번호로 시작하면 생략).</li>
-<li>아래 <strong>PDF 추가</strong>, <strong>빼기</strong> 버튼이 있습니다. 빼기는 확인을 거치며 원본 파일은 지우지 않습니다.</li>
-<li>맨 아래 안내: <strong>출력 순서는 PDF 목록 → 원본 페이지 → 영역 번호</strong> 순서입니다.</li>
-</ul><h2 id="34-작업-캔버스-가운데">3.4 작업 캔버스 (가운데)</h2><ul>
-<li>위쪽 머리글에 PDF 이름, 페이지 번호, 원본 크기(mm), 파일 위치가 표시되고 오른쪽에 <strong>◀ 현재/전체 ▶</strong> 페이지 이동 버튼이 있습니다.</li>
-<li>가운데 어두운 바탕 위에 도면 페이지가 표시되며, 여기서 영역과 표시를 만듭니다.</li>
-<li>작업 결과(영역 추가, 삭제, 복사 등)는 캔버스 위쪽에 잠깐 알림으로 표시됩니다.</li>
-</ul><h2 id="35-오른쪽-설정-패널">3.5 오른쪽 설정 패널</h2><p>카드 형태이며 <strong>지금 쓰는 도구나 선택한 개체에 필요한 카드만</strong> 나타납니다.</p><div class="ik-table"><table>
-<thead>
-<tr>
-<th>카드</th>
-<th>언제 보이나</th>
 <th>내용</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>인쇄 설정</td>
-<td>항상</td>
-<td>용지, 배율, 적용 버튼, 자동 축소</td>
+<td>PDF 불러오기</td>
+<td>여러 PDF 추가, 탐색기에서 끌어다 놓기</td>
 </tr>
 <tr>
-<td>작업번호 · 문구</td>
-<td>문구 도구(T) 또는 문구 선택 시</td>
-<td>문구 입력칸, 서식 프리셋, 글자색, 크기, 굵게, 번호 +1</td>
+<td>구분 확인</td>
+<td>PDF 제목·파일명의 구분번호·원본 페이지 표시</td>
 </tr>
 <tr>
-<td>형광 표시</td>
-<td>형광펜(L)·사각형(M)·다각형(P) 또는 형광 표시 선택 시</td>
-<td>형광색, 농도, 펜 굵기</td>
+<td>영역 출력</td>
+<td>사각형 또는 다각형 영역을 각각 한 장으로 출력</td>
+</tr>
+<tr>
+<td>확대·축소</td>
+<td>인쇄 배율 10~500%, A4/A3 가로·세로</td>
+</tr>
+<tr>
+<td>문구</td>
+<td>작업번호·메모, 색·크기·굵기·프리셋·번호 자동 증가</td>
 </tr>
 <tr>
 <td>동그라미 번호</td>
-<td>번호 도구(N) 또는 번호 선택 시</td>
-<td>①~⑮ 버튼, 색, 크기, 다음 번호 자동, 속 채움</td>
+<td>①~⑮, 테두리형·채움형, 사용 번호 표시</td>
 </tr>
 <tr>
-<td>이 페이지 개체</td>
-<td>항상</td>
-<td>현재 페이지의 모든 개체 목록과 순서·복제·삭제 버튼</td>
+<td>형광 표시</td>
+<td>직선·사각형·다각형, 색·농도·펜 굵기</td>
+</tr>
+<tr>
+<td>개체 편집</td>
+<td>이동·일부 개체 크기 조절·꼭짓점 조절·복사·복제·삭제</td>
+</tr>
+<tr>
+<td>출력</td>
+<td>프로그램에서 프린터로 직접 인쇄, PDF와 순서표 저장</td>
+</tr>
+<tr>
+<td>작업 보관</td>
+<td><code>.pdfregions</code> 저장·복원, 실행 취소·다시 실행</td>
 </tr>
 </tbody>
-</table></div><p>개체를 선택하면 카드 제목 옆에 <strong>"선택 영역에 적용" / "선택 문구 편집 중" / "선택 형광 편집 중" / "선택 형광펜 편집 중" / "선택 번호 편집 중"</strong> 표시가 붙고, 그 카드에서 바꾼 값이 선택한 개체에 바로 반영됩니다.</p><h2 id="36-상태표시줄-맨-아래">3.6 상태표시줄 (맨 아래)</h2><ul>
-<li>왼쪽: 현재 도구 이름과 단축키, 그 도구의 사용 요령.</li>
-<li>가운데 오른쪽: 저장 완료 같은 메시지.</li>
-<li>오른쪽: 화면 배율 % 와 <strong>축소 / 확대 / 페이지 맞춤</strong> 버튼.</li>
-</ul><h2 id="37-창-제목">3.7 창 제목</h2><p><code>작업파일이름 — 도면 확대 인쇄</code> 형식이며, 저장하지 않은 변경이 있으면 앞에 <strong>●</strong> 가 붙습니다. 아직 저장하지 않은 새 작업은 "새 작업"으로 표시됩니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#2-설치와-실행"><small>← 앞 장 02</small><b>설치와 실행</b></a><a class="is-next" href="#4-빠른-시작--기본-작업-흐름"><small>다음 장 04 →</small><b>빠른 시작 — 기본 작업 흐름</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="4-빠른-시작--기본-작업-흐름" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 04</p><h1>빠른 시작 — 기본 작업 흐름</h1></header><ol class="ik-steps is-plain"><li><div><p><strong>PDF 추가</strong> (<kbd>Ctrl</kbd>+<kbd>O</kbd>) — 또는 PDF를 창 위로 끌어다 놓습니다.</p></div></li><li><div><p>왼쪽 목록에서 PDF와 페이지를 고릅니다 (<kbd>PgDn</kbd> / <kbd>PgUp</kbd>으로 넘기기).</p></div></li><li><div><p><strong>인쇄 영역 <kbd>R</kbd></strong> — 그림과 치수선을 감싸도록 드래그합니다. 드래그하는 동안 실제 인쇄 크기(mm)가 보입니다.
-   필요한 부분만 잘라야 하면 <strong>다각형 영역 <kbd>Shift</kbd>+<kbd>R</kbd></strong> 로 꼭짓점을 찍습니다.</p></div></li><li><div><p><strong>배율</strong> — 오른쪽 배율 칸에 숫자를 넣거나 100/130/160/200 버튼, 또는 <kbd>,</kbd> <kbd>.</kbd> 키로 조절합니다.</p></div></li><li><div><p><strong>작업번호 <kbd>T</kbd></strong> — 번호를 입력하고 그림 위를 클릭합니다.</p></div></li><li><div><p><strong>형광펜 <kbd>L</kbd></strong> — 시작점과 끝점을 클릭해 선을 긋고, <strong>동그라미 번호 <kbd>N</kbd></strong> 으로 선 옆에 ①②③을 붙입니다.</p></div></li><li><div><p><strong>인쇄 <kbd>Ctrl</kbd>+<kbd>P</kbd></strong> — 미리보기에서 프린터를 확인하고 <kbd>Enter</kbd>를 누르면 바로 인쇄됩니다.</p></div></li><li><div><p>다음에 이어서 고치려면 <strong>작업 저장 <kbd>Ctrl</kbd>+<kbd>S</kbd></strong>.</p></div></li></ol><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#3-화면-구성"><small>← 앞 장 03</small><b>화면 구성</b></a><a class="is-next" href="#5-도구별-상세-사용법"><small>다음 장 05 →</small><b>도구별 상세 사용법</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="5-도구별-상세-사용법" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 05</p><h1>도구별 상세 사용법</h1></header><h2 id="51-선택--이동--v">5.1 선택 / 이동 — <kbd>V</kbd></h2><p>이미 만든 개체를 고르고, 옮기고, 크기를 바꾸는 도구입니다.</p><div class="ik-table"><table>
+</table></div><h2 id="11-배포본-실행">1.1 배포본 실행</h2><ol class="ik-steps is-plain"><li><div><p>배포용 ZIP을 <strong>압축 해제</strong>합니다.</p></div></li><li><div><p>해제한 폴더 안의 <code>도면확대인쇄_v2.7.exe</code>를 실행합니다.</p></div></li><li><div><p>실행 파일 옆의 <code>_internal</code> 폴더를 그대로 둡니다.</p></div></li></ol><p>실행 파일만 다른 곳으로 옮기면 필요한 라이브러리를 찾지 못할 수 있습니다. 다른 PC로 옮길 때에는 폴더 전체를 옮기세요. 빌드된 배포본 사용에는 별도 Python 설치가 필요하지 않습니다.</p><p>이전 배포본이나 소스 빌드 결과에서는 실행 파일 이름이 <code>도면확대인쇄.exe</code>처럼 다를 수 있습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-next" href="#2-빠른-작업-순서"><small>다음 장 02 →</small><b>빠른 작업 순서</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="2-빠른-작업-순서" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 02</p><h1>빠른 작업 순서</h1></header><ol class="ik-steps is-plain"><li><div><p><kbd>Ctrl</kbd>+<kbd>O</kbd>로 PDF를 추가합니다.</p></div></li><li><div><p>왼쪽에서 원본 페이지를 고르고 위쪽 제목으로 구분을 확인합니다.</p></div></li><li><div><p><kbd>R</kbd>을 눌러 그림과 치수선을 감싸도록 드래그합니다. 그림 세 개를 각각 지정하면 출력도 세 장입니다.</p></div></li><li><div><p>오른쪽에서 용지와 배율을 정합니다. 기본 배율은 160%입니다.</p></div></li><li><div><p><kbd>T</kbd>로 작업번호를 입력하고 원하는 위치를 클릭합니다.</p></div></li><li><div><p><kbd>L</kbd>로 시작점·끝점을 클릭해 형광펜 선을 긋습니다. <kbd>[</kbd>·<kbd>]</kbd>로 굵기를 조절합니다.</p></div></li><li><div><p>필요하면 <kbd>N</kbd>으로 동그라미 번호를 붙입니다.</p></div></li><li><div><p><kbd>Ctrl</kbd>+<kbd>S</kbd>로 편집 작업을 저장합니다.</p></div></li><li><div><p><kbd>Ctrl</kbd>+<kbd>P</kbd>로 미리보기를 열고 프린터·매수·범위를 선택한 뒤 인쇄합니다.</p></div></li><li><div><p>파일로 보관하려면 메인 화면에서 <kbd>Ctrl</kbd>+<kbd>E</kbd>로 인쇄용 PDF를 저장합니다.</p></div></li></ol><p>작업번호 입력칸에 커서가 있으면 도구 단축키는 글자로 입력됩니다. <kbd>Esc</kbd> 또는 <kbd>Enter</kbd>로 입력칸에서 빠져나온 뒤 단축키를 사용하세요.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#1-프로그램-개요와-실행"><small>← 앞 장 01</small><b>프로그램 개요와 실행</b></a><a class="is-next" href="#3-화면-구성"><small>다음 장 03 →</small><b>화면 구성</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="3-화면-구성" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 03</p><h1>화면 구성</h1></header><figure class="ik-shot" id="shot-pl_01_main"><div class="ik-shot-frame" style="aspect-ratio:1600/960;max-width:1600px"><img alt="도면 확대 인쇄 v2.7 메인 화면" decoding="async" height="960" loading="lazy" src="../assets/shots/plot/pl_01_main.webp" width="1600"/><button aria-label="1번 맨 왼쪽 도구 막대" class="ik-pin" data-pin="1" style="left:2.62%;top:11.46%" type="button">1</button><button aria-label="2번 PDF 목록" class="ik-pin" data-pin="2" style="left:13.44%;top:12.29%" type="button">2</button><button aria-label="3번 상단 도구 모음" class="ik-pin" data-pin="3" style="left:18.75%;top:3.33%" type="button">3</button><button aria-label="4번 출력 예정" class="ik-pin" data-pin="4" style="left:72.81%;top:3.33%" type="button">4</button><button aria-label="5번 PDF로 저장 · 인쇄" class="ik-pin" data-pin="5" style="left:95.75%;top:3.33%" type="button">5</button><button aria-label="6번 현재 PDF · 페이지" class="ik-pin" data-pin="6" style="left:29.38%;top:9.38%" type="button">6</button><button aria-label="7번 영역 이름표(파랑)" class="ik-pin" data-pin="7" style="left:27.94%;top:29.79%" type="button">7</button><button aria-label="8번 영역 이름표(주황)" class="ik-pin" data-pin="8" style="left:55.00%;top:47.71%" type="button">8</button><button aria-label="9번 작업번호 문구" class="ik-pin" data-pin="9" style="left:37.25%;top:48.12%" type="button">9</button><button aria-label="10번 형광 표시와 동그라미 번호" class="ik-pin" data-pin="10" style="left:30.94%;top:52.08%" type="button">10</button><button aria-label="11번 인쇄 설정" class="ik-pin" data-pin="11" style="left:90.00%;top:18.75%" type="button">11</button><button aria-label="12번 이 페이지 개체" class="ik-pin" data-pin="12" style="left:89.38%;top:64.58%" type="button">12</button><button aria-label="13번 순서 · 복제 · 삭제" class="ik-pin" data-pin="13" style="left:90.00%;top:90.62%" type="button">13</button><button aria-label="14번 상태줄" class="ik-pin" data-pin="14" style="left:3.44%;top:97.81%" type="button">14</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">메인 화면 (가상 샘플 도면, v2.7). 번호를 누르면 아래 설명이 강조됩니다. 촬영 환경 차이로 글꼴·스크롤바 모양은 실제 Windows 화면과 조금 다릅니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>맨 왼쪽 도구 막대</b>선택(V) · 영역(R) · 다각영역(<kbd>Shift</kbd>+<kbd>R</kbd>) · 문구(T) · 번호(N) · 형광펜(L) · 사각형(M) · 다각형(P) · 화면(H). 아이콘에 마우스를 올리면 단축키가 보입니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>PDF 목록</b>파일 제목과 구분번호(23305-10001), 원본 페이지, 각 파일·페이지의 출력 예정 장수.</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>상단 도구 모음</b>PDF 추가 · 작업 열기 · 작업 저장 · 실행 취소 · 다시 실행.</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>출력 예정</b>전체 출력 장수와 용지. 영역 하나가 출력 한 장입니다.</span></li><li data-pin="5"><span class="ik-pin-n">5</span><span><b>PDF로 저장 · 인쇄</b>Ctrl+E 인쇄용 PDF 저장, Ctrl+P 인쇄 미리보기.</span></li><li data-pin="6"><span class="ik-pin-n">6</span><span><b>현재 PDF · 페이지</b>파일 제목, 원본 페이지 크기, 폴더. 오른쪽 ‹ › 로 원본 페이지를 넘깁니다.</span></li><li data-pin="7"><span class="ik-pin-n">7</span><span><b>영역 이름표(파랑)</b>출력 순번과 배율. 이 영역은 1장, 160%로 용지 안에 들어갑니다. 1장은 L자 다각형 영역입니다.</span></li><li data-pin="8"><span class="ik-pin-n">8</span><span><b>영역 이름표(주황)</b>250%를 요청했지만 용지를 넘어 245%로 자동 축소된 영역.</span></li><li data-pin="9"><span class="ik-pin-n">9</span><span><b>작업번호 문구</b>T로 놓은 24117. 놓을 때마다 +1을 켜서 24118, 24119가 이어졌습니다.</span></li><li data-pin="10"><span class="ik-pin-n">10</span><span><b>형광 표시와 동그라미 번호</b>점선 안쪽에 형광펜 선(L)과 ①, 싱크 자리에 형광 사각형(M)과 ②.</span></li><li data-pin="11"><span class="ik-pin-n">11</span><span><b>인쇄 설정</b>용지 4종과 배율(기본 160%), 이 페이지 모두 적용 · 전체 페이지, 자동 축소.</span></li><li data-pin="12"><span class="ik-pin-n">12</span><span><b>이 페이지 개체</b>영역 · 문구 · 형광 · 번호 목록. 눌러서 선택하면 겹친 개체도 쉽게 고릅니다.</span></li><li data-pin="13"><span class="ik-pin-n">13</span><span><b>순서 · 복제 · 삭제</b>선택한 영역의 출력 순서를 앞뒤로, 복제, 삭제.</span></li><li data-pin="14"><span class="ik-pin-n">14</span><span><b>상태줄</b>현재 도구와 조작 안내. 오른쪽 끝은 화면 확대율(인쇄 배율과 별개).</span></li></ol></figure><div class="ik-table"><table>
+<thead>
+<tr>
+<th>위치</th>
+<th>표시·역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>상단 메뉴·도구 모음</td>
+<td>파일, 편집, 도구, 배율, 보기, 도움말, 작업 저장, PDF 저장, 인쇄</td>
+</tr>
+<tr>
+<td>맨 왼쪽 도구 막대</td>
+<td>선택, 인쇄 영역, 다각형 영역, 문구, 번호, 형광펜, 사각형, 다각형, 화면 이동</td>
+</tr>
+<tr>
+<td>왼쪽 PDF 목록</td>
+<td>파일 제목, 원본 페이지, 각 파일·페이지의 출력 예정 장수</td>
+</tr>
+<tr>
+<td>가운데 위쪽</td>
+<td>현재 PDF 제목과 원본 페이지 정보</td>
+</tr>
+<tr>
+<td>가운데 작업 화면</td>
+<td>원본 도면, 인쇄 영역, 추가한 문구·번호·형광 표시</td>
+</tr>
+<tr>
+<td>오른쪽 설정</td>
+<td>용지·배율, 현재 도구나 선택 개체에 필요한 설정, 개체 목록</td>
+</tr>
+<tr>
+<td>아래쪽 상태 표시</td>
+<td>현재 도구, 조작 안내, 처리 메시지, 화면 확대율</td>
+</tr>
+</tbody>
+</table></div><p>오른쪽 설정은 도구에 따라 바뀝니다. <kbd>T</kbd>는 문구, <kbd>L</kbd> / <kbd>M</kbd> / <kbd>P</kbd>는 형광, <kbd>N</kbd>은 번호 설정을 보여줍니다. 이미 놓은 개체를 선택해도 해당 개체의 설정이 표시됩니다.</p><p>아이콘 위에 마우스를 잠시 두면 기능명과 단축키를 확인할 수 있습니다. <kbd>F1</kbd>은 전체 단축키 창을 엽니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#2-빠른-작업-순서"><small>← 앞 장 02</small><b>빠른 작업 순서</b></a><a class="is-next" href="#4-pdf와-원본-페이지-관리"><small>다음 장 04 →</small><b>PDF와 원본 페이지 관리</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="4-pdf와-원본-페이지-관리" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 04</p><h1>PDF와 원본 페이지 관리</h1></header><h2 id="41-추가열기">4.1 추가·열기</h2><ul>
+<li><strong>PDF 추가</strong> 또는 <kbd>Ctrl</kbd>+<kbd>O</kbd>: 여러 PDF를 한꺼번에 선택할 수 있습니다.</li>
+<li>탐색기에서 PDF를 프로그램 창 위로 끌어다 놓을 수 있습니다.</li>
+<li><code>.pdfregions</code> 파일을 창이나 실행 파일 아이콘에 끌어다 놓으면 저장된 작업을 엽니다.</li>
+<li>같은 경로의 PDF가 이미 목록에 있으면 중복 추가를 건너뜁니다.</li>
+<li>지원하는 입력 파일은 PDF와 <code>.pdfregions</code>입니다. ZIP 내부 PDF를 직접 불러오는 기능은 없으므로 먼저 압축을 푸세요.</li>
+</ul><h2 id="42-페이지-선택과-제목">4.2 페이지 선택과 제목</h2><p>왼쪽 PDF 제목 아래의 페이지를 클릭합니다. 파일명에서 <code>23305-10001</code> 같은 구분번호를 확인할 수 있고, 가운데 상단에는 현재 파일 제목이 표시됩니다.</p><div class="ik-table"><table>
 <thead>
 <tr>
 <th>조작</th>
@@ -250,1172 +118,1025 @@
 </thead>
 <tbody>
 <tr>
-<td>개체 클릭</td>
-<td>선택 (주황 테두리). 오른쪽 카드에 그 개체의 값이 불러와집니다.</td>
+<td><kbd>PgDn</kbd> / <kbd>PgUp</kbd></td>
+<td>다음 / 이전 원본 페이지</td>
 </tr>
 <tr>
-<td>빈 곳 클릭</td>
-<td>선택 해제</td>
+<td><kbd>Ctrl</kbd>+<kbd>PgDn</kbd> / <kbd>Ctrl</kbd>+<kbd>PgUp</kbd></td>
+<td>다음 / 이전 PDF</td>
 </tr>
 <tr>
-<td>개체를 드래그</td>
-<td>이동. 상태표시줄에 이동 거리(mm)가 표시됩니다. 페이지 밖으로는 나가지 않습니다.</td>
+<td><kbd>Home</kbd> / <kbd>End</kbd></td>
+<td>현재 PDF 첫 / 마지막 페이지</td>
 </tr>
 <tr>
-<td>모서리·변의 흰 점 드래그</td>
-<td>크기 조절 (사각형 영역, 형광 사각형·다각형)</td>
-</tr>
-<tr>
-<td>형광펜 선의 양 끝 동그라미 드래그</td>
-<td>선 길이·방향 수정 (<kbd>Shift</kbd>: 수평/수직/45° 고정)</td>
-</tr>
-<tr>
-<td>다각형 영역의 꼭짓점 점 드래그</td>
-<td>꼭짓점 하나씩 수정 (<kbd>Shift</kbd>: 이웃 꼭짓점과 수평/수직 맞춤)</td>
-</tr>
-<tr>
-<td>문구 더블클릭 / <kbd>F2</kbd> / <kbd>Enter</kbd></td>
-<td>문구를 그 자리에서 고치기</td>
-</tr>
-<tr>
-<td>방향키 / <kbd>Shift</kbd>+방향키</td>
-<td>1pt / 10pt씩 이동</td>
-</tr>
-<tr>
-<td>우클릭</td>
-<td>개체 메뉴 (<a href="#76-우클릭-메뉴">7.6</a>)</td>
+<td>가운데 제목 옆 이전·다음 버튼</td>
+<td>원본 페이지 이동</td>
 </tr>
 </tbody>
-</table></div><p>개체가 겹쳐 있을 때는 위에 그려진 표시(문구·번호·형광)가 먼저 선택되고, 영역끼리 겹치면 더 작은 영역이 선택됩니다. 원하는 개체가 잘 안 잡히면 <kbd>Tab</kbd>으로 차례대로 고르거나 오른쪽 <strong>이 페이지 개체</strong> 목록에서 고르세요.</p><h2 id="52-인쇄-영역--r">5.2 인쇄 영역 — <kbd>R</kbd></h2><p>출력할 부분을 사각형으로 감쌉니다. <strong>영역 하나가 출력 한 장</strong>입니다.</p><ul>
-<li><strong>드래그</strong>해서 영역을 만듭니다. 드래그하는 동안 커서 옆에 <code>인쇄 210×120mm · 160%</code> 처럼 실제 인쇄 크기와 배율이 표시되고, 용지를 넘으면 <code>(용지 맞춤)</code>이 붙은 주황 표시로 바뀝니다.</li>
-<li>새 영역에는 오른쪽 <strong>배율</strong> 칸의 현재 값이 들어갑니다.</li>
-<li>만든 직후 그 영역이 선택된 상태가 되므로, 바로 배율을 바꾸면 그 영역에 적용됩니다.</li>
-<li>드래그하지 않고 <strong>클릭만</strong> 하면 그 자리의 기존 개체를 선택합니다.</li>
-<li>영역 왼쪽 위에는 이름표가 붙습니다: <code>출력 순번장 배율%</code> (예: <code>3장 160%</code>).</li>
-<li>번호를 넣을 여백까지 영역에 포함하세요. 영역 밖의 문구·형광은 인쇄되지 않습니다.</li>
-</ul><p><strong>이름표 색의 의미</strong></p><div class="ik-table"><table>
+</table></div><h2 id="43-목록에서-빼기">4.3 목록에서 빼기</h2><p><strong>빼기</strong>, 파일 메뉴의 <strong>현재 PDF 목록에서 빼기</strong>, 또는 <kbd>Ctrl</kbd>+<kbd>W</kbd>를 사용합니다. PDF 목록에 포커스가 있을 때 <kbd>Delete</kbd>도 목록 제거로 동작합니다.</p><p>목록에서 제거하면 그 PDF의 편집 개체가 현재 작업에서 빠집니다. 원본 PDF 파일은 삭제되지 않습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#3-화면-구성"><small>← 앞 장 03</small><b>화면 구성</b></a><a class="is-next" href="#5-사각형다각형-인쇄-영역"><small>다음 장 05 →</small><b>사각형·다각형 인쇄 영역</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="5-사각형다각형-인쇄-영역" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 05</p><h1>사각형·다각형 인쇄 영역</h1></header><h2 id="51-사각형-인쇄-영역--r">5.1 사각형 인쇄 영역 — <kbd>R</kbd></h2><ol class="ik-steps is-plain"><li><div><p><kbd>R</kbd>을 누릅니다.</p></div></li><li><div><p>원하는 그림의 한쪽 모서리에서 반대 모서리까지 드래그합니다.</p></div></li><li><div><p>그림·치수선·필요한 번호 여백까지 포함합니다.</p></div></li><li><div><p>마우스를 놓으면 인쇄 영역이 만들어집니다.</p></div></li></ol><p>드래그 중에는 실제 출력 크기(mm)와 적용 가능한 배율을 표시합니다. 선택 영역은 자동으로 그림을 찾는 기능이 아니므로 사용자가 직접 지정합니다.</p><p>BG를 상판과 함께 출력하려면 둘을 하나의 영역으로 감싸세요. BG만 따로 출력하려면 별도 영역으로 지정합니다. 치수선은 선택한 범위에 들어간 부분만 출력됩니다.</p><h2 id="52-다각형-인쇄-영역--shiftr">5.2 다각형 인쇄 영역 — <kbd>Shift</kbd>+<kbd>R</kbd></h2><p>L자·ㄷ자 상판이나 옆 그림이 가까운 도면에서 사용합니다.</p><ol class="ik-steps is-plain"><li><div><p><kbd>Shift</kbd>+<kbd>R</kbd>을 누릅니다.</p></div></li><li><div><p>필요한 부분을 둘러싸도록 꼭짓점을 차례로 클릭합니다.</p></div></li><li><div><p>세 점 이상 지정한 뒤 첫 점을 다시 클릭하거나 <kbd>Enter</kbd> 또는 오른쪽 클릭으로 완성합니다.</p></div></li><li><div><p><kbd>Shift</kbd>를 누른 채 다음 점을 정하면 직전 점과 수평·수직으로 맞춥니다.</p></div></li><li><div><p><kbd>Backspace</kbd>는 마지막 꼭짓점을 취소하고, <kbd>Esc</kbd>는 진행 중인 그리기를 취소합니다.</p></div></li></ol><p>다각형 바깥은 흰색으로 가려져 출력됩니다. 배율과 용지 맞춤은 다각형을 감싸는 외곽 사각형을 기준으로 계산합니다. 다각형 안에 일부가 들어간 옆 그림도 함께 출력되므로 꼭짓점 위치를 확인하세요.</p><figure class="ik-shot" id="shot-pl_02_poly"><div class="ik-shot-frame" style="aspect-ratio:1284/900;max-width:1284px"><img alt="다각형 인쇄 영역을 그리는 중인 화면" decoding="async" height="900" loading="lazy" src="../assets/shots/plot/pl_02_poly.webp" width="1284"/><button aria-label="1번 다각영역 도구" class="ik-pin" data-pin="1" style="left:3.27%;top:22.00%" type="button">1</button><button aria-label="2번 첫 점" class="ik-pin" data-pin="2" style="left:32.17%;top:26.22%" type="button">2</button><button aria-label="3번 다음 점 미리보기" class="ik-pin" data-pin="3" style="left:43.30%;top:52.22%" type="button">3</button><button aria-label="4번 안쪽 범위" class="ik-pin" data-pin="4" style="left:54.52%;top:42.22%" type="button">4</button><button aria-label="5번 상태줄 안내" class="ik-pin" data-pin="5" style="left:23.36%;top:97.67%" type="button">5</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">Shift+R로 L자 외곽을 따라 꼭짓점을 찍는 중. 점선 안쪽이 출력될 범위입니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>다각영역 도구</b>Shift+R. 사각형 영역은 R입니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>첫 점</b>세 점 이상 찍은 뒤 첫 점을 다시 클릭하면 완성됩니다. Enter · 오른쪽 클릭도 완성.</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>다음 점 미리보기</b>마우스를 따라 다음 변이 보입니다. Shift를 누르면 직전 점과 수평·수직으로 맞춥니다.</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>안쪽 범위</b>빗금 부분만 출력되고 바깥은 흰색으로 가려집니다.</span></li><li data-pin="5"><span class="ik-pin-n">5</span><span><b>상태줄 안내</b>꼭짓점 수와 완성 · Backspace(한 점 취소) · Esc(취소) 안내.</span></li></ol></figure><h2 id="53-영역-수정">5.3 영역 수정</h2><ul>
+<li><kbd>V</kbd>로 선택한 후 드래그하면 영역 전체를 옮깁니다.</li>
+<li>사각형은 테두리의 조절점을 끌어 크기를 바꿉니다.</li>
+<li>다각형 영역은 꼭짓점 조절점을 끌어 모양을 바꿉니다. <kbd>Shift</kbd>로 인접 점과 수평·수직을 맞출 수 있습니다.</li>
+<li>오른쪽 개체 목록에서 영역을 선택하면 겹친 영역도 구분하기 쉽습니다.</li>
+<li>영역을 삭제하면 해당 출력 한 장이 제외됩니다. 원본 그림 자체는 남습니다.</li>
+</ul><h2 id="54-영역-이름표">5.4 영역 이름표</h2><div class="ik-table"><table>
 <thead>
 <tr>
 <th>색</th>
-<th>의미</th>
+<th>뜻</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>파랑</td>
-<td>정상. 지정한 배율로 출력됩니다.</td>
+<td>지정 배율로 용지 안에 들어옴</td>
 </tr>
 <tr>
-<td>주황 <code>160→142%</code></td>
-<td>용지를 넘어서 자동으로 줄여 출력됩니다 (‘용지를 넘칠 때만 자동 축소’ 켜짐).</td>
+<td>주황</td>
+<td>용지를 넘어서 자동 축소됨</td>
 </tr>
 <tr>
-<td>빨강 <code>용지 초과</code></td>
-<td>용지를 넘는데 자동 축소가 꺼져 있습니다. 이 상태에서는 인쇄가 막힙니다.</td>
+<td>빨강</td>
+<td>용지 초과 또는 유효하지 않은 영역이며 출력 전 조정 필요</td>
 </tr>
 </tbody>
-</table></div><p><strong>인쇄 범위 점선:</strong> 영역을 선택하면 연한 파란 점선으로 그 배율에서 용지에 실제로 찍히는 범위(<code>A4 가로 인쇄 범위</code>)가 표시됩니다. 번호를 넣을 여유 공간을 가늠할 때 씁니다.</p><h2 id="53-다각형-인쇄-영역--shiftr">5.3 다각형 인쇄 영역 — <kbd>Shift</kbd>+<kbd>R</kbd></h2><p>L자·ㄷ자 상판처럼 <strong>필요한 부분만 둘러싸서</strong> 출력할 때 씁니다.</p><div class="ik-table"><table>
+</table></div><p>이름표의 출력 순번은 최종 PDF의 페이지 순서입니다. 선택한 영역 주변의 연한 점선은 용지 인쇄 범위를 가늠하기 위한 보조 표시입니다. 최종 출력에는 실제 영역 안의 내용만 들어갑니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#4-pdf와-원본-페이지-관리"><small>← 앞 장 04</small><b>PDF와 원본 페이지 관리</b></a><a class="is-next" href="#6-용지인쇄-배율출력-순서"><small>다음 장 06 →</small><b>용지·인쇄 배율·출력 순서</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="6-용지인쇄-배율출력-순서" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 06</p><h1>용지·인쇄 배율·출력 순서</h1></header><h2 id="61-지원-용지">6.1 지원 용지</h2><div class="ik-table"><table>
 <thead>
 <tr>
-<th>조작</th>
-<th>결과</th>
+<th>용지</th>
+<th>크기</th>
+<th>방향</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>클릭</td>
-<td>꼭짓점 추가</td>
+<td>A4 가로</td>
+<td>297 × 210mm</td>
+<td>가로</td>
 </tr>
 <tr>
-<td><kbd>Shift</kbd> + 클릭</td>
-<td>직전 꼭짓점과 수평 또는 수직으로 고정</td>
+<td>A4 세로</td>
+<td>210 × 297mm</td>
+<td>세로</td>
 </tr>
 <tr>
-<td>첫 꼭짓점을 다시 클릭 / <kbd>Enter</kbd> / 우클릭 / 더블클릭</td>
-<td>완성 (꼭짓점 3개 이상 필요)</td>
+<td>A3 가로</td>
+<td>420 × 297mm</td>
+<td>가로</td>
 </tr>
 <tr>
-<td><kbd>Backspace</kbd></td>
-<td>마지막 꼭짓점 취소</td>
-</tr>
-<tr>
-<td><kbd>Esc</kbd></td>
-<td>그리기 취소</td>
-</tr>
-</tbody>
-</table></div><ul>
-<li>완성하면 일반 영역처럼 출력 1장이 되며 배율·용지 맞춤·출력 순서가 똑같이 적용됩니다.</li>
-<li><strong>다각형 바깥은 흰색으로 지워져 출력</strong>됩니다. 바깥에 있는 문구·형광 표시도 출력되지 않습니다.</li>
-<li>캔버스에서는 다각형 외곽선과 함께, 배율 계산 기준이 되는 바깥 사각형이 가는 점선으로 표시됩니다.</li>
-<li>개체 목록에는 <code>◇다각형</code>이 붙습니다.</li>
-<li><kbd>V</kbd>로 선택하면 꼭짓점마다 점이 생겨 하나씩 끌어 고칠 수 있습니다.</li>
-</ul><h2 id="54-문구-작업번호--t">5.4 문구 (작업번호) — <kbd>T</kbd></h2><p>작업번호나 짧은 메모를 놓는 도구입니다.</p><ol class="ik-steps is-plain"><li><div><p>오른쪽 <strong>작업번호 · 문구</strong> 칸에 번호를 입력합니다. 비어 있을 때는 "작업번호 입력 예) 24117" 안내가 흐리게 보입니다.</p></div></li><li><div><p>캔버스로 마우스를 옮기면 놓일 모습이 미리 보입니다.</p></div></li><li><div><p><strong>클릭</strong>한 자리(문구의 왼쪽 위)에 놓입니다.</p></div></li></ol><div class="ik-table"><table>
-<thead>
-<tr>
-<th>설정</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>서식 프리셋</td>
-<td>작업번호·빨강 굵게(24pt) / 작업번호·검정 굵게(24pt) / 작업번호·초록 굵게(24pt) / 작은 메모(14pt, 보통) / 주의·빨강(18pt 굵게)</td>
-</tr>
-<tr>
-<td>글자색</td>
-<td>빨강·검정·초록·파랑 (문구 도구에서 숫자키 <kbd>1</kbd>~<kbd>4</kbd>)</td>
-</tr>
-<tr>
-<td>크기 pt</td>
-<td>6~100</td>
-</tr>
-<tr>
-<td>굵게</td>
-<td>켬/끔</td>
-</tr>
-<tr>
-<td>놓을 때마다 번호 +1</td>
-<td>켜면 놓을 때마다 마지막 숫자가 1씩 올라갑니다 (24117 → 24118). 앞자리 0은 유지됩니다 (007 → 008).</td>
+<td>A3 세로</td>
+<td>297 × 420mm</td>
+<td>세로</td>
 </tr>
 </tbody>
-</table></div><ul>
-<li>문구를 고치려면 <kbd>V</kbd>로 선택해서 <strong>더블클릭</strong> 또는 <kbd>F2</kbd> → 입력 → <kbd>Enter</kbd>(확정) / <kbd>Esc</kbd>(취소).</li>
-<li>문구 도구로 놓은 직후에는 선택되지 않습니다. 그래서 입력칸을 다음 번호로 바꿔도 방금 놓은 문구는 그대로 남습니다.</li>
-<li>입력칸에 커서가 있을 때는 글자가 입력되므로 한 글자 단축키가 동작하지 않습니다. <kbd>Esc</kbd>나 <kbd>Enter</kbd>로 입력칸을 빠져나온 뒤 쓰세요.</li>
-</ul><h2 id="55-동그라미-번호--n">5.5 동그라미 번호 — <kbd>N</kbd></h2><p>형광펜 선 옆 등에 <strong>①~⑮</strong> 번호를 붙이는 도구입니다.</p><ul>
-<li><strong>클릭한 자리가 동그라미의 중심</strong>이 됩니다. 마우스를 따라 다음에 놓일 번호가 미리 보입니다.</li>
-<li>오른쪽 <strong>동그라미 번호</strong> 카드의 ①~⑮ 버튼으로 번호를 고릅니다.</li>
-<li><strong>놓을 때마다 다음 번호</strong>(기본 켜짐): ① 놓고 → ② 놓고 → … 자동으로 넘어갑니다. ⑮에서는 더 넘어가지 않습니다.</li>
-<li><strong>숫자키로 바로 고르기</strong>: <kbd>7</kbd> → ⑦. <kbd>1</kbd>을 누르고 0.9초 안에 <kbd>0</kbd>~<kbd>5</kbd>를 누르면 ⑩~⑮.</li>
-<li><kbd>[</kbd> <kbd>]</kbd>: 이전 / 다음 번호.</li>
-<li><strong>이미 놓은 번호는 버튼이 초록색</strong>으로 바뀌고, 카드 아래에 "이 페이지에 놓은 번호"가 나열됩니다. 같은 번호를 또 놓으면 겹친다는 알림이 뜹니다 (놓는 것은 허용됩니다).</li>
-<li>색: 빨강·검정·초록·파랑 / 크기: 동그라미 지름 8~80pt (기본 22pt) / <strong>속 채움</strong>: 색 원 안에 흰 숫자.</li>
-<li>기본 모양은 흰 바탕 동그라미라 형광펜이나 도면 선 위에 놓여도 숫자가 잘 읽힙니다.</li>
-<li>놓은 번호는 <kbd>V</kbd>로 선택한 뒤 숫자키로 번호를 바꾸고, 방향키로 옮기고, 카드에서 크기·색을 고칠 수 있습니다.</li>
-</ul><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
-<p>번호 도구(N)가 선택되어 있거나 번호를 선택한 상태에서는 숫자키가 <strong>번호</strong>를 고르고, <kbd>[</kbd> <kbd>]</kbd>가 <strong>이전/다음 번호</strong>가 됩니다. 다른 상황에서는 숫자 <kbd>1</kbd>~<kbd>4</kbd>가 색, <kbd>[</kbd> <kbd>]</kbd>가 형광펜 굵기입니다.</p>
-</div><h2 id="56-형광펜-선--l">5.6 형광펜 선 — <kbd>L</kbd></h2><p>직선 형광펜을 긋는 도구입니다. 도면에서 형광 표시는 대부분 직선이라 가장 자주 씁니다.</p><div class="ik-table"><table>
+</table></div><p>모든 출력 장에 현재 선택한 용지를 사용합니다. 각 변에는 6.35mm의 기본 여백을 두고 그림을 가운데 배치합니다.</p><h2 id="62-배율-지정">6.2 배율 지정</h2><ul>
+<li>범위: <strong>10~500%</strong>, 기본값: <strong>160%</strong>.</li>
+<li>숫자 입력 또는 100·130·160·200 버튼을 사용합니다.</li>
+<li>영역을 선택한 상태에서 배율을 바꾸면 선택 영역에 바로 반영됩니다.</li>
+<li>선택 영역이 없으면 새로 만드는 영역의 기본 배율을 바꿉니다.</li>
+<li><strong>이 페이지 모두 적용</strong>: 현재 페이지의 모든 영역에 기본 배율 적용.</li>
+<li><strong>전체 페이지</strong>: 확인 후 모든 PDF·모든 페이지 영역에 기본 배율 적용.</li>
+<li><kbd>,</kbd>는 −10%, <kbd>.</kbd>는 +10%; <kbd>Shift</kbd>+<kbd>,</kbd>는 −1%, <kbd>Shift</kbd>+<kbd>.</kbd>는 +1%입니다.</li>
+</ul><p>화면 아래쪽의 확대율과 인쇄 배율은 별개입니다. 화면을 200%로 보더라도 인쇄 배율은 오른쪽 설정값을 사용합니다.</p><figure class="ik-shot is-small" id="shot-pl_06_select"><div class="ik-shot-frame" style="aspect-ratio:860/494;max-width:860px"><img alt="선택한 인쇄 영역과 배율 정보" decoding="async" height="494" loading="lazy" src="../assets/shots/plot/pl_06_select.webp" width="860"/><button aria-label="1번 조절점" class="ik-pin" data-pin="1" style="left:53.14%;top:46.15%" type="button">1</button><button aria-label="2번 용지 인쇄 범위" class="ik-pin" data-pin="2" style="left:8.37%;top:93.32%" type="button">2</button><button aria-label="3번 선택 영역에 적용" class="ik-pin" data-pin="3" style="left:91.28%;top:5.67%" type="button">3</button><button aria-label="4번 원본 → 인쇄 크기" class="ik-pin" data-pin="4" style="left:76.16%;top:35.63%" type="button">4</button><button aria-label="5번 한꺼번에 적용" class="ik-pin" data-pin="5" style="left:81.40%;top:42.31%" type="button">5</button><button aria-label="6번 개체 목록의 선택 행" class="ik-pin" data-pin="6" style="left:76.74%;top:72.06%" type="button">6</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">V로 영역을 선택한 모습. 오른쪽 배율은 이 영역에 바로 적용됩니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>조절점</b>테두리 · 모서리의 네모를 끌어 크기를 바꿉니다. 안쪽을 끌면 이동.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>용지 인쇄 범위</b>연한 점선은 이 배율로 A4 가로에 찍히는 범위를 가늠하는 보조 표시입니다.</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>선택 영역에 적용</b>선택이 있을 때는 배율이 이 영역에만 바뀝니다.</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>원본 → 인쇄 크기</b>원본 127×48mm가 160%에서 203×77mm로 출력됩니다.</span></li><li data-pin="5"><span class="ik-pin-n">5</span><span><b>한꺼번에 적용</b>이 페이지 모두 적용 · 전체 페이지(확인 후 모든 PDF).</span></li><li data-pin="6"><span class="ik-pin-n">6</span><span><b>개체 목록의 선택 행</b>선택한 영역이 강조됩니다.</span></li></ol></figure><h2 id="63-용지를-넘칠-때만-자동-축소">6.3 용지를 넘칠 때만 자동 축소</h2><div class="ik-table"><table>
 <thead>
 <tr>
-<th>조작</th>
-<th>결과</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>시작점 클릭 → 끝점 클릭</td>
-<td>설정한 굵기로 선이 그어집니다.</td>
-</tr>
-<tr>
-<td>누른 채 드래그 후 놓기</td>
-<td>같은 결과</td>
-</tr>
-<tr>
-<td>거의 수평·수직(3° 이내)</td>
-<td>자동으로 반듯하게 맞춰집니다.</td>
-</tr>
-<tr>
-<td><kbd>Shift</kbd></td>
-<td>수평 / 수직 / 45°로 고정</td>
-</tr>
-<tr>
-<td><kbd>[</kbd> / <kbd>]</kbd></td>
-<td>펜 굵기 −1pt / +1pt</td>
-</tr>
-<tr>
-<td><kbd>Shift</kbd>+<kbd>[</kbd> / <kbd>Shift</kbd>+<kbd>]</kbd></td>
-<td>펜 굵기 −5pt / +5pt</td>
-</tr>
-<tr>
-<td><kbd>1</kbd>~<kbd>4</kbd></td>
-<td>형광색 노랑 / 연두 / 분홍 / 하늘</td>
-</tr>
-<tr>
-<td><kbd>Esc</kbd> / <kbd>Backspace</kbd> / 우클릭</td>
-<td>그리던 선 취소</td>
-</tr>
-</tbody>
-</table></div><ul>
-<li>긋는 동안 끝점 옆에 <code>14pt · 50mm · 수평</code>처럼 굵기·길이·방향이 표시됩니다.</li>
-<li>다 그은 선은 <strong>선택되지 않은 상태</strong>로 남습니다. 그래서 굵기나 색을 바꾸면 다음에 그을 선에만 적용되고, 이미 그은 선은 그대로입니다.</li>
-<li>이미 그은 선을 고치려면 <kbd>V</kbd>로 선택 → <kbd>[</kbd> <kbd>]</kbd>로 그 선의 굵기 변경, 양 끝 동그라미를 끌어 길이·방향 변경.</li>
-<li>오른쪽 <strong>형광 표시</strong> 카드: 형광색, 농도(15~80%), 펜 굵기(1~80pt, 6/10/14/20 바로가기 버튼).</li>
-</ul><h2 id="57-형광-사각형--m">5.7 형광 사각형 — <kbd>M</kbd></h2><p>넓은 면을 형광으로 칠할 때 씁니다.</p><ul>
-<li><strong>드래그</strong>해서 사각형을 만듭니다. 클릭만 하면 기존 개체를 선택합니다.</li>
-<li>숫자 <kbd>1</kbd>~<kbd>4</kbd>로 형광색을 바꿉니다.</li>
-<li>만든 직후에는 선택되지 않으므로, 색을 바꾸면 다음 사각형에 적용됩니다.</li>
-<li><kbd>V</kbd>로 선택하면 모서리 점으로 크기를 조절할 수 있습니다.</li>
-</ul><h2 id="58-형광-다각형--p">5.8 형광 다각형 — <kbd>P</kbd></h2><p>점선 안쪽처럼 모양이 복잡한 면을 칠할 때 씁니다. 조작은 다각형 영역과 같습니다: 클릭으로 꼭짓점, <kbd>Shift</kbd>는 수평/수직, 첫 점 다시 클릭·<kbd>Enter</kbd>·우클릭·더블클릭으로 완성, <kbd>Backspace</kbd> 한 점 취소, <kbd>Esc</kbd> 취소.</p><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고 · 형광 표시의 원리</p>
-<p>형광은 아래 그림과 곱하기(Multiply) 방식으로 겹쳐져서, 검정 선과 글자는 형광 아래에서도 검정 그대로 선명하게 보입니다.</p>
-</div><h2 id="59-화면-이동--h">5.9 화면 이동 — <kbd>H</kbd></h2><p>드래그해서 화면을 옮깁니다. 다른 도구를 쓰는 중에도 <strong><kbd>Space</kbd>를 누른 채 드래그</strong> 또는 <strong>마우스 휠 버튼 드래그</strong>로 잠깐 이동할 수 있습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#4-빠른-시작--기본-작업-흐름"><small>← 앞 장 04</small><b>빠른 시작 — 기본 작업 흐름</b></a><a class="is-next" href="#6-인쇄-설정--용지배율"><small>다음 장 06 →</small><b>인쇄 설정 — 용지·배율</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="6-인쇄-설정--용지배율" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 06</p><h1>인쇄 설정 — 용지·배율</h1></header><p>오른쪽 <strong>인쇄 설정</strong> 카드에서 정합니다.</p><h2 id="61-용지">6.1 용지</h2><p><strong>A4 가로 · A4 세로 · A3 가로 · A3 세로</strong> 중 하나를 고릅니다. 모든 출력 장에 같은 용지가 쓰입니다. 용지 가장자리 여백은 6.35mm입니다.</p><h2 id="62-배율">6.2 배율</h2><ul>
-<li>숫자 칸(10~500%, 5씩 증감)에 직접 입력하거나 <strong>100 / 130 / 160 / 200</strong> 바로가기 버튼을 누릅니다. 기본값은 160%입니다.</li>
-<li><strong>영역을 선택한 상태</strong>에서는 그 영역의 배율이 표시되고, 바꾸면 그 영역에 바로 적용됩니다 (카드에 "선택 영역에 적용" 표시).</li>
-<li>아무것도 선택하지 않았을 때는 <strong>앞으로 새로 만들 영역</strong>의 배율입니다.</li>
-<li>키보드: <kbd>,</kbd> / <kbd>.</kbd> 배율 −10% / +10%, <kbd>Shift</kbd>+<kbd>,</kbd> / <kbd>Shift</kbd>+<kbd>.</kbd> −1% / +1%.</li>
-<li>영역을 선택하면 카드 아래에 <code>원본 113×60mm → 인쇄 181×96mm</code>처럼 크기가 표시되고, 용지 맞춤이나 초과 여부도 함께 표시됩니다.</li>
-</ul><div class="ik-table"><table>
-<thead>
-<tr>
-<th>버튼</th>
+<th>상태</th>
 <th>동작</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>이 페이지 모두 적용</td>
-<td>현재 배율을 지금 페이지의 모든 영역에 적용</td>
+<td>켜짐</td>
+<td>요청 배율이 용지를 넘는 경우에만 실제 배율을 낮춤</td>
 </tr>
 <tr>
-<td>전체 페이지</td>
-<td>현재 배율을 모든 PDF·모든 페이지의 영역에 적용 (확인 창이 뜸)</td>
+<td>꺼짐</td>
+<td>영역이 용지를 넘으면 출력 전에 안내하고 준비를 중단</td>
 </tr>
 </tbody>
-</table></div><h2 id="63-용지를-넘칠-때만-자동-축소">6.3 용지를 넘칠 때만 자동 축소</h2><ul>
-<li><strong>켬(기본):</strong> 지정 배율로는 용지를 넘는 영역만 들어갈 만큼 자동으로 줄입니다. 이름표가 주황(<code>160→142%</code>)으로 표시됩니다.</li>
-<li><strong>끔:</strong> 자동으로 줄이지 않습니다. 용지를 넘는 영역은 빨간 <code>용지 초과</code>로 표시되고, 인쇄 때 어느 영역이 넘는지 목록과 함께 안내하며 인쇄를 막습니다. 잘린 출력을 막는 장치입니다.</li>
-</ul><!-- 직접 해 보기: 배율과 용지 맞춰 보기 (동작은 assets/sims.js) -->
+</table></div><p>예를 들어 원본 영역 가로가 180mm이면 160%에서 288mm가 됩니다. A4 가로의 여백을 뺀 가용 너비는 284.3mm이므로 자동 축소가 켜져 있으면 약 157.9% 이하로 조정됩니다. 세로가 먼저 한계에 닿으면 더 낮아질 수 있습니다.</p><h2 id="64-출력-순서">6.4 출력 순서</h2><p><strong>PDF 목록 순서 → 각 PDF의 원본 페이지 순서 → 그 페이지의 영역 순서</strong>로 출력합니다. 인쇄 영역이 없는 페이지는 출력하지 않습니다.</p><p>선택 영역의 순서는 오른쪽 위·아래 버튼, <kbd>Ctrl</kbd>+<kbd>↑</kbd>·<kbd>Ctrl</kbd>+<kbd>↓</kbd>, 또는 우클릭 메뉴로 바꿉니다. 이 기능은 현재 원본 페이지 안의 영역 순서를 조정합니다. PDF 파일 간 순서를 바꾸는 전용 정렬 기능은 없습니다. 필요한 순서대로 PDF를 추가하세요.</p><!-- 직접 해 보기: 배율과 용지 맞춰 보기 (동작은 assets/sims.js) -->
 <figure class="ik-sim" data-sim="pl-scale">
 <div class="ik-sim-head"><span class="ik-sim-tag">직접 해 보기</span><b>배율과 용지 맞춰 보기</b><small>영역 크기·배율·용지를 바꾸면 인쇄 크기와 자동 축소 여부를 프로그램 규칙(여백 6.35mm)으로 계산합니다.</small></div>
 <div class="ik-sim-body" data-noindex=""><p class="sim-nojs">이 체험은 스크립트가 켜진 브라우저에서 동작합니다.</p></div>
 <figcaption>화면 안에서만 계산하는 연습용입니다. 실제 프로그램·파일에는 영향이 없습니다.</figcaption>
 </figure>
-<nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#5-도구별-상세-사용법"><small>← 앞 장 05</small><b>도구별 상세 사용법</b></a><a class="is-next" href="#7-개체-선택과-편집"><small>다음 장 07 →</small><b>개체 선택과 편집</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="7-개체-선택과-편집" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 07</p><h1>개체 선택과 편집</h1></header><h2 id="71-선택한-개체와-설정-카드의-연동">7.1 선택한 개체와 설정 카드의 연동</h2><p>개체를 선택하면 그 개체의 값(배율, 문구 내용·크기·색, 형광색·농도·굵기, 번호·크기·색)이 오른쪽 카드에 불러와지고, 카드에서 값을 바꾸면 <strong>선택한 개체에 바로 반영</strong>됩니다. 같은 개체를 연속으로 고친 것은 실행 취소 한 번으로 되돌아갑니다.</p><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
-<p>선택한 개체의 값은 다음에 새로 만들 개체의 기본값도 됩니다. 예를 들어 <code>24117</code> 문구를 선택하면 문구 입력칸에도 <code>24117</code>이 들어갑니다.</p>
-</div><h2 id="72-이동크기미세-조정">7.2 이동·크기·미세 조정</h2><ul>
-<li>드래그로 이동, 흰 점으로 크기 조절 (<a href="#51-선택--이동--v">5.1</a>).</li>
-<li>방향키로 1pt, <kbd>Shift</kbd>+방향키로 10pt씩 이동. 연속 이동은 실행 취소 한 번으로 묶입니다.</li>
-<li>아무것도 선택하지 않은 상태에서 방향키를 누르면 화면이 스크롤됩니다.</li>
-</ul><h2 id="73-복사붙여넣기복제">7.3 복사·붙여넣기·복제</h2><div class="ik-table"><table>
+<nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#5-사각형다각형-인쇄-영역"><small>← 앞 장 05</small><b>사각형·다각형 인쇄 영역</b></a><a class="is-next" href="#7-작업번호와-일반-문구--t"><small>다음 장 07 →</small><b>작업번호와 일반 문구 — T</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="7-작업번호와-일반-문구--t" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 07</p><h1>작업번호와 일반 문구 — T</h1></header><ol class="ik-steps is-plain"><li><div><p><kbd>T</kbd>를 눌러 문구 도구를 선택합니다.</p></div></li><li><div><p>오른쪽에 작업번호 또는 메모를 입력합니다.</p></div></li><li><div><p>프리셋·색·크기·굵기를 정합니다.</p></div></li><li><div><p>도면 위에서 놓을 위치를 클릭합니다. 클릭 전에는 커서를 따라 미리보기가 나타납니다.</p></div></li></ol><p><code>24117</code>처럼 숫자만 입력해도 되고, <code>No. 24117</code>처럼 직접 문구를 넣어도 됩니다. 프로그램이 <code>No.</code>를 강제로 붙이지 않습니다.</p><figure class="ik-shot" id="shot-pl_03_text"><div class="ik-shot-frame" style="aspect-ratio:1252/794;max-width:1252px"><img alt="문구 도구의 오른쪽 설정과 미리보기" decoding="async" height="794" loading="lazy" src="../assets/shots/plot/pl_03_text.webp" width="1252"/><button aria-label="1번 입력칸" class="ik-pin" data-pin="1" style="left:87.22%;top:34.76%" type="button">1</button><button aria-label="2번 프리셋" class="ik-pin" data-pin="2" style="left:87.22%;top:39.04%" type="button">2</button><button aria-label="3번 글자색" class="ik-pin" data-pin="3" style="left:80.83%;top:43.20%" type="button">3</button><button aria-label="4번 크기 · 굵게" class="ik-pin" data-pin="4" style="left:92.41%;top:43.20%" type="button">4</button><button aria-label="5번 놓을 때마다 번호 +1" class="ik-pin" data-pin="5" style="left:87.22%;top:46.98%" type="button">5</button><button aria-label="6번 놓기 전 미리보기" class="ik-pin" data-pin="6" style="left:59.50%;top:67.38%" type="button">6</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">T 문구 도구. 오른쪽에 번호를 입력하고 도면을 클릭하면 그 자리에 놓입니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>입력칸</b>작업번호나 메모. 다음에 놓일 24120이 들어 있습니다. 입력 후 Esc 또는 Enter로 빠져나와야 단축키가 동작합니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>프리셋</b>작업번호 빨강·검정·초록 굵게(24pt), 작은 메모(14pt), 주의 빨강(18pt).</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>글자색</b>빨강 · 검정 · 초록 · 파랑. 문구 도구에서 숫자키 1~4로도 바뀝니다.</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>크기 · 굵게</b>6~100pt.</span></li><li data-pin="5"><span class="ik-pin-n">5</span><span><b>놓을 때마다 번호 +1</b>켜면 놓은 뒤 마지막 숫자 묶음이 1 커집니다(24117 → 24118).</span></li><li data-pin="6"><span class="ik-pin-n">6</span><span><b>놓기 전 미리보기</b>커서를 따라 다니는 미리보기. 클릭하면 이 자리에 놓입니다.</span></li></ol></figure><h2 id="71-프리셋">7.1 프리셋</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>프리셋</th>
+<th style="text-align: right;">크기</th>
+<th>색</th>
+<th>굵게</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>작업번호 · 빨강 굵게</td>
+<td style="text-align: right;">24pt</td>
+<td>빨강</td>
+<td>사용</td>
+</tr>
+<tr>
+<td>작업번호 · 검정 굵게</td>
+<td style="text-align: right;">24pt</td>
+<td>검정</td>
+<td>사용</td>
+</tr>
+<tr>
+<td>작업번호 · 초록 굵게</td>
+<td style="text-align: right;">24pt</td>
+<td>초록</td>
+<td>사용</td>
+</tr>
+<tr>
+<td>작은 메모</td>
+<td style="text-align: right;">14pt</td>
+<td>검정</td>
+<td>미사용</td>
+</tr>
+<tr>
+<td>주의 · 빨강</td>
+<td style="text-align: right;">18pt</td>
+<td>빨강</td>
+<td>사용</td>
+</tr>
+</tbody>
+</table></div><p>글자 크기는 6~100pt입니다. 색은 빨강·검정·초록·파랑 중 고를 수 있고, 문구 도구에서 숫자키 <code>1~4</code>로도 바꿉니다.</p><h2 id="72-놓을-때마다-번호-1">7.2 놓을 때마다 번호 +1</h2><p>체크하면 문구를 놓은 뒤 다음 문구의 <strong>마지막 숫자 묶음</strong>을 1 증가시킵니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>현재 문구</th>
+<th>다음 문구</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>24117</code></td>
+<td><code>24118</code></td>
+</tr>
+<tr>
+<td><code>No. 009</code></td>
+<td><code>No. 010</code></td>
+</tr>
+<tr>
+<td><code>A12-B03</code></td>
+<td><code>A12-B04</code></td>
+</tr>
+<tr>
+<td>숫자가 없는 문구</td>
+<td>동일 문구</td>
+</tr>
+</tbody>
+</table></div><!-- 직접 해 보기: 놓을 때마다 번호 +1 (동작은 assets/sims.js) -->
+<figure class="ik-sim" data-sim="pl-bump">
+<div class="ik-sim-head"><span class="ik-sim-tag">직접 해 보기</span><b>번호 +1이 어떻게 바뀌는지 보기</b><small>문구를 입력하고 몇 번 놓을지 정하면, 클릭할 때마다 놓이는 문구를 프로그램과 같은 규칙으로 보여 줍니다.</small></div>
+<div class="ik-sim-body" data-noindex=""><p class="sim-nojs">이 체험은 스크립트가 켜진 브라우저에서 동작합니다.</p></div>
+<figcaption>화면 안에서만 계산하는 연습용입니다. 실제 프로그램·파일에는 영향이 없습니다.</figcaption>
+</figure>
+<h2 id="73-이미-놓은-문구-수정">7.3 이미 놓은 문구 수정</h2><p><kbd>V</kbd>로 문구를 선택하면 오른쪽 설정값을 바꿔 내용·서식을 바로 수정할 수 있습니다. 문구를 더블클릭하거나 <kbd>F2</kbd> 또는 <kbd>Enter</kbd>를 눌러 도면 위에서 직접 고칠 수도 있습니다. 인라인 편집은 <kbd>Enter</kbd>로 확정하고 <kbd>Esc</kbd>로 취소합니다.</p><p>문구는 원본 PDF의 글자를 수정하는 기능이 아니라, 그 위에 별도로 올리는 개체입니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#6-용지인쇄-배율출력-순서"><small>← 앞 장 06</small><b>용지·인쇄 배율·출력 순서</b></a><a class="is-next" href="#8-동그라미-번호--n"><small>다음 장 08 →</small><b>동그라미 번호 — N</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="8-동그라미-번호--n" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 08</p><h1>동그라미 번호 — N</h1></header><p>형광 표시 옆에 ①·② 등을 붙이는 전용 도구입니다. 일반 작업번호 문구와 독립적으로 동작합니다.</p><h2 id="81-번호-놓기">8.1 번호 놓기</h2><ol class="ik-steps is-plain"><li><div><p><kbd>N</kbd>을 누릅니다.</p></div></li><li><div><p>오른쪽 ①~⑮ 버튼에서 번호를 고릅니다.</p></div></li><li><div><p>도면의 원하는 위치를 클릭합니다. 클릭한 점은 동그라미 중심입니다.</p></div></li></ol><p>숫자키로도 번호를 고를 수 있습니다. <kbd>1</kbd> 다음에 약 0.9초 안에 <code>0~5</code>를 누르면 ⑩~⑮가 선택됩니다. 예: <kbd>1</kbd>→<kbd>2</kbd>는 ⑫. 단독 <kbd>0</kbd>으로 0번 번호를 만들지는 않습니다.</p><p><strong>놓을 때마다 다음 번호</strong>를 켜면 다음 번호로 자동 이동합니다. ⑮ 이후에는 ⑮를 유지합니다. 현재 페이지에 이미 있는 번호는 버튼이 초록으로 표시되며, 중복 번호도 배치할 수 있지만 안내가 나타납니다.</p><figure class="ik-shot" id="shot-pl_04_num"><div class="ik-shot-frame" style="aspect-ratio:1252/794;max-width:1252px"><img alt="동그라미 번호 도구의 오른쪽 설정" decoding="async" height="794" loading="lazy" src="../assets/shots/plot/pl_04_num.webp" width="1252"/><button aria-label="1번 ①~⑮ 버튼" class="ik-pin" data-pin="1" style="left:87.22%;top:38.29%" type="button">1</button><button aria-label="2번 놓은 번호 안내" class="ik-pin" data-pin="2" style="left:84.03%;top:45.72%" type="button">2</button><button aria-label="3번 색 · 크기" class="ik-pin" data-pin="3" style="left:87.22%;top:49.12%" type="button">3</button><button aria-label="4번 다음 번호 · 속 채움" class="ik-pin" data-pin="4" style="left:87.22%;top:52.64%" type="button">4</button><button aria-label="5번 놓기 전 미리보기" class="ik-pin" data-pin="5" style="left:33.55%;top:53.90%" type="button">5</button><button aria-label="6번 테두리형 번호" class="ik-pin" data-pin="6" style="left:26.76%;top:29.72%" type="button">6</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">N 동그라미 번호 도구. 클릭한 점이 동그라미 중심이 됩니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>①~⑮ 버튼</b>놓을 번호를 고릅니다. 이 페이지에 이미 놓은 번호는 초록으로 표시됩니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>놓은 번호 안내</b>이 페이지에 놓은 번호 목록(①②).</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>색 · 크기</b>빨강·검정·초록·파랑, 원 지름 8~80pt(기본 22pt).</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>다음 번호 · 속 채움</b>놓을 때마다 다음 번호로 넘어가기. 속 채움을 끄면 테두리형입니다.</span></li><li data-pin="5"><span class="ik-pin-n">5</span><span><b>놓기 전 미리보기</b>③이 커서를 따라 다닙니다.</span></li><li data-pin="6"><span class="ik-pin-n">6</span><span><b>테두리형 번호</b>v2.7부터 흰 내부 바탕이 약 30%만 덮어 아래 도면이 비칩니다.</span></li></ol></figure><!-- 직접 해 보기: 숫자키로 동그라미 번호 고르기 (동작은 assets/sims.js) -->
+<figure class="ik-sim" data-sim="pl-num">
+<div class="ik-sim-head"><span class="ik-sim-tag">직접 해 보기</span><b>숫자키로 ⑩~⑮ 고르기</b><small>N 도구에서 숫자키를 누르는 연습입니다. 1을 누른 뒤 0.9초 안에 0~5를 누르면 두 자리 번호가 됩니다.</small></div>
+<div class="ik-sim-body" data-noindex=""><p class="sim-nojs">이 체험은 스크립트가 켜진 브라우저에서 동작합니다.</p></div>
+<figcaption>연습용 화면입니다. 실제 프로그램에서는 도면 위를 클릭하면 고른 번호가 놓입니다.</figcaption>
+</figure>
+<h2 id="82-번호-서식">8.2 번호 서식</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>설정</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>번호 범위</td>
+<td>1~15</td>
+</tr>
+<tr>
+<td>크기</td>
+<td>원 지름 8~80pt, 기본 22pt</td>
+</tr>
+<tr>
+<td>색</td>
+<td>빨강·검정·초록·파랑</td>
+</tr>
+<tr>
+<td>속 채움 켜짐</td>
+<td>색이 채워진 원 + 흰 숫자</td>
+</tr>
+<tr>
+<td>속 채움 꺼짐</td>
+<td>색 테두리 + 같은 색 숫자 + 흰 내부 바탕</td>
+</tr>
+</tbody>
+</table></div><p><strong>v2.7 변경:</strong> 테두리형의 흰 내부 바탕은 <strong>불투명도 약 30%</strong>입니다. 아래 도면이 약 70% 비쳐 보입니다. 테두리와 숫자는 불투명하게 유지하며, 채움형은 기존과 같습니다. 이 값은 테두리형 전체에 적용하는 고정값이고 별도 슬라이더는 없습니다. 기존 저장 작업의 테두리형 번호도 v2.7에서 표시·출력하면 이 모양을 사용합니다.</p><figure class="ik-shot is-small" id="shot-pl_04b_outline"><div class="ik-shot-frame" style="aspect-ratio:740/390;max-width:740px"><img alt="테두리형 번호 확대 화면" decoding="async" height="390" loading="lazy" src="../assets/shots/plot/pl_04b_outline.webp" width="740"/><button aria-label="1번 테두리형 ②" class="ik-pin" data-pin="1" style="left:45.00%;top:44.10%" type="button">1</button><button aria-label="2번 형광 사각형" class="ik-pin" data-pin="2" style="left:24.32%;top:63.33%" type="button">2</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">화면 300% 확대. 테두리형 ②의 흰 내부가 30%만 덮어 아래의 형광과 점선이 비쳐 보입니다(v2.7 변경).</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>테두리형 ②</b>테두리와 숫자는 불투명, 안쪽 흰 바탕은 약 30%.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>형광 사각형</b>M으로 칠한 노랑 40%. 검정 선과 글자는 그대로 보입니다.</span></li></ol></figure><h2 id="83-선택한-번호-수정">8.3 선택한 번호 수정</h2><p><kbd>V</kbd>로 번호를 선택하면 오른쪽에서 번호·색·크기·속 채움을 바꿀 수 있습니다. 번호가 선택된 상태에서도 숫자키와 <kbd>[</kbd>·<kbd>]</kbd>로 번호를 바꿉니다. 방향키는 이동에 사용합니다.</p><p><kbd>[</kbd>·<kbd>]</kbd>의 동작은 문맥에 따라 다릅니다. <strong>N 도구 또는 번호 선택 상태에서는 이전·다음 번호</strong>, 그 외에는 형광펜 굵기를 바꿉니다. N 문맥에서 Shift를 함께 누르면 번호가 5씩 이동할 수 있습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#7-작업번호와-일반-문구--t"><small>← 앞 장 07</small><b>작업번호와 일반 문구 — T</b></a><a class="is-next" href="#9-형광-표시"><small>다음 장 09 →</small><b>형광 표시</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="9-형광-표시" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 09</p><h1>형광 표시</h1></header><p>점선 내부나 특정 가공 부분을 표시할 때 사용합니다. 점선을 자동 인식하는 기능은 없으며 사용자가 직접 선 또는 면을 지정합니다.</p><h2 id="91-공통-색농도">9.1 공통 색·농도</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>숫자키</th>
+<th>형광색</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>노랑</td>
+</tr>
+<tr>
+<td>2</td>
+<td>연두</td>
+</tr>
+<tr>
+<td>3</td>
+<td>분홍</td>
+</tr>
+<tr>
+<td>4</td>
+<td>하늘</td>
+</tr>
+</tbody>
+</table></div><p>농도는 15~80%이며 기본 40%입니다. Multiply 방식으로 겹쳐 검정 선과 글자가 유지됩니다. 형광 표시가 겹친 곳은 더 진해질 수 있습니다.</p><p>형광 개체를 선택한 상태에서 오른쪽 색·농도를 바꾸면 그 개체에 즉시 반영됩니다. 선택을 해제하고 바꾸면 다음에 만들 표시의 설정을 바꿉니다.</p><h2 id="92-직선-형광펜--l">9.2 직선 형광펜 — <kbd>L</kbd></h2><ol class="ik-steps is-plain"><li><div><p><kbd>L</kbd>을 누릅니다.</p></div></li><li><div><p>시작점을 클릭합니다.</p></div></li><li><div><p>끝점을 클릭하면 선을 완성합니다. 시작점에서 끝점까지 드래그해도 됩니다.</p></div></li></ol><ul>
+<li>수평·수직에서 3° 이내이면 자동으로 반듯하게 맞춥니다.</li>
+<li><kbd>Shift</kbd>를 누르면 수평·수직·45° 방향으로 맞춥니다.</li>
+<li>그리는 동안 굵기와 길이(mm)가 표시됩니다.</li>
+<li><kbd>Esc</kbd>·<kbd>Backspace</kbd>·오른쪽 클릭은 진행 중인 선을 취소합니다.</li>
+<li>완성한 선은 자동 선택하지 않아 다음 선을 바로 그릴 수 있습니다.</li>
+</ul><h3 id="펜-굵기">펜 굵기</h3><div class="ik-table"><table>
+<thead>
+<tr>
+<th>조작</th>
+<th>결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><kbd>[</kbd></td>
+<td>1pt 가늘게</td>
+</tr>
+<tr>
+<td><kbd>]</kbd></td>
+<td>1pt 굵게</td>
+</tr>
+<tr>
+<td><kbd>Shift</kbd>+<kbd>[</kbd></td>
+<td>5pt 가늘게</td>
+</tr>
+<tr>
+<td><kbd>Shift</kbd>+<kbd>]</kbd></td>
+<td>5pt 굵게</td>
+</tr>
+<tr>
+<td>오른쪽 펜 굵기 입력</td>
+<td>1~80pt 지정</td>
+</tr>
+<tr>
+<td>빠른 선택</td>
+<td>6·10·14·20pt</td>
+</tr>
+</tbody>
+</table></div><p>기본은 10pt입니다. 원본 좌표에서의 굵기이므로 10pt 선을 160%로 출력하면 종이 위에서는 약 16pt, 즉 5.64mm가 됩니다.</p><p>완성한 선을 <kbd>V</kbd>로 선택하면 양 끝점으로 길이·방향을 바꿀 수 있습니다. <kbd>[</kbd>·<kbd>]</kbd>와 오른쪽 굵기는 선택한 선에 적용됩니다.</p><figure class="ik-shot" id="shot-pl_05_line"><div class="ik-shot-frame" style="aspect-ratio:1252/794;max-width:1252px"><img alt="형광펜 선을 긋는 중인 화면" decoding="async" height="794" loading="lazy" src="../assets/shots/plot/pl_05_line.webp" width="1252"/><button aria-label="1번 형광색" class="ik-pin" data-pin="1" style="left:80.83%;top:34.63%" type="button">1</button><button aria-label="2번 농도" class="ik-pin" data-pin="2" style="left:87.22%;top:38.29%" type="button">2</button><button aria-label="3번 펜 굵기" class="ik-pin" data-pin="3" style="left:87.22%;top:42.44%" type="button">3</button><button aria-label="4번 시작점" class="ik-pin" data-pin="4" style="left:40.73%;top:50.00%" type="button">4</button><button aria-label="5번 굵기 · 길이 · 방향" class="ik-pin" data-pin="5" style="left:64.46%;top:52.27%" type="button">5</button><button aria-label="6번 완성한 선" class="ik-pin" data-pin="6" style="left:11.74%;top:47.10%" type="button">6</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">L 형광펜. 시작점을 클릭한 뒤 끝점으로 가는 중이며, 굵기와 길이가 함께 표시됩니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>형광색</b>노랑 · 연두 · 분홍 · 하늘(숫자키 1~4).</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>농도</b>15~80%, 기본 40%.</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>펜 굵기</b>1~80pt, 빠른 선택 6·10·14·20. <span class="ik-ui"> </span> 로 1pt, Shift+<span class="ik-ui"> </span> 로 5pt씩.</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>시작점</b>첫 클릭 위치.</span></li><li data-pin="5"><span class="ik-pin-n">5</span><span><b>굵기 · 길이 · 방향</b>10pt · 81mm · 수평. 수평·수직 3° 이내는 자동으로 반듯해집니다.</span></li><li data-pin="6"><span class="ik-pin-n">6</span><span><b>완성한 선</b>끝점을 클릭하면 완성되고, 자동 선택하지 않아 바로 다음 선을 그릴 수 있습니다.</span></li></ol></figure><h2 id="93-형광-사각형--m">9.3 형광 사각형 — <kbd>M</kbd></h2><p><kbd>M</kbd>을 누르고 채울 범위를 드래그합니다. 점선 안쪽의 넓은 사각형 면을 표시할 때 적합합니다. <kbd>V</kbd>로 선택해 위치와 크기를 바꿀 수 있습니다.</p><h2 id="94-형광-다각형--p">9.4 형광 다각형 — <kbd>P</kbd></h2><ol class="ik-steps is-plain"><li><div><p><kbd>P</kbd>를 누릅니다.</p></div></li><li><div><p>채울 면의 꼭짓점을 차례로 클릭합니다.</p></div></li><li><div><p>첫 점 클릭·<kbd>Enter</kbd>·오른쪽 클릭 중 하나로 완성합니다.</p></div></li><li><div><p><kbd>Shift</kbd>는 직전 점과 수평·수직 고정, <kbd>Backspace</kbd>는 마지막 점 취소, <kbd>Esc</kbd>는 그리기 전체 취소입니다.</p></div></li></ol><p>형광 다각형과 다각형 인쇄 영역은 다릅니다. <kbd>P</kbd>는 색칠할 개체만 만들고, <kbd>Shift</kbd>+<kbd>R</kbd>은 출력 범위를 만듭니다. 형광 표시만 만들고 인쇄 영역을 만들지 않으면 해당 페이지는 출력되지 않습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#8-동그라미-번호--n"><small>← 앞 장 08</small><b>동그라미 번호 — N</b></a><a class="is-next" href="#10-개체-편집"><small>다음 장 10 →</small><b>개체 편집</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="10-개체-편집" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 10</p><h1>개체 편집</h1></header><h2 id="101-선택이동크기">10.1 선택·이동·크기</h2><ul>
+<li><kbd>V</kbd>로 개체를 클릭하고 드래그합니다.</li>
+<li>오른쪽 <strong>이 페이지 개체</strong> 목록에서도 선택할 수 있습니다.</li>
+<li><kbd>Tab</kbd>·<kbd>Shift</kbd>+<kbd>Tab</kbd>으로 다음·이전 개체를 순환 선택합니다.</li>
+<li>방향키는 1pt, <code>Shift+방향키</code>는 10pt 이동합니다.</li>
+<li>영역·형광 면은 조절점으로 크기, 다각형 인쇄 영역은 꼭짓점, 형광 선은 양 끝점을 편집합니다.</li>
+<li>문구와 번호 크기는 오른쪽 설정을 사용합니다.</li>
+<li>자동으로 원본 도형과 연결하거나 실제 제작 치수를 수정하지 않습니다.</li>
+</ul><h2 id="102-복사잘라내기붙여넣기복제">10.2 복사·잘라내기·붙여넣기·복제</h2><div class="ik-table"><table>
 <thead>
 <tr>
 <th>기능</th>
-<th>키</th>
-<th>설명</th>
+<th>단축키</th>
+<th>사용법</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>복사</td>
 <td><kbd>Ctrl</kbd>+<kbd>C</kbd></td>
-<td>선택 개체를 복사</td>
+<td>선택 개체를 프로그램 내부 클립보드에 복사</td>
 </tr>
 <tr>
 <td>잘라내기</td>
 <td><kbd>Ctrl</kbd>+<kbd>X</kbd></td>
-<td>복사 후 삭제</td>
+<td>복사한 뒤 현재 페이지에서 제거</td>
 </tr>
 <tr>
 <td>붙여넣기</td>
 <td><kbd>Ctrl</kbd>+<kbd>V</kbd></td>
-<td><strong>다른 페이지에도</strong> 같은 위치에 붙여넣습니다. 같은 자리에 똑같은 개체가 이미 있으면 12pt 비켜서 붙습니다.</td>
+<td>현재 페이지에 추가, 다른 PDF·페이지에도 가능</td>
 </tr>
 <tr>
 <td>복제</td>
 <td><kbd>Ctrl</kbd>+<kbd>D</kbd></td>
-<td>12pt 비켜서 복제</td>
+<td>같은 페이지에 복사본 추가</td>
 </tr>
 </tbody>
-</table></div><div class="ik-note is-tip"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.9V16h5v-.2c0-.8.4-1.5 1-1.9A6 6 0 0 0 12 3z"></path></svg>팁 · 활용</p>
-<p>페이지 구성이 같은 도면이 여러 장일 때, 한 페이지에서 영역을 잡고 <kbd>Ctrl</kbd>+<kbd>C</kbd> → <kbd>PgDn</kbd> → <kbd>Ctrl</kbd>+<kbd>V</kbd>를 반복하면 같은 위치에 영역이 빠르게 만들어집니다.</p>
-</div><h2 id="74-삭제순서">7.4 삭제·순서</h2><ul>
-<li>삭제: <kbd>Delete</kbd> (또는 <kbd>Backspace</kbd>). 개체 목록의 <strong>삭제</strong> 버튼도 같습니다.</li>
-<li>출력 순서: 영역을 선택하고 <kbd>Ctrl</kbd>+<kbd>↑</kbd> / <kbd>Ctrl</kbd>+<kbd>↓</kbd>, 또는 개체 목록의 ↑ / ↓ 버튼. 페이지 안의 영역 순서가 바뀌면 출력 순서도 바뀝니다.</li>
-</ul><h2 id="75-차례로-고르기">7.5 차례로 고르기</h2><p><kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd>으로 현재 페이지의 개체를 다음 / 이전 순서로 고릅니다. 선택한 개체가 화면 밖에 있으면 화면이 따라갑니다. <kbd>Esc</kbd>는 선택 해제입니다.</p><h2 id="76-우클릭-메뉴">7.6 우클릭 메뉴</h2><p>개체 위에서 우클릭하면 그 개체가 선택되고 메뉴가 뜹니다.</p><div class="ik-table"><table>
+</table></div><p>다른 페이지에 붙여넣으면 같은 좌표를 사용합니다. 동일 경계의 개체가 이미 있으면 겹침을 피하도록 약 12pt 이동하며, 페이지 밖으로 나가면 페이지 안에 맞춥니다. 원본 페이지 크기가 서로 다르면 붙인 위치를 확인하세요. 현재 방식은 한 번에 개체 하나를 다루며 그룹 다중선택은 제공하지 않습니다.</p><h2 id="103-삭제복구">10.3 삭제·복구</h2><p>선택 후 <kbd>Delete</kbd> 또는 오른쪽 <strong>삭제</strong>를 누릅니다. <kbd>Ctrl</kbd>+<kbd>Z</kbd>로 실행 취소, <kbd>Ctrl</kbd>+<kbd>Y</kbd> 또는 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd>로 다시 실행합니다. 실행 취소는 최대 60단계를 보관하며, 같은 개체의 연속 서식 편집·이동은 한 단계로 묶일 수 있습니다. 작업 파일을 다시 열면 이전 실행 취소 이력은 이어지지 않습니다.</p><h2 id="104-우클릭-메뉴">10.4 우클릭 메뉴</h2><p>상황에 따라 문구 고치기, 복제, 복사, 잘라내기, 붙여넣기, 삭제를 제공합니다. 영역에는 배율·출력 순서, 형광 선에는 굵기 조절이 추가됩니다. 개체가 없는 곳에는 페이지 맞춤이 표시됩니다. 다각형을 그리는 중에는 완성, 형광 선을 그리는 중에는 취소가 우선합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#9-형광-표시"><small>← 앞 장 09</small><b>형광 표시</b></a><a class="is-next" href="#11-화면-보기"><small>다음 장 11 →</small><b>화면 보기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="11-화면-보기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 11</p><h1>화면 보기</h1></header><div class="ik-table"><table>
 <thead>
 <tr>
-<th>대상</th>
-<th>메뉴</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>문구</td>
-<td>문구 고치기(F2) + 공통</td>
-</tr>
-<tr>
-<td>영역</td>
-<td>공통 + 배율 +10% / −10%, 출력 순서 앞으로 / 뒤로</td>
-</tr>
-<tr>
-<td>형광펜 선</td>
-<td>공통 + 굵게 +1pt / 가늘게 −1pt</td>
-</tr>
-<tr>
-<td>공통</td>
-<td>복제, 복사, 잘라내기, 붙여넣기, 삭제</td>
-</tr>
-<tr>
-<td>빈 곳</td>
-<td>붙여넣기, 페이지 맞춤</td>
-</tr>
-</tbody>
-</table></div><p>다각형을 그리는 중에는 우클릭이 <strong>완성</strong>, 형광펜 선을 긋는 중에는 <strong>취소</strong>입니다.</p><h2 id="77-이-페이지-개체-목록">7.7 이 페이지 개체 목록</h2><p>현재 페이지의 개체가 아이콘과 함께 나열됩니다.</p><div class="ik-table"><table>
-<thead>
-<tr>
-<th>표시</th>
-<th>예</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>영역</td>
-<td><code>출력 3장 · 영역 1</code> / <code>160%</code> (용지 맞춤이면 <code>→ 142%</code>, 초과면 <code>용지 초과</code>)</td>
-</tr>
-<tr>
-<td>문구</td>
-<td><code>24117</code> / <code>24pt</code></td>
-</tr>
-<tr>
-<td>동그라미 번호</td>
-<td><code>③ 번호 3</code> / <code>22pt</code></td>
-</tr>
-<tr>
-<td>형광</td>
-<td><code>형광 노랑</code> / <code>펜 10pt 40%</code>, <code>사각형 40%</code>, <code>6각형 40%</code></td>
-</tr>
-</tbody>
-</table></div><p>목록에서 항목을 클릭하면 캔버스에서 선택되고, 문구를 더블클릭하면 고치기가 열립니다. 아래 버튼: 영역 순서 ↑ / ↓, 복제, 삭제.</p><h2 id="78-실행-취소">7.8 실행 취소</h2><p><kbd>Ctrl</kbd>+<kbd>Z</kbd> 실행 취소, <kbd>Ctrl</kbd>+<kbd>Y</kbd>(또는 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd>) 다시 실행. 최근 60단계까지 기억합니다. PDF 추가·빼기도 되돌릴 수 있습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#6-인쇄-설정--용지배율"><small>← 앞 장 06</small><b>인쇄 설정 — 용지·배율</b></a><a class="is-next" href="#8-pdf페이지-관리"><small>다음 장 08 →</small><b>PDF·페이지 관리</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="8-pdf페이지-관리" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 08</p><h1>PDF·페이지 관리</h1></header><div class="ik-table"><table>
-<thead>
-<tr>
-<th>기능</th>
-<th>방법</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>PDF 추가</td>
-<td><kbd>Ctrl</kbd>+<kbd>O</kbd>, 상단바·왼쪽 목록의 <strong>PDF 추가</strong>, 창으로 끌어다 놓기 (여러 개 가능, 이미 있는 파일은 건너뜀)</td>
-</tr>
-<tr>
-<td>페이지 이동</td>
-<td>왼쪽 목록 클릭, <kbd>PgDn</kbd> / <kbd>PgUp</kbd>, 캔버스 머리글의 ◀ ▶</td>
-</tr>
-<tr>
-<td>첫 / 마지막 페이지</td>
-<td><kbd>Home</kbd> / <kbd>End</kbd></td>
-</tr>
-<tr>
-<td>다음 / 이전 PDF</td>
-<td><kbd>Ctrl</kbd>+<kbd>PgDn</kbd> / <kbd>Ctrl</kbd>+<kbd>PgUp</kbd></td>
-</tr>
-<tr>
-<td>PDF 빼기</td>
-<td><kbd>Ctrl</kbd>+<kbd>W</kbd>, 목록의 <strong>빼기</strong>, 목록에서 PDF를 고른 뒤 <kbd>Delete</kbd>. 확인 후 그 PDF의 영역·표시가 목록에서 빠집니다 (원본 파일은 그대로, <kbd>Ctrl</kbd>+<kbd>Z</kbd>로 복구 가능).</td>
-</tr>
-</tbody>
-</table></div><p><strong>출력 순서</strong>는 왼쪽 목록의 PDF 순서 → 각 PDF의 원본 페이지 순서 → 페이지 안의 영역 순서입니다. 영역 이름표의 "N장"이 전체 출력 순번입니다. 영역이 없는 페이지는 출력되지 않습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#7-개체-선택과-편집"><small>← 앞 장 07</small><b>개체 선택과 편집</b></a><a class="is-next" href="#9-화면-보기-조작"><small>다음 장 09 →</small><b>화면 보기 조작</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="9-화면-보기-조작" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 09</p><h1>화면 보기 조작</h1></header><div class="ik-table"><table>
-<thead>
-<tr>
-<th>기능</th>
 <th>조작</th>
+<th>동작</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>확대 / 축소</td>
-<td><code>Ctrl+휠</code> (커서 위치 기준), <code>Ctrl++</code> / <code>Ctrl+−</code>, <code>+</code> / <code>−</code>, 상태표시줄 버튼</td>
+<td>Ctrl+휠</td>
+<td>커서 위치를 기준으로 확대·축소</td>
 </tr>
 <tr>
-<td>페이지 맞춤</td>
-<td><kbd>Ctrl</kbd>+<kbd>0</kbd>, 상태표시줄 맞춤 버튼</td>
-</tr>
-<tr>
-<td>실제 크기 100%</td>
-<td><kbd>Ctrl</kbd>+<kbd>1</kbd></td>
-</tr>
-<tr>
-<td>세로 / 가로 스크롤</td>
-<td>휠 / <code>Shift+휠</code>, 스크롤바, (선택 없을 때) 방향키</td>
-</tr>
-<tr>
-<td>화면 이동</td>
-<td><kbd>H</kbd> 도구, <kbd>Space</kbd>+드래그, 휠 버튼 드래그</td>
-</tr>
-<tr>
-<td>노트북 터치패드</td>
-<td>두 손가락 스크롤, <kbd>Ctrl</kbd>+두 손가락으로 확대/축소</td>
-</tr>
-</tbody>
-</table></div><ul>
-<li>화면 배율은 10%~400%입니다. <strong>화면 배율과 인쇄 배율은 서로 관계가 없습니다.</strong></li>
-<li><code>Ctrl+휠</code>을 빠르게 돌리면 배율 숫자만 먼저 바뀌고, 휠이 멈추면 한 번에 다시 그려 버벅임이 없습니다.</li>
-</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#8-pdf페이지-관리"><small>← 앞 장 08</small><b>PDF·페이지 관리</b></a><a class="is-next" href="#10-인쇄와-pdf-저장"><small>다음 장 10 →</small><b>인쇄와 PDF 저장</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="10-인쇄와-pdf-저장" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 10</p><h1>인쇄와 PDF 저장</h1></header><h2 id="101-두-가지-출력-방법">10.1 두 가지 출력 방법</h2><div class="ik-table"><table>
-<thead>
-<tr>
-<th>방법</th>
-<th>키</th>
-<th>하는 일</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>인쇄</strong></td>
-<td><kbd>Ctrl</kbd>+<kbd>P</kbd>, 상단바 <strong>인쇄</strong></td>
-<td>인쇄용 PDF를 임시로 만들어 미리보기를 띄우고, 거기서 프린터로 바로 인쇄합니다.</td>
-</tr>
-<tr>
-<td><strong>PDF로 저장</strong></td>
-<td><kbd>Ctrl</kbd>+<kbd>E</kbd>, 상단바 <strong>PDF로 저장</strong></td>
-<td>저장 위치를 고른 뒤 인쇄용 PDF와 순서표를 만들고 미리보기를 띄웁니다.</td>
-</tr>
-</tbody>
-</table></div><p>출력 전에 영역이 하나도 없으면 "먼저 인쇄 영역(R)을 드래그해 지정하세요" 안내가 뜹니다. 용지를 넘는 영역이 있고 자동 축소가 꺼져 있으면 해당 영역 목록과 함께 출력이 막힙니다. 만드는 동안 진행 창에 <code>3 / 12장</code>처럼 진행 상황이 표시되며, <strong>취소(Esc)</strong> 로 멈출 수 있습니다.</p><h2 id="102-인쇄-미리보기-창">10.2 인쇄 미리보기 창</h2><pre class="ik-pre"><code>┌ 인쇄 미리보기 · N장   [파일 · 원본 n페이지 · 영역 n · 실제 배율 · 출력 방식]   [A4 가로 · 실제 크기 100% · 단면] ┐
-│                                     │ 바로 인쇄                         │
-│         출력될 한 장의 모습            │  프린터 [▼]   [프린터 설정…]       │
-│                                     │  매수 [1] 부  /  범위 [전체][이 장만] │
-│                                     │  출력 화질 [자동][선명][이미지 보정]   │
-│                                     │  ☐ 선 진하게  ☑ 스캔 보정           │
-│                                     │  [ 인쇄  Enter ]                   │
-│                                     │  ── 파일: [PDF로 저장] [순서표] ──   │
-├ [◀] 2/5 [▶]  ← → 넘기기 · Enter 인쇄 · Ctrl+S PDF 저장 · Esc 닫기 ┤
-</code></pre><div class="ik-table"><table>
-<thead>
-<tr>
-<th>항목</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>페이지 넘기기</td>
-<td>◀ ▶ 버튼, <kbd>←</kbd> <kbd>→</kbd>, <kbd>PgUp</kbd> <kbd>PgDn</kbd>, <kbd>Home</kbd> <kbd>End</kbd>, 마우스 휠</td>
-</tr>
-<tr>
-<td>프린터</td>
-<td>이 PC에 설치된 프린터 목록. 처음엔 Windows 기본 프린터, 이후엔 마지막에 쓴 프린터가 선택됩니다.</td>
-</tr>
-<tr>
-<td>프린터 설정…</td>
-<td>프린터 드라이버 자체 설정 창(급지함, 인쇄 품질 등). <strong>용지·방향·단면은 프로그램이 자동으로 고정</strong>하므로 바꿔도 무시됩니다.</td>
-</tr>
-<tr>
-<td>매수</td>
-<td>1~99부. 2부 이상이면 <strong>한 부씩 순서대로</strong>(1,2,3…1,2,3…) 나옵니다.</td>
-</tr>
-<tr>
-<td>범위</td>
-<td><strong>전체 N장</strong> 또는 <strong>(지금 보는) N번째 장만</strong> — 한 장만 다시 뽑을 때.</td>
-</tr>
-<tr>
-<td>출력 화질</td>
-<td><a href="#11-출력-화질">11장</a> 참고. 바꾸면 그 자리에서 다시 만들어 미리보기가 갱신되고, 보던 장이 유지됩니다.</td>
-</tr>
-<tr>
-<td>인쇄 (<kbd>Enter</kbd> / <kbd>Ctrl</kbd>+<kbd>P</kbd>)</td>
-<td>프린터로 보냅니다. 보내는 동안 진행 막대가 보이고 버튼이 <strong>인쇄 취소</strong>로 바뀝니다. 다 보내면 창이 닫히고 "프린터로 N장 보냈어요" 알림이 뜹니다.</td>
-</tr>
-<tr>
-<td>PDF로 저장 (<kbd>Ctrl</kbd>+<kbd>S</kbd>)</td>
-<td>(Ctrl+P로 연 경우) 인쇄용 PDF를 파일로 저장. 순서표도 함께 저장됩니다.</td>
-</tr>
-<tr>
-<td>PDF 열기 / 폴더</td>
-<td>(Ctrl+E로 연 경우) 저장한 PDF 열기 / 탐색기에서 파일 위치 열기</td>
-</tr>
-<tr>
-<td>순서표</td>
-<td>출력 순서표(HTML) 열기</td>
-</tr>
-<tr>
-<td>닫기</td>
-<td><kbd>Esc</kbd>. 인쇄를 보내는 중에는 닫히지 않으니 먼저 <strong>인쇄 취소</strong>를 누르세요.</td>
-</tr>
-</tbody>
-</table></div><h2 id="103-바로-인쇄가-보장하는-것">10.3 바로 인쇄가 보장하는 것</h2><ul>
-<li><strong>실제 크기 100%</strong>: 프로그램이 프린터의 실제 용지 크기와 인쇄 불가 여백을 읽어서 정확한 크기로 놓습니다. PDF 뷰어처럼 "페이지에 맞춤"으로 줄어드는 일이 없습니다.</li>
-<li><strong>단면 고정</strong>: 프린터 기본값이 양면이어도 단면으로 인쇄합니다.</li>
-<li><strong>용지·방향 자동</strong>: A4/A3, 가로/세로를 작업 설정에 맞춰 지정합니다. 드라이버가 방향을 무시하면 프로그램이 그림을 돌려서 맞춥니다.</li>
-<li><strong>고해상도</strong>: 프린터 해상도(최대 600dpi)로 보냅니다.</li>
-<li>프린터가 해당 용지(예: A3)를 지원하지 않으면 "이 프린터 용지가 A3 가로보다 작습니다" 안내와 함께 인쇄를 취소합니다. 종이가 반쯤 나오는 일은 없습니다.</li>
-<li>인쇄는 별도 작업으로 처리되므로, 프린터 드라이버에 문제가 생겨도 편집 창은 멈추지 않습니다.</li>
-</ul><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
-<p>바로 인쇄는 Windows에서만 됩니다. 설치된 프린터가 없으면 안내가 표시되고 인쇄 버튼이 비활성화되며, <strong>PDF로 저장</strong>은 그대로 쓸 수 있습니다.</p>
-</div><h2 id="104-pdf로-저장과-순서표">10.4 PDF로 저장과 순서표</h2><ul>
-<li>기본 파일 이름: 첫 PDF 이름의 작업번호를 따서 <code>24117-24118_확대인쇄.pdf</code> (번호가 없으면 원본 이름 + <code>_확대인쇄.pdf</code>).</li>
-<li>저장 위치: 처음엔 원본 PDF 폴더, 이후엔 마지막으로 저장한 폴더.</li>
-<li>같은 이름으로 <strong><code>.순서표.html</code></strong> 이 함께 저장됩니다. 출력 순번, PDF, 원본 페이지, 영역 번호, 실제 배율, 확인 체크칸이 표로 정리되어 있어 출력물을 정리할 때 씁니다.</li>
-<li>원본 PDF 자리에 덮어쓰는 것은 막혀 있습니다.</li>
-<li>바로 인쇄용 임시 PDF는 Windows 임시 폴더에 만들어지고 하루가 지나면 자동으로 지워집니다.</li>
-</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#9-화면-보기-조작"><small>← 앞 장 09</small><b>화면 보기 조작</b></a><a class="is-next" href="#11-출력-화질"><small>다음 장 11 →</small><b>출력 화질</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="11-출력-화질" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 11</p><h1>출력 화질</h1></header><p>인쇄 미리보기 오른쪽 <strong>출력 화질</strong>에서 정하며, 작업 파일과 프로그램 설정에 기억됩니다.</p><h2 id="111-출력-방식">11.1 출력 방식</h2><div class="ik-table"><table>
-<thead>
-<tr>
-<th>방식</th>
-<th>내용</th>
-<th>언제</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>자동</strong> (기본·권장)</td>
-<td>페이지마다 알아서 고릅니다. 이미지가 페이지 면적의 절반 이상을 차지하면 스캔으로 보고 <strong>이미지 보정</strong>, 아니면 <strong>선명</strong>.</td>
-<td>대부분의 경우</td>
-</tr>
-<tr>
-<td><strong>선명</strong> (원본 벡터)</td>
-<td>원본 PDF의 선·글자를 이미지로 바꾸지 않고 그대로 확대해서 넣습니다. 프린터 해상도로 칼같이 선명하고 파일도 작습니다.</td>
-<td>일반 PDF 도면 (CAD·엑셀 등에서 만든 PDF)</td>
-</tr>
-<tr>
-<td><strong>이미지 보정</strong></td>
-<td>영역을 최종 인쇄 크기 기준 300dpi 이미지로 만들고 보정합니다.</td>
-<td>스캔 도면, 또는 자동이 스캔을 알아채지 못했을 때</td>
-</tr>
-</tbody>
-</table></div><p>미리보기 위쪽 설명에 장마다 <code>선명(원본 벡터)</code> 또는 <code>이미지 보정</code> 중 어떤 방식으로 만들었는지 표시됩니다.</p><h2 id="112-보정-옵션">11.2 보정 옵션</h2><div class="ik-table"><table>
-<thead>
-<tr>
-<th>옵션</th>
-<th>기본</th>
-<th>효과</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>선 진하게</strong> (흐린 회색 선·글자)</td>
-<td>끔</td>
-<td>흰 바탕과 검정은 그대로 두고 <strong>회색만 진하게</strong> 합니다. 흐린 회색으로 그려진 도면에 켜세요. 선명 방식에서는 원본을 곱하기로 한 번 더 겹쳐(60% 회색 → 36%), 이미지 방식에서는 감마 보정으로 처리합니다.</td>
-</tr>
-<tr>
-<td><strong>스캔 보정</strong> (바탕 하얗게·선명하게)</td>
-<td>켬</td>
-<td>이미지 방식 페이지에만 적용됩니다. 스캔 잡티 제거 → 누런/회색 바탕을 흰색으로(색별로 따로 보정해 누런 기운 제거) → 흐린 선을 검게 → 윤곽 선명하게. 끄면 스캔 원본 색 그대로 나옵니다.</td>
-</tr>
-</tbody>
-</table></div><h2 id="113-표시물의-화질">11.3 표시물의 화질</h2><ul>
-<li><strong>형광</strong>은 선명한 벡터 도형으로 들어가며, 곱하기 방식이라 아래 검정 선·글자가 그대로 보입니다.</li>
-<li><strong>문구와 동그라미 번호</strong>는 600dpi로 그려 넣습니다.</li>
-<li>영역 밖(다각형 영역은 다각형 밖)은 흰색으로 덮어 인쇄되지 않습니다.</li>
-</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#10-인쇄와-pdf-저장"><small>← 앞 장 10</small><b>인쇄와 PDF 저장</b></a><a class="is-next" href="#12-작업-파일-저장열기"><small>다음 장 12 →</small><b>작업 파일 저장·열기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="12-작업-파일-저장열기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 12</p><h1>작업 파일 저장·열기</h1></header><h2 id="121-저장">12.1 저장</h2><ul>
-<li><strong>작업 저장 <kbd>Ctrl</kbd>+<kbd>S</kbd></strong>: 처음에는 저장 위치를 묻고(기본 이름 <code>24117-24118_도면작업.pdfregions</code>, 기본 위치 원본 PDF 폴더), 그 뒤로는 같은 파일에 바로 덮어씁니다.</li>
-<li><strong>다른 이름으로 저장 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd></strong>: 새 이름·위치로 저장합니다.</li>
-<li>저장되는 내용: 원본 PDF의 경로와 지문(해시), 페이지 크기, 모든 영역(사각형·다각형, 배율), 문구, 동그라미 번호, 형광 표시, 용지·배율·자동 축소·출력 화질 설정.</li>
-<li><strong>원본 PDF는 작업 파일에 들어가지 않습니다.</strong> 원본을 원래 위치에 그대로 두세요.</li>
-<li>저장하지 않은 변경이 있는 채로 작업을 열거나 프로그램을 닫으면 "현재 편집 작업을 저장할까요?"(예 / 아니요 / 취소)를 묻습니다.</li>
-</ul><h2 id="122-열기">12.2 열기</h2><p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd>, 상단바 <strong>작업 열기</strong>, 또는 <code>.pdfregions</code> 파일을 창이나 실행 파일 아이콘에 끌어다 놓기. 열 때 다음을 확인합니다.</p><div class="ik-table"><table>
-<thead>
-<tr>
-<th>확인</th>
-<th>문제가 있을 때 안내</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>원본 PDF가 원래 위치에 있는지</td>
-<td>"원본 PDF를 찾지 못했습니다. 원래 위치로 되돌려주세요."</td>
-</tr>
-<tr>
-<td>저장 후 원본이 바뀌지 않았는지 (해시 비교)</td>
-<td>"저장 이후 원본이 바뀌었습니다."</td>
-</tr>
-<tr>
-<td>원본 페이지 수가 같은지</td>
-<td>"원본 페이지 수가 다릅니다."</td>
-</tr>
-<tr>
-<td>영역·다각형 좌표가 올바른지</td>
-<td>"영역 좌표가 올바르지 않습니다." 등</td>
-</tr>
-<tr>
-<td>파일 크기(20MB 이하)·형식</td>
-<td>"작업 파일이 너무 큽니다." / "지원하지 않는 작업 파일입니다."</td>
-</tr>
-</tbody>
-</table></div><p>출력할 때도 원본이 바뀌었는지 다시 확인합니다 ("원본이 변경되었습니다").</p><h2 id="123-버전-호환">12.3 버전 호환</h2><p>작업 파일 형식은 v1과 같아서 예전 작업 파일도 그대로 열립니다. 새 기능의 정보(다각형 영역, 형광펜 선, 동그라미 번호, 출력 화질)는 추가 항목으로 저장됩니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#11-출력-화질"><small>← 앞 장 11</small><b>출력 화질</b></a><a class="is-next" href="#13-단축키-전체-목록"><small>다음 장 13 →</small><b>단축키 전체 목록</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="13-단축키-전체-목록" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 13</p><h1>단축키 전체 목록</h1></header><p><kbd>F1</kbd> 또는 <code>?</code>로 프로그램 안에서도 볼 수 있습니다. 단축키는 <strong>한/영 상태와 Caps Lock에 관계없이</strong> 동작합니다. 입력칸에 커서가 있을 때는 한 글자 단축키 대신 글자가 입력되며, <kbd>Ctrl</kbd>+<kbd>S</kbd> <kbd>Ctrl</kbd>+<kbd>O</kbd> <kbd>Ctrl</kbd>+<kbd>P</kbd> <kbd>Ctrl</kbd>+<kbd>E</kbd> <kbd>Ctrl</kbd>+<kbd>W</kbd> <kbd>F1</kbd> <kbd>Ctrl</kbd>+<kbd>0</kbd> <kbd>Ctrl</kbd>+<kbd>1</kbd> <code>Ctrl++</code> <code>Ctrl+−</code> <kbd>PgUp</kbd> <kbd>PgDn</kbd> 같은 키는 입력칸에서도 동작합니다. <kbd>Esc</kbd> 또는 <kbd>Enter</kbd>로 입력칸을 빠져나옵니다.</p><h2 id="131-파일">13.1 파일</h2><div class="ik-table"><table>
-<thead>
-<tr>
-<th>키</th>
-<th>기능</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><kbd>Ctrl</kbd>+<kbd>O</kbd></td>
-<td>PDF 추가</td>
-</tr>
-<tr>
-<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd></td>
-<td>작업 열기</td>
-</tr>
-<tr>
-<td><kbd>Ctrl</kbd>+<kbd>S</kbd></td>
-<td>작업 저장</td>
-</tr>
-<tr>
-<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd></td>
-<td>다른 이름으로 저장</td>
-</tr>
-<tr>
-<td><kbd>Ctrl</kbd>+<kbd>P</kbd></td>
-<td>인쇄 (미리보기 → 프린터로 바로)</td>
-</tr>
-<tr>
-<td><kbd>Ctrl</kbd>+<kbd>E</kbd></td>
-<td>인쇄용 PDF로 저장</td>
-</tr>
-<tr>
-<td><kbd>Ctrl</kbd>+<kbd>W</kbd></td>
-<td>현재 PDF 목록에서 빼기</td>
-</tr>
-</tbody>
-</table></div><h2 id="132-도구">13.2 도구</h2><div class="ik-table"><table>
-<thead>
-<tr>
-<th>키</th>
-<th>기능</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><kbd>V</kbd></td>
-<td>선택 / 이동</td>
-</tr>
-<tr>
-<td><kbd>R</kbd></td>
-<td>인쇄 영역</td>
-</tr>
-<tr>
-<td><kbd>Shift</kbd>+<kbd>R</kbd></td>
-<td>다각형 인쇄 영역</td>
-</tr>
-<tr>
-<td><kbd>T</kbd></td>
-<td>문구 (작업번호)</td>
-</tr>
-<tr>
-<td><kbd>N</kbd></td>
-<td>동그라미 번호 ①~⑮</td>
-</tr>
-<tr>
-<td><kbd>L</kbd></td>
-<td>형광펜 선</td>
-</tr>
-<tr>
-<td><kbd>M</kbd></td>
-<td>형광 사각형</td>
-</tr>
-<tr>
-<td><kbd>P</kbd></td>
-<td>형광 다각형</td>
-</tr>
-<tr>
-<td><kbd>H</kbd></td>
-<td>화면 이동</td>
-</tr>
-<tr>
-<td><kbd>Space</kbd>+드래그, 휠 버튼 드래그</td>
-<td>잠깐 화면 이동</td>
-</tr>
-<tr>
-<td><kbd>1</kbd>~<kbd>4</kbd></td>
-<td>글자색(문구) / 형광색(형광) — N 도구에서는 번호</td>
-</tr>
-<tr>
-<td>숫자 (N 도구)</td>
-<td>번호 고르기 (<kbd>1</kbd> <kbd>2</kbd> 연달아 → ⑫)</td>
-</tr>
-<tr>
-<td><kbd>[</kbd> / <kbd>]</kbd></td>
-<td>형광펜 굵기 −1 / +1pt — N 도구에서는 이전 / 다음 번호</td>
-</tr>
-<tr>
-<td><kbd>Shift</kbd>+<kbd>[</kbd> / <kbd>Shift</kbd>+<kbd>]</kbd></td>
-<td>형광펜 굵기 −5 / +5pt</td>
-</tr>
-</tbody>
-</table></div><h2 id="133-편집">13.3 편집</h2><div class="ik-table"><table>
-<thead>
-<tr>
-<th>키</th>
-<th>기능</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><kbd>Ctrl</kbd>+<kbd>Z</kbd></td>
-<td>실행 취소</td>
-</tr>
-<tr>
-<td><kbd>Ctrl</kbd>+<kbd>Y</kbd>, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd></td>
-<td>다시 실행</td>
-</tr>
-<tr>
-<td><kbd>Ctrl</kbd>+<kbd>C</kbd> / <kbd>Ctrl</kbd>+<kbd>X</kbd> / <kbd>Ctrl</kbd>+<kbd>V</kbd></td>
-<td>복사 / 잘라내기 / 붙여넣기 (다른 페이지에도)</td>
-</tr>
-<tr>
-<td><kbd>Ctrl</kbd>+<kbd>D</kbd></td>
-<td>복제</td>
-</tr>
-<tr>
-<td><kbd>Delete</kbd>, <kbd>Backspace</kbd></td>
-<td>삭제 (다각형·형광펜을 그리는 중이면 <kbd>Backspace</kbd>는 한 점 취소 / 그리기 취소)</td>
-</tr>
-<tr>
-<td><kbd>F2</kbd>, <kbd>Enter</kbd></td>
-<td>선택한 문구 고치기 · 다각형 완성</td>
-</tr>
-</tbody>
-</table></div><h2 id="134-선택-개체">13.4 선택 개체</h2><div class="ik-table"><table>
-<thead>
-<tr>
-<th>키</th>
-<th>기능</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd></td>
-<td>다음 / 이전 개체 선택</td>
-</tr>
-<tr>
-<td><kbd>Esc</kbd></td>
-<td>선택 해제 · 그리기 취소 · 입력칸 빠져나오기</td>
-</tr>
-<tr>
-<td>방향키 / <kbd>Shift</kbd>+방향키</td>
-<td>1pt / 10pt 이동</td>
-</tr>
-<tr>
-<td><kbd>,</kbd> / <kbd>.</kbd></td>
-<td>영역 배율 −10% / +10% (선택이 없으면 새 영역 배율)</td>
-</tr>
-<tr>
-<td><kbd>Shift</kbd>+<kbd>,</kbd> / <kbd>Shift</kbd>+<kbd>.</kbd></td>
-<td>영역 배율 −1% / +1%</td>
-</tr>
-<tr>
-<td><kbd>Ctrl</kbd>+<kbd>↑</kbd> / <kbd>Ctrl</kbd>+<kbd>↓</kbd></td>
-<td>영역 출력 순서 앞 / 뒤</td>
-</tr>
-</tbody>
-</table></div><h2 id="135-보기페이지">13.5 보기·페이지</h2><div class="ik-table"><table>
-<thead>
-<tr>
-<th>키</th>
-<th>기능</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Ctrl+휠</code></td>
-<td>커서 위치 기준 확대 / 축소</td>
-</tr>
-<tr>
-<td><code>Ctrl++</code> / <code>Ctrl+−</code> (또는 <code>+</code> / <code>−</code>)</td>
+<td>Ctrl++ / Ctrl+−</td>
 <td>확대 / 축소</td>
 </tr>
 <tr>
 <td><kbd>Ctrl</kbd>+<kbd>0</kbd></td>
-<td>페이지 맞춤</td>
+<td>페이지를 작업 화면에 맞춤</td>
 </tr>
 <tr>
 <td><kbd>Ctrl</kbd>+<kbd>1</kbd></td>
-<td>실제 크기 100%</td>
+<td>화면 100%</td>
 </tr>
 <tr>
-<td><code>Shift+휠</code></td>
+<td>일반 휠</td>
+<td>세로 스크롤</td>
+</tr>
+<tr>
+<td>Shift+휠</td>
 <td>가로 스크롤</td>
 </tr>
 <tr>
-<td><kbd>PgDn</kbd> / <kbd>PgUp</kbd></td>
-<td>다음 / 이전 페이지</td>
+<td>H + 드래그</td>
+<td>화면 이동</td>
 </tr>
 <tr>
+<td>Space를 누른 채 드래그</td>
+<td>현재 도구를 유지하면서 잠깐 화면 이동</td>
+</tr>
+<tr>
+<td>휠 버튼 드래그</td>
+<td>화면 이동</td>
+</tr>
+</tbody>
+</table></div><p>화면 배율 범위는 10~400%입니다. 화면 확대는 편집 편의를 위한 것이며 종이에 출력되는 크기와 별개입니다. 왼쪽·가운데·오른쪽 패널 사이 경계를 끌어 폭을 조절할 수 있습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#10-개체-편집"><small>← 앞 장 10</small><b>개체 편집</b></a><a class="is-next" href="#12-인쇄-미리보기와-직접-인쇄"><small>다음 장 12 →</small><b>인쇄 미리보기와 직접 인쇄</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="12-인쇄-미리보기와-직접-인쇄" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 12</p><h1>인쇄 미리보기와 직접 인쇄</h1></header><h2 id="121-인쇄-준비">12.1 인쇄 준비</h2><p>메인 화면의 <strong>인쇄</strong> 또는 <kbd>Ctrl</kbd>+<kbd>P</kbd>를 누릅니다. 프로그램이 출력용 PDF를 임시로 만들고 미리보기를 엽니다. PDF 준비 중에는 진행 장수와 취소 버튼이 표시됩니다.</p><p>미리보기 위쪽에서 아래 정보를 확인할 수 있습니다.</p><ul>
+<li>원본 PDF 제목 / 구분</li>
+<li>원본 페이지와 영역 번호</li>
+<li>실제 적용 배율</li>
+<li>선명(원본 벡터) 또는 이미지 보정 출력 방식</li>
+<li>출력 장수와 현재 장 번호</li>
+</ul><figure class="ik-shot" id="shot-pl_07_preview"><div class="ik-shot-frame" style="aspect-ratio:1500/940;max-width:1500px"><img alt="인쇄 미리보기 창" decoding="async" height="940" loading="lazy" src="../assets/shots/plot/pl_07_preview.webp" width="1500"/><button aria-label="1번 출력 정보" class="ik-pin" data-pin="1" style="left:19.33%;top:3.72%" type="button">1</button><button aria-label="2번 용지 · 크기 · 단면" class="ik-pin" data-pin="2" style="left:92.00%;top:2.77%" type="button">2</button><button aria-label="3번 프린터 · 프린터 설정" class="ik-pin" data-pin="3" style="left:79.20%;top:16.38%" type="button">3</button><button aria-label="4번 매수" class="ik-pin" data-pin="4" style="left:83.67%;top:25.21%" type="button">4</button><button aria-label="5번 범위" class="ik-pin" data-pin="5" style="left:79.20%;top:32.02%" type="button">5</button><button aria-label="6번 출력 화질" class="ik-pin" data-pin="6" style="left:79.20%;top:39.26%" type="button">6</button><button aria-label="7번 인쇄" class="ik-pin" data-pin="7" style="left:79.20%;top:50.74%" type="button">7</button><button aria-label="8번 PDF로 저장 · 순서표" class="ik-pin" data-pin="8" style="left:79.20%;top:95.96%" type="button">8</button><button aria-label="9번 장 넘기기" class="ik-pin" data-pin="9" style="left:6.33%;top:96.91%" type="button">9</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">인쇄 미리보기(Ctrl+P). 촬영 환경에 프린터가 없어 프린터 칸이 비어 있고 인쇄 버튼이 꺼져 있습니다. 회사 PC에서는 설치된 프린터가 표시됩니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>출력 정보</b>원본 PDF 제목 · 원본 페이지 · 영역 번호 · 실제 배율 · 출력 방식(선명/이미지 보정).</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>용지 · 크기 · 단면</b>A4 가로 · 실제 크기 100% · 단면. 배율은 출력 PDF에 이미 들어 있습니다.</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>프린터 · 프린터 설정</b>설치된 Windows 프린터 선택, 드라이버 설정.</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>매수</b>1~99부. 2부 이상이면 한 부씩 순서대로(1,2,3 … 1,2,3 …).</span></li><li data-pin="5"><span class="ik-pin-n">5</span><span><b>범위</b>전체 또는 지금 보고 있는 한 장.</span></li><li data-pin="6"><span class="ik-pin-n">6</span><span><b>출력 화질</b>자동 · 선명 · 이미지 보정, 선 진하게, 스캔 보정. 바꾸면 미리보기를 다시 만듭니다.</span></li><li data-pin="7"><span class="ik-pin-n">7</span><span><b>인쇄</b>Enter 또는 Ctrl+P도 실제 프린터로 보냅니다.</span></li><li data-pin="8"><span class="ik-pin-n">8</span><span><b>PDF로 저장 · 순서표</b>임시 출력을 PDF로 보관(<kbd>Ctrl</kbd>+<kbd>S</kbd>), 순서표 열기.</span></li><li data-pin="9"><span class="ik-pin-n">9</span><span><b>장 넘기기</b>← → · PgUp PgDn · 휠. Esc로 닫기.</span></li></ol></figure><h2 id="122-직접-인쇄-설정">12.2 직접 인쇄 설정</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>항목</th>
+<th>설정</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>프린터</td>
+<td>설치된 Windows 프린터 중 선택</td>
+</tr>
+<tr>
+<td>프린터 설정…</td>
+<td>급지함·인쇄 품질 등 드라이버 설정</td>
+</tr>
+<tr>
+<td>매수</td>
+<td>1~99부</td>
+</tr>
+<tr>
+<td>범위</td>
+<td>전체 또는 지금 보고 있는 한 장</td>
+</tr>
+<tr>
+<td>용지·방향</td>
+<td>메인 화면에서 정한 A4/A3 가로·세로</td>
+</tr>
+<tr>
+<td>배율</td>
+<td>출력 PDF에 이미 반영, 프린터에는 실제 크기 100%로 전송</td>
+</tr>
+<tr>
+<td>양면</td>
+<td>프로그램 직접 인쇄는 단면으로 고정</td>
+</tr>
+</tbody>
+</table></div><p><strong>Enter 또는 Ctrl+P는 실제 프린터로 보내는 단축키입니다.</strong> 미리보기를 보는 중 문서 확정용으로 Enter를 누르지 마세요.</p><p>2부 이상이면 <code>1,2,3 … 1,2,3 …</code> 순서로 한 부씩 출력합니다. 드라이버의 매수는 1로 두고 프로그램이 페이지를 반복 전송합니다. ‘프린터 설정…’에서 용지·방향·매수·양면을 바꾸더라도 프로그램의 용지·방향·1매·단면 규칙이 우선합니다. 기본 프린터 자체를 변경하지 않습니다.</p><h2 id="123-미리보기-이동취소">12.3 미리보기 이동·취소</h2><ul>
+<li><kbd>←</kbd> / <kbd>→</kbd>, <kbd>PgUp</kbd> / <kbd>PgDn</kbd>, 아래 이전·다음 버튼: 장 넘기기.</li>
+<li><kbd>Home</kbd> / <kbd>End</kbd>: 첫 장·마지막 장.</li>
+<li>마우스 휠: 이전·다음 장.</li>
+<li><kbd>Esc</kbd>: 미리보기 닫기. 전송 중에는 먼저 <strong>인쇄 취소</strong>를 누릅니다.</li>
+<li>인쇄 중 버튼은 <strong>인쇄 취소</strong>로 바뀌고 전송 진행 장수를 표시합니다.</li>
+</ul><p>이미 프린터 대기열이나 장치에 전달된 출력은 프로그램 취소만으로 회수되지 않을 수 있습니다. 필요하면 Windows 프린터 대기열에서도 취소하세요. 오류 후에는 대기열과 실제 출력물을 확인한 뒤 다시 전송합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#11-화면-보기"><small>← 앞 장 11</small><b>화면 보기</b></a><a class="is-next" href="#13-출력-화질"><small>다음 장 13 →</small><b>출력 화질</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="13-출력-화질" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 13</p><h1>출력 화질</h1></header><p>미리보기 오른쪽 <strong>출력 화질</strong>에서 고릅니다. 변경하면 출력 PDF를 다시 만들고 같은 장 위치로 미리보기를 엽니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>설정</th>
+<th>동작</th>
+<th>권장 상황</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>자동</td>
+<td>페이지별로 원본 벡터 / 이미지 보정 선택</td>
+<td>일반적인 기본값</td>
+</tr>
+<tr>
+<td>선명</td>
+<td>원본 페이지를 그대로 확대·배치</td>
+<td>PDF 원본 선·글자를 유지하고 싶을 때</td>
+</tr>
+<tr>
+<td>이미지 보정</td>
+<td>선택 영역을 최종 크기 300dpi 이미지로 출력</td>
+<td>스캔 도면 또는 자동 판별이 맞지 않을 때</td>
+</tr>
+<tr>
+<td>선 진하게</td>
+<td>흰색·검정은 유지하며 회색 선·글자를 진하게</td>
+<td>흐린 회색 도면</td>
+</tr>
+<tr>
+<td>스캔 보정</td>
+<td>이미지 방식 출력의 바탕·잡티·선명도 보정</td>
+<td>누렇거나 회색인 스캔 바탕</td>
+</tr>
+</tbody>
+</table></div><p>자동은 페이지 안 이미지 면적이 페이지 면적의 절반을 넘는지를 기준으로 판단합니다. 복합 PDF에서는 기대와 다를 수 있으므로 필요하면 수동 선택합니다. ‘선명’을 골라도 원본 자체가 스캔 이미지이면 실제 벡터 선으로 복원되는 것은 아닙니다.</p><p>벡터 방식에서는 원본 페이지를 유지하고 추가 형광은 Multiply 패스로, 문구·번호는 600dpi 투명 이미지로 올립니다. 이미지 방식에서는 원본 영역을 300dpi로 만들고 같은 표시를 합성합니다. 직접 인쇄에서는 프린터 해상도를 참고해 최대 600dpi로 렌더합니다.</p><p>따라서 v2.7 출력 전체가 항상 단일 이미지인 것은 아닙니다. 원본 벡터 텍스트는 원본 상태에 따라 유지될 수 있지만 추가한 문구·번호는 검색 가능한 PDF 글자가 아닙니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#12-인쇄-미리보기와-직접-인쇄"><small>← 앞 장 12</small><b>인쇄 미리보기와 직접 인쇄</b></a><a class="is-next" href="#14-인쇄용-pdf와-순서표-저장"><small>다음 장 14 →</small><b>인쇄용 PDF와 순서표 저장</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="14-인쇄용-pdf와-순서표-저장" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 14</p><h1>인쇄용 PDF와 순서표 저장</h1></header><h2 id="141-메인-화면에서-저장">14.1 메인 화면에서 저장</h2><p><strong>PDF로 저장</strong> 또는 <kbd>Ctrl</kbd>+<kbd>E</kbd> → 파일 이름과 위치 지정 → 출력 PDF 준비 → 미리보기 순서로 진행합니다.</p><h2 id="142-인쇄-미리보기에서-보관">14.2 인쇄 미리보기에서 보관</h2><p><kbd>Ctrl</kbd>+<kbd>P</kbd>로 만든 임시 출력의 미리보기에서는 <strong>PDF로 저장</strong> 또는 <kbd>Ctrl</kbd>+<kbd>S</kbd>로 파일을 보관할 수 있습니다. 이미 파일로 저장해 연 미리보기에서는 <kbd>Ctrl</kbd>+<kbd>S</kbd>가 저장된 PDF를 여는 동작이며, 하단에 <strong>PDF 열기·폴더</strong> 버튼이 있습니다.</p><h2 id="143-순서표">14.3 순서표</h2><p>PDF와 같은 이름의 <code>.순서표.html</code>을 함께 저장합니다. 출력 페이지, PDF 제목/구분, 원본 페이지, 영역 번호, 실제 배율, 확인 체크칸이 포함됩니다. 미리보기의 <strong>순서표</strong> 버튼으로 열 수 있습니다.</p><p>외부 PDF 뷰어에서 인쇄하는 경우에는 <strong>실제 크기 100%</strong>를 사용하세요. 프로그램에서 이미 확대했으므로 PDF 뷰어에서 160%를 다시 적용하면 이중 확대됩니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#13-출력-화질"><small>← 앞 장 13</small><b>출력 화질</b></a><a class="is-next" href="#15-작업-저장복원과-설정"><small>다음 장 15 →</small><b>작업 저장·복원과 설정</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="15-작업-저장복원과-설정" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 15</p><h1>작업 저장·복원과 설정</h1></header><h2 id="151-서로-다른-저장의-의미">15.1 서로 다른 저장의 의미</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>파일</th>
+<th>용도</th>
+<th>다시 편집</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>원본 PDF</td>
+<td>입력 도면</td>
+<td>원본 그대로 보관</td>
+</tr>
+<tr>
+<td><code>.pdfregions</code></td>
+<td>인쇄 영역·문구·번호·형광·출력 설정 보관</td>
+<td>프로그램에서 편집 가능</td>
+</tr>
+<tr>
+<td>인쇄용 <code>.pdf</code></td>
+<td>최종 인쇄·전달</td>
+<td>개체 편집 작업을 복원하는 파일은 아님</td>
+</tr>
+<tr>
+<td><code>.순서표.html</code></td>
+<td>출력 순서 확인</td>
+<td>인쇄 목록 참고용</td>
+</tr>
+</tbody>
+</table></div><p><kbd>Ctrl</kbd>+<kbd>S</kbd>는 처음에는 저장 위치를 묻고 이후 같은 작업 파일에 저장합니다. <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>는 다른 이름으로 저장합니다. <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd>로 작업을 엽니다.</p><p>작업 파일에는 원본 PDF 자체가 들어 있지 않습니다. <strong>원본의 절대 경로와 SHA256</strong>을 보관하며, 열 때 원본 존재·해시·페이지 수를 확인합니다. 원본이 이동·변경되면 복원을 중단합니다. 현재는 이동한 원본을 새 경로로 찾아 연결하는 전용 기능이 없습니다. 원래 위치와 파일 내용으로 되돌리세요.</p><p>작업 파일 형식 버전은 1이고 최대 읽기 크기는 20MiB입니다. v2.7 내부 배경 수정은 작업 파일 형식을 바꾸지 않습니다. 이전 작업을 열 수 있지만, 오래된 프로그램이 새 다각형·선·번호 기능을 모두 올바르게 표시한다고 보장할 수는 없습니다.</p><h2 id="152-프로그램-설정-기억">15.2 프로그램 설정 기억</h2><p><code>%APPDATA%\도면확대인쇄\settings.json</code>에 다음 정보를 보관합니다.</p><ul>
+<li>기본 인쇄 배율, 용지, 자동 축소</li>
+<li>문구 입력값·프리셋·색·크기·굵기, 번호 자동 증가</li>
+<li>형광색·농도·펜 굵기</li>
+<li>동그라미 번호 크기·색·채움·자동 넘김</li>
+<li>출력 화질·선 진하게·스캔 보정</li>
+<li>마지막 프린터, 파일 폴더, 출력 폴더, 창 크기·최대화 상태</li>
+</ul><p>프로그램 설정 저장과 편집 작업 저장은 다릅니다. 영역·문구 배치를 자동 백업하는 기능은 없으므로 작업 중에는 <kbd>Ctrl</kbd>+<kbd>S</kbd>로 저장하세요. 정상 종료 시 프로그램 설정을 기록하며, 저장하지 않은 편집 내용이 있으면 작업 저장 여부를 묻습니다.</p><h2 id="153-임시-출력">15.3 임시 출력</h2><p>바로 인쇄용 PDF는 Windows 임시 폴더 아래 <code>도면확대인쇄_인쇄</code> 폴더에 만듭니다. 프로그램 시작 후 정리 시점에 24시간보다 오래된 해당 폴더의 파일을 정리합니다. 장기 보관할 출력은 <strong>PDF로 저장</strong>을 사용하세요.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#14-인쇄용-pdf와-순서표-저장"><small>← 앞 장 14</small><b>인쇄용 PDF와 순서표 저장</b></a><a class="is-next" href="#16-전체-단축키"><small>다음 장 16 →</small><b>전체 단축키</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="16-전체-단축키" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 16</p><h1>전체 단축키</h1></header><figure class="ik-shot" id="shot-pl_08_help"><div class="ik-shot-frame" style="aspect-ratio:1040/525;max-width:1040px"><img alt="단축키 창" decoding="async" height="525" loading="lazy" src="../assets/shots/plot/pl_08_help.webp" width="1040"/></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">F1(또는 ?)로 여는 단축키 창. 표 전체는 아래 16.1에 있습니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption></figure><h2 id="161-메인-창">16.1 메인 창</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>구분</th>
+<th>키</th>
+<th>동작</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>파일</td>
+<td><kbd>Ctrl</kbd>+<kbd>O</kbd></td>
+<td>PDF 추가</td>
+</tr>
+<tr>
+<td>파일</td>
+<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd></td>
+<td>작업 열기</td>
+</tr>
+<tr>
+<td>파일</td>
+<td><kbd>Ctrl</kbd>+<kbd>S</kbd></td>
+<td>작업 저장</td>
+</tr>
+<tr>
+<td>파일</td>
+<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd></td>
+<td>다른 이름으로 저장</td>
+</tr>
+<tr>
+<td>파일</td>
+<td><kbd>Ctrl</kbd>+<kbd>P</kbd></td>
+<td>인쇄 준비·미리보기</td>
+</tr>
+<tr>
+<td>파일</td>
+<td><kbd>Ctrl</kbd>+<kbd>E</kbd></td>
+<td>인쇄용 PDF로 저장</td>
+</tr>
+<tr>
+<td>파일</td>
+<td><kbd>Ctrl</kbd>+<kbd>W</kbd></td>
+<td>현재 PDF 목록에서 빼기</td>
+</tr>
+<tr>
+<td>파일</td>
+<td><kbd>Alt</kbd>+<kbd>F4</kbd></td>
+<td>프로그램 닫기</td>
+</tr>
+<tr>
+<td>도구</td>
+<td>V</td>
+<td>선택 / 이동</td>
+</tr>
+<tr>
+<td>도구</td>
+<td>R</td>
+<td>사각형 인쇄 영역</td>
+</tr>
+<tr>
+<td>도구</td>
+<td><kbd>Shift</kbd>+<kbd>R</kbd></td>
+<td>다각형 인쇄 영역</td>
+</tr>
+<tr>
+<td>도구</td>
+<td>T</td>
+<td>작업번호·문구</td>
+</tr>
+<tr>
+<td>도구</td>
+<td>N</td>
+<td>동그라미 번호</td>
+</tr>
+<tr>
+<td>도구</td>
+<td>L</td>
+<td>형광펜 선</td>
+</tr>
+<tr>
+<td>도구</td>
+<td>M</td>
+<td>형광 사각형</td>
+</tr>
+<tr>
+<td>도구</td>
+<td>P</td>
+<td>형광 다각형</td>
+</tr>
+<tr>
+<td>도구</td>
+<td>H</td>
+<td>화면 이동</td>
+</tr>
+<tr>
+<td>편집</td>
+<td><kbd>Ctrl</kbd>+<kbd>Z</kbd></td>
+<td>실행 취소</td>
+</tr>
+<tr>
+<td>편집</td>
+<td><kbd>Ctrl</kbd>+<kbd>Y</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd></td>
+<td>다시 실행</td>
+</tr>
+<tr>
+<td>편집</td>
+<td><kbd>Ctrl</kbd>+<kbd>C</kbd> / <kbd>Ctrl</kbd>+<kbd>X</kbd> / <kbd>Ctrl</kbd>+<kbd>V</kbd></td>
+<td>개체 복사 / 잘라내기 / 붙여넣기</td>
+</tr>
+<tr>
+<td>편집</td>
+<td><kbd>Ctrl</kbd>+<kbd>D</kbd></td>
+<td>선택 개체 복제</td>
+</tr>
+<tr>
+<td>편집</td>
+<td><kbd>Delete</kbd></td>
+<td>선택 개체 삭제; PDF 목록 포커스에서는 PDF 제거</td>
+</tr>
+<tr>
+<td>편집</td>
+<td><kbd>F2</kbd></td>
+<td>선택 문구 인라인 편집</td>
+</tr>
+<tr>
+<td>편집</td>
+<td><kbd>Enter</kbd></td>
+<td>다각형 완성 또는 선택 문구 편집; 입력칸에서는 빠져나오기</td>
+</tr>
+<tr>
+<td>편집</td>
+<td><kbd>Backspace</kbd></td>
+<td>다각형 마지막 점 취소; 진행 중인 선 취소; 그 외 개체 삭제</td>
+</tr>
+<tr>
+<td>편집</td>
+<td><kbd>Esc</kbd></td>
+<td>인라인 취소 / 그리기 취소 / 선택 해제 / 입력칸 빠져나오기</td>
+</tr>
+<tr>
+<td>선택</td>
+<td><kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd></td>
+<td>다음 / 이전 개체 선택</td>
+</tr>
+<tr>
+<td>이동</td>
+<td>방향키 / Shift+방향키</td>
+<td>1pt / 10pt 이동</td>
+</tr>
+<tr>
+<td>배율</td>
+<td>, / .</td>
+<td>선택 영역 또는 기본 배율 −10% / +10%</td>
+</tr>
+<tr>
+<td>배율</td>
+<td><kbd>Shift</kbd>+<kbd>,</kbd> / <kbd>Shift</kbd>+<kbd>.</kbd></td>
+<td>−1% / +1%</td>
+</tr>
+<tr>
+<td>순서</td>
+<td><kbd>Ctrl</kbd>+<kbd>↑</kbd> / <kbd>Ctrl</kbd>+<kbd>↓</kbd></td>
+<td>같은 페이지 영역 출력 순서 앞 / 뒤</td>
+</tr>
+<tr>
+<td>굵기</td>
+<td><span class="ik-ui"> / </span></td>
+<td>형광펜 굵기 −1pt / +1pt</td>
+</tr>
+<tr>
+<td>굵기</td>
+<td><kbd>Shift</kbd>+<kbd>[</kbd> / <kbd>Shift</kbd>+<kbd>]</kbd></td>
+<td>형광펜 굵기 −5pt / +5pt</td>
+</tr>
+<tr>
+<td>번호</td>
+<td>숫자키</td>
+<td>N 문맥에서 1~15 선택; 그 외 1~4는 색 선택</td>
+</tr>
+<tr>
+<td>번호</td>
+<td><span class="ik-ui"> / </span></td>
+<td>N 문맥에서 이전 / 다음 번호</td>
+</tr>
+<tr>
+<td>보기</td>
+<td>Ctrl+휠</td>
+<td>커서 중심 확대 / 축소</td>
+</tr>
+<tr>
+<td>보기</td>
+<td>Ctrl++ / Ctrl+−</td>
+<td>화면 확대 / 축소</td>
+</tr>
+<tr>
+<td>보기</td>
+<td><kbd>Ctrl</kbd>+<kbd>0</kbd> / <kbd>Ctrl</kbd>+<kbd>1</kbd></td>
+<td>페이지 맞춤 / 화면 100%</td>
+</tr>
+<tr>
+<td>보기</td>
+<td>휠 / Shift+휠</td>
+<td>세로 / 가로 스크롤</td>
+</tr>
+<tr>
+<td>보기</td>
+<td>Space+드래그 / 휠 버튼 드래그</td>
+<td>잠깐 화면 이동</td>
+</tr>
+<tr>
+<td>탐색</td>
+<td><kbd>PgDn</kbd> / <kbd>PgUp</kbd></td>
+<td>다음 / 이전 원본 페이지</td>
+</tr>
+<tr>
+<td>탐색</td>
 <td><kbd>Ctrl</kbd>+<kbd>PgDn</kbd> / <kbd>Ctrl</kbd>+<kbd>PgUp</kbd></td>
 <td>다음 / 이전 PDF</td>
 </tr>
 <tr>
+<td>탐색</td>
 <td><kbd>Home</kbd> / <kbd>End</kbd></td>
-<td>첫 / 마지막 페이지</td>
+<td>현재 PDF의 첫 / 마지막 페이지</td>
+</tr>
+<tr>
+<td>도움말</td>
+<td>F1 / ?</td>
+<td>단축키 전체 보기</td>
 </tr>
 </tbody>
-</table></div><h2 id="136-그리는-중">13.6 그리는 중</h2><div class="ik-table"><table>
+</table></div><p>입력칸에서는 단일 문자·기호를 편집용으로 사용합니다. 한/영 상태·Caps Lock과 무관하게 도구 단축키를 사용할 수 있도록 처리하지만, 입력 중에는 <kbd>Esc</kbd>로 화면에 포커스를 돌려주세요. 목록에 포커스가 있으면 방향키·Home/End 등은 목록 이동이 우선할 수 있습니다.</p><h2 id="162-인쇄-미리보기-창">16.2 인쇄 미리보기 창</h2><div class="ik-table"><table>
 <thead>
 <tr>
 <th>키</th>
-<th>다각형 영역·형광 다각형</th>
-<th>형광펜 선</th>
+<th>동작</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><kbd>Shift</kbd></td>
-<td>수평 / 수직 고정</td>
-<td>수평 / 수직 / 45° 고정</td>
-</tr>
-<tr>
-<td><kbd>Enter</kbd> / 우클릭 / 더블클릭 / 첫 점 클릭</td>
-<td>완성</td>
-<td>— (우클릭은 취소)</td>
-</tr>
-<tr>
-<td><kbd>Backspace</kbd></td>
-<td>마지막 꼭짓점 취소</td>
-<td>그리던 선 취소</td>
-</tr>
-<tr>
-<td><kbd>Esc</kbd></td>
-<td>그리기 취소</td>
-<td>그리던 선 취소</td>
-</tr>
-</tbody>
-</table></div><h2 id="137-인쇄-미리보기-창">13.7 인쇄 미리보기 창</h2><div class="ik-table"><table>
-<thead>
-<tr>
-<th>키</th>
-<th>기능</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><kbd>Enter</kbd>, <kbd>Ctrl</kbd>+<kbd>P</kbd></td>
-<td>프린터로 바로 인쇄</td>
+<td>Enter / 숫자패드 Enter / Ctrl+P</td>
+<td>실제 프린터로 인쇄</td>
 </tr>
 <tr>
 <td><kbd>Ctrl</kbd>+<kbd>S</kbd></td>
-<td>PDF로 저장 (임시 출력일 때) / PDF 열기 (저장된 출력일 때)</td>
+<td>임시 출력 PDF 저장; 이미 저장된 출력이면 PDF 열기</td>
 </tr>
 <tr>
-<td><kbd>←</kbd> <kbd>→</kbd>, <kbd>PgUp</kbd> <kbd>PgDn</kbd>, 휠</td>
-<td>장 넘기기</td>
+<td>← / →, PgUp / PgDn</td>
+<td>이전 / 다음 장</td>
 </tr>
 <tr>
 <td><kbd>Home</kbd> / <kbd>End</kbd></td>
 <td>첫 / 마지막 장</td>
 </tr>
 <tr>
+<td>휠</td>
+<td>이전 / 다음 장</td>
+</tr>
+<tr>
 <td><kbd>Esc</kbd></td>
-<td>닫기</td>
+<td>미리보기 닫기; 전송 중에는 취소 처리가 먼저 필요</td>
 </tr>
 </tbody>
-</table></div><h2 id="138-도움말">13.8 도움말</h2><div class="ik-table"><table>
+</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#15-작업-저장복원과-설정"><small>← 앞 장 15</small><b>작업 저장·복원과 설정</b></a><a class="is-next" href="#17-업무별-사용-예"><small>다음 장 17 →</small><b>업무별 사용 예</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="17-업무별-사용-예" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 17</p><h1>업무별 사용 예</h1></header><h2 id="171-원본-한-페이지에-그림-세-개">17.1 원본 한 페이지에 그림 세 개</h2><ol class="ik-steps is-plain"><li><div><p>첫 그림과 치수선을 <kbd>R</kbd>로 감쌉니다.</p></div></li><li><div><p>두 번째·세 번째 그림도 각각 영역으로 지정합니다.</p></div></li><li><div><p>영역 목록이 세 개이고 출력 예정이 세 장인지 확인합니다.</p></div></li><li><div><p>각 영역에 필요한 작업번호를 놓습니다.</p></div></li><li><div><p>160%를 선택하고 <strong>이 페이지 모두 적용</strong>합니다.</p></div></li><li><div><p>미리보기에서 세 장을 확인해 인쇄합니다.</p></div></li></ol><h2 id="172-l자-상판의-빈-공간에-다른-그림이-있는-경우">17.2 L자 상판의 빈 공간에 다른 그림이 있는 경우</h2><p><kbd>Shift</kbd>+<kbd>R</kbd>로 L자 외곽을 따라 점을 찍어 필요한 그림만 포함합니다. 치수선이 바깥으로 돌출되는 부분도 경계 안에 넣고, 빠져야 하는 다른 그림은 경계 밖에 둡니다. 미리보기에서 흰 마스크가 필요한 치수를 가리지 않는지 확인합니다.</p><h2 id="173-점선-내부에-형광펜과-번호-붙이기">17.3 점선 내부에 형광펜과 번호 붙이기</h2><ol class="ik-steps is-plain"><li><div><p><kbd>L</kbd>, 시작점 클릭, 끝점 클릭.</p></div></li><li><div><p>너무 굵으면 <kbd>[</kbd> 또는 Shift+<kbd>[</kbd>로 줄이고 다음 선을 긋습니다.</p></div></li><li><div><p><kbd>N</kbd>으로 전환해 ①을 선 옆에 놓습니다.</p></div></li><li><div><p>자동 다음 번호를 켜고 필요한 번호를 계속 붙입니다.</p></div></li><li><div><p>형광선과 번호가 인쇄 영역 안에 들어갔는지 확인합니다.</p></div></li><li><div><p>테두리형 번호는 흰 내부 30%를 통해 아래 도면이 비칩니다.</p></div></li></ol><h2 id="174-같은-위치의-작업번호를-여러-페이지에-넣기">17.4 같은 위치의 작업번호를 여러 페이지에 넣기</h2><p>첫 페이지에서 문구를 놓고 <kbd>V</kbd>로 선택해 <kbd>Ctrl</kbd>+<kbd>C</kbd> → 다음 페이지 → <kbd>Ctrl</kbd>+<kbd>V</kbd>를 사용합니다. 번호가 달라야 하면 붙인 문구를 선택해 내용만 수정합니다. 페이지 좌표가 같은 경우에 적합하며 페이지 크기나 도면 위치가 다르면 위치를 조정합니다.</p><h2 id="175-특정-출력-한-장만-재인쇄">17.5 특정 출력 한 장만 재인쇄</h2><p>미리보기에서 해당 장으로 이동한 뒤 범위를 <strong>지금 페이지만</strong>으로 바꾸고 필요한 매수로 인쇄합니다. 이 ‘한 장’은 원본 PDF 한 페이지가 아니라 분리된 최종 출력 한 장입니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#16-전체-단축키"><small>← 앞 장 16</small><b>전체 단축키</b></a><a class="is-next" href="#18-문제-해결과-지원-범위"><small>다음 장 18 →</small><b>문제 해결과 지원 범위</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="18-문제-해결과-지원-범위" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 18</p><h1>문제 해결과 지원 범위</h1></header><div class="ik-table"><table>
 <thead>
 <tr>
-<th>키</th>
-<th>기능</th>
+<th>증상</th>
+<th>확인·해결</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><kbd>F1</kbd>, <code>?</code></td>
-<td>단축키 보기 (다시 누르면 닫힘)</td>
+<td>실행 파일이 시작되지 않음</td>
+<td>ZIP을 완전히 풀었는지, <code>_internal</code> 폴더가 함께 있는지 확인</td>
+</tr>
+<tr>
+<td>PDF가 이미 있다고 나옴</td>
+<td>같은 경로는 중복 추가하지 않음. 왼쪽 목록에서 해당 파일 선택</td>
+</tr>
+<tr>
+<td>PDF 제목이 좁아서 안 보임</td>
+<td>왼쪽 패널 폭을 늘리고 가운데 상단 파일명 확인</td>
+</tr>
+<tr>
+<td>출력할 영역이 없다고 나옴</td>
+<td>문구·형광만 만든 상태인지 확인하고 R 또는 Shift+R로 인쇄 영역 추가</td>
+</tr>
+<tr>
+<td>160%로 설정했는데 더 작음</td>
+<td>자동 축소 여부·용지 크기·미리보기 실제 배율 확인</td>
+</tr>
+<tr>
+<td>용지 초과 안내</td>
+<td>배율 낮추기, A3 선택, 영역 여백 줄이기, 자동 축소 켜기</td>
+</tr>
+<tr>
+<td>작업번호 또는 형광 표시가 잘림</td>
+<td>개체가 인쇄 영역·다각형 경계 안에 있는지 확인</td>
+</tr>
+<tr>
+<td>단축키가 문구로 입력됨</td>
+<td>입력칸에서 Esc 또는 Enter로 빠져나오기</td>
+</tr>
+<tr>
+<td><span class="ik-ui"> </span>가 펜 굵기 대신 번호를 바꿈</td>
+<td>N 도구 또는 번호 선택 상태. 선택 해제 후 L로 전환</td>
+</tr>
+<tr>
+<td>⑫ 대신 ①·②가 따로 선택됨</td>
+<td>1→2를 0.9초 안에 입력하거나 오른쪽 ⑫ 버튼 사용</td>
+</tr>
+<tr>
+<td>색·크기를 바꿨는데 기존 개체가 바뀜</td>
+<td>선택 개체에 실시간 반영되는 동작. Esc로 선택을 해제하고 기본값 변경</td>
+</tr>
+<tr>
+<td>번호 흰 바탕이 완전히 하얗지 않음</td>
+<td>v2.7 테두리형의 의도된 30% 흰색 불투명도. 채움형은 별도 양식</td>
+</tr>
+<tr>
+<td>흐린 스캔 도면</td>
+<td>이미지 보정·스캔 보정 또는 선 진하게 사용</td>
+</tr>
+<tr>
+<td>원본이 스캔인데 ‘선명’도 흐림</td>
+<td>원본 픽셀을 벡터로 복원하지는 못함. 이미지 보정 선택</td>
+</tr>
+<tr>
+<td>프린터 목록이 비어 있음</td>
+<td>Windows에 프린터가 설치·연결되었는지 확인하거나 PDF로 저장</td>
+</tr>
+<tr>
+<td>인쇄 실패 또는 일부 장만 나옴</td>
+<td>프린터 대기열·실제 출력 확인 후 필요한 장만 재인쇄</td>
+</tr>
+<tr>
+<td>작업 파일에서 원본을 못 찾음</td>
+<td>원본 PDF를 저장 당시 경로로 복원</td>
+</tr>
+<tr>
+<td>저장 이후 원본이 바뀌었다고 나옴</td>
+<td>저장 당시 내용과 동일한 원본 복원; 파일명만 같은 다른 PDF는 사용 불가</td>
+</tr>
+<tr>
+<td>작업 파일이 너무 큼</td>
+<td>현재 읽기 제한 20MiB. 작업을 나누어 별도 보관하는 방식 고려</td>
 </tr>
 </tbody>
-</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#12-작업-파일-저장열기"><small>← 앞 장 12</small><b>작업 파일 저장·열기</b></a><a class="is-next" href="#14-메뉴-전체-목록"><small>다음 장 14 →</small><b>메뉴 전체 목록</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="14-메뉴-전체-목록" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 14</p><h1>메뉴 전체 목록</h1></header><div class="ik-table"><table>
+</table></div><p>지원 범위는 수동 도면 영역 선택과 주석·확대 출력입니다. 원본 PDF 글자·도형 자체 편집, 제작 치수 자동 변경, PDF 내 점선 자동 추적, OCR, ZIP 직접 열기, 그룹 다중선택, 개체 회전, 자동 작업 백업은 현재 기능에 포함되지 않습니다.</p><p>프로그램 기능과 별도로 앞서 제작한 ITEM/BG 분류 HTML은 별도 도구입니다. 이 확대 인쇄 프로그램이 PDF에서 K/U/V/BG·현장명·재질을 자동 분류하거나 라벨 목록을 생성하지는 않습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#17-업무별-사용-예"><small>← 앞 장 17</small><b>업무별 사용 예</b></a><a class="is-next" href="#19-기본값파일기술-정보"><small>다음 장 19 →</small><b>기본값·파일·기술 정보</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="19-기본값파일기술-정보" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 19</p><h1>기본값·파일·기술 정보</h1></header><h2 id="191-주요-기본값과-한계">19.1 주요 기본값과 한계</h2><div class="ik-table"><table>
 <thead>
 <tr>
-<th>메뉴</th>
 <th>항목</th>
+<th>값</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>파일(F)</strong></td>
-<td>PDF 추가… (Ctrl+O) · 작업 열기… (Ctrl+Shift+O) · 작업 저장 (Ctrl+S) · 다른 이름으로 저장… (Ctrl+Shift+S) · 인쇄… (Ctrl+P) · 인쇄용 PDF로 저장… (Ctrl+E) · 현재 PDF 목록에서 빼기 (Ctrl+W) · 끝내기 (Alt+F4)</td>
-</tr>
-<tr>
-<td><strong>편집(E)</strong></td>
-<td>실행 취소 (Ctrl+Z) · 다시 실행 (Ctrl+Y) · 잘라내기 (Ctrl+X) · 복사 (Ctrl+C) · 붙여넣기 (다른 페이지에도 가능) (Ctrl+V) · 복제 (Ctrl+D) · 삭제 (Delete) · 문구 고치기 (F2) · 다음 개체 선택 (Tab) · 선택 해제 (Esc)</td>
-</tr>
-<tr>
-<td><strong>도구(T)</strong></td>
-<td>선택 / 이동 (V) · 인쇄 영역 (R) · 다각형 인쇄 영역 (Shift+R) · 문구 놓기 (T) · 동그라미 번호 (N) · 형광펜 선 (L) · 형광 사각형 (M) · 형광 다각형 (P) · 화면 이동 (H) · 형광펜 굵게 +1pt (]) · 가늘게 −1pt (<span class="ik-ui">) · 굵게 +5pt (Shift+</span>) · 가늘게 −5pt (Shift+[)</td>
-</tr>
-<tr>
-<td><strong>배율(S)</strong></td>
-<td>선택 영역 배율 +10% (.) · −10% (,) · +1% (Shift+.) · −1% (Shift+,) · 현재 배율을 이 페이지 영역 모두에 적용 · 현재 배율을 모든 페이지 영역에 적용 · 영역 출력 순서 앞으로 (Ctrl+↑) · 뒤로 (Ctrl+↓)</td>
-</tr>
-<tr>
-<td><strong>보기(V)</strong></td>
-<td>확대 (Ctrl++) · 축소 (Ctrl+−) · 페이지 맞춤 (Ctrl+0) · 실제 크기 (Ctrl+1) · 다음 페이지 (PgDn) · 이전 페이지 (PgUp) · 다음 PDF (Ctrl+PgDn) · 이전 PDF (Ctrl+PgUp)</td>
-</tr>
-<tr>
-<td><strong>도움말(H)</strong></td>
-<td>단축키 보기 (F1) · 사용 방법 열기 (실행 폴더의 사용방법.md) · 버전 정보</td>
-</tr>
-</tbody>
-</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#13-단축키-전체-목록"><small>← 앞 장 13</small><b>단축키 전체 목록</b></a><a class="is-next" href="#15-기본값과-입력-범위"><small>다음 장 15 →</small><b>기본값과 입력 범위</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="15-기본값과-입력-범위" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 15</p><h1>기본값과 입력 범위</h1></header><div class="ik-table"><table>
-<thead>
-<tr>
-<th>항목</th>
-<th>기본값</th>
-<th>범위 / 선택지</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>용지</td>
+<td>기본 용지</td>
 <td>A4 가로</td>
-<td>A4 가로 · A4 세로 · A3 가로 · A3 세로</td>
 </tr>
 <tr>
-<td>용지 여백</td>
-<td>6.35mm</td>
-<td>고정</td>
-</tr>
-<tr>
-<td>인쇄 배율</td>
+<td>기본 인쇄 배율</td>
 <td>160%</td>
-<td>10~500% (입력 5단위, 키 10% / 1%)</td>
 </tr>
 <tr>
-<td>용지 넘칠 때 자동 축소</td>
-<td>켬</td>
-<td>켬 / 끔</td>
+<td>인쇄 배율 범위</td>
+<td>10~500%</td>
 </tr>
 <tr>
-<td>문구 내용</td>
-<td>(빈칸)</td>
-<td>자유 입력</td>
-</tr>
-<tr>
-<td>문구 서식</td>
-<td>작업번호 · 빨강 굵게</td>
-<td>프리셋 5종</td>
-</tr>
-<tr>
-<td>문구 크기</td>
-<td>24pt</td>
-<td>6~100pt</td>
-</tr>
-<tr>
-<td>문구 색</td>
-<td>빨강</td>
-<td>빨강 · 검정 · 초록 · 파랑</td>
-</tr>
-<tr>
-<td>문구 굵게</td>
-<td>켬</td>
-<td>켬 / 끔</td>
-</tr>
-<tr>
-<td>놓을 때마다 번호 +1</td>
-<td>끔</td>
-<td>켬 / 끔</td>
-</tr>
-<tr>
-<td>동그라미 번호</td>
-<td>①</td>
-<td>①~⑮</td>
-</tr>
-<tr>
-<td>번호 크기(지름)</td>
-<td>22pt</td>
-<td>8~80pt (2단위)</td>
-</tr>
-<tr>
-<td>번호 색</td>
-<td>빨강</td>
-<td>빨강 · 검정 · 초록 · 파랑</td>
-</tr>
-<tr>
-<td>번호 속 채움</td>
-<td>끔</td>
-<td>켬 / 끔</td>
-</tr>
-<tr>
-<td>놓을 때마다 다음 번호</td>
-<td>켬</td>
-<td>켬 / 끔</td>
-</tr>
-<tr>
-<td>형광색</td>
-<td>노랑</td>
-<td>노랑 · 연두 · 분홍 · 하늘</td>
-</tr>
-<tr>
-<td>형광 농도</td>
-<td>40%</td>
-<td>15~80%</td>
-</tr>
-<tr>
-<td>형광펜 굵기</td>
-<td>10pt</td>
-<td>1~80pt (바로가기 6 · 10 · 14 · 20)</td>
-</tr>
-<tr>
-<td>화면 배율</td>
-<td>페이지 맞춤</td>
+<td>화면 배율 범위</td>
 <td>10~400%</td>
 </tr>
 <tr>
+<td>자동 축소</td>
+<td>기본 켜짐</td>
+</tr>
+<tr>
+<td>용지 여백</td>
+<td>각 변 18pt = 6.35mm</td>
+</tr>
+<tr>
+<td>문구 크기</td>
+<td>기본 프리셋 24pt, 허용 6~100pt</td>
+</tr>
+<tr>
+<td>형광 농도</td>
+<td>기본 40%, 허용 15~80%</td>
+</tr>
+<tr>
+<td>형광펜 굵기</td>
+<td>기본 10pt, 허용 1~80pt</td>
+</tr>
+<tr>
+<td>동그라미 번호</td>
+<td>1~15, 기본 지름 22pt, 허용 8~80pt</td>
+</tr>
+<tr>
+<td>테두리 번호 흰 내부</td>
+<td>불투명도 77/255 ≈ 30.2%</td>
+</tr>
+<tr>
+<td>번호 자동 다음</td>
+<td>기본 켜짐</td>
+</tr>
+<tr>
+<td>문구 번호 자동 +1</td>
+<td>기본 꺼짐</td>
+</tr>
+<tr>
 <td>인쇄 매수</td>
-<td>1부</td>
-<td>1~99부</td>
+<td>1~99부, 미리보기 시작 시 1부</td>
 </tr>
 <tr>
-<td>출력 화질</td>
-<td>자동</td>
-<td>자동 · 선명 · 이미지 보정</td>
+<td>화질</td>
+<td>기본 자동, 선 진하게 꺼짐, 스캔 보정 켜짐</td>
 </tr>
 <tr>
-<td>선 진하게</td>
-<td>끔</td>
-<td>켬 / 끔</td>
-</tr>
-<tr>
-<td>스캔 보정</td>
-<td>켬</td>
-<td>켬 / 끔</td>
-</tr>
-<tr>
-<td>실행 취소 단계</td>
-<td>60단계</td>
-<td>고정</td>
-</tr>
-<tr>
-<td>이동 간격 (방향키)</td>
-<td>1pt</td>
-<td><kbd>Shift</kbd> 10pt</td>
-</tr>
-<tr>
-<td>복제·겹침 붙여넣기 간격</td>
-<td>12pt</td>
-<td>고정</td>
-</tr>
-<tr>
-<td>작업 파일 최대 크기</td>
-<td>—</td>
-<td>20MB</td>
-</tr>
-</tbody>
-</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#14-메뉴-전체-목록"><small>← 앞 장 14</small><b>메뉴 전체 목록</b></a><a class="is-next" href="#16-자동으로-기억하는-것과-파일-위치"><small>다음 장 16 →</small><b>자동으로 기억하는 것과 파일 위치</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="16-자동으로-기억하는-것과-파일-위치" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 16</p><h1>자동으로 기억하는 것과 파일 위치</h1></header><h2 id="161-프로그램이-기억하는-설정">16.1 프로그램이 기억하는 설정</h2><p>다음 실행 때도 그대로 유지됩니다.</p><ul>
-<li>용지, 배율(새 영역 기본값), 자동 축소</li>
-<li>문구 내용·서식·크기·색·굵게, 번호 +1</li>
-<li>형광색, 농도, 펜 굵기</li>
-<li>동그라미 번호 크기·색·속 채움·다음 번호 자동</li>
-<li>출력 화질·선 진하게·스캔 보정</li>
-<li>마지막으로 쓴 프린터</li>
-<li>창 크기와 위치(최대화 여부)</li>
-<li>마지막으로 PDF를 연 폴더, 인쇄용 PDF를 저장한 폴더</li>
-</ul><p>설정 파일 위치: <strong><code>%APPDATA%\도면확대인쇄\settings.json</code></strong>. 이 파일을 지우면 모든 설정이 기본값으로 돌아갑니다.</p><div class="ik-example"><span class="ik-example-tag">예시</span>
-<p>예전 버전에서 저장된 문구 기본값 "No."는 자동으로 빈칸으로 바뀝니다.</p>
-</div><h2 id="162-파일-종류">16.2 파일 종류</h2><div class="ik-table"><table>
-<thead>
-<tr>
-<th>파일</th>
-<th>위치</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>원본 PDF</td>
-<td>사용자가 둔 곳</td>
-<td>읽기만 함. 옮기거나 수정하면 작업 파일을 열 수 없음.</td>
-</tr>
-<tr>
-<td><code>*.pdfregions</code></td>
-<td>사용자가 저장한 곳</td>
 <td>작업 파일</td>
+<td>UTF-8 JSON 형식 <code>.pdfregions</code>, 형식 버전 1</td>
 </tr>
 <tr>
-<td><code>*_확대인쇄.pdf</code></td>
-<td>사용자가 저장한 곳</td>
-<td>인쇄용 PDF (Ctrl+E 또는 미리보기의 PDF로 저장)</td>
+<td>작업 파일 읽기 제한</td>
+<td>20MiB</td>
 </tr>
 <tr>
-<td><code>*.순서표.html</code></td>
-<td>인쇄용 PDF와 같은 폴더</td>
-<td>출력 순서표</td>
+<td>실행 취소</td>
+<td>최대 60단계</td>
 </tr>
 <tr>
-<td>임시 인쇄 PDF</td>
-<td><code>%TEMP%\도면확대인쇄_인쇄\</code></td>
-<td>바로 인쇄용. 하루 뒤 자동 삭제</td>
-</tr>
-<tr>
-<td><code>settings.json</code></td>
-<td><code>%APPDATA%\도면확대인쇄\</code></td>
-<td>프로그램 설정</td>
+<td>사용 글꼴</td>
+<td>Windows 맑은 고딕 우선, 가능한 경우 Arial 대체</td>
 </tr>
 </tbody>
-</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#15-기본값과-입력-범위"><small>← 앞 장 15</small><b>기본값과 입력 범위</b></a><a class="is-next" href="#17-문제-해결-faq"><small>다음 장 17 →</small><b>문제 해결 (FAQ)</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="17-문제-해결-faq" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 17</p><h1>문제 해결 (FAQ)</h1></header><details class="ik-qa"><summary>단축키가 안 먹어요.</summary><div class="ik-qa-a"><div><p>작업번호 입력칸이나 숫자 칸에 커서가 있으면 글자가 입력됩니다. <kbd>Esc</kbd>를 누르거나 캔버스를 한 번 클릭한 뒤 다시 누르세요.</p></div></div></details><details class="ik-qa"><summary>인쇄물이 작게 나와요 / 잘려요.</summary><div class="ik-qa-a"><div><ul>
-<li>프로그램의 <strong>인쇄</strong> 버튼으로 바로 인쇄하면 항상 실제 크기로 나옵니다.</li>
-<li>PDF로 저장해서 다른 뷰어로 인쇄할 때는 반드시 <strong>실제 크기(100%)</strong> 를 고르세요. "페이지에 맞춤"이면 줄어듭니다.</li>
-<li>배율이 용지를 넘으면 자동 축소(주황 이름표)됩니다. 그대로 크게 뽑고 싶으면 A3를 쓰거나 영역을 나누세요.</li>
-</ul></div></div></details><details class="ik-qa"><summary>"이 프린터 용지가 A3 가로보다 작습니다"가 떠요.</summary><div class="ik-qa-a"><div><p>그 프린터가 A3를 지원하지 않거나 A3 용지가 설정되지 않은 것입니다. A3 프린터를 고르거나 용지를 A4로 바꾸세요.</p></div></div></details><details class="ik-qa"><summary>작업 파일을 열 때 "원본 PDF를 찾지 못했습니다" / "원본이 바뀌었습니다"가 떠요.</summary><div class="ik-qa-a"><div><p>작업 파일은 원본 PDF의 위치와 내용을 확인합니다. 원본을 원래 폴더·이름으로 되돌리세요. 원본이 실제로 새 버전으로 바뀌었다면 PDF를 새로 추가해서 작업해야 합니다.</p></div></div></details><details class="ik-qa"><summary>형광 아래 글씨가 안 보일까 걱정돼요.</summary><div class="ik-qa-a"><div><p>형광은 곱하기 방식이라 검정 선·글자는 형광 아래에서도 검정 그대로 나옵니다. 농도를 낮추면 더 연해집니다.</p></div></div></details><details class="ik-qa"><summary>스캔 도면이 너무 하얗게 날아가요 / 잡티가 남아요.</summary><div class="ik-qa-a"><div><p>미리보기에서 <strong>스캔 보정</strong>을 끄면 원본 색 그대로 나옵니다. 흐린 선만 진하게 하려면 <strong>선 진하게</strong>를 켜세요.</p></div></div></details><details class="ik-qa"><summary>보통 PDF인데 흐리게 나와요.</summary><div class="ik-qa-a"><div><p>도면 자체가 회색 선으로 그려진 경우입니다. 미리보기에서 <strong>선 진하게</strong>를 켜세요.</p></div></div></details><details class="ik-qa"><summary>이미 그은 형광펜 선이 굵기를 바꿔도 안 바뀌어요.</summary><div class="ik-qa-a"><div><p><kbd>[</kbd> <kbd>]</kbd>와 굵기 칸은 다음에 그을 선의 설정입니다. 이미 그은 선은 <kbd>V</kbd>로 선택한 뒤 <kbd>[</kbd> <kbd>]</kbd>로 바꾸세요.</p></div></div></details><details class="ik-qa"><summary>동그라미 번호가 ⑮에서 안 넘어가요.</summary><div class="ik-qa-a"><div><p>번호는 ①~⑮까지입니다. ⑮ 다음은 같은 번호가 계속 놓이니 다른 번호를 직접 고르세요.</p></div></div></details><details class="ik-qa"><summary>바탕화면 아이콘이 예전 그림이에요.</summary><div class="ik-qa-a"><div><p>Windows가 아이콘을 저장해 두었기 때문입니다. 바로가기를 지우고 다시 만드세요.</p></div></div></details><details class="ik-qa"><summary>실행 파일을 다른 PC로 옮겼더니 안 켜져요.</summary><div class="ik-qa-a"><div><p><code>_internal</code> 폴더를 함께 옮겨야 합니다. 폴더째 복사하세요.</p></div></div></details><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#16-자동으로-기억하는-것과-파일-위치"><small>← 앞 장 16</small><b>자동으로 기억하는 것과 파일 위치</b></a><a class="is-next" href="#18-버전-이력"><small>다음 장 18 →</small><b>버전 이력</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="18-버전-이력" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 18</p><h1>버전 이력</h1></header><div class="ik-table"><table>
+</table></div><p>일부 기본값은 이전 실행에서 저장한 설정이 있으면 그 설정으로 시작합니다.</p><h2 id="192-배포소스-구성">19.2 배포·소스 구성</h2><div class="ik-table"><table>
 <thead>
 <tr>
-<th>버전</th>
-<th>주요 변경</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>v1</td>
-<td>최초 버전 — 인쇄 영역, 문구, 형광 사각형·다각형, 인쇄용 PDF 만들기, 작업 파일</td>
-</tr>
-<tr>
-<td>v2.0</td>
-<td>화면 전체 재설계(도구 막대·설정 카드·상태표시줄·메뉴), 단축키 체계(한/영·Caps Lock 무관), 크기 조절 점, 문구 그 자리 고치기, 다른 페이지 붙여넣기, 번호 +1 자동, 인쇄 범위 점선·이름표 색, 파일 끌어다 놓기, 설정 기억, 고해상도 화면 대응, 진행률 표시, 미리보기·순서표 개선</td>
-</tr>
-<tr>
-<td>v2.1</td>
-<td>형광펜 선 도구(L), <code>[ ]</code> 펜 굵기, 배율 단축키를 <code>, .</code>로 변경, 새로 그린 형광은 자동 선택하지 않음</td>
-</tr>
-<tr>
-<td>v2.2</td>
-<td>작업번호 기본값 "No." 제거, 다각형 인쇄 영역(Shift+R), 프로그램 내 바로 인쇄(미리보기 패널·프린터 선택·매수·범위, 실제 크기·단면 고정)</td>
-</tr>
-<tr>
-<td>v2.3</td>
-<td>동그라미 번호 ①~⑮ 도구(N), 도구별 설정 카드 자동 표시</td>
-</tr>
-<tr>
-<td>v2.4</td>
-<td>속도 개선 — 형광 합성 약 12배, PDF 출력 약 11배, 페이지 렌더 캐시, 화면 갱신 묶음 처리</td>
-</tr>
-<tr>
-<td>v2.5</td>
-<td>출력 화질 — 일반 PDF는 원본 벡터 그대로 출력, 스캔 도면 자동 보정, 선 진하게, 바로 인쇄 600dpi</td>
-</tr>
-<tr>
-<td>v2.6</td>
-<td>새 프로그램 아이콘 (크기별로 따로 그린 아이콘, 실행 파일·작업표시줄·창·시작 화면)</td>
-</tr>
-</tbody>
-</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#17-문제-해결-faq"><small>← 앞 장 17</small><b>문제 해결 (FAQ)</b></a><a class="is-next" href="#19-기술-참고-관리자용"><small>다음 장 19 →</small><b>기술 참고 (관리자용)</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="19-기술-참고-관리자용" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 19</p><h1>기술 참고 (관리자용)</h1></header><h2 id="191-구성">19.1 구성</h2><div class="ik-table"><table>
-<thead>
-<tr>
-<th>파일</th>
+<th>파일·폴더</th>
 <th>역할</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>app.py</code></td>
-<td>화면, 조작, 단축키, 미리보기·인쇄 창 (Tkinter)</td>
+<td><code>도면확대인쇄_v2.7.exe</code></td>
+<td>Windows 실행 파일</td>
 </tr>
 <tr>
-<td><code>ui.py</code></td>
-<td>테마, 아이콘(코드로 그림), 툴팁, 키 판별(한/영·Caps Lock 무관), 파일 끌어다 놓기</td>
+<td><code>_internal</code></td>
+<td>Python·Tk·PDFium·Pillow 등 실행 의존 파일</td>
 </tr>
 <tr>
-<td><code>core.py</code></td>
-<td>PDF 읽기·합성·인쇄용 PDF 만들기, 작업 파일 저장·검증, 순서표</td>
+<td><code>사용방법.md</code></td>
+<td>프로그램 도움말 메뉴에서 여는 사용 설명서</td>
 </tr>
 <tr>
-<td><code>winprint.py</code></td>
-<td>Windows 프린터 직접 인쇄</td>
+<td><code>빠른시작.txt</code></td>
+<td>간단한 시작 안내</td>
 </tr>
 <tr>
-<td>의존성</td>
-<td>Pillow, pypdfium2, PyInstaller (빌드용)</td>
+<td><code>라이선스</code></td>
+<td>동봉 라이브러리의 고지 문서</td>
+</tr>
+<tr>
+<td><code>소스/app.py</code></td>
+<td>화면·이벤트·파일 관리·미리보기</td>
+</tr>
+<tr>
+<td><code>소스/core.py</code></td>
+<td>PDF 읽기·주석 합성·작업 파일·출력 PDF·순서표</td>
+</tr>
+<tr>
+<td><code>소스/ui.py</code></td>
+<td>테마·아이콘·툴팁·키 처리·파일 끌어다 놓기</td>
+</tr>
+<tr>
+<td><code>소스/winprint.py</code></td>
+<td>Windows 프린터 설정·GDI 인쇄</td>
+</tr>
+<tr>
+<td><code>소스/requirements.txt</code></td>
+<td>Python 패키지 버전</td>
+</tr>
+<tr>
+<td><code>build.py</code>, <code>빌드.bat</code></td>
+<td>소스 배포본의 Windows 빌드 진입점</td>
 </tr>
 </tbody>
-</table></div><h2 id="192-동작-방식-요약">19.2 동작 방식 요약</h2><ul>
-<li>원본 PDF는 메모리로 읽어서 열므로 원본 파일을 잠그지 않습니다.</li>
-<li>인쇄용 PDF 만들기와 바로 인쇄는 별도 프로세스에서 실행됩니다. 무거운 작업이나 드라이버 문제가 편집 창을 멈추지 않습니다.</li>
-<li>벡터 출력: 원본 페이지를 그대로 넣고 확대·배치합니다. 형광은 곱하기 방식의 벡터 도형, 문구·번호는 600dpi 투명 이미지, 영역 밖은 흰색으로 덮습니다.</li>
-<li>스캔 출력: 영역만 300dpi로 만들어 잡티 제거 → 색별 레벨 보정 → (선 진하게 시) 감마 → 언샤프 순서로 보정합니다.</li>
-<li>바로 인쇄: 페이지를 최대 600dpi로 띠 단위로 나눠 그려서 프린터로 보냅니다. 메모리 사용이 일정합니다.</li>
-</ul><h2 id="193-점검-모드">19.3 점검 모드</h2><pre class="ik-pre"><code>도면확대인쇄.exe --self-test &lt;샘플.pdf&gt; &lt;결과폴더&gt;
-</code></pre><p>결과 폴더의 <code>result.json</code>에 <code>{"ok": true}</code>가 나오면 실행 파일이 정상입니다. 프린터 호출이나 원본 변경은 없습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#18-버전-이력"><small>← 앞 장 18</small><b>버전 이력</b></a></nav></section>
-<div class="ik-div ik-div-stamp" role="separator" aria-label="검수 완료"><span class="ik-div-layers is-left"><i></i><i></i><i></i></span><span class="ik-stamp"><span><b>검수</b><small>IKAN</small></span></span><span class="ik-div-layers is-right"><i></i><i></i><i></i></span></div><p class="ik-small" style="text-align:center;max-width:none">도면 확대 인쇄 사용 설명서 · 기준 버전 v2.6 · 주식회사 아이칸 사내용</p>
+</table></div><p>이 문서는 기능 설명서입니다. 기존 소스 ZIP의 간단 설명 중 ‘출력이 모두 이미지라 텍스트 검색이 안 된다’는 문장은 v2.5 이후 혼합 출력 방식과 다를 수 있어 13장에서 구분해 설명했습니다.</p><h2 id="193-처리-방식과-데이터-보존">19.3 처리 방식과 데이터 보존</h2><ul>
+<li>편집 좌표는 원본 페이지 왼쪽 위 기준의 PDF 포인트입니다. 1pt는 약 0.3528mm입니다.</li>
+<li>원본 PDF는 읽기용으로 사용하고 작업 저장과 출력 시 원본 덮어쓰기를 막습니다.</li>
+<li>PDF 생성과 프린터 전송은 각각 별도 프로세스에서 수행합니다.</li>
+<li>원본 경로·SHA256·페이지 크기·인쇄 영역(<code>rect</code>, 다각형은 <code>poly</code>)·주석을 작업 파일에 보관합니다.</li>
+<li>형광 선은 <code>line</code>·<code>width</code>와 면 경계, 일반 형광은 <code>points</code>, 번호는 <code>kind=num</code>·숫자·위치·크기·색·채움 상태를 저장합니다.</li>
+<li>출력 PDF는 임시 파일에 완성한 뒤 대상 파일로 교체합니다.</li>
+<li>최근 PDF와 화면 렌더는 메모리 캐시로 재사용합니다. 원본 PDF를 메모리에서 읽어 장시간 파일 잠금을 피합니다.</li>
+<li>벡터 출력은 원본 페이지를 확대·배치하고, 이미지 출력은 선택 영역을 보정합니다. 마지막에 영역 바깥을 흰색으로 가립니다.</li>
+<li>직접 인쇄는 Windows GDI를 사용하며 페이지를 띠 단위로 처리해 큰 도면의 메모리 사용을 줄입니다.</li>
+</ul><h2 id="194-개발-실행빌드">19.4 개발 실행·빌드</h2><p>소스 실행은 Python 3.11 이상을 대상으로 작성되었습니다. 제공 구성의 패키지는 아래와 같습니다.</p><pre class="ik-pre"><code class="language-text">Pillow==13.0.0
+pypdfium2==5.14.0
+PyInstaller==6.22.3
+</code></pre><p>v2.5 이후 reportlab은 필수 의존성에서 제거되었습니다.</p><pre class="ik-pre"><code class="language-powershell"># 소스 배포 폴더에서
+python -m pip install -r 소스/requirements.txt
+python 소스/app.py
+
+# 배포본 생성
+python build.py
+</code></pre><p>동봉 빌드 스크립트는 아이콘을 생성하고 PyInstaller의 windowed·onedir 방식으로 실행 파일과 <code>_internal</code> 폴더를 만듭니다. 개발용 패키징 점검 진입점도 제공됩니다.</p><pre class="ik-pre"><code class="language-powershell">도면확대인쇄.exe --self-test 샘플.pdf 결과폴더
+</code></pre><p>점검 결과는 결과 폴더의 <code>result.json</code>에 기록합니다. 이 점검은 화면 생성·PDF 출력·미리보기 경로를 대상으로 하며 실제 프린터 전송 기능 전체를 검증하는 것은 아닙니다.</p><h2 id="195-버전-메모">19.5 버전 메모</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>버전</th>
+<th>기능·구성 메모</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v2 계열</td>
+<td>개선된 편집 UI·도구·단축키·작업 저장 구조</td>
+</tr>
+<tr>
+<td>v2.4</td>
+<td>형광 합성 영역 최적화·렌더 캐시·지연 갱신</td>
+</tr>
+<tr>
+<td>v2.5</td>
+<td>원본 벡터 유지·스캔 보정·고해상도 주석·reportlab 제거</td>
+</tr>
+<tr>
+<td>v2.6</td>
+<td>제공된 아이콘 재작업 버전</td>
+</tr>
+<tr>
+<td>v2.7</td>
+<td>테두리형 번호 내부 흰색 불투명도 약 30%, 화면·배치 미리보기·PDF 공통 반영</td>
+</tr>
+</tbody>
+</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#18-문제-해결과-지원-범위"><small>← 앞 장 18</small><b>문제 해결과 지원 범위</b></a></nav></section>
+<div class="ik-div ik-div-stamp" role="separator" aria-label="검수 완료"><span class="ik-div-layers is-left"><i></i><i></i><i></i></span><span class="ik-stamp"><span><b>검수</b><small>IKAN</small></span></span><span class="ik-div-layers is-right"><i></i><i></i><i></i></span></div><p class="ik-small" style="text-align:center;max-width:none">도면 확대 인쇄 사용 설명서 · 기준 버전 v2.7 · 정리 2026-10-28 · 주식회사 아이칸 사내용</p>
 </main>
 </div>
 <dialog class="ik-zoom" id="ik-zoom" aria-label="화면 크게 보기"><div class="ik-zoom-bar"><b id="ik-zoom-title">화면 크게 보기</b><span>번호를 누르면 설명이 나옵니다 · Esc로 닫기</span><button type="button" class="ik-bar-btn" data-zoom-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>닫기</button></div><div class="ik-zoom-body" id="ik-zoom-body"></div><p class="ik-zoom-note" id="ik-zoom-note" aria-live="polite"></p></dialog>
-<script src="../assets/search-index.js?v=0b2556df"></script><script src="../assets/ikan.js?v=0b2556df"></script><script src="../assets/sims.js?v=0b2556df"></script>
+<script src="../assets/search-index.js?v=08c1c106"></script><script src="../assets/ikan.js?v=08c1c106"></script><script src="../assets/sims.js?v=08c1c106"></script>
 </body>
 </html>
