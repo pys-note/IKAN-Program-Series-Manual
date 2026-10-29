@@ -1,0 +1,1005 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>아이칸 일일기록정리 사용 설명서 0.3.0</title>
+<meta name="description" content="작업지시서 원본과 판매 자료를 오더번호별·품목별로 정리하고, 색과 서식을 그대로 복사해 구글 스프레드시트에 붙여넣습니다.">
+<link rel="icon" href="../assets/icons/daily.svg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="../assets/ikan.css?v=4b33d7e3">
+</head>
+<body class="ik-app-daily">
+<a class="ik-skip" href="#main">본문 바로가기</a>
+<header class="ik-bar"><div class="ik-bar-in"><a class="ik-bar-home" href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg><span>매뉴얼 홈</span></a><i class="ik-bar-sep"></i><div class="ik-bar-title"><img class="ik-bar-icon" src="../assets/icons/daily.svg" alt=""><span><small>IKAN DAILY RECORDS · USER MANUAL</small><b>아이칸 일일기록정리</b></span></div><div class="ik-bar-tools"><span class="ik-bar-ver ik-bar-hide-s">0.3.0</span><button class="ik-bar-btn ik-bar-hide-s" type="button" data-font="-1" aria-label="본문 글자 작게">가−</button><button class="ik-bar-btn ik-bar-hide-s" type="button" data-font="1" aria-label="본문 글자 크게">가+</button><button class="ik-bar-btn ik-bar-hide-s" type="button" data-print><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></svg>인쇄</button><details class="ik-apps"><summary class="ik-bar-btn" aria-label="다른 프로그램 매뉴얼"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.2"/></svg><span class="ik-bar-hide-s">다른 매뉴얼</span></summary><div class="ik-apps-menu"><a href="../index.html"><span style="display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--ik-navy);color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg></span><span><b>매뉴얼 홈</b><span>모든 프로그램 · 전체 검색</span></span></a><hr><a href="../workorders/index.html"><img src="../assets/icons/workorders.svg" alt=""><span><b>아이칸 작업지시서 관리자</b><span>0.24.9</span></span></a><a href="../plot/index.html"><img src="../assets/icons/plot.svg" alt=""><span><b>도면 확대 인쇄</b><span>v2.7</span></span></a><a href="../packing/index.html"><img src="../assets/icons/packing.png" alt=""><span><b>아이칸 포장 카운트</b><span>0.1.11</span></span></a><a href="../labels/index.html"><img src="../assets/icons/labels.svg" alt=""><span><b>아이칸 라벨 출력기</b><span>v2</span></span></a><a href="../daily/index.html" aria-current="page"><img src="../assets/icons/daily.svg" alt=""><span><b>아이칸 일일기록정리</b><span>0.3.0</span></span></a></div></details></div></div></header>
+<div class="ik-shell">
+<nav class="ik-toc" aria-label="목차"><details open id="toc-box"><summary>목차 · 이 매뉴얼에서 찾기</summary><div class="ik-find"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><label class="sr" for="find">이 매뉴얼에서 찾기</label><input id="find" type="search" placeholder="이 매뉴얼에서 찾기  /" autocomplete="off"></div><div class="ik-find-state" id="find-state" role="status" aria-live="polite"></div><div class="ik-toc-label">Contents · 18장</div><ol><li><a href="#1-프로그램의-목적과-사용-범위"><span class="n">01</span><span>프로그램의 목적과 사용 범위</span></a></li><li><a href="#2-설치-및-업데이트"><span class="n">02</span><span>설치 및 업데이트</span></a></li><li><a href="#3-준비할-자료"><span class="n">03</span><span>준비할 자료</span></a></li><li><a href="#4-처음-사용하는-분을-위한-작업-순서"><span class="n">04</span><span>처음 사용하는 분을 위한 작업 순서</span></a></li><li><a href="#5-화면-구성과-표시-읽는-법"><span class="n">05</span><span>화면 구성과 표시 읽는 법</span></a></li><li><a href="#6-오더번호-탭-사용법"><span class="n">06</span><span>오더번호 탭 사용법</span></a></li><li><a href="#7-날짜-계산-및-적용"><span class="n">07</span><span>날짜 계산 및 적용</span></a></li><li><a href="#8-오더번호-목록의-자동-정리-규칙"><span class="n">08</span><span>오더번호 목록의 자동 정리 규칙</span></a></li><li><a href="#9-판매현황-탭-사용법"><span class="n">09</span><span>판매현황 탭 사용법</span></a></li><li><a href="#10-판매현황-금액을-오더번호-탭에-적용"><span class="n">10</span><span>판매현황 금액을 오더번호 탭에 적용</span></a></li><li><a href="#11-셀-수정과-범위-선택"><span class="n">11</span><span>셀 수정과 범위 선택</span></a></li><li><a href="#12-복사-및-붙여넣기"><span class="n">12</span><span>복사 및 붙여넣기</span></a></li><li><a href="#13-확인-사항과-오류-대응"><span class="n">13</span><span>확인 사항과 오류 대응</span></a></li><li><a href="#14-다시-읽기취소종료와-데이터-유지"><span class="n">14</span><span>다시 읽기·취소·종료와 데이터 유지</span></a></li><li><a href="#15-단축키와-마우스-조작"><span class="n">15</span><span>단축키와 마우스 조작</span></a></li><li><a href="#16-자주-묻는-질문"><span class="n">16</span><span>자주 묻는 질문</span></a></li><li><a href="#17-작업을-마치기-전-확인표"><span class="n">17</span><span>작업을 마치기 전 확인표</span></a></li><li><a href="#18-현재-버전까지의-주요-변경사항"><span class="n">18</span><span>현재 버전까지의 주요 변경사항</span></a></li></ol><div class="ik-toc-foot">기준 버전 <b>0.3.0</b> · 정리 2026-10-29<br>인터넷 없이도 이 페이지를 저장해 볼 수 있습니다.</div></details></nav>
+<main class="ik-sheet" id="main" data-manual="daily">
+<section class="ik-chapter is-first" id="cover"><div class="ik-cover"><img class="ik-cover-icon" src="../assets/icons/daily.svg" alt="아이칸 일일기록정리 아이콘"><div><p class="ik-cover-kind">USER MANUAL · 0.3.0</p><h1 class="ik-cover-title">아이칸 일일기록정리</h1><p class="ik-cover-meta"><span>작업지시서 원본과 판매 자료를 오더번호별·품목별로 정리하고, 색과 서식을 그대로 복사해 구글 스프레드시트에 붙여넣습니다.</span></p></div></div><ul class=ik-docinfo><li><b>기준 버전</b>0.3.0</li><li><b>기준일</b>2026-10-29</li><li><b>운영체제</b>Windows 10/11 64비트</li><li><b>필요</b>.xls를 읽을 때만 Microsoft Excel</li></ul><div class=ik-cover-intro><p>0.3.0의 화면과 동작을 기준으로 정리한 사용자 매뉴얼입니다. 처음 사용하는 작업자는 4장 작업 순서부터 따라 해 보세요.</p></div><div class=ik-quick><a href="#4-처음-사용하는-분을-위한-작업-순서"><b>처음 사용하는 분</b><small>작업 순서 따라 하기</small></a><a href="#5-화면-구성과-표시-읽는-법"><b>화면이 낯선 분</b><small>표시 읽는 법</small></a><a href="#13-확인-사항과-오류-대응"><b>막힌 부분을 찾는 분</b><small>확인 사항 · 오류 대응</small></a></div><div class="ik-div ik-div-dim" role="separator" aria-label="주식회사 아이칸"><i class="ik-div-tick"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M0 5 L12 0.8 V9.2 Z"/></svg><i class="ik-div-line"></i><span class="ik-div-label"><span class="ik-div-ko">주식회사 아이칸</span><span class="ik-div-en">IKAN CO., LTD.</span></span><i class="ik-div-line"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M12 5 L0 0.8 V9.2 Z"/></svg><i class="ik-div-tick"></i></div></section>
+<div id="find-empty" class="ik-empty" hidden><b>일치하는 장이 없습니다.</b>더 짧은 단어나 다른 표현으로 찾아보세요. 예: 싱크볼 → 씽크볼, 뒤턱 → 뒷턱</div>
+<section class="ik-chapter" id="1-프로그램의-목적과-사용-범위" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 01</p><h1>프로그램의 목적과 사용 범위</h1></header><p>아이칸 일일기록정리는 작업지시서 작성에 사용하는 원본 Excel과 별도의 자재·금액 자료를 읽어, 사내 공유 문서에 옮겨 적을 데이터를 정리하는 Windows 프로그램입니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>탭</th>
+<th>정리 단위</th>
+<th>결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>오더번호</td>
+<td>오더번호별 한 행</td>
+<td>물류센터·재질·거래처·담당·전화·PO번호·금액 등</td>
+</tr>
+<tr>
+<td>판매현황</td>
+<td>추가 자료의 품목별 한 행</td>
+<td>오더번호·두께·색상·품목·가로·세로·합계</td>
+</tr>
+</tbody>
+</table></div><p>기본 흐름은 <strong>자료 불러오기 → 날짜 확인 → 검토·수정 → 복사 → 사용자가 구글 스프레드시트에 붙여넣기</strong>입니다. 판매현황 자료가 있으면 해당 자료의 오더별 금액을 오더번호 목록에 반영할 수 있습니다.</p><p>현재 버전의 작업 결과는 클립보드 복사로 전달합니다. 구글 계정에 로그인하거나 공유 문서를 자동으로 갱신하는 기능, 정리 결과를 별도 Excel 파일로 저장하는 기능, 직접 인쇄 기능은 제공하지 않습니다. 인쇄가 필요하면 붙여넣은 구글 스프레드시트나 Excel에서 진행합니다.</p><p>작업지시서 관리자·포장 카운트와는 별도로 설치하고 사용하는 프로그램입니다. 이 매뉴얼은 일일기록정리의 기능만 설명합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-next" href="#2-설치-및-업데이트"><small>다음 장 02 →</small><b>설치 및 업데이트</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="2-설치-및-업데이트" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 02</p><h1>설치 및 업데이트</h1></header><h2 id="21-설치-환경">2.1 설치 환경</h2><ul>
+<li>Windows 64비트 PC에서 설치판을 사용합니다.</li>
+<li>Python을 사용자가 따로 설치할 필요는 없습니다.</li>
+<li><code>.xlsx</code>는 프로그램에서 읽습니다. 구형 <code>.xls</code>를 읽을 때는 PC에 설치된 Microsoft Excel을 사용합니다.</li>
+<li>구글 스프레드시트에 붙여넣으려면 사용자가 해당 문서를 열고 편집할 수 있어야 합니다.</li>
+</ul><h2 id="22-설치-순서">2.2 설치 순서</h2><ol class="ik-steps is-plain"><li><div><p>실행 중인 아이칸 일일기록정리를 종료합니다. 필요한 결과는 먼저 공유 문서에 붙여넣습니다.</p></div></li><li><div><p><code>IkanDailyRecords_0.3.0.msi</code>를 실행합니다.</p></div></li><li><div><p>설치마법사의 안내에 따라 설치를 마칩니다.</p></div></li><li><div><p>아이칸 일일기록정리를 실행하고 화면의 버전 표시를 확인합니다.</p></div></li></ol><p>새 버전 설치파일로 기존 일일기록정리를 업데이트할 수 있습니다. 작업지시서 관리자나 포장 카운트를 대신 설치하는 파일은 아닙니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#1-프로그램의-목적과-사용-범위"><small>← 앞 장 01</small><b>프로그램의 목적과 사용 범위</b></a><a class="is-next" href="#3-준비할-자료"><small>다음 장 03 →</small><b>준비할 자료</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="3-준비할-자료" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 03</p><h1>준비할 자료</h1></header><h2 id="31-첫-번째-자료-작업지시서-원본-데이터">3.1 첫 번째 자료: 작업지시서 원본 데이터</h2><p>작업지시서 관리자를 사용할 때 불러오던 <strong>출고예시조회 계열의 원본 데이터</strong>입니다. 완성 작업지시서 Excel이나 오더차이리스트와 구분해 주세요.</p><p>기존 원본 형식은 <strong>2행이 항목명, 3행부터 품목 데이터</strong>입니다. 주요 위치는 다음과 같습니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>원본 열</th>
+<th>항목</th>
+<th>일일기록정리에서 사용하는 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C</td>
+<td>PO번호</td>
+<td>오더번호 탭의 구매번호</td>
+</tr>
+<tr>
+<td>F</td>
+<td>공장출고일</td>
+<td>시공일로 사용하여 날짜별 목록 구성</td>
+</tr>
+<tr>
+<td>G</td>
+<td>오더번호</td>
+<td>주문을 묶고 금액을 연결하는 기준</td>
+</tr>
+<tr>
+<td>I</td>
+<td>물류센터 정보</td>
+<td>그레이박스 또는 지방명</td>
+</tr>
+<tr>
+<td>M</td>
+<td>제품명</td>
+<td>한글 재질명과 제작 정보</td>
+</tr>
+<tr>
+<td>N</td>
+<td>수량</td>
+<td>원본 품목의 수량 정보</td>
+</tr>
+<tr>
+<td>AL</td>
+<td>대리점명</td>
+<td>거래처명</td>
+</tr>
+<tr>
+<td>AM</td>
+<td>영업사원</td>
+<td>영업사원명</td>
+</tr>
+<tr>
+<td>AN</td>
+<td>연락처</td>
+<td>전화번호</td>
+</tr>
+<tr>
+<td>AO 등 가공 관련 열</td>
+<td>가공정보 및 타공 관련 값</td>
+<td>지방 비고의 공장 타공 여부 판정에 참조</td>
+</tr>
+</tbody>
+</table></div><p>프로그램은 정해진 항목명과 열 위치를 확인합니다. 첫 번째 자료의 열을 임의로 옮기거나 제목 행을 제거하면 정상적으로 읽지 못할 수 있습니다.</p><h2 id="32-두-번째-자료-판매현황-추가-자료">3.2 두 번째 자료: 판매현황 추가 자료</h2><p>판매현황 탭을 사용할 때 준비합니다. 첫 번째 시트에 아래 순서의 A:H열이 있어야 합니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>열</th>
+<th>내용</th>
+<th>출력에 사용하는 방식</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>자재명</td>
+<td>두께·색상·품목·가로·세로 추출</td>
+</tr>
+<tr>
+<td>B</td>
+<td>납품처</td>
+<td>입력 자료의 항목으로 구분</td>
+</tr>
+<tr>
+<td>C</td>
+<td>저장소</td>
+<td>입력 자료의 항목으로 구분</td>
+</tr>
+<tr>
+<td>D</td>
+<td>수량</td>
+<td>행을 수량만큼 늘리지 않음</td>
+</tr>
+<tr>
+<td>E</td>
+<td>단위</td>
+<td>입력 자료의 항목으로 구분</td>
+</tr>
+<tr>
+<td>F</td>
+<td>단가</td>
+<td>합계를 다시 계산하는 기준으로 사용하지 않음</td>
+</tr>
+<tr>
+<td>G</td>
+<td>합계</td>
+<td>판매현황 H열 및 오더별 금액 합산에 사용</td>
+</tr>
+<tr>
+<td>H</td>
+<td>오더번호</td>
+<td>첫 번째 자료의 주문과 매칭</td>
+</tr>
+</tbody>
+</table></div><p>첫 행부터 데이터가 있어도 되고, <code>자재명 / 납품처 / 저장소 / 수량 / 단위 / 단가 / 합계 / 오더번호</code> 제목 행이 있어도 됩니다. 빈 행은 건너뜁니다.</p><p><strong>추가 자료 G열의 합계와, 출력 판매현황 G열의 헤베는 서로 다른 항목입니다.</strong> 추가 자료의 합계는 출력 H열로 옮겨집니다.</p><h2 id="33-대상-공유-문서">3.3 대상 공유 문서</h2><p>기존 일일기록 양식과 판매현황 양식을 구글 스프레드시트 또는 Excel에서 열어 둡니다. 프로그램은 대상 문서의 빈 행을 직접 찾아주지 않으므로, 붙여넣을 위치는 사용자가 확인합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#2-설치-및-업데이트"><small>← 앞 장 02</small><b>설치 및 업데이트</b></a><a class="is-next" href="#4-처음-사용하는-분을-위한-작업-순서"><small>다음 장 04 →</small><b>처음 사용하는 분을 위한 작업 순서</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="4-처음-사용하는-분을-위한-작업-순서" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 04</p><h1>처음 사용하는 분을 위한 작업 순서</h1></header><h2 id="41-오더번호-목록만-정리할-때">4.1 오더번호 목록만 정리할 때</h2><figure class="ik-shot" id="shot-dr_00_empty"><div class="ik-shot-frame" style="aspect-ratio:1400/532;max-width:1400px"><img alt="원본을 불러오기 전의 빈 화면" decoding="async" height="532" loading="lazy" src="../assets/shots/daily/dr_00_empty.webp" width="1400"/><button aria-label="1번 파일 선택" class="ik-pin" data-pin="1" style="left:49.43%;top:57.89%" type="button">1</button><button aria-label="2번 세 단계" class="ik-pin" data-pin="2" style="left:49.43%;top:67.11%" type="button">2</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">처음 실행했을 때. 표 대신 다음에 할 일을 안내합니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>파일 선택</b>누르면 원본 Excel을 고르는 창이 열립니다. Ctrl+O와 같습니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>세 단계</b>파일 선택 → 시공일 · 출고일 확인 → 복사 후 구글 시트에 붙여넣기.</span></li></ol></figure><ol class="ik-steps is-plain"><li><div><p><strong>오더번호</strong> 탭의 <strong>파일 선택</strong>을 누릅니다. <kbd>Ctrl</kbd>+<kbd>O</kbd>도 사용할 수 있습니다.</p></div></li><li><div><p>작업지시서 원본 Excel을 선택합니다.</p></div></li><li><div><p><strong>원본 시공일</strong>을 확인합니다. 날짜가 여러 개라면 작업할 날짜를 선택합니다.</p></div></li><li><div><p><strong>그레이박스 출고일</strong>과 <strong>D2 미리보기</strong>를 확인합니다.</p></div></li><li><div><p><strong>확인 사항</strong>을 열어 안내 내용을 검토하고, 필요한 셀을 더블클릭해 수정합니다.</p></div></li><li><div><p><strong>날짜+목록 복사 → B2</strong> 또는 <strong>목록만 복사 → B3</strong>을 누릅니다.</p></div></li><li><div><p>대상 공유 문서에서 시작 셀을 선택하고 일반 붙여넣기 <kbd>Ctrl</kbd>+<kbd>V</kbd>를 실행합니다.</p></div></li><li><div><p>붙여넣은 오더 수·날짜·색상과 긴 글자의 내용을 확인합니다.</p></div></li></ol><h2 id="42-판매현황과-오더별-금액까지-정리할-때">4.2 판매현황과 오더별 금액까지 정리할 때</h2><ol class="ik-steps is-plain"><li><div><p>위 순서대로 첫 번째 원본을 불러오고 날짜를 확인합니다.</p></div></li><li><div><p><strong>판매현황</strong> 탭으로 이동합니다.</p></div></li><li><div><p><strong>자료 불러오기</strong>에서 두 번째 자료를 선택합니다.</p></div></li><li><div><p>품목 수·매칭 오더 수·확인 사항·합계를 확인합니다.</p></div></li><li><div><p>공유 문서에서 판매현황을 붙여넣을 첫 행을 확인하고, 프로그램의 <strong>시작 행</strong>에 입력합니다.</p></div></li><li><div><p><strong>① 기본정보 A:F 복사</strong>를 누르고 공유 문서의 해당 A열 셀에 붙여넣습니다.</p></div></li><li><div><p><strong>② 합계 H 복사</strong>를 누르고 같은 시작 행의 H열 셀에 붙여넣습니다.</p></div></li><li><div><p><strong>③ 오더번호 탭에 금액 적용</strong>을 누릅니다.</p></div></li><li><div><p>오더번호 탭으로 돌아가 금액을 확인합니다.</p></div></li><li><div><p>오더번호 목록을 다시 복사하여 공유 문서에 붙여넣습니다.</p></div></li></ol><p>예를 들어 시작 행이 <code>88</code>이라면 기본정보는 <code>A88</code>, 합계는 <code>H88</code>에 붙여넣습니다. 두 번의 붙여넣기에서 시작 행이 같아야 합니다.</p><p>판매현황을 나중에 수정했다면 <strong>금액 적용 → 오더번호 목록 다시 복사 → 공유 문서에 다시 붙여넣기</strong>까지 진행해야 변경된 금액이 전달됩니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#3-준비할-자료"><small>← 앞 장 03</small><b>준비할 자료</b></a><a class="is-next" href="#5-화면-구성과-표시-읽는-법"><small>다음 장 05 →</small><b>화면 구성과 표시 읽는 법</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="5-화면-구성과-표시-읽는-법" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 05</p><h1>화면 구성과 표시 읽는 법</h1></header><figure class="ik-shot" id="shot-dr_01_main"><div class="ik-shot-frame" style="aspect-ratio:1440/900;max-width:1440px"><img alt="아이칸 일일기록정리 0.3.0 오더번호 탭" decoding="async" height="900" loading="lazy" src="../assets/shots/daily/dr_01_main.webp" width="1440"/><button aria-label="1번 단계 표시" class="ik-pin" data-pin="1" style="left:62.85%;top:4.00%" type="button">1</button><button aria-label="2번 탭 줄" class="ik-pin" data-pin="2" style="left:5.21%;top:10.33%" type="button">2</button><button aria-label="3번 양식 정보 · 사용 방법" class="ik-pin" data-pin="3" style="left:86.11%;top:10.78%" type="button">3</button><button aria-label="4번 원본 데이터" class="ik-pin" data-pin="4" style="left:3.06%;top:18.00%" type="button">4</button><button aria-label="5번 다시 읽기 · 파일 선택" class="ik-pin" data-pin="5" style="left:21.67%;top:18.56%" type="button">5</button><button aria-label="6번 원본 시공일" class="ik-pin" data-pin="6" style="left:35.56%;top:21.22%" type="button">6</button><button aria-label="7번 그레이박스 출고일" class="ik-pin" data-pin="7" style="left:54.17%;top:21.22%" type="button">7</button><button aria-label="8번 D2 미리보기" class="ik-pin" data-pin="8" style="left:67.71%;top:17.56%" type="button">8</button><button aria-label="9번 오늘 기록 요약" class="ik-pin" data-pin="9" style="left:83.33%;top:20.78%" type="button">9</button><button aria-label="10번 색 범례" class="ik-pin" data-pin="10" style="left:86.81%;top:32.22%" type="button">10</button><button aria-label="11번 날짜 행" class="ik-pin" data-pin="11" style="left:19.03%;top:42.11%" type="button">11</button><button aria-label="12번 주황 행 번호" class="ik-pin" data-pin="12" style="left:2.78%;top:50.89%" type="button">12</button><button aria-label="13번 파란 표시" class="ik-pin" data-pin="13" style="left:63.19%;top:45.56%" type="button">13</button><button aria-label="14번 상태줄" class="ik-pin" data-pin="14" style="left:2.78%;top:92.44%" type="button">14</button><button aria-label="15번 확인 사항" class="ik-pin" data-pin="15" style="left:2.50%;top:96.56%" type="button">15</button><button aria-label="16번 복사 버튼" class="ik-pin" data-pin="16" style="left:87.50%;top:96.56%" type="button">16</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">오더번호 탭 (익명 샘플 데이터, 시공일 2026-10-22). 번호를 누르면 아래 설명이 강조됩니다. 촬영 환경 차이로 글꼴은 실제 Windows 화면과 조금 다를 수 있습니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>단계 표시</b>원본 → 날짜 → 검토 → 복사 → 판매현황. 끝난 단계는 초록 체크, 지금 할 단계는 주황 번호. 누르면 그 작업으로 이동합니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>탭 줄</b>오더번호 · 판매현황. 옆 숫자는 오더 수 · 품목 수입니다.</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>양식 정보 · 사용 방법</b>열 배치와 붙여넣기 시작 셀, 프로그램 안 도움말(<kbd>F1</kbd>).</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>원본 데이터</b>불러온 파일 이름과 폴더. 이름에 마우스를 올리면 전체 경로가 보입니다.</span></li><li data-pin="5"><span class="ik-pin-n">5</span><span><b>다시 읽기 · 파일 선택</b>파일 선택 Ctrl+O, 같은 파일 다시 읽기 F5 (고친 칸과 적용 금액은 원본 값으로 돌아갑니다).</span></li><li data-pin="6"><span class="ik-pin-n">6</span><span><b>원본 시공일</b>시공일이 여러 개면 여기서 고릅니다. 옆 배지는 요일.</span></li><li data-pin="7"><span class="ik-pin-n">7</span><span><b>그레이박스 출고일</b>기본값은 시공일 −1영업일(토·일 제외). ‹ › 로 영업일 이동, 직접 입력 후 Enter.</span></li><li data-pin="8"><span class="ik-pin-n">8</span><span><b>D2 미리보기</b>D2에 들어갈 날짜 · 출고일(다음 영업일).</span></li><li data-pin="9"><span class="ik-pin-n">9</span><span><b>오늘 기록 요약</b>오더 수 · 확인 사항(누르면 목록) · 금액이 들어간 오더 수(누르면 판매현황).</span></li><li data-pin="10"><span class="ik-pin-n">10</span><span><b>색 범례</b>A/S 하늘색 · 지방 보라색 · 날짜 연두색 · 확인 필요 · 직접 수정 표시.</span></li><li data-pin="11"><span class="ik-pin-n">11</span><span><b>날짜 행</b>NO(B2)와 D2만 연두색. 날짜는 위쪽 날짜 카드에서 바꿉니다.</span></li><li data-pin="12"><span class="ik-pin-n">12</span><span><b>주황 행 번호</b>확인할 내용이 있는 주문. 마우스를 올리면 내용이 보입니다.</span></li><li data-pin="13"><span class="ik-pin-n">13</span><span><b>파란 표시</b>이번 실행에서 직접 고친 칸(더블클릭 · 붙여넣기).</span></li><li data-pin="14"><span class="ik-pin-n">14</span><span><b>상태줄</b>불러오기 · 수정 · 복사 · 금액 적용 결과.</span></li><li data-pin="15"><span class="ik-pin-n">15</span><span><b>확인 사항</b>확인할 주문 수가 함께 표시됩니다.</span></li><li data-pin="16"><span class="ik-pin-n">16</span><span><b>복사 버튼</b>날짜+목록 → B2, 목록만 → B3. 버튼에 붙여넣을 시작 셀이 적혀 있습니다.</span></li></ol></figure><h2 id="51-공통-화면">5.1 공통 화면</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>영역</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>위쪽 남색 단계 표시</td>
+<td>원본 → 날짜 → 검토 → 복사 → 판매현황의 진행 상태 안내</td>
+</tr>
+<tr>
+<td>탭 줄</td>
+<td>오더번호·판매현황 전환. 탭 옆 숫자는 오더 수 또는 품목 수</td>
+</tr>
+<tr>
+<td>양식 정보</td>
+<td>오더번호 양식의 열 배치·날짜·붙여넣기 시작 셀 확인</td>
+</tr>
+<tr>
+<td>사용 방법</td>
+<td>프로그램 안의 사용 안내. <kbd>F1</kbd>로도 열기</td>
+</tr>
+<tr>
+<td>중앙 표</td>
+<td>정리된 값 검토, 셀 수정, 범위 선택</td>
+</tr>
+<tr>
+<td>아래 상태줄</td>
+<td>불러오기·검증·복사·금액 적용 결과 안내</td>
+</tr>
+<tr>
+<td>아래 버튼 줄</td>
+<td>현재 탭에 필요한 버튼 표시</td>
+</tr>
+<tr>
+<td>복사 후 초록 알림</td>
+<td>복사 성공과 붙여넣을 위치 안내</td>
+</tr>
+</tbody>
+</table></div><p>단계 표시는 완료된 단계를 초록 체크, 현재 진행할 단계를 주황색으로 보여줍니다. 각 단계를 누르면 원본 선택·날짜 입력·확인 사항·복사 버튼·판매현황 탭으로 이동할 수 있습니다.</p><p>단계 표시는 작업을 안내하는 상태 표시입니다. <strong>‘복사 완료’는 클립보드에 결과가 준비되었다는 뜻이며, 구글 스프레드시트에 실제로 붙여넣었는지까지 확인하는 것은 아닙니다.</strong></p><h2 id="52-표의-표시">5.2 표의 표시</h2><figure class="ik-shot is-small" id="shot-dr_06_tip"><div class="ik-shot-frame" style="aspect-ratio:700/260;max-width:700px"><img alt="주황 행 번호에 마우스를 올린 모습" decoding="async" height="260" loading="lazy" src="../assets/shots/daily/dr_06_tip.webp" width="700"/><button aria-label="1번 주황 행 번호" class="ik-pin" data-pin="1" style="left:2.86%;top:60.77%" type="button">1</button><button aria-label="2번 내용" class="ik-pin" data-pin="2" style="left:31.43%;top:72.69%" type="button">2</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">주황 행 번호에 마우스를 올리면 확인할 내용이 바로 보입니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>주황 행 번호</b>확인할 내용이 있는 주문.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>내용</b>확인 사항 창과 같은 문장입니다.</span></li></ol></figure><div class="ik-table"><table>
+<thead>
+<tr>
+<th>표시</th>
+<th>의미</th>
+<th>복사 결과와의 관계</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>주황색 행 번호·작은 표시</td>
+<td>해당 주문 또는 품목에 확인할 내용이 있음</td>
+<td>화면 안내용</td>
+</tr>
+<tr>
+<td>셀 오른쪽 위 파란 표시</td>
+<td>현재 작업 중 직접 수정한 칸</td>
+<td>표시 자체는 화면 안내용</td>
+</tr>
+<tr>
+<td>파란 선택 테두리·강조된 행 번호와 열 글자</td>
+<td>현재 선택한 셀 범위</td>
+<td>범위를 정하는 표시</td>
+</tr>
+<tr>
+<td>판매현황 행 번호 왼쪽 초록 막대</td>
+<td>첫 번째 자료의 오더와 연결되고 해당 품목 합계가 입력됨</td>
+<td>금액 적용 완료와는 별개</td>
+</tr>
+<tr>
+<td>판매현황 오더번호 셀 노랑</td>
+<td>오더번호가 비어 있음</td>
+<td>복사할 때도 노란색</td>
+</tr>
+<tr>
+<td>판매현황 합계의 연한 주황색·‘공백’ 안내</td>
+<td>합계가 입력되지 않음</td>
+<td>안내 문구·배경은 화면용이며 복사는 빈 값</td>
+</tr>
+</tbody>
+</table></div><p>주황 행 번호에 마우스를 올리면 확인 내용을 볼 수 있습니다. <code>…</code>로 줄여 보이는 긴 셀도 마우스를 올리면 원문을 확인할 수 있습니다. 화면에서 글자가 줄어 보이더라도 복사 데이터의 원문은 유지됩니다.</p><p>창이 좁으면 요일 등 보조 표시 일부가 줄어듭니다. 표가 화면보다 크면 스크롤바 또는 휠을 사용합니다. 범위를 끌어 선택할 때도 이동할 공간이 있는 방향으로만 자동 스크롤합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#4-처음-사용하는-분을-위한-작업-순서"><small>← 앞 장 04</small><b>처음 사용하는 분을 위한 작업 순서</b></a><a class="is-next" href="#6-오더번호-탭-사용법"><small>다음 장 06 →</small><b>오더번호 탭 사용법</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="6-오더번호-탭-사용법" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 06</p><h1>오더번호 탭 사용법</h1></header><h2 id="61-원본-데이터-카드">6.1 원본 데이터 카드</h2><p><strong>파일 선택</strong>으로 새로운 원본을 불러옵니다. 선택한 파일 이름과 폴더가 표시되며, 파일 이름에 마우스를 올려 경로를 확인할 수 있습니다.</p><p>같은 파일을 다시 읽을 때는 <strong>다시 읽기</strong> 또는 <kbd>F5</kbd>를 사용합니다. 다시 읽으면 기존 수기 수정과 적용한 금액이 원본을 기준으로 초기화되므로 먼저 필요한 결과를 복사해 둡니다.</p><h2 id="62-오늘-기록-요약">6.2 오늘 기록 요약</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>오더</td>
+<td>현재 선택한 시공일에 표시되는 오더 수</td>
+</tr>
+<tr>
+<td>확인 사항</td>
+<td>확인할 내용이 있는 오더 수. 눌러서 확인 사항 창 열기</td>
+</tr>
+<tr>
+<td>금액 적용</td>
+<td>현재 날짜 목록에서 금액이 있는 오더 수 / 전체 오더 수. 눌러 판매현황으로 이동</td>
+</tr>
+</tbody>
+</table></div><p>금액이 <code>0</code>인 주문도 금액이 입력된 주문으로 취급합니다. 금액 요약은 별도의 승인 절차가 아니라 현재 셀 값의 상태를 보여줍니다.</p><h2 id="63-출력-열-배치">6.3 출력 열 배치</h2><p>기본 양식은 제목이 1행, 날짜가 2행, 주문 목록이 3행부터인 B:L 영역입니다. 표의 주문 수는 불러온 내용에 따라 늘어납니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>열·셀</th>
+<th>항목</th>
+<th>채워지는 내용</th>
+<th>수기 수정</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B열</td>
+<td>NO</td>
+<td>번호는 공백. 날짜 행만 연두색, 목록 행은 채우기 없음</td>
+<td>값 입력 안 함</td>
+</tr>
+<tr>
+<td>C열</td>
+<td>금액</td>
+<td>판매현황에서 적용한 오더별 합계 또는 직접 입력한 금액</td>
+<td>가능</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>날짜</td>
+<td>그레이박스 출고일과 다음 영업일의 일 숫자</td>
+<td>상단 날짜 카드에서 변경</td>
+</tr>
+<tr>
+<td>D열 목록</td>
+<td>구매번호</td>
+<td>원본 PO번호. 없으면 공백</td>
+<td>가능</td>
+</tr>
+<tr>
+<td>E열</td>
+<td>오더번호</td>
+<td>앞의 0을 제거한 번호. 오더별 한 행</td>
+<td>가능. 중복 불가</td>
+</tr>
+<tr>
+<td>F열</td>
+<td>물류센터</td>
+<td>그레이박스 또는 지방명</td>
+<td>가능</td>
+</tr>
+<tr>
+<td>G열</td>
+<td>색상</td>
+<td>한글 재질명. 복수 재질은 <code>/</code>로 연결</td>
+<td>가능</td>
+</tr>
+<tr>
+<td>H열</td>
+<td>거래처명</td>
+<td>원본 대리점명</td>
+<td>가능</td>
+</tr>
+<tr>
+<td>I열</td>
+<td>영업사원</td>
+<td>원본 영업사원명</td>
+<td>가능</td>
+</tr>
+<tr>
+<td>J열</td>
+<td>전화번호</td>
+<td>앞 0·하이픈 보정 결과</td>
+<td>가능</td>
+</tr>
+<tr>
+<td>K열</td>
+<td>비고</td>
+<td>지방에 한해 타공 있음 <code>나</code>, 없음 <code>목</code></td>
+<td>가능</td>
+</tr>
+<tr>
+<td>L열</td>
+<td>내용</td>
+<td>공백</td>
+<td>값 입력 안 함</td>
+</tr>
+</tbody>
+</table></div><h2 id="64-복사-버튼">6.4 복사 버튼</h2><ul>
+<li><strong>날짜+목록 복사 → B2</strong>: 날짜 행과 현재 시공일의 목록 전체를 복사합니다.</li>
+<li><strong>목록만 복사 → B3</strong>: 날짜 행을 제외한 현재 시공일의 목록 전체를 복사합니다.</li>
+<li><strong>선택 영역 복사</strong>: 표에서 선택한 사각형 범위만 복사합니다.</li>
+</ul><p><code>B2</code>, <code>B3</code>은 기본 양식 기준입니다. 이미 다른 날짜의 기록이 쌓여 있는 문서라면 새 구역에서 대응하는 행을 사용하되 <strong>시작 열은 B열</strong>로 맞춥니다. 프로그램이 대상 문서의 기록을 자동으로 찾아 이어 붙이지는 않습니다.</p><p>전체 복사 버튼은 표에서 일부를 선택했더라도 전체 목록을 복사합니다. 일부만 옮기려면 선택 영역 복사를 사용합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#5-화면-구성과-표시-읽는-법"><small>← 앞 장 05</small><b>화면 구성과 표시 읽는 법</b></a><a class="is-next" href="#7-날짜-계산-및-적용"><small>다음 장 07 →</small><b>날짜 계산 및 적용</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="7-날짜-계산-및-적용" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 07</p><h1>날짜 계산 및 적용</h1></header><h2 id="71-용어">7.1 용어</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>용어</th>
+<th>프로그램에서의 의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>원본 공장출고일</td>
+<td>시공일로 사용</td>
+</tr>
+<tr>
+<td>원본 시공일</td>
+<td>현재 오더번호 목록을 날짜별로 보여주는 기준</td>
+</tr>
+<tr>
+<td>그레이박스 출고일</td>
+<td>기본값은 시공일 −1영업일. 사용자가 수정 가능</td>
+</tr>
+<tr>
+<td>D2 괄호 속 날짜</td>
+<td>현재 입력된 그레이박스 출고일 +1영업일</td>
+</tr>
+</tbody>
+</table></div><p>현재 영업일 계산은 <strong>토요일·일요일을 제외</strong>합니다. 공휴일을 자동으로 제외하는 달력은 적용되어 있지 않으므로 실제 일정에 맞게 확인합니다.</p><!-- 직접 해 보기: 시공일 → 출고일 → D2 (동작은 assets/sims.js) -->
+<figure class="ik-sim" data-sim="dr-date">
+<div class="ik-sim-head"><span class="ik-sim-tag">직접 해 보기</span><b>D2 날짜 계산해 보기</b><small>시공일을 고르면 기본 그레이박스 출고일과 D2에 들어갈 글자를 프로그램과 같은 규칙으로 보여 줍니다. 출고일을 직접 바꿔 보세요.</small></div>
+<div class="ik-sim-body" data-noindex=""><p class="sim-nojs">이 체험은 스크립트가 켜진 브라우저에서 동작합니다.</p></div>
+<figcaption>화면 안에서만 계산하는 연습용입니다. 공휴일은 계산에 넣지 않습니다.</figcaption>
+</figure>
+<h2 id="72-표시-예시">7.2 표시 예시</h2><p>시공일이 <code>2026-11-02</code> 월요일이면 기본 그레이박스 출고일은 <code>2026-10-30</code> 금요일입니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>항목</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>원본 시공일</td>
+<td>2026-11-02</td>
+</tr>
+<tr>
+<td>그레이박스 출고일</td>
+<td>2026-10-30</td>
+</tr>
+<tr>
+<td>D2</td>
+<td><code>30일(2일)</code></td>
+</tr>
+</tbody>
+</table></div><p>D2에는 월을 생략합니다. 날짜 행의 NO(B2)와 D2는 연두색으로 채워집니다.</p><figure class="ik-shot is-small" id="shot-dr_02_date"><div class="ik-shot-frame" style="aspect-ratio:545/113;max-width:545px"><img alt="출고일을 토요일로 바꾼 날짜 카드" decoding="async" height="113" loading="lazy" src="../assets/shots/daily/dr_02_date.webp" width="545"/><button aria-label="1번 원본 시공일" class="ik-pin" data-pin="1" style="left:12.84%;top:47.79%" type="button">1</button><button aria-label="2번 ‹ ›" class="ik-pin" data-pin="2" style="left:45.14%;top:47.79%" type="button">2</button><button aria-label="3번 요일 배지" class="ik-pin" data-pin="3" style="left:91.93%;top:47.79%" type="button">3</button><button aria-label="4번 D2" class="ik-pin" data-pin="4" style="left:88.07%;top:18.58%" type="button">4</button><button aria-label="5번 안내" class="ik-pin" data-pin="5" style="left:37.61%;top:79.65%" type="button">5</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">출고일을 토요일로 바꾼 경우. 주말은 빨간 배지와 주황 안내로 알려 줍니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>원본 시공일</b>목록을 보여주는 날짜. 옆은 요일입니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>‹ ›</b>이전 · 다음 영업일로 한 번에 이동합니다(토·일 건너뜀).</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>요일 배지</b>주말이면 빨강, 시공일과 같거나 늦으면 주황.</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>D2</b>바뀐 출고일 기준으로 다시 계산됩니다.</span></li><li data-pin="5"><span class="ik-pin-n">5</span><span><b>안내</b>기본값에서 바꿨는지와 주의할 점을 알려 줍니다.</span></li></ol></figure><h2 id="73-날짜-변경">7.3 날짜 변경</h2><p>그레이박스 출고일 입력칸에 <code>YYYY-MM-DD</code> 형식으로 입력하고 <kbd>Enter</kbd>를 누릅니다. 입력칸에서 포커스를 옮겨도 날짜 표시가 갱신됩니다. 옆의 <code>‹</code>·<code>›</code> 버튼은 각각 이전·다음 영업일로 이동합니다.</p><p>주말인 날짜는 빨간 요일 배지로, 시공일과 같거나 그 이후인 출고일은 주의 표시로 알려줍니다. 표시는 검토를 돕는 안내이므로 실제 일정을 확인해 올바른 날짜를 지정합니다.</p><p><strong>출고일을 직접 바꾸면 D2의 괄호 속 날짜도 바뀐 출고일 +1영업일로 다시 계산됩니다.</strong> 괄호 속 숫자를 원본 시공일로 무조건 고정하지 않습니다.</p><p>원본 시공일을 다시 선택하면 출고일은 그 시공일의 −1영업일 기본값으로 설정됩니다. 날짜별로 작업할 때마다 출고일을 확인합니다.</p><p>한 오더에 서로 다른 시공일이 들어 있으면 첫 번째 날짜를 사용하고 확인 사항에 안내합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#6-오더번호-탭-사용법"><small>← 앞 장 06</small><b>오더번호 탭 사용법</b></a><a class="is-next" href="#8-오더번호-목록의-자동-정리-규칙"><small>다음 장 08 →</small><b>오더번호 목록의 자동 정리 규칙</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="8-오더번호-목록의-자동-정리-규칙" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 08</p><h1>오더번호 목록의 자동 정리 규칙</h1></header><h2 id="81-오더번호와-목록-순서">8.1 오더번호와 목록 순서</h2><p>오더번호 앞에 붙은 0은 제거합니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>원본 표기</th>
+<th>정리·비교하는 번호</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0312920396</code></td>
+<td><code>312920396</code></td>
+</tr>
+<tr>
+<td><code>0130601798</code></td>
+<td><code>130601798</code></td>
+</tr>
+<tr>
+<td><code>00042</code></td>
+<td><code>42</code></td>
+</tr>
+</tbody>
+</table></div><p>같은 번호는 한 주문으로 묶습니다. 원본에서 해당 번호가 <strong>처음 나온 순서</strong>를 유지하며 A/S·그레이박스·지방으로 다시 정렬하지 않습니다. 날짜를 선택하면 이 순서에서 해당 날짜의 주문만 표시합니다.</p><h2 id="82-재질명">8.2 재질명</h2><p>제품명에서 한글 재질명을 읽습니다. 한 오더에 서로 다른 재질이 있으면 중복을 제거하고 원본에서 나타난 순서대로 <code>/</code>로 연결합니다.</p><p>예: <code>툰드라/캄브리아/에덴</code></p><p>오더번호 탭은 한글 재질명을 표시합니다. 판매현황 탭에서는 별도로 재질명의 중간 공백을 제거합니다.</p><h2 id="83-물류센터담당-정보">8.3 물류센터·담당 정보</h2><p>수도권 또는 그레이박스를 뜻하는 센터 정보는 <code>그레이박스</code>로 정리합니다. 지방은 <code>대구</code>, <code>대전</code> 같은 지역명으로 표시합니다.</p><p>같은 오더 안에서 센터·대리점·영업사원·연락처가 서로 다르면 첫 번째 유효 정보를 사용하고, 나머지 값은 확인 사항에 알려줍니다.</p><p>이름이 정확히 <code>허**석</code>으로 기록된 경우에는 기존 확정 규칙에 따라 <code>허현석</code>으로 표시합니다.</p><h2 id="84-po번호">8.4 PO번호</h2><p>원본 C열의 PO번호를 구매번호에 연결합니다. 없으면 공백으로 두고, 같은 번호의 반복은 한 번만 적습니다. 서로 다른 PO가 여러 개라면 <code>번호 / 번호</code>로 함께 표시하고 확인 사항을 남깁니다. 번호 정리 시 앞의 0은 제거합니다.</p><h2 id="85-연락처">8.5 연락처</h2><p>전화번호에는 오더번호의 앞 0 제거 규칙을 적용하지 않습니다. 알려진 국내 전화번호의 시작 번호와 길이를 기준으로 손실된 0을 보충하고 하이픈을 넣습니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>입력 예시</th>
+<th>표시 예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1055873539</code></td>
+<td><code>010-5587-3539</code></td>
+</tr>
+<tr>
+<td><code>7012345678</code></td>
+<td><code>070-1234-5678</code></td>
+</tr>
+<tr>
+<td><code>212345678</code></td>
+<td><code>02-1234-5678</code></td>
+</tr>
+<tr>
+<td><code>03112345678</code></td>
+<td><code>031-1234-5678</code></td>
+</tr>
+<tr>
+<td><code>15881234</code></td>
+<td><code>1588-1234</code></td>
+</tr>
+</tbody>
+</table></div><p>인식할 수 없는 형식은 임의로 전화번호를 만들어 넣지 않으므로 원본과 대조합니다. 연락처가 없으면 공백입니다.</p><h2 id="86-색상-규칙">8.6 색상 규칙</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>조건</th>
+<th>범위·색상</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>앞 0 제거 후 오더번호가 <code>1</code>로 시작</td>
+<td>A/S로 분류하여 C:J 하늘색. 지방보다 우선</td>
+</tr>
+<tr>
+<td>A/S가 아닌 지방 주문</td>
+<td>C:J 보라색</td>
+</tr>
+<tr>
+<td>그 외 수도권 주문</td>
+<td>기본 흰색 배경</td>
+</tr>
+<tr>
+<td>날짜 행 NO(B2)·D2</td>
+<td>연두색</td>
+</tr>
+<tr>
+<td>목록 NO(B3부터)</td>
+<td>채우기 없음</td>
+</tr>
+</tbody>
+</table></div><p>A/S가 지방 주문이어도 하늘색이 우선합니다. NO열의 왼쪽 검은 테두리는 복사 결과에도 포함됩니다.</p><h2 id="87-지방-비고의-나목">8.7 지방 비고의 ‘나’·‘목’</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>조건</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>지방이고 공장 타공 대상이 있음</td>
+<td><code>나</code></td>
+</tr>
+<tr>
+<td>지방이고 공장 타공 대상이 없음</td>
+<td><code>목</code></td>
+</tr>
+<tr>
+<td>그레이박스</td>
+<td>공백</td>
+</tr>
+</tbody>
+</table></div><p>씽크볼·쿡탑과 추가타공 등 원본에서 확인 가능한 가공 정보를 사용합니다. <code>X</code>, <code>999999</code>와 같은 비정상 타공 수치, 정상 계산상 시작값 30mm 미만인 현장타공, 알려진 상판 범위 초과는 기존 판정 규칙에 따라 제외합니다.</p><p>규격 미등록·판독 불가 등 확정하기 어려운 경우에는 확인 사항을 읽고 실제 업무 기준에 맞게 비고를 수정합니다. 일일기록정리는 도면 편집 이력을 불러와 판정하는 프로그램은 아닙니다.</p><!-- 직접 해 보기: 오더 한 줄 정리 (동작은 assets/sims.js) -->
+<figure class="ik-sim" data-sim="dr-row">
+<div class="ik-sim-head"><span class="ik-sim-tag">직접 해 보기</span><b>오더 한 줄이 어떻게 정리되는지 보기</b><small>오더번호·물류센터·연락처·타공 여부를 바꾸면 정리된 번호, 칸 색, 비고, 전화번호를 바로 보여 줍니다.</small></div>
+<div class="ik-sim-body" data-noindex=""><p class="sim-nojs">이 체험은 스크립트가 켜진 브라우저에서 동작합니다.</p></div>
+<figcaption>연습용입니다. 실제 타공 판정은 원본의 싱크볼 · 쿡탑 · 추가타공 정보로 프로그램이 합니다.</figcaption>
+</figure>
+<nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#7-날짜-계산-및-적용"><small>← 앞 장 07</small><b>날짜 계산 및 적용</b></a><a class="is-next" href="#9-판매현황-탭-사용법"><small>다음 장 09 →</small><b>판매현황 탭 사용법</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="9-판매현황-탭-사용법" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 09</p><h1>판매현황 탭 사용법</h1></header><figure class="ik-shot" id="shot-dr_03_sales"><div class="ik-shot-frame" style="aspect-ratio:1440/900;max-width:1440px"><img alt="판매현황 탭" decoding="async" height="900" loading="lazy" src="../assets/shots/daily/dr_03_sales.webp" width="1440"/><button aria-label="1번 자료 불러오기" class="ik-pin" data-pin="1" style="left:22.92%;top:18.56%" type="button">1</button><button aria-label="2번 시작 행" class="ik-pin" data-pin="2" style="left:41.94%;top:20.89%" type="button">2</button><button aria-label="3번 붙여넣을 범위" class="ik-pin" data-pin="3" style="left:52.08%;top:20.89%" type="button">3</button><button aria-label="4번 금액 요약" class="ik-pin" data-pin="4" style="left:81.67%;top:21.11%" type="button">4</button><button aria-label="5번 적용 상태" class="ik-pin" data-pin="5" style="left:95.83%;top:17.56%" type="button">5</button><button aria-label="6번 헤베 G열" class="ik-pin" data-pin="6" style="left:53.19%;top:38.44%" type="button">6</button><button aria-label="7번 초록 막대" class="ik-pin" data-pin="7" style="left:2.43%;top:41.89%" type="button">7</button><button aria-label="8번 노란 오더번호" class="ik-pin" data-pin="8" style="left:12.50%;top:65.89%" type="button">8</button><button aria-label="9번 합계 공백" class="ik-pin" data-pin="9" style="left:58.82%;top:65.89%" type="button">9</button><button aria-label="10번 주황 행 번호" class="ik-pin" data-pin="10" style="left:2.78%;top:68.56%" type="button">10</button><button aria-label="11번 ① 기본정보 A:F" class="ik-pin" data-pin="11" style="left:58.06%;top:96.56%" type="button">11</button><button aria-label="12번 ② 합계 H" class="ik-pin" data-pin="12" style="left:73.06%;top:96.56%" type="button">12</button><button aria-label="13번 ③ 금액 적용" class="ik-pin" data-pin="13" style="left:85.83%;top:96.56%" type="button">13</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">판매현황 탭. 시작 행 88에 붙여넣을 범위가 미리 표시되고, 매칭 상태가 행 번호에 나타납니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>자료 불러오기</b>A~H열 추가 자료를 고릅니다. 오더번호 탭의 원본이 먼저 필요합니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>시작 행</b>공유 문서에서 붙여넣을 첫 행. ‹ › 로 한 행씩 조정합니다.</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>붙여넣을 범위</b>① A88:F98 · ② H88:H98처럼 실제로 채워질 범위.</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>금액 요약</b>품목 수 · 매칭 오더(누르면 확인 사항) · 합계.</span></li><li data-pin="5"><span class="ik-pin-n">5</span><span><b>적용 상태</b>적용 전 / 적용 완료. 표를 고치면 다시 적용 전이 됩니다.</span></li><li data-pin="6"><span class="ik-pin-n">6</span><span><b>헤베 G열</b>참고 계산값. 공유 문서의 기존 수식을 지키기 위해 복사하지 않습니다.</span></li><li data-pin="7"><span class="ik-pin-n">7</span><span><b>초록 막대</b>오더번호 탭의 주문과 연결되고 합계가 있는 품목.</span></li><li data-pin="8"><span class="ik-pin-n">8</span><span><b>노란 오더번호</b>오더번호가 비어 있음. 금액을 매칭하지 않습니다.</span></li><li data-pin="9"><span class="ik-pin-n">9</span><span><b>합계 공백</b>같은 오더의 금액 적용을 보류합니다. 연한 주황은 화면 표시만입니다.</span></li><li data-pin="10"><span class="ik-pin-n">10</span><span><b>주황 행 번호</b>원본에 없는 오더 등 확인할 내용이 있는 품목.</span></li><li data-pin="11"><span class="ik-pin-n">11</span><span><b>① 기본정보 A:F</b>A열 시작 셀에 붙여넣습니다.</span></li><li data-pin="12"><span class="ik-pin-n">12</span><span><b>② 합계 H</b>같은 시작 행의 H열에 붙여넣습니다.</span></li><li data-pin="13"><span class="ik-pin-n">13</span><span><b>③ 금액 적용</b>오더별 합계를 오더번호 탭 금액 칸에 넣습니다.</span></li></ol></figure><h2 id="91-자료-불러오기">9.1 자료 불러오기</h2><p>먼저 오더번호 탭에서 첫 번째 원본을 읽습니다. 판매현황 탭의 <strong>자료 불러오기</strong>를 눌러 A:H 형식의 추가 자료를 선택합니다.</p><p>판매현황 목록은 추가 자료의 순서를 그대로 유지합니다. 같은 오더번호나 같은 품목이 여러 번 나오더라도 <strong>각 행을 그대로 남깁니다.</strong> 오더번호별로 한 행으로 합치거나 수량만큼 행을 복제하지 않습니다.</p><h2 id="92-자재명-해석">9.2 자재명 해석</h2><p>다음 자재명을 예로 들면:</p><pre class="ik-pre"><code class="language-text">HE15 샌드크림[MATT] PPS 대표(2555*130*0*0 X)
+</code></pre><div class="ik-table"><table>
+<thead>
+<tr>
+<th>출력 항목</th>
+<th>결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>두께</td>
+<td>15</td>
+</tr>
+<tr>
+<td>색상</td>
+<td>샌드크림</td>
+</tr>
+<tr>
+<td>품목</td>
+<td>PPS</td>
+</tr>
+<tr>
+<td>규격(가로)</td>
+<td>2555</td>
+</tr>
+<tr>
+<td>규격(세로)</td>
+<td>130</td>
+</tr>
+</tbody>
+</table></div><p><code>HE</code> 다음 숫자가 두께이며 규격의 첫 번째·두 번째 숫자가 가로·세로입니다. <code>[MATT]</code>, <code>대표</code>는 출력 색상명에서 제외합니다.</p><p>판매현황 색상명은 중간 공백을 없앱니다. <code>칼라카타 블랑 → 칼라카타블랑</code>, <code>칼라카타 블리츠 → 칼라카타블리츠</code>처럼 표시합니다.</p><h2 id="93-출력-열">9.3 출력 열</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>열</th>
+<th>항목</th>
+<th>입력·계산 방식</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>오더번호</td>
+<td>추가 자료 H열. 앞 0 제거</td>
+</tr>
+<tr>
+<td>B</td>
+<td>두께</td>
+<td>자재명에서 추출</td>
+</tr>
+<tr>
+<td>C</td>
+<td>색상</td>
+<td>자재명의 한글 재질명. 공백 제거</td>
+</tr>
+<tr>
+<td>D</td>
+<td>품목</td>
+<td>제품 구분자 코드</td>
+</tr>
+<tr>
+<td>E</td>
+<td>규격(가로)</td>
+<td>자재명의 첫 번째 치수</td>
+</tr>
+<tr>
+<td>F</td>
+<td>규격(세로)</td>
+<td>자재명의 두 번째 치수</td>
+</tr>
+<tr>
+<td>G</td>
+<td>헤베</td>
+<td>가로 × 세로 ÷ 1,000,000 참고 계산</td>
+</tr>
+<tr>
+<td>H</td>
+<td>합계</td>
+<td>추가 자료 G열의 합계</td>
+</tr>
+</tbody>
+</table></div><p>합계는 추가 자료에 적힌 값을 사용합니다. 단가와 수량을 다시 곱하지 않으며 수량이 3인 행도 판매현황에서는 한 행입니다.</p><p>헤베는 화면에서 소수 셋째 자리까지 보여주는 참고값입니다. 화면에서 가로·세로를 고치면 다시 계산되지만, 공유 문서에는 기존 G열 수식을 유지합니다.</p><h2 id="94-시작-행과-복사-순서">9.4 시작 행과 복사 순서</h2><p><strong>공유 문서 판매현황 시트 · 시작 행</strong>에 실제 붙여넣을 첫 행을 입력합니다. 2 이상의 정수를 입력하며 옆의 <code>‹</code>·<code>›</code>는 한 행씩 이동합니다.</p><p>품목이 5개이고 시작 행이 88이라면 화면에 다음 범위가 표시됩니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>버튼</th>
+<th>공유 문서에 붙여넣을 위치</th>
+<th>채우는 범위</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① 기본정보 A:F 복사 → A88</td>
+<td>A88</td>
+<td>A88:F92</td>
+</tr>
+<tr>
+<td>② 합계 H 복사 → H88</td>
+<td>H88</td>
+<td>H88:H92</td>
+</tr>
+</tbody>
+</table></div><p>시작 행은 <strong>붙여넣을 위치 안내</strong>입니다. 프로그램 안 목록의 순서나 대상 공유 문서의 값을 직접 바꾸는 설정은 아닙니다. 사용자가 공유 문서에서도 실제 시작 셀을 선택해야 합니다.</p><h2 id="95-헤베-g열-보호">9.5 헤베 G열 보호</h2><p>공유 문서 G열에는 <code>=SUM(E88*F88/1000000)</code> 같은 기존 수식이 있습니다. 이를 보호하기 위해 기본정보 A:F와 합계 H를 나누어 복사합니다.</p><ul>
+<li>G열을 포함한 사각형 범위는 복사하지 않고 안내합니다.</li>
+<li>G열은 프로그램 안에서도 직접 수정할 수 없습니다.</li>
+<li>새 행에 G열 수식이 없으면 공유 문서에서 기존 수식을 준비해야 합니다. 프로그램의 복사 결과가 수식을 새로 만드는 것은 아닙니다.</li>
+<li>공유 문서에서 잘못 붙여넣었다면 해당 문서의 실행 취소 또는 기존 수식 복원 기능으로 처리합니다.</li>
+</ul><h2 id="96-금액-요약-카드">9.6 금액 요약 카드</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>표시</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>품목</td>
+<td>추가 자료에서 읽은 전체 품목 행 수</td>
+</tr>
+<tr>
+<td>매칭 오더</td>
+<td>금액 합산 가능한 오더 중 첫 번째 자료와 연결되는 오더 수 / 첫 번째 자료 전체 오더 수</td>
+</tr>
+<tr>
+<td>합계(원)</td>
+<td>추가 자료에서 오더번호가 있고 해당 오더의 합계가 모두 입력된 그룹들의 총금액</td>
+</tr>
+<tr>
+<td>적용 전 / 적용 완료</td>
+<td>금액 적용 버튼의 처리 상태</td>
+</tr>
+</tbody>
+</table></div><p>요약의 총금액에는 첫 번째 원본과 매칭되지 않는 오더의 정상 금액도 포함될 수 있습니다. 따라서 <strong>총합계가 오더번호 탭에 실제 반영되는 금액과 항상 같은 것은 아닙니다.</strong> 매칭 결과는 확인 사항에서 함께 확인합니다.</p><p>판매현황 목록은 추가 자료 전체를 표시합니다. 오더번호 탭에서 시공일을 바꾼다고 판매현황의 품목 목록까지 그 날짜로 필터링하지는 않습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#8-오더번호-목록의-자동-정리-규칙"><small>← 앞 장 08</small><b>오더번호 목록의 자동 정리 규칙</b></a><a class="is-next" href="#10-판매현황-금액을-오더번호-탭에-적용"><small>다음 장 10 →</small><b>판매현황 금액을 오더번호 탭에 적용</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="10-판매현황-금액을-오더번호-탭에-적용" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 10</p><h1>판매현황 금액을 오더번호 탭에 적용</h1></header><h2 id="101-적용-방법">10.1 적용 방법</h2><p><strong>③ 오더번호 탭에 금액 적용</strong>을 누르면 추가 자료의 합계를 같은 오더번호끼리 합산하여 오더번호 탭의 금액에 반영합니다. 비교할 때 앞의 0은 제거합니다.</p><p>예를 들어 다음과 같은 품목이 있다면:</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>오더번호</th>
+<th style="text-align: right;">품목별 합계</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>312929127</td>
+<td style="text-align: right;">84,100</td>
+</tr>
+<tr>
+<td>0312929127</td>
+<td style="text-align: right;">147,600</td>
+</tr>
+</tbody>
+</table></div><p>두 번호는 같은 오더이므로 오더번호 탭에는 <strong>231,700원</strong>으로 적용됩니다. 판매현황의 두 품목 행은 합쳐지지 않고 그대로 남습니다.</p><h2 id="102-적용보류-기준">10.2 적용·보류 기준</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>상황</th>
+<th>처리</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>첫 번째 자료에 있고 같은 오더의 합계가 모두 정상</td>
+<td>오더별 합산 금액 적용</td>
+</tr>
+<tr>
+<td>추가 자료에 해당 오더가 없음</td>
+<td>기존 금액 유지</td>
+</tr>
+<tr>
+<td>추가 자료에만 있고 첫 번째 자료에는 없음</td>
+<td>판매현황 행 유지. 오더번호 탭 금액은 연결하지 않음</td>
+</tr>
+<tr>
+<td>같은 오더 중 합계 공백인 품목이 하나라도 있음</td>
+<td>해당 오더 전체의 금액 적용 보류. 기존 금액 유지</td>
+</tr>
+<tr>
+<td>합계가 숫자 0</td>
+<td>정상적인 0원으로 처리</td>
+</tr>
+<tr>
+<td>오더번호가 공백</td>
+<td>품목 행은 남기되 금액 매칭하지 않음</td>
+</tr>
+</tbody>
+</table></div><p>합계를 공백으로 수정했다고 이미 반영한 금액이 자동으로 삭제되지는 않습니다. 그 오더는 적용 보류가 되어 기존 금액이 남으므로 오더번호 탭에서도 확인합니다.</p><p>금액 적용은 첫 번째 자료로 읽은 전체 주문을 대상으로 매칭합니다. 오더번호 탭의 화면은 선택한 시공일만 보여주므로 날짜가 여러 개라면 다른 날짜의 결과도 확인합니다.</p><h2 id="103-변경-후-다시-반영">10.3 변경 후 다시 반영</h2><p>판매현황에서 금액·오더번호·다른 셀을 수정하거나 새 추가 자료를 읽으면 표시가 적용 전으로 돌아갑니다. 내용을 검토하고 적용 버튼을 다시 누릅니다.</p><p>적용은 <strong>프로그램 내부의 금액 변경</strong>입니다. 이미 구글 스프레드시트에 붙여넣은 금액은 자동으로 고쳐지지 않으므로 수정 후의 오더번호 목록을 다시 복사·붙여넣기합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#9-판매현황-탭-사용법"><small>← 앞 장 09</small><b>판매현황 탭 사용법</b></a><a class="is-next" href="#11-셀-수정과-범위-선택"><small>다음 장 11 →</small><b>셀 수정과 범위 선택</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="11-셀-수정과-범위-선택" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 11</p><h1>셀 수정과 범위 선택</h1></header><h2 id="111-한-셀-수정">11.1 한 셀 수정</h2><ol class="ik-steps is-plain"><li><div><p>수정할 셀을 더블클릭합니다.</p></div></li><li><div><p>값을 입력합니다.</p></div></li><li><div><p><kbd>Enter</kbd>를 눌러 확정합니다. <kbd>Esc</kbd>를 누르면 입력을 취소합니다.</p></div></li><li><div><p>입력칸에서 다른 곳으로 이동해도 확정을 시도하므로 값이 올바른지 확인합니다.</p></div></li></ol><p>직접 고친 셀 오른쪽 위에는 파란 표시가 남습니다. 판매현황의 두께·가로·세로는 양수여야 하며 금액은 숫자 또는 공백을 입력합니다. 오더번호 탭에서는 기존 다른 행과 중복되는 오더번호를 입력할 수 없습니다.</p><p>물류센터를 바꾸면 해당 조건에 맞춰 색상과 지방 비고가 다시 계산됩니다. 수기로 비고를 조정했다면 센터 변경 후 비고도 다시 확인합니다.</p><h2 id="112-수정하지-않는-영역">11.2 수정하지 않는 영역</h2><ul>
+<li>오더번호 탭의 NO·내용 칸은 비워 두는 영역입니다.</li>
+<li>날짜 행은 셀 안이 아니라 상단 날짜 카드에서 변경합니다.</li>
+<li>판매현황 G열 헤베는 계산·수식 보호 영역입니다.</li>
+</ul><h2 id="113-범위-선택">11.3 범위 선택</h2><p>셀 위에서 왼쪽 버튼을 누른 채 끌면 사각형 범위가 선택됩니다. 시작 셀을 누른 뒤 <code>Shift+클릭</code>으로 끝 셀을 지정할 수도 있습니다.</p><p>선택 영역은 파란 테두리로 나타나며 대응하는 행 번호와 열 글자도 강조됩니다. <kbd>Esc</kbd>로 선택을 해제할 수 있습니다.</p><p>표가 화면보다 큰 경우 가장자리로 끌면 자동 스크롤합니다. 표가 화면 안에 다 들어오는 방향은 스크롤하지 않으며 왼쪽·위쪽에 빈 여백을 만들지 않습니다.</p><p>선택 테두리 끝의 작은 표시는 선택 범위를 나타냅니다. Excel의 채우기 핸들처럼 자동 연속 번호를 만드는 기능은 아닙니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#10-판매현황-금액을-오더번호-탭에-적용"><small>← 앞 장 10</small><b>판매현황 금액을 오더번호 탭에 적용</b></a><a class="is-next" href="#12-복사-및-붙여넣기"><small>다음 장 12 →</small><b>복사 및 붙여넣기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="12-복사-및-붙여넣기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 12</p><h1>복사 및 붙여넣기</h1></header><h2 id="121-프로그램에서-공유-문서로-복사">12.1 프로그램에서 공유 문서로 복사</h2><figure class="ik-shot is-small" id="shot-dr_05_toast"><div class="ik-shot-frame" style="aspect-ratio:640/170;max-width:640px"><img alt="복사 완료 알림" decoding="async" height="170" loading="lazy" src="../assets/shots/daily/dr_05_toast.webp" width="640"/><button aria-label="1번 복사 완료 알림" class="ik-pin" data-pin="1" style="left:31.25%;top:17.65%" type="button">1</button><button aria-label="2번 날짜+목록 복사 → B2" class="ik-pin" data-pin="2" style="left:83.59%;top:81.76%" type="button">2</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">복사 직후 오른쪽 아래에 잠시 뜨는 알림. 붙여넣을 셀을 알려 줍니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>복사 완료 알림</b>몇 개 오더를 복사했는지와 구글 시트에서 고를 셀(B2). 누르면 바로 닫힙니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>날짜+목록 복사 → B2</b>날짜 행까지 복사. 목록만은 B3에 붙여넣습니다.</span></li></ol></figure><ol class="ik-steps is-plain"><li><div><p>필요한 전체 복사 버튼을 누르거나 범위를 선택하고 <kbd>Ctrl</kbd>+<kbd>C</kbd>를 누릅니다.</p></div></li><li><div><p>구글 스프레드시트 또는 Excel로 이동합니다.</p></div></li><li><div><p>복사한 영역의 왼쪽 위에 대응하는 시작 셀을 선택합니다.</p></div></li><li><div><p>일반 붙여넣기 <kbd>Ctrl</kbd>+<kbd>V</kbd>를 실행합니다.</p></div></li><li><div><p>값과 셀 색상·테두리가 맞는지 확인합니다.</p></div></li></ol><p>일반 붙여넣기는 값과 함께 제공되는 셀 서식을 옮깁니다. <strong>값만 붙여넣기</strong>를 사용하면 색상과 테두리가 제외됩니다. 열 너비나 대상 문서의 기존 수식·병합 상태는 붙여넣은 문서에서 확인합니다.</p><h2 id="122-선택-복사와-전체-복사의-차이">12.2 선택 복사와 전체 복사의 차이</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>조작</th>
+<th>오더번호 탭</th>
+<th>판매현황 탭</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>범위 선택 후 Ctrl+C</td>
+<td>선택 범위</td>
+<td>선택 범위. G 포함 시 안내 후 중단</td>
+</tr>
+<tr>
+<td>선택 없이 Ctrl+C</td>
+<td>현재 시공일 목록 전체. 날짜 제외</td>
+<td>기본정보 A:F 전체</td>
+</tr>
+<tr>
+<td>선택 영역 복사 버튼</td>
+<td>선택 범위. 미선택이면 안내</td>
+<td>선택 범위. 미선택이면 안내</td>
+</tr>
+<tr>
+<td>전체 복사 버튼</td>
+<td>날짜+목록 또는 목록만 전체</td>
+<td>A:F 전체 또는 H 전체</td>
+</tr>
+</tbody>
+</table></div><p>선택 복사로 얻은 표를 붙여넣을 때는 선택한 첫 열에 맞는 셀을 고릅니다. 예를 들어 오더번호 탭 E:F만 복사했다면 대상 문서에서도 E열부터 붙여넣습니다.</p><h2 id="123-외부-표를-프로그램-안에-붙여넣기">12.3 외부 표를 프로그램 안에 붙여넣기</h2><p>Excel이나 구글 스프레드시트에서 복사한 표를 프로그램 안의 기존 목록에 입력할 수 있습니다. 셀 값만 가져오며 외부 표의 색상이나 글꼴로 프로그램 양식을 바꾸지는 않습니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>선택 상태</th>
+<th>붙여넣기 동작</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>시작 셀 하나 선택</td>
+<td>그 칸부터 복사한 표의 행·열 수만큼 입력</td>
+</tr>
+<tr>
+<td>여러 셀 선택 + 같은 크기의 표</td>
+<td>선택 범위에 입력</td>
+</tr>
+<tr>
+<td>여러 셀 선택 + 값 하나</td>
+<td>선택 범위 전체에 같은 값 입력</td>
+</tr>
+<tr>
+<td>여러 셀 선택 + 다른 크기의 표</td>
+<td>안내 후 해당 붙여넣기 전체 취소</td>
+</tr>
+</tbody>
+</table></div><p>붙여넣기는 기존 목록 안에서만 가능합니다. 새 행을 추가하거나 주문을 자동으로 생성하지 않습니다.</p><p>오더번호·연락처·금액에는 기존 정리 규칙을 적용합니다. 기존 목록 범위 초과, 오더번호 중복, 잘못된 숫자, 보호 영역의 값 입력 등이 있으면 일부 셀만 적용하지 않고 <strong>해당 붙여넣기 전체를 취소</strong>합니다.</p><p>NO·내용 또는 판매현황 G열이 포함된 표에서 해당 보호 칸이 공백이면 그 칸은 건너뜁니다. 값이 있으면 붙여넣기를 거절합니다. 오더번호 탭 날짜 행은 붙여넣기 대상이 아닙니다.</p><h2 id="124-우클릭-메뉴와-입력창-안의-단축키">12.4 우클릭 메뉴와 입력창 안의 단축키</h2><p>표를 우클릭하면 <strong>선택 영역 복사</strong>와 <strong>붙여넣기</strong> 메뉴를 사용할 수 있습니다.</p><p>더블클릭해 열린 셀 입력창이나 일반 텍스트 입력칸 안에서는 <kbd>Ctrl</kbd>+<kbd>C</kbd> / <kbd>V</kbd>가 글자 편집으로 작동합니다. 셀 범위를 복사하려면 입력을 마치고 표를 선택합니다.</p><h2 id="125-복사되는-기본-서식">12.5 복사되는 기본 서식</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>구분</th>
+<th>서식</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>오더번호 목록</td>
+<td>Arial 11pt, 보통, 아래 정렬, 줄바꿈 없음</td>
+</tr>
+<tr>
+<td>오더번호 정렬</td>
+<td>대부분 가운데 정렬. K열 비고만 왼쪽</td>
+</tr>
+<tr>
+<td>판매현황</td>
+<td>Arial 11pt, 가운데·세로 중앙 정렬, 줄바꿈 없음</td>
+</tr>
+<tr>
+<td>선</td>
+<td>검은 실선. 오더번호 NO열 왼쪽 선 포함</td>
+</tr>
+<tr>
+<td>금액</td>
+<td>숫자로 복사. 천 단위 구분 표시</td>
+</tr>
+<tr>
+<td>오더·PO·전화번호</td>
+<td>식별 문자열로 복사하여 번호를 유지</td>
+</tr>
+</tbody>
+</table></div><p>화면 조작용 주황 경고 표시, 파란 수정 표시, 선택 테두리, 복사 알림은 업무용 셀 색상과 구분되는 안내입니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#11-셀-수정과-범위-선택"><small>← 앞 장 11</small><b>셀 수정과 범위 선택</b></a><a class="is-next" href="#13-확인-사항과-오류-대응"><small>다음 장 13 →</small><b>확인 사항과 오류 대응</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="13-확인-사항과-오류-대응" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 13</p><h1>확인 사항과 오류 대응</h1></header><h2 id="131-오더번호-확인-사항">13.1 오더번호 확인 사항</h2><figure class="ik-shot is-small" id="shot-dr_04_warnings"><div class="ik-shot-frame" style="aspect-ratio:874/625;max-width:874px"><img alt="확인 사항 창" decoding="async" height="625" loading="lazy" src="../assets/shots/daily/dr_04_warnings.webp" width="874"/><button aria-label="1번 오더번호 링크" class="ik-pin" data-pin="1" style="left:11.44%;top:23.52%" type="button">1</button><button aria-label="2번 확인할 내용" class="ik-pin" data-pin="2" style="left:34.32%;top:27.36%" type="button">2</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">확인 사항 창. 파란 오더번호를 누르면 표에서 그 행을 선택합니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>오더번호 링크</b>누르면 본창의 해당 행이 선택되고 그 위치로 이동합니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>확인할 내용</b>원본 몇 행에서 무엇을 확인할지 알려 줍니다. 자동으로 고치지는 않습니다.</span></li></ol></figure><p>아래 <strong>확인 사항</strong> 버튼이나 요약 카드의 확인 사항을 눌러 봅니다. 안내는 주문별로 묶이며 원본 순서대로 표시됩니다. 파란 오더번호를 누르면 본표의 해당 행이 선택되고 그 위치로 이동합니다.</p><p>안내 사례는 다음과 같습니다.</p><ul>
+<li>같은 오더에서 센터·거래처·담당·연락처가 여러 값인 경우.</li>
+<li>한 오더에 서로 다른 시공일이 있는 경우.</li>
+<li>PO번호가 여러 개이거나 재질명을 읽기 어려운 경우.</li>
+<li>물류센터 공백, 타공 규격 미등록 또는 계산 판정 확인이 필요한 경우.</li>
+</ul><p>확인 사항 창을 여는 것은 내용을 자동으로 고치거나 모두 승인하는 동작이 아닙니다. 안내를 읽고 원본과 대조한 뒤 필요한 셀을 수정합니다.</p><h2 id="132-판매현황-확인-사항">13.2 판매현황 확인 사항</h2><p>판매현황의 <strong>확인 사항</strong> 버튼 또는 매칭 오더 요약에서 엽니다. 품목을 누르면 표의 해당 원본 행을 찾을 수 있습니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>상황</th>
+<th>확인할 점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>첫 번째 자료에 없는 오더</td>
+<td>두 자료의 작업 날짜·대상이 맞는지 확인</td>
+</tr>
+<tr>
+<td>오더번호 공백</td>
+<td>오더번호를 보충할 수 있는지 확인. 임의로 다른 주문에 연결하지 않음</td>
+</tr>
+<tr>
+<td>합계 공백</td>
+<td>같은 오더의 금액 적용이 보류됨. 원본 금액 확인</td>
+</tr>
+<tr>
+<td>자재명 끝 생략</td>
+<td>앞의 확정 가로·세로만으로 처리한 경우 안내 확인</td>
+</tr>
+<tr>
+<td>두께·코드·가로·세로를 읽을 수 없음</td>
+<td>추가 자료 자재명 형식 확인</td>
+</tr>
+</tbody>
+</table></div><h2 id="133-처리-중단과-확인-안내-구분">13.3 처리 중단과 확인 안내 구분</h2><p>필수 항목이나 값이 잘못되어 새 자료를 읽을 수 없으면 오류를 안내하고 새 자료 적용을 중단합니다. 예를 들어 첫 번째 원본의 열 배치가 다르거나 판매현황 합계가 숫자가 아닌 경우입니다.</p><p>필수 정보는 읽혔지만 검토가 필요한 경우에는 목록을 만들고 확인 사항에 남깁니다. 불러오기 실패나 취소 시 기존에 읽은 결과는 유지됩니다.</p><h2 id="134-자주-만나는-문제-해결">13.4 자주 만나는 문제 해결</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>증상</th>
+<th>대응</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>‘원본 데이터 형식이 다릅니다’</td>
+<td>완성 작업지시서나 오더차이리스트를 선택하지 않았는지 확인. 원본 2행 항목명·열 위치 확인</td>
+</tr>
+<tr>
+<td>판매현황 자료를 먼저 읽을 수 없음</td>
+<td>오더번호 탭에서 첫 번째 원본부터 불러오기</td>
+</tr>
+<tr>
+<td>금액 적용할 주문이 없다고 나옴</td>
+<td>양쪽 오더번호·대상 자료·합계 공백 여부를 확인</td>
+</tr>
+<tr>
+<td>날짜 입력 오류</td>
+<td><code>2026-10-30</code>처럼 연-월-일 형식으로 입력</td>
+</tr>
+<tr>
+<td>G열을 포함한 복사가 안 됨</td>
+<td>A:F와 H를 따로 선택하거나 전용 두 복사 버튼 사용</td>
+</tr>
+<tr>
+<td>붙여넣기 표 크기 오류</td>
+<td>시작 셀 하나 또는 복사한 표와 같은 크기의 범위 선택</td>
+</tr>
+<tr>
+<td>붙여넣기 범위가 기존 목록 밖임</td>
+<td>기존 행 안에서 붙여넣기. 새 주문은 원본 자료에서 준비</td>
+</tr>
+<tr>
+<td>오더번호 중복 오류</td>
+<td>같은 주문이 이미 있는지 확인. 오더번호 탭은 한 오더 한 행</td>
+</tr>
+<tr>
+<td>복사 실패·클립보드 사용 중</td>
+<td>다른 프로그램의 복사 작업을 마친 뒤 다시 복사</td>
+</tr>
+<tr>
+<td>공유 문서에 색이 안 들어감</td>
+<td>프로그램에서 다시 복사하고 일반 Ctrl+V 사용. 값만 붙여넣기 여부 확인</td>
+</tr>
+<tr>
+<td>숫자가 화면에서 잘려 보임</td>
+<td>마우스를 올려 원문 확인. 복사 후 대상 문서의 열 너비도 확인</td>
+</tr>
+</tbody>
+</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#12-복사-및-붙여넣기"><small>← 앞 장 12</small><b>복사 및 붙여넣기</b></a><a class="is-next" href="#14-다시-읽기취소종료와-데이터-유지"><small>다음 장 14 →</small><b>다시 읽기·취소·종료와 데이터 유지</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="14-다시-읽기취소종료와-데이터-유지" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 14</p><h1>다시 읽기·취소·종료와 데이터 유지</h1></header><h2 id="141-다시-읽기">14.1 다시 읽기</h2><p><strong>다시 읽기(F5)</strong>는 같은 첫 번째 원본 파일을 다시 읽습니다. 원본 기준으로 오더번호 목록을 새로 만들기 때문에 직접 수정한 칸과 적용한 금액은 돌아갑니다. 해당 내용이 있으면 확인창이 나옵니다.</p><p>새 원본으로 바꾸어 읽을 때도 필요한 결과를 먼저 복사해 두어야 합니다. 판매현황 자료가 화면에 남아 있더라도 새 원본과 맞는 자료인지 확인하고 금액을 다시 적용합니다.</p><h2 id="142-읽기-취소">14.2 읽기 취소</h2><p>자료를 읽는 중에는 진행 표시와 <strong>읽기 취소</strong>가 나타나고 일부 조작이 제한됩니다. 취소를 누르면 파일 읽기를 정리합니다. 정리가 끝날 때까지 기다린 뒤 다시 작업합니다. 읽기 취소·실패는 기존 결과를 유지합니다.</p><h2 id="143-종료">14.3 종료</h2><p>현재 결과와 수기 수정은 <strong>프로그램 종료 후 자동 보관되지 않습니다.</strong> 종료 전에 공유 문서에 복사·붙여넣기를 완료합니다.</p><p>직접 수정하거나 금액을 적용한 뒤 오더번호 전체 결과를 아직 복사하지 않았다면 닫을 때 한 번 확인할 수 있습니다. 닫기 확인은 모든 자료와 외부 붙여넣기를 추적하는 기능이 아니므로, 안내가 나오지 않아도 작업자는 반영 여부를 확인해야 합니다.</p><p>별도의 작업 파일 저장·복원, 자동 백업, Ctrl+Z로 표 수정 전체를 되돌리는 기능은 현재 제공하지 않습니다. 잘못 수정한 값은 해당 셀을 고치거나 필요한 결과를 보관한 뒤 원본을 다시 읽어 복원합니다.</p><p>원본 Excel은 읽기 전용으로 사용합니다. 프로그램 내부 수기 수정·금액 적용으로 사용자의 원본 파일이나 공유 문서가 직접 바뀌지 않습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#13-확인-사항과-오류-대응"><small>← 앞 장 13</small><b>확인 사항과 오류 대응</b></a><a class="is-next" href="#15-단축키와-마우스-조작"><small>다음 장 15 →</small><b>단축키와 마우스 조작</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="15-단축키와-마우스-조작" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 15</p><h1>단축키와 마우스 조작</h1></header><div class="ik-table"><table>
+<thead>
+<tr>
+<th>조작</th>
+<th>기능</th>
+<th>범위·주의</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>O</kbd></td>
+<td>첫 번째 원본 파일 선택</td>
+<td>판매현황 자료 선택은 해당 탭의 버튼 사용</td>
+</tr>
+<tr>
+<td><kbd>F5</kbd></td>
+<td>같은 원본 다시 읽기</td>
+<td>수기 수정·적용 금액 초기화에 주의</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>1</kbd></td>
+<td>오더번호 탭 이동</td>
+<td>일반 화면에서 사용</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>2</kbd></td>
+<td>판매현황 탭 이동</td>
+<td>일반 화면에서 사용</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>C</kbd></td>
+<td>선택 범위 복사</td>
+<td>선택이 없으면 오더번호는 목록만, 판매현황은 A:F 전체</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd></td>
+<td>오더번호의 날짜+목록 전체 복사</td>
+<td>선택 범위 복사와 구분</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>V</kbd></td>
+<td>프로그램의 선택 셀에 값 붙여넣기</td>
+<td>텍스트 입력창 안에서는 글자 붙여넣기</td>
+</tr>
+<tr>
+<td><kbd>F1</kbd></td>
+<td>프로그램 사용 방법</td>
+<td>도움말 창 열기</td>
+</tr>
+<tr>
+<td>셀 더블클릭</td>
+<td>셀 값 수정</td>
+<td>보호 영역 제외</td>
+</tr>
+<tr>
+<td>입력 중 Enter</td>
+<td>현재 입력 확정</td>
+<td>날짜 입력칸에서도 적용</td>
+</tr>
+<tr>
+<td>입력 중 Esc</td>
+<td>현재 입력 취소</td>
+<td>표 선택 상태에서는 선택 해제</td>
+</tr>
+<tr>
+<td>마우스 드래그</td>
+<td>사각형 범위 선택</td>
+<td>화면 가장자리 자동 스크롤</td>
+</tr>
+<tr>
+<td>Shift+클릭</td>
+<td>시작점부터 범위 선택</td>
+<td>불연속 여러 구역 선택 기능은 아님</td>
+</tr>
+<tr>
+<td>마우스 휠</td>
+<td>표 세로 스크롤</td>
+<td>가로 이동은 아래 스크롤바 사용</td>
+</tr>
+<tr>
+<td>표 우클릭</td>
+<td>복사·붙여넣기 메뉴</td>
+<td>해당 셀 또는 현재 범위 기준</td>
+</tr>
+<tr>
+<td>안내 창에서 Esc</td>
+<td>안내 창 닫기</td>
+<td>확인 사항·사용 방법·양식 정보 등</td>
+</tr>
+</tbody>
+</table></div><p>문자 입력칸에서의 일반 편집과 표 범위 조작을 구분합니다. 다른 안내창이 활성화되어 있다면 닫거나 본창을 선택한 뒤 단축키를 사용합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#14-다시-읽기취소종료와-데이터-유지"><small>← 앞 장 14</small><b>다시 읽기·취소·종료와 데이터 유지</b></a><a class="is-next" href="#16-자주-묻는-질문"><small>다음 장 16 →</small><b>자주 묻는 질문</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="16-자주-묻는-질문" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 16</p><h1>자주 묻는 질문</h1></header><details class="ik-qa" id="q-no-번호가-비어-있는데-정상인가요"><summary>Q. NO 번호가 비어 있는데 정상인가요?</summary><div class="ik-qa-a"><div><p>정상입니다. 현재는 NO 값을 채우지 않습니다. 날짜 행의 NO셀만 연두색이고 목록의 NO셀은 채우기 없음입니다.</p></div></div></details><details class="ik-qa" id="q-오더번호-탭은-30행인데-판매현황은-60행일-수-있나요"><summary>Q. 오더번호 탭은 30행인데 판매현황은 60행일 수 있나요?</summary><div class="ik-qa-a"><div><p>가능합니다. 오더번호는 한 주문에 한 행, 판매현황은 한 품목에 한 행입니다. 같은 주문의 여러 품목을 판매현황에서 합치지 않습니다. 표시되는 시공일 범위와 두 자료의 대상도 함께 확인합니다.</p></div></div></details><details class="ik-qa" id="q-앞의-0을-빼면-다른-주문으로-연결되지-않나요"><summary>Q. 앞의 0을 빼면 다른 주문으로 연결되지 않나요?</summary><div class="ik-qa-a"><div><p>기존 업무 규칙상 앞 0은 같은 번호로 취급합니다. <code>0312920396</code>과 <code>312920396</code>은 동일한 주문으로 연결합니다. 연락처는 이 규칙을 적용하지 않습니다.</p></div></div></details><details class="ik-qa" id="q-판매현황-자료만-읽었는데-오더번호-금액이-안-바뀝니다"><summary>Q. 판매현황 자료만 읽었는데 오더번호 금액이 안 바뀝니다.</summary><div class="ik-qa-a"><div><p>자료 읽기만으로는 반영하지 않습니다. 검토 후 <strong>③ 오더번호 탭에 금액 적용</strong>을 눌러야 합니다.</p></div></div></details><details class="ik-qa" id="q-판매현황-수량이-2인데-행과-금액이-두-배가-안-됩니다"><summary>Q. 판매현황 수량이 2인데 행과 금액이 두 배가 안 됩니다.</summary><div class="ik-qa-a"><div><p>의도된 동작입니다. 추가 자료의 한 행은 출력 한 행이며, 합계는 추가 자료 G열에 이미 적힌 값을 그대로 사용합니다. 수량을 다시 곱하지 않습니다.</p></div></div></details><details class="ik-qa" id="q-헤베-계산값이-보이는데-왜-복사가-안-되나요"><summary>Q. 헤베 계산값이 보이는데 왜 복사가 안 되나요?</summary><div class="ik-qa-a"><div><p>공유 문서 G열의 기존 자동계산 수식을 보호하기 위해서입니다. A:F와 H를 나눠 붙여넣으면 기존 수식이 가로·세로를 참조해 계산합니다.</p></div></div></details><details class="ik-qa" id="q-적용-완료라고-나왔는데-공유-문서는-그대로입니다"><summary>Q. ‘적용 완료’라고 나왔는데 공유 문서는 그대로입니다.</summary><div class="ik-qa-a"><div><p>금액 적용은 프로그램 내부 처리입니다. 오더번호 탭을 다시 복사하고 공유 문서에 붙여넣어야 합니다.</p></div></div></details><details class="ik-qa" id="q-복사를-했으면-공유-문서에-저장된-것인가요"><summary>Q. 복사를 했으면 공유 문서에 저장된 것인가요?</summary><div class="ik-qa-a"><div><p>아닙니다. 클립보드에 준비된 상태입니다. 공유 문서에서 직접 붙여넣고 반영 결과를 확인해야 합니다.</p></div></div></details><details class="ik-qa" id="q-그레이박스-출고일을-바꾸니-괄호-속-날짜도-바뀝니다"><summary>Q. 그레이박스 출고일을 바꾸니 괄호 속 날짜도 바뀝니다.</summary><div class="ik-qa-a"><div><p>D2의 괄호 속 숫자는 현재 출고일 +1영업일입니다. 출고일을 수정한 경우 원본 시공일과 같은지 다시 확인합니다.</p></div></div></details><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#15-단축키와-마우스-조작"><small>← 앞 장 15</small><b>단축키와 마우스 조작</b></a><a class="is-next" href="#17-작업을-마치기-전-확인표"><small>다음 장 17 →</small><b>작업을 마치기 전 확인표</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="17-작업을-마치기-전-확인표" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 17</p><h1>작업을 마치기 전 확인표</h1></header><ul class="ik-check">
+<li><span>첫 번째 원본과 판매현황 추가 자료가 같은 업무 대상인지 확인했다.</span></li>
+<li><span>원본 시공일·그레이박스 출고일·D2 표시를 확인했다.</span></li>
+<li><span>오더번호 목록의 주문 수와 원본 순서를 확인했다.</span></li>
+<li><span>주황 행 번호와 확인 사항에 표시된 내용을 검토했다.</span></li>
+<li><span>NO는 비어 있고 날짜 행 NO만 연두색이다.</span></li>
+<li><span>A/S 하늘색·지방 보라색과 지방 비고를 확인했다.</span></li>
+<li><span>PO번호·전화번호·복수 재질 표기를 확인했다.</span></li>
+<li><span>판매현황의 품목 수와 같은 오더의 반복 행을 확인했다.</span></li>
+<li><span>판매현황 A:F와 H를 같은 시작 행에 따로 붙여넣었다.</span></li>
+<li><span>공유 문서 G열 헤베 수식이 유지되는지 확인했다.</span></li>
+<li><span>필요한 오더별 금액을 프로그램에 적용했다.</span></li>
+<li><span>최종 오더번호 목록을 다시 복사하여 공유 문서에 붙여넣었다.</span></li>
+<li><span>프로그램 종료 전에 공유 문서의 실제 반영 결과를 확인했다.</span></li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#16-자주-묻는-질문"><small>← 앞 장 16</small><b>자주 묻는 질문</b></a><a class="is-next" href="#18-현재-버전까지의-주요-변경사항"><small>다음 장 18 →</small><b>현재 버전까지의 주요 변경사항</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="18-현재-버전까지의-주요-변경사항" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 18</p><h1>현재 버전까지의 주요 변경사항</h1></header><div class="ik-table"><table>
+<thead>
+<tr>
+<th>버전</th>
+<th>현재 사용자가 알아둘 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.1.0</td>
+<td>원본을 오더번호별로 정리하고 날짜·지역·재질·거래처·담당·연락처·비고를 복사하는 독립 프로그램 시작</td>
+</tr>
+<tr>
+<td>0.1.1</td>
+<td>제공 양식의 글꼴·정렬·열 너비·선에 맞춤. 공식 아이콘 적용</td>
+</tr>
+<tr>
+<td>0.2.0</td>
+<td>PO번호 연결, NO 왼쪽 테두리 보정, 판매현황 탭·A:F/H 분리 복사·오더별 금액 적용 추가</td>
+</tr>
+<tr>
+<td>0.2.1</td>
+<td>두 탭의 범위 선택·복사·붙여넣기. 오더번호 목록의 지역 재정렬 제거</td>
+</tr>
+<tr>
+<td>0.2.2</td>
+<td>날짜 행 NO만 연두색, 목록 NO는 채우기 없음. 드래그 시 위·왼쪽 빈 여백 발생 수정</td>
+</tr>
+<tr>
+<td>0.3.0</td>
+<td>새 테마의 단계 표시·카드·하단 버튼, 요약과 확인 사항 연결, 수정 표시·툴팁·복사 알림, 다시 읽기·탭 이동 등 단축키, 종료 전 미복사 변경 확인</td>
+</tr>
+</tbody>
+</table></div><p>과거 버전의 설명과 충돌하면 이 문서의 현재 규칙을 적용합니다. 특히 <strong>지역별 재정렬은 하지 않고, NO 목록 셀을 소라색으로 채우지 않으며, 날짜 행 NO만 연두색</strong>이라는 점을 기준으로 합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#17-작업을-마치기-전-확인표"><small>← 앞 장 17</small><b>작업을 마치기 전 확인표</b></a></nav></section>
+<div class="ik-div ik-div-stamp" role="separator" aria-label="검수 완료"><span class="ik-div-layers is-left"><i></i><i></i><i></i></span><span class="ik-stamp"><span><b>검수</b><small>IKAN</small></span></span><span class="ik-div-layers is-right"><i></i><i></i><i></i></span></div><p class="ik-small" style="text-align:center;max-width:none">아이칸 일일기록정리 사용 설명서 · 기준 버전 0.3.0 · 정리 2026-10-29 · 주식회사 아이칸 사내용</p>
+</main>
+</div>
+<dialog class="ik-zoom" id="ik-zoom" aria-label="화면 크게 보기"><div class="ik-zoom-bar"><b id="ik-zoom-title">화면 크게 보기</b><span>번호를 누르면 설명이 나옵니다 · Esc로 닫기</span><button type="button" class="ik-bar-btn" data-zoom-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>닫기</button></div><div class="ik-zoom-body" id="ik-zoom-body"></div><p class="ik-zoom-note" id="ik-zoom-note" aria-live="polite"></p></dialog>
+<script src="../assets/search-index.js?v=4b33d7e3"></script><script src="../assets/ikan.js?v=4b33d7e3"></script><script src="../assets/sims.js?v=4b33d7e3"></script>
+</body>
+</html>

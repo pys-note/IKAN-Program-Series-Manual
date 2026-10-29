@@ -30,6 +30,7 @@
 .ik-app-packing{--ik-accent:#15845F;--ik-accent-ink:#0F6A4B;--ik-accent-soft:#E3F3EC}
 .ik-app-labels{--ik-accent:#C2362B;--ik-accent-ink:#9E2A21;--ik-accent-soft:#FBEAE8}
 .ik-app-plot{--ik-accent:#0F7A86;--ik-accent-ink:#0B5F69;--ik-accent-soft:#E2F2F3}
+.ik-app-daily{--ik-accent:#6A4FD3;--ik-accent-ink:#4F35B2;--ik-accent-soft:#EFEBFC}
 
 /* ── 바탕 ── */
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--ik-bar-h) + 24px)}
@@ -812,3 +813,8 @@ img{max-width:100%}
 @media (max-width:640px){.sim-keys{grid-template-columns:repeat(5,minmax(0,1fr))}.sim-circ{width:26px;height:26px;font-size:12px}}
 @media print{.sim-keys{display:none}}
 @media (max-width:640px){.ik-sim-head{grid-template-columns:minmax(0,1fr)}.ik-sim-tag{grid-row:auto;justify-self:start}.ik-sim-body{padding:14px 14px 6px}}
+
+/* 일일기록정리 체험: 시트 한 줄 */
+.sim-sheet-row{border-collapse:collapse;font:400 14px/1.4 Arial,var(--ik-font);min-width:420px}
+.sim-sheet-row th{background:#B6D7A8;border:1px solid #000;padding:5px 12px;font-weight:400;color:#000}
+.sim-sheet-row td{border:1px solid #000;padding:5px 12px;text-align:center;color:#000;white-space:nowrap;min-width:70px}

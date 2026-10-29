@@ -356,7 +356,79 @@
     show();
   }
 
-  var SIMS = { 'pk-dates': pkDates, 'pk-count': pkCount, 'wo-dates': woDates, 'wo-partial': woPartial, 'lb-start': lbStart, 'lb-offset': lbOffset, 'lb-preview': lbPreview, 'pl-scale': plScale, 'pl-bump': plBump, 'pl-num': plNum };
+  /* ── 일일기록정리: 시공일 → 그레이박스 출고일 → D2 ───────────── */
+  function drDate(body) {
+    body.innerHTML = '<div class="sim-row"><label class="sim-field"><span>원본 시공일</span><input type="date" value="2026-11-02" data-in></label>' +
+      '<label class="sim-field"><span>그레이박스 출고일 (비우면 기본값)</span><input type="date" value="" data-ship></label>' +
+      '<button type="button" class="sim-btn is-ghost" data-reset>기본값으로</button></div>' +
+      '<div class="sim-presets"><span>예시</span>' + chips([{ label: '월요일 시공' }, { label: '목요일 시공' }, { label: '출고일을 토요일로' }]) + '</div>' +
+      '<div class="sim-result" data-out aria-live="polite"></div>';
+    var input = body.querySelector('[data-in]'), ship = body.querySelector('[data-ship]'), out = body.querySelector('[data-out]');
+    var pre = [['2026-11-02', ''], ['2026-10-22', ''], ['2026-10-22', '2026-10-24']];
+    body.querySelectorAll('.ik-sim-chip').forEach(function (b) { b.addEventListener('click', function () { input.value = pre[+b.dataset.i][0]; ship.value = pre[+b.dataset.i][1]; run(); }); });
+    body.querySelector('[data-reset]').addEventListener('click', function () { ship.value = ''; run(); });
+    function run() {
+      var c = parse(input.value); if (!c) { out.innerHTML = '<p class="sim-err">시공일을 고르세요.</p>'; return; }
+      var base = prevBiz(c), g = parse(ship.value) || base, n = nextBiz(g), manual = !!parse(ship.value) && iso(g) !== iso(base);
+      var weekend = g.getDay() === 0 || g.getDay() === 6, late = g >= c;
+      out.innerHTML = '<div class="sim-stats"><span><small>원본 시공일</small><b>' + kday(c) + '</b></span>' +
+        '<span><small>그레이박스 출고일' + (manual ? ' · 직접 바꿈' : ' · 기본값') + '</small><b' + (weekend ? ' class="sim-err-inline"' : '') + '>' + kday(g) + '</b></span>' +
+        '<span class="is-sum"><small>D2에 들어가는 글자</small><b class="is-mono">' + g.getDate() + '일(' + n.getDate() + '일)</b></span></div>' +
+        '<ul class="sim-why"><li>기본 출고일 = 시공일 −1영업일 (토·일 제외) → ' + kday(base) + '</li>' +
+        '<li>괄호 안 = 지금 출고일의 다음 영업일 → ' + kday(n) + '. 출고일을 바꾸면 함께 바뀝니다.</li>' +
+        (weekend ? '<li><b class="sim-err-inline">주말</b> · 프로그램에서는 빨간 요일 배지로 알려 줍니다.</li>' : '') +
+        (late ? '<li><b class="sim-warn">시공일과 같거나 늦은 출고일</b> · 주황 배지로 알려 줍니다.</li>' : '') +
+        '<li>공휴일은 자동으로 빼지 않습니다. 실제 일정에 맞춰 ‹ › 로 옮기세요.</li></ul>';
+    }
+    [input, ship].forEach(function (x) { x.addEventListener('input', run); }); run();
+  }
+
+  /* ── 일일기록정리: 오더 한 줄이 어떻게 정리되는지 (core.py 규칙) ── */
+  function drPhone(v) {
+    var o = String(v || '').trim(), d = o.replace(/[\s()\-]/g, '');
+    if (!d) return ''; if (!/^\d+$/.test(d)) return o;
+    var regional = ['31', '32', '33', '41', '42', '43', '44', '51', '52', '53', '54', '55', '61', '62', '63', '64'];
+    if (d[0] !== '0') {
+      var p2 = d.slice(0, 2);
+      if ((d[0] === '2' && (d.length === 8 || d.length === 9)) || (regional.indexOf(p2) >= 0 && (d.length === 9 || d.length === 10)) ||
+          (['10', '11', '16', '17', '18', '19', '70', '50', '80'].indexOf(p2) >= 0 && (d.length === 9 || d.length === 10))) d = '0' + d;
+    }
+    if (d.slice(0, 2) === '02' && (d.length === 9 || d.length === 10)) return d.slice(0, 2) + '-' + d.slice(2, -4) + '-' + d.slice(-4);
+    if (d[0] === '0' && (d.length === 10 || d.length === 11)) return d.slice(0, 3) + '-' + d.slice(3, -4) + '-' + d.slice(-4);
+    if (d.length === 8) return d.slice(0, 4) + '-' + d.slice(4);
+    return o;
+  }
+  function drCenter(v) { v = String(v || '').trim(); if (v.indexOf('그레이박스') >= 0 || v === '수도권') return '그레이박스'; return v.indexOf('센터') >= 0 ? v.split('센터')[0].replace(/^[\s_]+|[\s_]+$/g, '') : v; }
+  function drRow(body) {
+    var P = [{ label: '지방 · 타공 있음', o: '0312920396', c: '대구센터', cut: true, t: '1055873539' }, { label: '지방 · 타공 없음', o: '0312934582', c: '대전센터', cut: false, t: '0421234567' },
+             { label: 'A/S (1로 시작)', o: '0130601798', c: '광주센터', cut: true, t: '7012345678' }, { label: '수도권', o: '00042', c: '수도권', cut: true, t: '212345678' }];
+    body.innerHTML = '<div class="sim-row"><label class="sim-field"><span>원본 오더번호</span><input type="text" value="" data-o maxlength="20"></label>' +
+      '<label class="sim-field"><span>물류센터</span><input type="text" value="" data-c maxlength="20"></label>' +
+      '<label class="sim-field"><span>연락처</span><input type="text" value="" data-t maxlength="20"></label>' +
+      '<label class="sim-check"><input type="checkbox" data-cut> 공장 타공 있음</label></div>' +
+      '<div class="sim-presets"><span>예시</span>' + chips(P) + '</div><div class="sim-tablewrap"><table class="sim-sheet-row" data-out></table></div><ul class="sim-why" data-why></ul>';
+    var o = body.querySelector('[data-o]'), c = body.querySelector('[data-c]'), t = body.querySelector('[data-t]'), cut = body.querySelector('[data-cut]');
+    var out = body.querySelector('[data-out]'), why = body.querySelector('[data-why]');
+    function load(p) { o.value = p.o; c.value = p.c; t.value = p.t; cut.checked = p.cut; run(); }
+    body.querySelectorAll('.ik-sim-chip').forEach(function (b) { b.addEventListener('click', function () { load(P[+b.dataset.i]); }); });
+    function run() {
+      var order = o.value.trim().replace(/^0+/, '') || (o.value.trim() ? '0' : ''), center = drCenter(c.value), phone = drPhone(t.value);
+      var as = order[0] === '1', prov = !!center && center !== '그레이박스', color = as ? '#00FFFF' : prov ? '#F280F2' : '#FFFFFF';
+      var note = prov ? (cut.checked ? '나' : '목') : '';
+      var heads = ['오더번호', '물류센터', '전화번호', '비고'], vals = [order, center, phone, note];
+      out.innerHTML = '<thead><tr>' + heads.map(function (h) { return '<th>' + h + '</th>'; }).join('') + '</tr></thead><tbody><tr>' +
+        vals.map(function (v, i) { return '<td style="background:' + (i < 3 ? color : '#FFFFFF') + (i === 3 ? ';text-align:left' : '') + '">' + esc(v) + '</td>'; }).join('') + '</tr></tbody>';
+      var items = [];
+      if (o.value.trim() !== order) items.push('오더번호 앞의 0을 뺍니다: ' + esc(o.value.trim()) + ' → <b>' + esc(order) + '</b>');
+      items.push(as ? '<b>A/S</b> · 1로 시작하는 번호라 C~J가 하늘색입니다. 지방이어도 하늘색이 우선합니다.' : prov ? '<b>지방</b> · C~J가 보라색입니다.' : '<b>수도권</b> · 물류센터는 그레이박스, 배경은 흰색입니다.');
+      items.push(prov ? '비고: 공장 타공이 ' + (cut.checked ? '있어 <b>나</b>' : '없어 <b>목</b>') + ' (추가타공 포함)' : '비고: 수도권은 비워 둡니다.');
+      if (t.value.trim()) items.push(phone === t.value.trim() ? '연락처는 그대로 둡니다(알려진 국내 번호 형식이 아니거나 이미 정리됨).' : '연락처는 앞 0을 보충하고 하이픈을 넣습니다 → <b>' + esc(phone) + '</b> (오더번호 규칙과 다릅니다)');
+      why.innerHTML = items.map(function (x) { return '<li>' + x + '</li>'; }).join('');
+    }
+    [o, c, t].forEach(function (x) { x.addEventListener('input', run); }); cut.addEventListener('change', run); load(P[0]);
+  }
+
+  var SIMS = { 'pk-dates': pkDates, 'pk-count': pkCount, 'wo-dates': woDates, 'wo-partial': woPartial, 'lb-start': lbStart, 'lb-offset': lbOffset, 'lb-preview': lbPreview, 'pl-scale': plScale, 'pl-bump': plBump, 'pl-num': plNum, 'dr-date': drDate, 'dr-row': drRow };
   document.querySelectorAll('.ik-sim[data-sim]').forEach(function (fig) {
     var fn = SIMS[fig.getAttribute('data-sim')], body = fig.querySelector('.ik-sim-body');
     if (!fn || !body) return;
