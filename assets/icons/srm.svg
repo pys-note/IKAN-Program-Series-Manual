@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+<defs>
+  <linearGradient id="band" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3A4A6B"/><stop offset="1" stop-color="#1E2840"/></linearGradient>
+  <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EEF1F4"/></linearGradient>
+  <linearGradient id="sheet" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F1F5EF"/></linearGradient>
+  <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF8A4C"/><stop offset="1" stop-color="#E0461E"/></linearGradient>
+  <linearGradient id="green" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2FB774"/><stop offset="1" stop-color="#11804C"/></linearGradient>
+  <linearGradient id="blueMark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4F9DFF"/><stop offset="1" stop-color="#1D5FD4"/></linearGradient>
+  <filter id="blur6" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6"/></filter>
+  <filter id="blur2" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2"/></filter>
+</defs>
+<!-- 브라우저 창 (SRM 목록) -->
+<rect x="22" y="40" width="172" height="150" rx="12" fill="#0B1222" opacity="0.28" filter="url(#blur6)"/>
+<rect x="18" y="32" width="172" height="150" rx="12" fill="url(#paper)"/>
+<path d="M30 32 H178 A12 12 0 0 1 190 44 V62 H18 V44 A12 12 0 0 1 30 32 Z" fill="url(#band)"/>
+<circle cx="33" cy="47" r="4" fill="#FF6B5C"/><circle cx="46" cy="47" r="4" fill="#FFC24A"/><circle cx="59" cy="47" r="4" fill="#3BC97F"/>
+<rect x="72" y="42" width="84" height="10" rx="5" fill="#FFFFFF" opacity="0.22"/>
+<!-- 북마크 리본 -->
+<path d="M160 26 H182 V66 L171 58 L160 66 Z" fill="url(#orange)"/>
+<path d="M160 26 H182 V30 H160 Z" fill="#B8380F" opacity="0.5"/>
+<!-- 목록 행 -->
+<rect x="30" y="74" width="148" height="12" rx="3" fill="#E8EDF5"/>
+<g fill="#8693A6"><rect x="36" y="78" width="16" height="4" rx="2"/><rect x="62" y="78" width="40" height="4" rx="2"/><rect x="128" y="78" width="26" height="4" rx="2"/></g>
+<g>
+  <rect x="30" y="92" width="148" height="14" rx="3" fill="#EAF2FF"/>
+  <rect x="36" y="96.5" width="9" height="5" rx="1.5" fill="url(#blueMark)"/>
+  <rect x="62" y="97" width="46" height="4" rx="2" fill="#4B5A78"/><rect x="128" y="97" width="30" height="4" rx="2" fill="#8693A6"/>
+  <rect x="30" y="110" width="148" height="14" rx="3" fill="#EAF2FF"/>
+  <rect x="36" y="114.5" width="9" height="5" rx="1.5" fill="url(#blueMark)"/>
+  <rect x="62" y="115" width="38" height="4" rx="2" fill="#4B5A78"/><rect x="128" y="115" width="24" height="4" rx="2" fill="#8693A6"/>
+  <rect x="36" y="132.5" width="9" height="5" rx="1.5" fill="none" stroke="#AEB8C6" stroke-width="1.4"/>
+  <rect x="62" y="133" width="42" height="4" rx="2" fill="#AEB8C6"/><rect x="128" y="133" width="28" height="4" rx="2" fill="#C7CFDA"/>
+  <rect x="30" y="146" width="148" height="14" rx="3" fill="#EAF2FF"/>
+  <rect x="36" y="150.5" width="9" height="5" rx="1.5" fill="url(#blueMark)"/>
+  <rect x="62" y="151" width="50" height="4" rx="2" fill="#4B5A78"/><rect x="128" y="151" width="22" height="4" rx="2" fill="#8693A6"/>
+</g>
+<!-- 엑셀 시트 -->
+<rect x="104" y="114" width="138" height="122" rx="11" fill="#0B1222" opacity="0.30" filter="url(#blur6)"/>
+<rect x="100" y="108" width="138" height="122" rx="11" fill="#0B1222" opacity="0.18" filter="url(#blur2)"/>
+<rect x="100" y="104" width="138" height="122" rx="11" fill="url(#sheet)"/>
+<path d="M111 104 H227 A11 11 0 0 1 238 115 V128 H100 V115 A11 11 0 0 1 111 104 Z" fill="url(#green)"/>
+<g fill="#FFFFFF" opacity="0.9"><rect x="112" y="113" width="20" height="6" rx="3"/><rect x="138" y="113" width="34" height="6" rx="3" opacity="0.6"/></g>
+<g stroke="#D3DCD2" stroke-width="1.2">
+  <path d="M100 148 H238"/><path d="M100 168 H238"/><path d="M100 188 H238"/><path d="M100 208 H238"/>
+  <path d="M160 128 V226"/><path d="M188 128 V226"/><path d="M212 128 V226"/>
+</g>
+<g fill="#5C6B62"><rect x="108" y="135" width="44" height="6" rx="3"/><rect x="108" y="155" width="38" height="6" rx="3"/><rect x="108" y="175" width="46" height="6" rx="3"/><rect x="108" y="195" width="34" height="6" rx="3"/></g>
+<g fill="#9AA79E"><rect x="166" y="135" width="16" height="6" rx="3"/><rect x="166" y="155" width="16" height="6" rx="3"/><rect x="166" y="175" width="16" height="6" rx="3"/><rect x="166" y="195" width="16" height="6" rx="3"/></g>
+<g fill="#E0461E"><rect x="218" y="135" width="14" height="6" rx="3"/><rect x="218" y="155" width="14" height="6" rx="3"/><rect x="218" y="175" width="14" height="6" rx="3"/><rect x="218" y="195" width="14" height="6" rx="3"/></g>
+<g fill="#7A8A80"><rect x="193" y="135" width="14" height="6" rx="3"/><rect x="193" y="155" width="14" height="6" rx="3"/><rect x="193" y="175" width="14" height="6" rx="3"/><rect x="193" y="195" width="14" height="6" rx="3"/></g>
+<!-- 흐름 화살표 -->
+<circle cx="88" cy="196" r="26" fill="#0B1222" opacity="0.25" filter="url(#blur2)"/>
+<circle cx="86" cy="192" r="25" fill="url(#orange)"/>
+<circle cx="86" cy="192" r="25" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+<path d="M74 192 H96 M88 183 L97 192 L88 201" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

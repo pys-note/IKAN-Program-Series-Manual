@@ -428,7 +428,103 @@
     [o, c, t].forEach(function (x) { x.addEventListener('input', run); }); cut.addEventListener('change', run); load(P[0]);
   }
 
-  var SIMS = { 'pk-dates': pkDates, 'pk-count': pkCount, 'wo-dates': woDates, 'wo-partial': woPartial, 'lb-start': lbStart, 'lb-offset': lbOffset, 'lb-preview': lbPreview, 'pl-scale': plScale, 'pl-bump': plBump, 'pl-num': plNum, 'dr-date': drDate, 'dr-row': drRow };
+
+  /* ── PO 상세수집: 대상 범위 입력 ──────────────────────────── (srm-collect.js parseRange와 같은 규칙) */
+  function srmParse(str, n) {
+    var s = String(str || '').trim().replace(/\s+/g, '').replace(/[~∼〜–—]/g, '-').replace(/[，、;]/g, ',');
+    var out = {}, bad = [], i;
+    if (s === '' || s === '전체') { for (i = 0; i < n; i++) out[i] = 1; return { rows: Object.keys(out).map(Number), bad: bad }; }
+    s.split(',').forEach(function (tok) {
+      if (!tok) return;
+      var m = /^(\d+)(?:-(\d*))?$/.exec(tok);
+      if (!m) { bad.push(tok); return; }
+      var a = +m[1], b = m[2] === undefined ? a : (m[2] === '' ? n : +m[2]);
+      if (a > b) { var t = a; a = b; b = t; }
+      if (a < 1 || b > n) { bad.push(tok); a = Math.max(1, a); b = Math.min(n, b); }
+      for (var k = a; k <= b; k++) out[k - 1] = 1;
+    });
+    return { rows: Object.keys(out).map(Number).sort(function (x, y) { return x - y; }), bad: bad };
+  }
+  function srmFmt(rows, n) {
+    if (!rows.length) return '';
+    if (rows.length === n) return '1-' + n;
+    var parts = [], a = rows[0], p = a;
+    for (var i = 1; i <= rows.length; i++) {
+      if (i < rows.length && rows[i] === p + 1) { p = rows[i]; continue; }
+      parts.push(a === p ? String(a + 1) : (a + 1) + '-' + (p + 1));
+      if (i < rows.length) a = p = rows[i];
+    }
+    return parts.join(', ');
+  }
+  function srmRange(body) {
+    var P = [{ label: '전체', v: '' }, { label: '앞 10건', v: '1-10' }, { label: '띄엄띄엄', v: '1-5, 8, 12-14' }, { label: '20번부터 끝까지', v: '20-' }, { label: '거꾸로 적기', v: '9~6' }, { label: '틀린 예', v: '3, 다섯, 50' }];
+    body.innerHTML = '<div class="sim-row"><label class="sim-field is-grow"><span>목록 No. 범위</span><input type="text" data-in placeholder="전체 · 예) 1-10, 15, 20-25"></label>' +
+      '<label class="sim-field is-num"><span>목록 PO 수</span><input type="number" min="1" max="120" value="39" data-n></label></div>' +
+      '<div class="sim-presets"><span>예시</span>' + chips(P) + '</div>' +
+      '<div class="sim-stats" data-stats></div><div class="sim-cells" data-cells></div><p class="sim-note" data-note></p>';
+    var inp = body.querySelector('[data-in]'), nIn = body.querySelector('[data-n]');
+    body.querySelectorAll('.ik-sim-chip').forEach(function (b) { b.addEventListener('click', function () { inp.value = P[+b.dataset.i].v; run(); }); });
+    function run() {
+      var n = Math.round(num(nIn.value, 1, 120, 39)), r = srmParse(inp.value, n), on = {};
+      r.rows.forEach(function (i) { on[i] = 1; });
+      body.querySelector('[data-stats]').innerHTML = '<span class="is-sum"><small>대상 PO</small><b>' + r.rows.length + ' / ' + n + '건</b></span>' +
+        '<span><small>정리된 표기</small><b class="is-mono">' + (esc(srmFmt(r.rows, n)) || '—') + '</b></span>';
+      var cells = '';
+      for (var i = 0; i < n; i++) cells += '<i class="' + (on[i] ? 'is-on' : '') + '">' + (i + 1) + '</i>';
+      body.querySelector('[data-cells]').innerHTML = cells;
+      body.querySelector('[data-note]').innerHTML = r.bad.length ? '<b class="sim-err-inline">알아볼 수 없는 범위: ' + esc(r.bad.join(', ')) + '</b> · 1부터 ' + n + ' 사이 번호를 쉼표와 - 로 적습니다. 범위를 벗어난 부분은 빼고 나머지만 고릅니다.'
+        : (inp.value.trim() ? '쉼표 사이 공백, <code>~</code>, 거꾸로 적은 범위(9~6)도 알아듣습니다. <code>20-</code>는 20번부터 끝까지입니다.' : '비워 두면 목록 전체입니다.');
+    }
+    inp.addEventListener('input', run); nIn.addEventListener('input', run); run();
+  }
+
+  /* ── 일일기록정리: 재단정보 수량 반복 ───────────────────────── */
+  function drCut(body) {
+    var P = [{ label: '수량 2', no: '42', w: '2000', h: '650', q: '2' }, { label: '수량 1', no: '458-1', w: '1840', h: '660', q: '1' }, { label: '수량 공백', no: '43', w: '2555', h: '130', q: '' },
+             { label: '번호 미입력', no: '', w: '900', h: '600', q: '3' }, { label: '수량 1.5', no: '44', w: '1200', h: '600', q: '1.5' }];
+    body.innerHTML = '<div class="sim-row"><label class="sim-field is-num"><span>NO</span><input type="text" data-no maxlength="12"></label>' +
+      '<label class="sim-field is-num"><span>W (mm)</span><input type="text" data-w maxlength="6"></label>' +
+      '<label class="sim-field is-num"><span>H (mm)</span><input type="text" data-h maxlength="6"></label>' +
+      '<label class="sim-field is-num"><span>수량</span><input type="text" data-q maxlength="6"></label>' +
+      '<label class="sim-check"><input type="checkbox" data-rep checked> 수량만큼 행 반복</label></div>' +
+      '<div class="sim-presets"><span>예시</span>' + chips(P) + '</div>' +
+      '<div class="sim-tablewrap"><table class="sim-table sim-cut" data-out></table></div><ul class="sim-why" data-why></ul>';
+    var f = {}; ['no', 'w', 'h', 'q'].forEach(function (k) { f[k] = body.querySelector('[data-' + k + ']'); });
+    var rep = body.querySelector('[data-rep]'), out = body.querySelector('[data-out]'), why = body.querySelector('[data-why]');
+    function load(p) { ['no', 'w', 'h', 'q'].forEach(function (k) { f[k].value = p[k]; }); run(); }
+    body.querySelectorAll('.ik-sim-chip').forEach(function (b) { b.addEventListener('click', function () { load(P[+b.dataset.i]); }); });
+    function run() {
+      var no = f.no.value.trim(), w = f.w.value.trim(), hh = f.h.value.trim(), q = f.q.value.trim(), items = [], stop = false, count;
+      if (q === '') { count = 1; items.push('수량이 비어 있어 <b>1개 기준</b>으로 안내합니다.'); }
+      else if (/^\d+$/.test(q) && +q > 0) count = +q;
+      else { stop = true; items.push('<b class="sim-err-inline">수량이 양의 정수가 아니라 재단 목록을 만들지 않고 확인을 요청합니다.</b>'); }
+      var wOk = /^\d+(\.\d+)?$/.test(w) && +w > 0, hOk = /^\d+(\.\d+)?$/.test(hh) && +hh > 0;
+      if (!stop && (!wOk || !hOk)) items.push('<b class="sim-err-inline">W/H가 비었거나 양수가 아니면 이 행을 포함한 복사를 멈춥니다.</b>');
+      if (!stop && !no) items.push('번호가 비어 있습니다. 복사할 때 공백 그대로 복사할지 묻습니다. 임의 순번은 넣지 않습니다.');
+      var n = stop ? 0 : (rep.checked ? Math.min(count, 50) : 1);
+      out.innerHTML = '<thead><tr><th>A · NO</th><th>B · W</th><th>C · H</th></tr></thead><tbody>' +
+        (n ? Array.apply(null, Array(n)).map(function () { return '<tr><td>' + (esc(no) || '<span class="sim-hint">공백</span>') + '</td><td>' + esc(w) + '</td><td>' + esc(hh) + '</td></tr>'; }).join('')
+           : '<tr class="is-empty"><td colspan="3">재단 행 없음</td></tr>') + '</tbody>';
+      if (!stop) items.unshift(rep.checked ? '수량 ' + count + ' → 같은 NO/W/H <b>' + count + '행</b>' + (count > 50 ? ' (그림에는 50행까지만)' : '') + '. 판매현황의 행 수와 합계는 그대로입니다.' : '반복을 끄면 품목당 <b>한 행</b>입니다.');
+      items.push('제목 없이 NO·W·H 세 열만 복사합니다. 오더번호·품목 설명은 넣지 않습니다.');
+      why.innerHTML = items.map(function (x) { return '<li>' + x + '</li>'; }).join('');
+    }
+    [f.no, f.w, f.h, f.q].forEach(function (x) { x.addEventListener('input', run); }); rep.addEventListener('change', run); load(P[0]);
+  }
+
+
+  /* ── 북마크 설치 단추: 누르면 실행 대신 안내, 코드 복사 ── */
+  document.querySelectorAll('.bm-install').forEach(function (fig) {
+    var a = fig.querySelector('[data-bm]'), msg = fig.querySelector('[data-bm-msg]'), btn = fig.querySelector('[data-bm-copy]');
+    function say(t) { if (msg) { msg.textContent = t; setTimeout(function () { msg.textContent = ''; }, 6000); } }
+    if (a) a.addEventListener('click', function (e) { e.preventDefault(); say('누르지 말고 북마크바로 끌어다 놓으세요.'); });
+    if (btn && a) btn.addEventListener('click', function () {
+      var v = a.getAttribute('href');
+      function fallback() { var t = document.createElement('textarea'); t.value = v; t.style.position = 'fixed'; t.style.opacity = '0'; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } finally { t.remove(); } }
+      (navigator.clipboard && window.isSecureContext ? navigator.clipboard.writeText(v) : Promise.reject()).catch(fallback).then(function () { say('복사했습니다. 북마크 URL 칸에 붙여넣으세요.'); });
+    });
+  });
+  var SIMS = { 'pk-dates': pkDates, 'pk-count': pkCount, 'wo-dates': woDates, 'wo-partial': woPartial, 'lb-start': lbStart, 'lb-offset': lbOffset, 'lb-preview': lbPreview, 'pl-scale': plScale, 'pl-bump': plBump, 'pl-num': plNum, 'dr-date': drDate, 'dr-row': drRow, 'dr-cut': drCut, 'srm-range': srmRange };
   document.querySelectorAll('.ik-sim[data-sim]').forEach(function (fig) {
     var fn = SIMS[fig.getAttribute('data-sim')], body = fig.querySelector('.ik-sim-body');
     if (!fn || !body) return;

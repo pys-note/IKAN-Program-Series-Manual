@@ -818,3 +818,27 @@ img{max-width:100%}
 .sim-sheet-row{border-collapse:collapse;font:400 14px/1.4 Arial,var(--ik-font);min-width:420px}
 .sim-sheet-row th{background:#B6D7A8;border:1px solid #000;padding:5px 12px;font-weight:400;color:#000}
 .sim-sheet-row td{border:1px solid #000;padding:5px 12px;text-align:center;color:#000;white-space:nowrap;min-width:70px}
+
+/* ── PO 상세수집 (브라우저 도구) ── */
+.ik-app-srm{--ik-accent:#D9541E;--ik-accent-ink:#A93D10;--ik-accent-soft:#FCEDE5}
+.sim-cells{display:grid;grid-template-columns:repeat(auto-fill,minmax(34px,1fr));gap:4px}
+.sim-cells i{display:grid;place-items:center;height:28px;border-radius:5px;border:1px solid var(--ik-line);background:var(--ik-paper);font:600 12px var(--ik-mono);font-style:normal;color:var(--ik-ink-3)}
+.sim-cells i.is-on{background:var(--ik-accent);border-color:var(--ik-accent);color:#fff}
+.sim-cut{max-width:360px}
+.sim-cut th,.sim-cut td{text-align:center!important;font-family:var(--ik-mono)}
+/* 북마크 설치 그림 */
+.bm-install{margin:1.4em 0;border:1px solid var(--ik-line);border-radius:12px;overflow:hidden;background:var(--ik-paper)}
+.bm-install-bar{display:flex;align-items:center;gap:10px;padding:9px 14px;background:#E9ECF1;border-bottom:1px solid var(--ik-line);font-size:12.5px;color:var(--ik-ink-2)}
+.bm-install-bar .bm-dots{display:flex;gap:5px}.bm-install-bar .bm-dots i{width:9px;height:9px;border-radius:50%;background:#C3CAD5}
+.bm-install-bar .bm-slot{flex:1;min-height:30px;display:flex;align-items:center;gap:8px;padding:0 10px;border:1.5px dashed #AEB8C6;border-radius:7px;background:rgba(255,255,255,.6);color:var(--ik-ink-3);font-size:12.5px}
+.bm-install-bar .bm-slot b{color:var(--ik-ink-2);font-weight:700}
+.bm-install-body{display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding:22px 20px}
+.bm-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:10px;background:linear-gradient(180deg,#F06A2E,#D9541E);color:#fff!important;font-weight:800;font-size:16px;text-decoration:none!important;cursor:grab;box-shadow:0 6px 16px -4px rgba(217,84,30,.55),inset 0 1px 0 rgba(255,255,255,.25);user-select:none}
+.bm-btn:active{cursor:grabbing}
+.bm-btn svg{width:18px;height:18px;flex:none}
+.bm-install-body p{margin:0!important;flex:1 1 260px;font-size:14px;line-height:1.7;color:var(--ik-ink-2)}
+.bm-install-foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 20px;border-top:1px solid var(--ik-line);background:var(--ik-alt);font-size:13px;color:var(--ik-ink-3)}
+.bm-install-foot button{height:32px;padding:0 13px;border-radius:7px;border:1px solid var(--ik-line-2);background:var(--ik-paper);color:var(--ik-ink);font:700 12.5px var(--ik-font);cursor:pointer}
+.bm-install-foot button:hover{border-color:var(--ik-accent);color:var(--ik-accent-ink)}
+.bm-install-foot [data-bm-msg]{color:#17663A;font-weight:600}
+@media print{.bm-install-foot{display:none}}
