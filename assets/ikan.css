@@ -842,3 +842,5 @@ img{max-width:100%}
 .bm-install-foot button:hover{border-color:var(--ik-accent);color:var(--ik-accent-ink)}
 .bm-install-foot [data-bm-msg]{color:#17663A;font-weight:600}
 @media print{.bm-install-foot{display:none}}
+
+.ik-app-leave{--ik-accent:#B7791F;--ik-accent-ink:#8A5A12;--ik-accent-soft:#FBF2E2}

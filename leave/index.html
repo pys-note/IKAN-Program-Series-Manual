@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>아이칸 연차관리 사용 설명서 0.4.0</title>
+<meta name="description" content="직원별 연차·반차 사용일과 잔여, 월별 근태, 야근 여부를 한 곳에서 기록하고, 보기 좋은 인쇄 양식(PDF)과 기존 엑셀 양식으로 내보냅니다.">
+<link rel="icon" href="../assets/icons/leave.svg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="../assets/ikan.css?v=d2d5fafe">
+</head>
+<body class="ik-app-leave">
+<a class="ik-skip" href="#main">본문 바로가기</a>
+<header class="ik-bar"><div class="ik-bar-in"><a class="ik-bar-home" href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg><span>매뉴얼 홈</span></a><i class="ik-bar-sep"></i><div class="ik-bar-title"><img class="ik-bar-icon" src="../assets/icons/leave.svg" alt=""><span><small>IKAN LEAVE MANAGER · USER MANUAL</small><b>아이칸 연차관리</b></span></div><div class="ik-bar-tools"><span class="ik-bar-ver ik-bar-hide-s">0.4.0</span><button class="ik-bar-btn ik-bar-hide-s" type="button" data-font="-1" aria-label="본문 글자 작게">가−</button><button class="ik-bar-btn ik-bar-hide-s" type="button" data-font="1" aria-label="본문 글자 크게">가+</button><button class="ik-bar-btn ik-bar-hide-s" type="button" data-print><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></svg>인쇄</button><details class="ik-apps"><summary class="ik-bar-btn" aria-label="다른 프로그램 매뉴얼"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.2"/></svg><span class="ik-bar-hide-s">다른 매뉴얼</span></summary><div class="ik-apps-menu"><a href="../index.html"><span style="display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--ik-navy);color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg></span><span><b>매뉴얼 홈</b><span>모든 프로그램 · 전체 검색</span></span></a><hr><a href="../workorders/index.html"><img src="../assets/icons/workorders.svg" alt=""><span><b>아이칸 작업지시서 관리자</b><span>0.24.16</span></span></a><a href="../plot/index.html"><img src="../assets/icons/plot.svg" alt=""><span><b>도면 확대 인쇄</b><span>v2.7</span></span></a><a href="../packing/index.html"><img src="../assets/icons/packing.png" alt=""><span><b>아이칸 포장 카운트</b><span>0.1.11</span></span></a><a href="../labels/index.html"><img src="../assets/icons/labels.svg" alt=""><span><b>아이칸 라벨 출력기</b><span>v2</span></span></a><a href="../daily/index.html"><img src="../assets/icons/daily.svg" alt=""><span><b>아이칸 일일기록정리</b><span>0.6.3</span></span></a><a href="../leave/index.html" aria-current="page"><img src="../assets/icons/leave.svg" alt=""><span><b>아이칸 연차관리</b><span>0.4.0</span></span></a><a href="../srm/index.html"><img src="../assets/icons/srm.svg" alt=""><span><b>PO 상세수집</b><span>v1.1</span></span></a></div></details></div></div></header>
+<div class="ik-shell">
+<nav class="ik-toc" aria-label="목차"><details open id="toc-box"><summary>목차 · 이 매뉴얼에서 찾기</summary><div class="ik-find"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><label class="sr" for="find">이 매뉴얼에서 찾기</label><input id="find" type="search" placeholder="이 매뉴얼에서 찾기  /" autocomplete="off"></div><div class="ik-find-state" id="find-state" role="status" aria-live="polite"></div><div class="ik-toc-label">Contents · 22장</div><ol><li><a href="#1-처음-시작하기"><span class="n">01</span><span>처음 시작하기</span></a></li><li><a href="#2-이전-버전의-자료-이어-쓰기"><span class="n">02</span><span>이전 버전의 자료 이어 쓰기</span></a></li><li><a href="#3-화면-구성"><span class="n">03</span><span>화면 구성</span></a></li><li><a href="#4-연도월과-직원-조회하기"><span class="n">04</span><span>연도·월과 직원 조회하기</span></a></li><li><a href="#5-연월차-관리-사람별-사용-날짜-입력"><span class="n">05</span><span>연·월차 관리: 사람별 사용 날짜 입력</span></a></li><li><a href="#6-발생이월일수-설정과-집계-기준"><span class="n">06</span><span>발생·이월일수 설정과 집계 기준</span></a></li><li><a href="#7-월별-근태표-입력"><span class="n">07</span><span>월별 근태표 입력</span></a></li><li><a href="#8-여러-직원에게-한-번에-등록"><span class="n">08</span><span>여러 직원에게 한 번에 등록</span></a></li><li><a href="#9-휴가-내역과-야근-기록"><span class="n">09</span><span>휴가 내역과 야근 기록</span></a></li><li><a href="#10-직원-정보와-표시-순서"><span class="n">10</span><span>직원 정보와 표시 순서</span></a></li><li><a href="#11-인쇄와-pdf-저장"><span class="n">11</span><span>인쇄와 PDF 저장</span></a></li><li><a href="#12-제공-양식으로-엑셀-내보내기"><span class="n">12</span><span>제공 양식으로 엑셀 내보내기</span></a></li><li><a href="#13-추가-엑셀-가져오기와-확인-사항"><span class="n">13</span><span>추가 엑셀 가져오기와 확인 사항</span></a></li><li><a href="#14-저장백업복원"><span class="n">14</span><span>저장·백업·복원</span></a></li><li><a href="#15-자주-묻는-질문"><span class="n">15</span><span>자주 묻는 질문</span></a></li><li><a href="#16-단축키"><span class="n">16</span><span>단축키</span></a></li><li><a href="#17-자주-하는-업무별-예시"><span class="n">17</span><span>자주 하는 업무별 예시</span></a></li><li><a href="#18-월말연말-점검-순서"><span class="n">18</span><span>월말·연말 점검 순서</span></a></li><li><a href="#19-문제가-생겼을-때-확인하는-순서"><span class="n">19</span><span>문제가 생겼을 때 확인하는 순서</span></a></li><li><a href="#20-파일과-보관-위치"><span class="n">20</span><span>파일과 보관 위치</span></a></li><li><a href="#21-기능-범위와-제한"><span class="n">21</span><span>기능 범위와 제한</span></a></li><li><a href="#22-용어-정리"><span class="n">22</span><span>용어 정리</span></a></li></ol><div class="ik-toc-foot">기준 버전 <b>0.4.0</b> · 정리 2026-10-30<br>인터넷 없이도 이 페이지를 저장해 볼 수 있습니다.</div></details></nav>
+<main class="ik-sheet" id="main" data-manual="leave">
+<section class="ik-chapter is-first" id="cover"><div class="ik-cover"><img class="ik-cover-icon" src="../assets/icons/leave.svg" alt="아이칸 연차관리 아이콘"><div><p class="ik-cover-kind">USER MANUAL · 0.4.0</p><h1 class="ik-cover-title">아이칸 연차관리</h1><p class="ik-cover-meta"><span>직원별 연차·반차 사용일과 잔여, 월별 근태, 야근 여부를 한 곳에서 기록하고, 보기 좋은 인쇄 양식(PDF)과 기존 엑셀 양식으로 내보냅니다.</span></p></div></div><ul class=ik-docinfo><li><b>기준 버전</b>0.4.0 (아이콘 v2)</li><li><b>기준일</b>2026-10-30</li><li><b>운영체제</b>Windows 10/11</li><li><b>필요</b>없음 (Python·Excel 설치 불필요, 인쇄는 브라우저)</li></ul><div class=ik-cover-intro><p>직원 정보, 연차·반차, 월별 근태, 야근 여부를 한 곳에서 관리하는 Windows 프로그램의 사용 설명서입니다. 처음 쓰는 분은 1장과 3~4장을, 날마다 기록하는 분은 5·7·8장을 먼저 보세요. 자주 하는 일은 17장에 업무별 예시로 모았습니다.</p><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>이 문서는 프로그램 사용법을 설명합니다. 회사의 연차 발생 기준을 정하는 문서는 아닙니다. 화면 그림 속 직원 이름과 기록은 모두 가상의 예시입니다.</p>
+</div></div><div class=ik-quick><a href="#1-처음-시작하기"><b>처음 사용하는 분</b><small>설치·화면 구성·조회</small></a><a href="#5-연월차-관리-사람별-사용-날짜-입력"><b>날마다 기록하는 분</b><small>사용일·월별표·여러 명 등록</small></a><a href="#19-문제가-생겼을-때-확인하는-순서"><b>막힌 부분을 찾는 분</b><small>확인하는 순서</small></a></div><div class="ik-div ik-div-dim" role="separator" aria-label="주식회사 아이칸"><i class="ik-div-tick"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M0 5 L12 0.8 V9.2 Z"/></svg><i class="ik-div-line"></i><span class="ik-div-label"><span class="ik-div-ko">주식회사 아이칸</span><span class="ik-div-en">IKAN CO., LTD.</span></span><i class="ik-div-line"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M12 5 L0 0.8 V9.2 Z"/></svg><i class="ik-div-tick"></i></div></section>
+<div id="find-empty" class="ik-empty" hidden><b>일치하는 장이 없습니다.</b>더 짧은 단어나 다른 표현으로 찾아보세요. 예: 싱크볼 → 씽크볼, 뒤턱 → 뒷턱</div>
+<section class="ik-chapter" id="1-처음-시작하기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 01</p><h1>처음 시작하기</h1></header><ol class="ik-steps is-plain"><li><div><p>배포 ZIP의 압축을 모두 풉니다.</p></div></li><li><div><p>압축을 푼 <code>연차관리</code> 폴더에서 <code>연차관리.exe</code>를 실행합니다.</p></div></li><li><div><p>조회 연도·월과 직원 범위를 확인합니다.</p></div></li></ol><p>Python이나 Excel을 별도로 설치하지 않아도 프로그램 실행과 엑셀 내보내기를 할 수 있습니다. 인쇄·PDF 저장에는 브라우저를 사용합니다.</p><div class="ik-note is-caution"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 3 2.5 20h19z"></path><path d="M12 10v4M12 17h.01"></path></svg>주의</p>
+<p>실행 파일 옆의 <code>_internal</code> 폴더는 프로그램 실행에 필요합니다. 실행 파일만 따로 옮기지 마세요. 다른 PC로 이동할 때는 <strong><code>데이터</code>와 <code>_internal</code>을 포함한 연차관리 폴더 전체</strong>를 복사합니다.</p>
+</div><p>처음 실행하면 포함된 초기 자료를 <code>데이터/연차관리.db</code>에 복사합니다. 이후에는 이 데이터 파일에 기록을 계속 저장합니다. 기존 데이터 파일을 초기 자료로 덮어쓰지 않습니다.</p><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>프로그램은 개인 PC의 로컬 사용을 기준으로 합니다. 인사 자료를 외부 서버로 전송하지 않으며, 여러 PC 간 동시 편집·서버 동기화·사용자별 권한 관리는 제공하지 않습니다.</p>
+</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-next" href="#2-이전-버전의-자료-이어-쓰기"><small>다음 장 02 →</small><b>이전 버전의 자료 이어 쓰기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="2-이전-버전의-자료-이어-쓰기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 02</p><h1>이전 버전의 자료 이어 쓰기</h1></header><p>새 폴더에서 실행하면 포함된 초기 자료가 표시됩니다. 이전 버전에서 추가한 기록을 이어 쓰려면 다음 순서로 옮깁니다.</p><ol class="ik-steps is-plain"><li><div><p>이전 프로그램에서 <strong>백업·복원 → 백업 파일 저장</strong>을 선택합니다.</p></div></li><li><div><p>백업 <code>.db</code> 파일을 별도 위치에 저장합니다.</p></div></li><li><div><p>이전 프로그램을 종료합니다.</p></div></li><li><div><p>새 ZIP을 별도 폴더에 풀고 새 프로그램을 실행합니다.</p></div></li><li><div><p><strong>백업·복원 → 백업에서 복원</strong>에서 2번 파일을 선택합니다.</p></div></li><li><div><p>직원 수, 최근 휴가 기록, 발생·이월일수와 직원 표시 순서를 확인합니다.</p></div></li></ol><div class="ik-note is-caution"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 3 2.5 20h19z"></path><path d="M12 10v4M12 17h.01"></path></svg>주의</p>
+<p>확인이 끝날 때까지 이전 폴더와 백업 파일을 보관하세요. 같은 데이터 폴더를 사용하는 프로그램은 한 번에 한 창만 실행할 수 있습니다.</p>
+</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#1-처음-시작하기"><small>← 앞 장 01</small><b>처음 시작하기</b></a><a class="is-next" href="#3-화면-구성"><small>다음 장 03 →</small><b>화면 구성</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="3-화면-구성" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 03</p><h1>화면 구성</h1></header><figure class="ik-shot" id="shot-lv_annual_sel"><div class="ik-shot-frame" style="aspect-ratio:1366/820;max-width:1366px"><img alt="연차관리 연·월차 관리 화면" decoding="async" height="820" loading="lazy" src="../assets/shots/leave/lv_annual_sel.webp" width="1366"/><button aria-label="1번 왼쪽 메뉴" class="ik-pin" data-pin="1" style="left:9.52%;top:17.68%" type="button">1</button><button aria-label="2번 빠른 등록" class="ik-pin" data-pin="2" style="left:8.57%;top:54.27%" type="button">2</button><button aria-label="3번 인쇄 / PDF · 엑셀 내보내기" class="ik-pin" data-pin="3" style="left:88.58%;top:5.00%" type="button">3</button><button aria-label="4번 연도·월" class="ik-pin" data-pin="4" style="left:25.26%;top:14.27%" type="button">4</button><button aria-label="5번 직원 선택 · 이름 검색" class="ik-pin" data-pin="5" style="left:63.69%;top:14.27%" type="button">5</button><button aria-label="6번 조회 기준" class="ik-pin" data-pin="6" style="left:94.22%;top:14.27%" type="button">6</button><button aria-label="7번 요약 타일" class="ik-pin" data-pin="7" style="left:48.32%;top:22.80%" type="button">7</button><button aria-label="8번 사용일 입력 · 발생·이월 설정" class="ik-pin" data-pin="8" style="left:23.79%;top:32.68%" type="button">8</button><button aria-label="9번 잔여·막대" class="ik-pin" data-pin="9" style="left:42.75%;top:45.12%" type="button">9</button><button aria-label="10번 날짜 칩" class="ik-pin" data-pin="10" style="left:57.98%;top:42.93%" type="button">10</button><button aria-label="11번 빈 칸 +" class="ik-pin" data-pin="11" style="left:57.98%;top:51.34%" type="button">11</button><button aria-label="12번 표 아래 안내" class="ik-pin" data-pin="12" style="left:34.41%;top:90.24%" type="button">12</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">연·월차 관리 화면에서 한 직원의 연차 줄 빈 칸을 고른 모습. 이름은 가상의 예시입니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>왼쪽 메뉴</b>여섯 화면으로 이동합니다. (Ctrl+1~6)</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>빠른 등록</b><span class="ik-ui">휴가 등록</span>·<span class="ik-ui">야근 등록</span>으로 여러 직원을 한 번에 등록합니다(8장).</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>인쇄 / PDF · 엑셀 내보내기</b>상단의 연도·월과 직원 선택을 기준으로 출력합니다(11·12장).</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>연도·월</b>‹ › 로 한 달씩 이동, <span class="ik-ui">이번 달</span>로 오늘이 속한 달로 돌아옵니다.</span></li><li data-pin="5"><span class="ik-pin-n">5</span><span><b>직원 선택 · 이름 검색</b>직원 한 명을 고르거나 이름으로 좁힙니다. 인쇄 전에는 검색어를 비웁니다.</span></li><li data-pin="6"><span class="ik-pin-n">6</span><span><b>조회 기준</b>이 화면은 선택한 연도 전체를 보여 줍니다.</span></li><li data-pin="7"><span class="ik-pin-n">7</span><span><b>요약 타일</b>누르면 관련 화면이나 미설정 대상으로 이동합니다.</span></li><li data-pin="8"><span class="ik-pin-n">8</span><span><b>사용일 입력 · 발생·이월 설정</b>새 날짜 추가와 해당 연도 발생·이월·보정 설정(5·6장).</span></li><li data-pin="9"><span class="ik-pin-n">9</span><span><b>잔여·막대</b>잔여일수와 사용 비율. 발생 미설정은 숫자 0과 구분해 표시합니다.</span></li><li data-pin="10"><span class="ik-pin-n">10</span><span><b>날짜 칩</b>파란색 연차, 초록색 반차. 더블클릭하면 그 기록을 수정합니다.</span></li><li data-pin="11"><span class="ik-pin-n">11</span><span><b>빈 칸 +</b>더블클릭하거나 Enter로 새 사용일을 추가합니다.</span></li><li data-pin="12"><span class="ik-pin-n">12</span><span><b>표 아래 안내</b>선택한 칸의 내용과 입력 방법이 나옵니다.</span></li></ol></figure><div class="ik-table"><table>
+<thead>
+<tr>
+<th>위치</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>왼쪽 메뉴</td>
+<td>연·월차 관리, 월별 근태표, 휴가 내역, 야근 기록, 직원 관리, 확인 사항</td>
+</tr>
+<tr>
+<td>빠른 등록</td>
+<td>휴가 등록, 야근 등록</td>
+</tr>
+<tr>
+<td>왼쪽 아래</td>
+<td>엑셀 가져오기, 백업·복원, 사용 방법</td>
+</tr>
+<tr>
+<td>위쪽 제목 띠</td>
+<td>현재 화면 이름, 인쇄 / PDF, 엑셀 내보내기</td>
+</tr>
+<tr>
+<td>조회 막대</td>
+<td>연도·월, 이번 달, 직원 선택, 이름 검색, 초기화</td>
+</tr>
+<tr>
+<td>요약 타일</td>
+<td>조회 직원, 연간 사용, 발생일수 미설정, 확인이 필요한 자료</td>
+</tr>
+<tr>
+<td>표 아래 안내</td>
+<td>선택한 칸의 내용과 입력·수정 방법</td>
+</tr>
+<tr>
+<td>맨 아래 상태줄</td>
+<td>데이터 저장 위치, 자동 백업 상태, 작업 결과</td>
+</tr>
+</tbody>
+</table></div><p>표의 칸을 한 번 누르면 선택 표시가 나타납니다. 선택만으로 데이터가 바뀌지 않습니다. <strong>입력창에서 저장을 눌러야 기록이 반영됩니다.</strong> 취소하거나 Esc로 닫으면 해당 입력창의 변경을 저장하지 않습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#2-이전-버전의-자료-이어-쓰기"><small>← 앞 장 02</small><b>이전 버전의 자료 이어 쓰기</b></a><a class="is-next" href="#4-연도월과-직원-조회하기"><small>다음 장 04 →</small><b>연도·월과 직원 조회하기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="4-연도월과-직원-조회하기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 04</p><h1>연도·월과 직원 조회하기</h1></header><ol class="ik-steps is-plain"><li><div><p>조회 막대의 연·월 글자를 눌러 원하는 연도와 월을 선택합니다.</p></div></li><li><div><p>양옆의 <code>‹</code>·<code>›</code>를 누르면 이전·다음 월로 이동합니다.</p></div></li><li><div><p><strong>이번 달</strong>을 누르면 오늘이 속한 연도·월로 돌아옵니다.</p></div></li><li><div><p>직원 목록에서 전체 직원 또는 한 명을 고릅니다.</p></div></li><li><div><p>이름 검색에 입력하면 조회 결과가 바로 좁혀집니다. <code>✕</code>로 검색어를 지웁니다.</p></div></li></ol><p>화면 오른쪽 위의 조회 기준도 함께 확인하세요.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>화면</th>
+<th>조회 기간</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>연·월차 관리</td>
+<td>선택한 연도 전체</td>
+</tr>
+<tr>
+<td>월별 근태표</td>
+<td>선택한 연도·월</td>
+</tr>
+<tr>
+<td>휴가 내역</td>
+<td>선택한 연도 전체</td>
+</tr>
+<tr>
+<td>야근 기록</td>
+<td>선택한 연도·월</td>
+</tr>
+</tbody>
+</table></div><p>연·월차 관리와 휴가 내역은 월을 바꾸더라도 같은 연도 전체 자료를 보여줍니다. 화면별 필터로 미설정·잔여 2일 이하·휴가 종류·재직/퇴사·미확인 자료를 좁혀 볼 수 있습니다. 요약 타일을 눌러 관련 화면으로 이동할 수도 있습니다.</p><div class="ik-note is-caution"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 3 2.5 20h19z"></path><path d="M12 10v4M12 17h.01"></path></svg>주의</p>
+<p>인쇄·엑셀 내보내기는 상단의 <strong>전체 직원 또는 선택 직원 한 명</strong>을 기준으로 합니다. 화면의 선택 칸이나 종류 필터만을 출력하는 기능은 아닙니다. 출력 전 이름 검색을 비우고 기간과 직원을 다시 확인하세요.</p>
+</div><h2 id="41-조회-타일과-숫자-읽는-법">4.1 조회 타일과 숫자 읽는 법</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>표시</th>
+<th>해석할 때 확인할 점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>조회 직원</td>
+<td>상단 직원·이름 검색 조건에 해당하는 연간 조회 대상 직원 수입니다. 월별표의 직원 수와 다를 수 있습니다.</td>
+</tr>
+<tr>
+<td>연간 사용</td>
+<td>선택 연도 전체의 총 사용량입니다. 현재 월만의 사용량이 아닙니다. 사용 보정도 포함합니다.</td>
+</tr>
+<tr>
+<td>발생일수 미설정</td>
+<td>현재 조회 대상 중 해당 연도의 발생일수가 없는 직원 수입니다. 눌러 미설정 대상만 볼 수 있습니다.</td>
+</tr>
+<tr>
+<td>확인이 필요한 자료</td>
+<td>보관된 전체 확인 사항의 미확인 건수입니다. 조회 연도·월의 기록 수와 일치하지 않을 수 있습니다.</td>
+</tr>
+<tr>
+<td>월별표의 차감</td>
+<td>해당 월의 연차 차감 합계입니다. 연차 1일, 반차 0.5일로 계산합니다.</td>
+</tr>
+<tr>
+<td>월별표의 연간 잔여</td>
+<td>해당 연도 전체 기준의 잔여입니다. 월별 잔여를 따로 계산한 값이 아닙니다.</td>
+</tr>
+<tr>
+<td>그날 인원</td>
+<td>그 날짜에 휴가 기록 또는 야근 기록이 있는 인원입니다. 일수 합계가 아니므로 반차 2명이 1명으로 합쳐지지 않습니다. 근태 메모만 있는 경우는 휴가 인원으로 세지 않습니다.</td>
+</tr>
+</tbody>
+</table></div><p><strong>초기화</strong>는 전체 직원으로 돌아가고 이름 검색 및 연·월차·휴가 내역·직원 관리의 화면 필터를 전체로 돌립니다. 연도·월이나 저장한 기록을 지우는 기능이 아닙니다. 확인 완료 항목까지 볼지는 확인 사항 화면에서 별도로 선택합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#3-화면-구성"><small>← 앞 장 03</small><b>화면 구성</b></a><a class="is-next" href="#5-연월차-관리-사람별-사용-날짜-입력"><small>다음 장 05 →</small><b>연·월차 관리: 사람별 사용 날짜 입력</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="5-연월차-관리-사람별-사용-날짜-입력" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 05</p><h1>연·월차 관리: 사람별 사용 날짜 입력</h1></header><p>직원 한 명을 연차·반차 두 줄로 묶어 표시합니다. 연차 사용일은 파란색, 반차 사용일은 초록색 칩으로 구분됩니다. 발생일수가 없으면 미설정 표시, 잔여가 음수이면 빨간 글자로 표시됩니다.</p><h2 id="51-사용일-추가">5.1 사용일 추가</h2><ol class="ik-steps is-plain"><li><div><p>원하는 직원의 연차 또는 반차 줄을 선택합니다.</p></div></li><li><div><p><strong>사용일 입력</strong>을 누르거나 빈 사용일 칸의 <code>+</code>를 더블클릭합니다.</p></div></li><li><div><p>날짜·구분·메모를 입력합니다. 날짜는 <code>YYYY-MM-DD</code>로 입력하거나 달력에서 선택합니다.</p></div></li><li><div><p>내용을 확인하고 <strong>저장</strong>을 누릅니다.</p></div></li></ol><p>저장한 사용일은 날짜순으로 정리됩니다. 같은 기록이 월별 근태표와 휴가 내역에도 반영되고 잔여일수가 다시 집계됩니다. 연차는 1일, 반차는 0.5일입니다.</p><h2 id="52-사용일-수정삭제">5.2 사용일 수정·삭제</h2><ul>
+<li>날짜 칩을 더블클릭하면 해당 기록을 수정할 수 있습니다.</li>
+<li>같은 직원·같은 날짜의 중복 기록은 저장하지 않습니다.</li>
+<li>다른 연도의 기록은 조회 연도를 바꾼 뒤 입력합니다.</li>
+<li>삭제는 <strong>휴가 내역</strong>에서 해당 기록을 선택하고 <strong>선택 삭제</strong>를 사용합니다.</li>
+<li>오른쪽 날짜가 보이지 않으면 가로 스크롤로 이동합니다.</li>
+</ul><figure class="ik-shot is-small" id="shot-lv_dlg_annual"><div class="ik-shot-frame" style="aspect-ratio:563/492;max-width:563px"><img alt="사용일 추가 입력창" decoding="async" height="492" loading="lazy" src="../assets/shots/leave/lv_dlg_annual.webp" width="563"/></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">사용일 추가 입력창. 날짜·구분·메모를 넣고 [저장]을 눌러야 반영됩니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption></figure><h2 id="53-표의-칸과-색상">5.3 표의 칸과 색상</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>칸·표시</th>
+<th>내용과 조작</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>성명·입사일</td>
+<td>직원 식별 정보입니다. 직원 정보 자체는 직원 관리에서 수정합니다.</td>
+</tr>
+<tr>
+<td>발생</td>
+<td>해당 연도의 설정 값입니다. 이월이 있으면 함께 표시될 수 있습니다. 자세한 구성은 마우스를 올려 확인합니다.</td>
+</tr>
+<tr>
+<td>잔여·막대</td>
+<td>현재 잔여와 사용 비율을 나타냅니다. 발생 미설정은 숫자 0과 구분합니다.</td>
+</tr>
+<tr>
+<td>구분</td>
+<td>연차 또는 반차 행입니다. 사용일 입력 전에 올바른 행을 선택합니다.</td>
+</tr>
+<tr>
+<td>사용</td>
+<td>해당 행에 등록한 날짜들의 차감 합계입니다. 반차 날짜 4개는 2일입니다.</td>
+</tr>
+<tr>
+<td>날짜 칩</td>
+<td>한 건의 사용 기록입니다. 마우스를 올려 전체 날짜·요일·메모를 확인하고, 더블클릭해 수정합니다.</td>
+</tr>
+<tr>
+<td>빈 칸의 +</td>
+<td>새로운 사용일을 추가합니다.</td>
+</tr>
+</tbody>
+</table></div><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p><strong>사용일 입력</strong> 단추는 새 날짜 추가용입니다. 기존 기록을 고치려면 해당 날짜 칩을 더블클릭하세요. 연차·반차의 구분을 바꾸면 같은 기록이 해당 구분의 행으로 이동하고 사용량이 다시 계산됩니다.</p>
+</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#4-연도월과-직원-조회하기"><small>← 앞 장 04</small><b>연도·월과 직원 조회하기</b></a><a class="is-next" href="#6-발생이월일수-설정과-집계-기준"><small>다음 장 06 →</small><b>발생·이월일수 설정과 집계 기준</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="6-발생이월일수-설정과-집계-기준" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 06</p><h1>발생·이월일수 설정과 집계 기준</h1></header><p>연·월차 관리에서 직원을 선택하고 <strong>발생·이월 설정</strong>을 누릅니다. 이름·발생 칸을 더블클릭해도 설정할 수 있습니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>항목</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>발생일수</td>
+<td>해당 연도에 회사에서 확정한 발생일수</td>
+</tr>
+<tr>
+<td>이월일수</td>
+<td>잔여에 더할 이월 값</td>
+</tr>
+<tr>
+<td>사용 보정</td>
+<td>날짜별 사용량에 추가할 조정 값</td>
+</tr>
+<tr>
+<td>설정 메모</td>
+<td>설정 이유나 확인 근거</td>
+</tr>
+</tbody>
+</table></div><p>계산은 다음 기준을 사용합니다.</p><pre class="ik-pre"><code class="language-text">총 사용 = 날짜별 사용 + 사용 보정
+잔여 = 발생 + 이월 − 총 사용
+</code></pre><p>발생일수가 없으면 잔여를 0으로 추정하지 않고 <strong>미설정</strong>으로 표시합니다. 새 연도의 발생·이월일수도 자동으로 추정하지 않습니다. 연도를 바꾸고 회사에서 확인한 값을 입력하세요. 전년도 기록은 삭제하지 않고 계속 보관합니다.</p><figure class="ik-shot is-small" id="shot-lv_dlg_grant"><div class="ik-shot-frame" style="aspect-ratio:563/557;max-width:563px"><img alt="발생·이월 설정 입력창" decoding="async" height="557" loading="lazy" src="../assets/shots/leave/lv_dlg_grant.webp" width="563"/></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">발생·이월 설정. 발생일수·이월일수·사용 보정과 설정 메모를 입력합니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption></figure><h2 id="61-계산-예시">6.1 계산 예시</h2><p>다음 값은 사용법 설명을 위한 예시입니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>항목</th>
+<th style="text-align: right;">예시 값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>발생</td>
+<td style="text-align: right;">15일</td>
+</tr>
+<tr>
+<td>이월</td>
+<td style="text-align: right;">2일</td>
+</tr>
+<tr>
+<td>연차 사용</td>
+<td style="text-align: right;">3일</td>
+</tr>
+<tr>
+<td>반차 사용</td>
+<td style="text-align: right;">반차 4건 = 2일</td>
+</tr>
+<tr>
+<td>사용 보정</td>
+<td style="text-align: right;">0.5일</td>
+</tr>
+<tr>
+<td>총 사용</td>
+<td style="text-align: right;">3 + 2 + 0.5 = 5.5일</td>
+</tr>
+<tr>
+<td>잔여</td>
+<td style="text-align: right;">15 + 2 − 5.5 = 11.5일</td>
+</tr>
+</tbody>
+</table></div><p>연차·반차 행의 날짜 합계만 더하면 5일이지만, 총 사용에는 사용 보정 0.5일도 포함됩니다. 화면의 잔여가 날짜 개수만으로 계산한 값과 다르면 이월·사용 보정을 먼저 확인하세요.</p><div class="ik-note is-caution"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 3 2.5 20h19z"></path><path d="M12 10v4M12 17h.01"></path></svg>주의</p>
+<p>발생일수에 <strong>0을 입력한 상태</strong>는 <strong>미설정</strong>과 다릅니다. 0은 실제로 설정된 값이며, 이월·사용량에 따라 잔여가 0 또는 음수가 될 수 있습니다.</p>
+</div><h2 id="62-새-연도를-시작할-때">6.2 새 연도를 시작할 때</h2><ol class="ik-steps is-plain"><li><div><p>전년도 자료를 백업합니다.</p></div></li><li><div><p>조회 연도를 새 연도로 바꿉니다.</p></div></li><li><div><p>연·월차 관리에서 미설정 대상을 확인합니다.</p></div></li><li><div><p>직원별로 회사가 확정한 발생·이월일수를 입력합니다.</p></div></li><li><div><p>사용 보정이 필요한 경우 근거를 확인하고 설정 메모를 남깁니다.</p></div></li><li><div><p>직원 한 명의 설정·잔여가 맞는지 확인한 뒤 나머지 직원을 점검합니다.</p></div></li></ol><p>전년도 내역을 삭제해 새 연도를 만드는 방식은 사용하지 않습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#5-연월차-관리-사람별-사용-날짜-입력"><small>← 앞 장 05</small><b>연·월차 관리: 사람별 사용 날짜 입력</b></a><a class="is-next" href="#7-월별-근태표-입력"><small>다음 장 07 →</small><b>월별 근태표 입력</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="7-월별-근태표-입력" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 07</p><h1>월별 근태표 입력</h1></header><figure class="ik-shot" id="shot-lv_monthly"><div class="ik-shot-frame" style="aspect-ratio:1366/820;max-width:1366px"><img alt="연차관리 월별 근태표 화면" decoding="async" height="820" loading="lazy" src="../assets/shots/leave/lv_monthly.webp" width="1366"/><button aria-label="1번 고정 열" class="ik-pin" data-pin="1" style="left:21.96%;top:39.27%" type="button">1</button><button aria-label="2번 날짜 머리글" class="ik-pin" data-pin="2" style="left:69.55%;top:39.63%" type="button">2</button><button aria-label="3번 반차 칩" class="ik-pin" data-pin="3" style="left:69.69%;top:44.15%" type="button">3</button><button aria-label="4번 근태 메모" class="ik-pin" data-pin="4" style="left:85.43%;top:48.41%" type="button">4</button><button aria-label="5번 차감 · 연간 잔여" class="ik-pin" data-pin="5" style="left:92.61%;top:39.27%" type="button">5</button><button aria-label="6번 그날 인원" class="ik-pin" data-pin="6" style="left:69.55%;top:83.90%" type="button">6</button><button aria-label="7번 선택 칸 입력" class="ik-pin" data-pin="7" style="left:32.94%;top:32.68%" type="button">7</button><button aria-label="8번 범례" class="ik-pin" data-pin="8" style="left:80.53%;top:32.68%" type="button">8</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">월별 근태표. 이름·부서와 차감·연간 잔여 열은 고정되고 날짜 영역만 가로로 움직입니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>고정 열</b>성명·부서는 가로 스크롤해도 그대로 보입니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>날짜 머리글</b>요일과 함께 토·일, 오늘 날짜를 구분해 표시합니다.</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>반차 칩</b>연차 1, 반차 0.5, 대체휴무·기타는 글자 칩으로 표시합니다.</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>근태 메모</b>오른쪽 위 작은 표시가 있는 칸은 근태 메모입니다. 마우스를 올리면 전체 내용이 보입니다.</span></li><li data-pin="5"><span class="ik-pin-n">5</span><span><b>차감 · 연간 잔여</b>이 달의 연차 차감 합계와 연도 전체 기준 잔여입니다.</span></li><li data-pin="6"><span class="ik-pin-n">6</span><span><b>그날 인원</b>그날 휴가 또는 야근 기록이 있는 사람 수(일수 합계가 아님).</span></li><li data-pin="7"><span class="ik-pin-n">7</span><span><b>선택 칸 입력</b>고른 날짜 칸의 입력창을 엽니다. 칸 더블클릭·Enter와 같습니다.</span></li><li data-pin="8"><span class="ik-pin-n">8</span><span><b>범례</b>연차·반차·대체휴무·기타·근태 메모 표시의 뜻.</span></li></ol></figure><p>이름·부서와 합계 열은 고정되어 있고 날짜 영역만 가로로 이동합니다. 날짜 머리글에 요일이 표시되며 토·일과 오늘 날짜를 구분합니다.</p><ol class="ik-steps is-plain"><li><div><p>날짜 칸을 더블클릭하거나, 칸을 선택하고 Enter 또는 <strong>선택 칸 입력</strong>을 누릅니다.</p></div></li><li><div><p>구분을 선택하고 필요한 메모를 입력합니다.</p></div></li><li><div><p>저장 후 표와 차감일수를 확인합니다.</p></div></li></ol><div class="ik-table"><table>
+<thead>
+<tr>
+<th>구분</th>
+<th>연차 차감</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>연차</td>
+<td>1일</td>
+</tr>
+<tr>
+<td>반차</td>
+<td>0.5일</td>
+</tr>
+<tr>
+<td>대체휴무·기타</td>
+<td>0일</td>
+</tr>
+<tr>
+<td>근태 메모만</td>
+<td>차감 없음</td>
+</tr>
+</tbody>
+</table></div><p><strong>이 날짜 기록 비우기</strong>는 해당 날짜 기록을 비우는 항목입니다. 지울 직원과 날짜를 확인한 뒤 저장하세요. 근태 메모는 별도 표시되며, 칸에 마우스를 올려 전체 내용을 확인할 수 있습니다.</p><figure class="ik-shot is-small" id="shot-lv_dlg_cell"><div class="ik-shot-frame" style="aspect-ratio:563/459;max-width:563px"><img alt="월별표 날짜 칸 입력창" decoding="async" height="459" loading="lazy" src="../assets/shots/leave/lv_dlg_cell.webp" width="563"/></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">월별 근태표의 날짜 칸 입력창. 연차·반차·대체휴무·기타·근태 메모만·이 날짜 기록 비우기 중에서 고릅니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption></figure><h2 id="71-기록을-다른-구분으로-바꿀-때">7.1 기록을 다른 구분으로 바꿀 때</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>작업</th>
+<th>결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>연차를 반차로 변경</td>
+<td>같은 날짜의 휴가 기록을 반차 0.5일로 바꿉니다.</td>
+</tr>
+<tr>
+<td>연차·반차를 대체휴무 또는 기타로 변경</td>
+<td>휴가 기록은 남기되 해당 날짜의 차감을 0일로 바꿉니다.</td>
+</tr>
+<tr>
+<td>기존 휴가를 근태 메모만으로 변경</td>
+<td>해당 날짜의 휴가 기록을 제거하고 차감 없는 근태 메모로 대체합니다. 휴가에 메모만 덧붙이는 기능과 다릅니다.</td>
+</tr>
+<tr>
+<td>이 날짜 기록 비우기</td>
+<td>해당 날짜의 휴가와 근태 메모를 비웁니다. 야근 기록은 별도로 관리합니다.</td>
+</tr>
+<tr>
+<td>기존 휴가의 메모만 수정</td>
+<td>휴가 구분을 그대로 두고 메모를 수정해 저장합니다.</td>
+</tr>
+</tbody>
+</table></div><div class="ik-note is-caution"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 3 2.5 20h19z"></path><path d="M12 10v4M12 17h.01"></path></svg>주의</p>
+<p>근태 메모만으로 숫자 <code>1</code>, <code>1.0</code>, <code>0.5</code>를 넣지 마세요. 실제 연차·반차라면 해당 구분을 선택합니다.</p>
+</div><h2 id="72-날짜를-잘못-골랐을-때">7.2 날짜를 잘못 골랐을 때</h2><p>월별표의 입력창은 선택한 날짜를 편집합니다. 다른 날짜로 옮길 기록은 <strong>휴가 내역의 선택 수정</strong> 또는 <strong>연·월차 관리의 날짜 칩 수정</strong>에서 일자를 바꾸세요. 바꾸려는 날짜에 같은 직원의 기록이 있으면 중복을 먼저 확인합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#6-발생이월일수-설정과-집계-기준"><small>← 앞 장 06</small><b>발생·이월일수 설정과 집계 기준</b></a><a class="is-next" href="#8-여러-직원에게-한-번에-등록"><small>다음 장 08 →</small><b>여러 직원에게 한 번에 등록</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="8-여러-직원에게-한-번에-등록" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 08</p><h1>여러 직원에게 한 번에 등록</h1></header><figure class="ik-shot" id="shot-lv_dlg_bulk"><div class="ik-shot-frame" style="aspect-ratio:938/744;max-width:938px"><img alt="휴가 등록 창" decoding="async" height="744" loading="lazy" src="../assets/shots/leave/lv_dlg_bulk.webp" width="938"/></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">휴가 등록(여러 명). 왼쪽에서 직원을 체크하고 오른쪽에서 날짜·구분을 정한 뒤 요약을 확인하고 저장합니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption></figure><p>왼쪽의 <strong>휴가 등록</strong> 또는 <strong>야근 등록</strong>을 사용합니다.</p><ol class="ik-steps is-plain"><li><div><p>이름·부서 검색과 체크 목록에서 대상을 고릅니다.</p></div></li><li><div><p>필요하면 <strong>목록 모두</strong> 또는 <strong>현재 표의 직원</strong>을 사용합니다.</p></div></li><li><div><p>날짜·구분·메모를 입력합니다.</p></div></li><li><div><p>오른쪽 요약에서 선택 인원, 날짜, 구분을 확인합니다.</p></div></li><li><div><p><strong>저장</strong>을 누릅니다.</p></div></li></ol><p>같은 날 기록이 있거나 입사 전·퇴사 후 날짜인 직원은 미리 표시됩니다. 선택 직원 중 한 명이라도 검증을 통과하지 못하면 이번 일괄 등록은 전부 저장하지 않습니다. 문제가 표시된 직원을 확인한 뒤 다시 등록하세요.</p><h2 id="81-체크-목록-사용-시-확인할-점">8.1 체크 목록 사용 시 확인할 점</h2><ul>
+<li>등록 창에서 고른 날짜가 상단 조회 월의 날짜와 맞는지 다시 확인합니다.</li>
+<li>이름·부서 검색으로 대상을 좁힌 뒤 체크한 인원과 오른쪽 저장 요약을 확인합니다.</li>
+<li><strong>현재 표의 직원</strong>은 현재 표에 표시되는 대상들을 선택할 때 사용합니다. 회사 전체 인원과 같다고 가정하지 마세요.</li>
+<li>휴가 구분은 선택 직원 모두에게 동일하게 적용됩니다. 서로 다른 구분을 넣으려면 나누어 등록합니다.</li>
+<li>저장 오류가 표시되면 창을 닫지 않고 날짜·대상·구분을 바로잡아 다시 저장할 수 있습니다.</li>
+</ul><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>한 날짜에 오전·오후 반차를 각각 별도 건으로 나누어 등록하는 구조는 아닙니다. 반차는 한 날짜에 0.5일 한 건으로 관리합니다.</p>
+</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#7-월별-근태표-입력"><small>← 앞 장 07</small><b>월별 근태표 입력</b></a><a class="is-next" href="#9-휴가-내역과-야근-기록"><small>다음 장 09 →</small><b>휴가 내역과 야근 기록</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="9-휴가-내역과-야근-기록" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 09</p><h1>휴가 내역과 야근 기록</h1></header><h2 id="91-휴가-내역">9.1 휴가 내역</h2><figure class="ik-shot" id="shot-lv_ledger"><div class="ik-shot-frame" style="aspect-ratio:1366/820;max-width:1366px"><img alt="휴가 내역 화면" decoding="async" height="820" loading="lazy" src="../assets/shots/leave/lv_ledger.webp" width="1366"/></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">휴가 내역. 선택 연도의 기록을 날짜순으로 보고, 선택 수정·선택 삭제를 합니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption></figure><p>선택 연도의 휴가를 날짜 기준으로 확인합니다. 종류 필터를 사용할 수 있으며, 기록을 선택한 뒤 수정하거나 삭제합니다. 저장된 변경은 다른 조회 화면에도 함께 반영됩니다.</p><h2 id="92-야근-기록">9.2 야근 기록</h2><figure class="ik-shot" id="shot-lv_overtime"><div class="ik-shot-frame" style="aspect-ratio:1366/820;max-width:1366px"><img alt="야근 기록 화면" decoding="async" height="820" loading="lazy" src="../assets/shots/leave/lv_overtime.webp" width="1366"/></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">야근 기록. 기록한 날짜는 ○로 표시되며 금액·수당은 계산하지 않습니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption></figure><p>날짜 칸을 더블클릭해 <strong>야근 있음</strong> 또는 <strong>야근 기록 해제</strong>를 선택합니다. 기록한 날짜는 <code>○</code>로 표시됩니다. 여러 명 등록도 지원합니다.</p><p>야근은 날짜별 여부와 메모만 관리합니다. 금액·시급·수당은 계산하지 않습니다.</p><h2 id="93-휴가-내역-수정-순서">9.3 휴가 내역 수정 순서</h2><ol class="ik-steps is-plain"><li><div><p>조회 연도와 직원 또는 이름 검색을 설정합니다.</p></div></li><li><div><p>연차·반차·대체휴무·기타 필터로 원하는 기록을 찾습니다.</p></div></li><li><div><p>행을 선택하고 <strong>선택 수정</strong>을 누르거나 더블클릭합니다.</p></div></li><li><div><p>직원·일자·구분·메모를 확인해 수정합니다.</p></div></li><li><div><p>저장 후 월별표나 연·월차 관리에서 결과를 확인합니다.</p></div></li></ol><p><strong>선택 삭제</strong>를 누르면 대상 직원·날짜·구분을 확인하는 창이 열립니다. 확인 후에 삭제되며 변경 이력에 삭제 전 내용이 남습니다. 자동으로 되돌리는 단추는 없으므로 잘못 삭제했다면 이력을 확인해 다시 등록하거나 필요한 백업을 검토하세요. 백업 복원은 해당 한 건만이 아니라 전체 데이터를 교체합니다.</p><h2 id="94-야근과-휴가의-관계">9.4 야근과 휴가의 관계</h2><p>휴가와 야근은 서로 다른 기록입니다. 야근 여부를 등록하거나 해제해도 연차 차감량이 바뀌지 않습니다. 휴가 기록을 비워도 야근 기록을 함께 지우지는 않습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#8-여러-직원에게-한-번에-등록"><small>← 앞 장 08</small><b>여러 직원에게 한 번에 등록</b></a><a class="is-next" href="#10-직원-정보와-표시-순서"><small>다음 장 10 →</small><b>직원 정보와 표시 순서</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="10-직원-정보와-표시-순서" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 10</p><h1>직원 정보와 표시 순서</h1></header><figure class="ik-shot" id="shot-lv_people"><div class="ik-shot-frame" style="aspect-ratio:1366/820;max-width:1366px"><img alt="직원 관리 화면" decoding="async" height="820" loading="lazy" src="../assets/shots/leave/lv_people.webp" width="1366"/></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">직원 관리. 직원 추가·선택 수정·표시 순서를 여기서 엽니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption></figure><h2 id="101-직원-정보">10.1 직원 정보</h2><p><strong>직원 관리 → 직원 추가</strong>에서 성명·입사일·부서를 입력합니다. 기존 직원은 선택 후 <strong>선택 수정</strong>으로 이름·부서·입사일·퇴사일·메모를 수정합니다.</p><p>과거 기록을 보존하기 위해 직원 삭제 기능은 두지 않았습니다. 퇴사 직원은 퇴사일을 입력해 관리합니다. 퇴사일 이후에는 새 휴가·야근 기록 등록을 막습니다.</p><h2 id="102-직원-추가-후-진행할-일">10.2 직원 추가 후 진행할 일</h2><ol class="ik-steps is-plain"><li><div><p>조회 연도·월을 확인한 뒤 직원을 추가합니다.</p></div></li><li><div><p>직원 정보에서 성명·부서·입사일이 정확한지 확인합니다.</p></div></li><li><div><p>연·월차 관리에서 해당 연도의 발생·이월일수를 별도로 설정합니다.</p></div></li><li><div><p>필요한 경우 표시 순서 창에서 위치를 조정합니다.</p></div></li><li><div><p>월별표·야근표에 표시되는지 확인합니다.</p></div></li></ol><p>같은 이름을 중복 등록하지 않으며 이름의 공백을 정리해 비교합니다. 동명이인이나 괄호로 부서를 구분한 기존 이름은 임의로 합치지 말고 현재 등록 상태를 먼저 확인하세요. 입사일·퇴사일은 <code>YYYY-MM-DD</code>로 입력하며 퇴사일을 입사일보다 빠르게 설정할 수 없습니다.</p><p>재직·퇴사 필터는 오늘 날짜와 퇴사일을 기준으로 구분합니다. 과거 월을 조회할 때의 직원 구성과 현재 재직 직원 수가 다를 수 있습니다. 월별표·야근표는 가져온 월별 구성원과 기록을 이용하므로 연간 조회 대상과도 인원이 다를 수 있습니다.</p><h2 id="103-직원-표시-순서">10.3 직원 표시 순서</h2><figure class="ik-shot is-small" id="shot-lv_dlg_order"><div class="ik-shot-frame" style="aspect-ratio:590/759;max-width:590px"><img alt="직원 표시 순서 창" decoding="async" height="759" loading="lazy" src="../assets/shots/leave/lv_dlg_order.webp" width="590"/></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">직원 표시 순서. 줄을 끌거나 오른쪽 단추·(Alt+↑)·(Alt+↓)로 옮긴 뒤 [순서 저장].</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption></figure><ol class="ik-steps is-plain"><li><div><p><strong>직원 관리 → 표시 순서</strong>를 엽니다.</p></div></li><li><div><p>직원을 선택하고 줄을 끌어 옮기거나 맨 위·위로·아래로·맨 아래 단추를 사용합니다.</p></div></li><li><div><p>Alt+↑·Alt+↓로도 이동할 수 있습니다.</p></div></li><li><div><p><strong>순서 저장</strong>을 누릅니다.</p></div></li></ol><p>순서는 종료 후에도 유지되고 백업·복원에도 포함됩니다. 연·월차 관리, 월별표·야근표와 해당 인쇄·엑셀에 반영됩니다. 월별 구성원은 그대로이며 순서만 바뀝니다. 이후 추가한 직원은 설정된 직원들 뒤에 표시됩니다. 휴가 내역은 날짜 기준 정렬을 유지합니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#9-휴가-내역과-야근-기록"><small>← 앞 장 09</small><b>휴가 내역과 야근 기록</b></a><a class="is-next" href="#11-인쇄와-pdf-저장"><small>다음 장 11 →</small><b>인쇄와 PDF 저장</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="11-인쇄와-pdf-저장" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 11</p><h1>인쇄와 PDF 저장</h1></header><p>연·월차 관리, 월별 근태표, 휴가 내역, 야근 기록에서 사용할 수 있습니다.</p><ol class="ik-steps is-plain"><li><div><p>조회 기간과 상단 직원 선택을 확인하고 이름 검색을 비웁니다.</p></div></li><li><div><p><strong>인쇄 / PDF</strong> 또는 Ctrl+P를 누릅니다.</p></div></li><li><div><p>브라우저에서 열린 인쇄용 문서를 확인합니다.</p></div></li><li><div><p>문서 위쪽 <strong>인쇄 / PDF 저장</strong>을 누릅니다.</p></div></li><li><div><p>출력 대화상자에서 프린터 또는 PDF 저장을 선택합니다. 기본 양식은 A4 가로입니다.</p></div></li></ol><div class="ik-table"><table>
+<thead>
+<tr>
+<th>인쇄 양식</th>
+<th>구성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>연차 관리 대장</td>
+<td>직원별 발생·이월·사용·잔여와 1~12월 사용일</td>
+</tr>
+<tr>
+<td>연차·근태 관리표</td>
+<td>해당 월 기록, 차감·연간 잔여, 그날 인원, 메모 상세</td>
+</tr>
+<tr>
+<td>휴가 사용 내역</td>
+<td>조회 연도 전체의 월별 내역·소계, 직원별 합계</td>
+</tr>
+<tr>
+<td>야근 기록표</td>
+<td>해당 월 야근 날짜, 직원별 횟수, 그날 인원, 메모 상세</td>
+</tr>
+</tbody>
+</table></div><p>인쇄 미리보기에서 선택할 수 있는 항목은 다음과 같습니다.</p><ul>
+<li><strong>결재란:</strong> 담당·검토·승인 칸을 표시합니다.</li>
+<li><strong>흑백 프린터용:</strong> 테두리 모양으로 종류를 구분합니다.</li>
+<li><strong>메모 상세:</strong> 월별표·야근표의 상세 메모를 넣거나 뺍니다.</li>
+<li><strong>직원별 합계:</strong> 휴가 내역의 직원별 합계를 넣거나 뺍니다.</li>
+</ul><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>크롬 또는 엣지에서 문서를 열어 확인하세요. 생성된 인쇄용 HTML은 만든 시점의 사본입니다. 이후 기록을 수정했다면 프로그램에서 인쇄용 문서를 다시 생성합니다.</p>
+</div><figure class="ik-shot" id="shot-lv_rep_monthly"><div class="ik-shot-frame" style="aspect-ratio:1280/900;max-width:1280px"><img alt="연차·근태 관리표 인쇄 미리보기" decoding="async" height="900" loading="lazy" src="../assets/shots/leave/lv_rep_monthly.webp" width="1280"/></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">브라우저에 열린 연차·근태 관리표 인쇄용 문서. 위쪽에서 결재란·흑백 프린터용·메모 상세를 고르고 [인쇄 / PDF 저장]을 누릅니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption></figure><figure class="ik-shot" id="shot-lv_rep_annual"><div class="ik-shot-frame" style="aspect-ratio:1280/900;max-width:1280px"><img alt="연차 관리 대장 인쇄 미리보기" decoding="async" height="900" loading="lazy" src="../assets/shots/leave/lv_rep_annual.webp" width="1280"/></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">연차 관리 대장 인쇄용 문서. 직원별 발생·이월·사용·잔여와 1~12월 사용일을 한 장에 정리합니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption></figure><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#10-직원-정보와-표시-순서"><small>← 앞 장 10</small><b>직원 정보와 표시 순서</b></a><a class="is-next" href="#12-제공-양식으로-엑셀-내보내기"><small>다음 장 12 →</small><b>제공 양식으로 엑셀 내보내기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="12-제공-양식으로-엑셀-내보내기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 12</p><h1>제공 양식으로 엑셀 내보내기</h1></header><p>상단 <strong>엑셀 내보내기</strong>에서 양식을 선택하고 <code>.xlsx</code>로 저장합니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>양식</th>
+<th>범위와 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>연간대장</td>
+<td>조회 연도 전체. 직원별 연차·반차 두 줄, 사용 날짜·사용·잔여</td>
+</tr>
+<tr>
+<td>월별 연차관리대장</td>
+<td>조회 연도·월의 직원과 날짜별 기록</td>
+</tr>
+<tr>
+<td>야근수당 관리대장</td>
+<td>조회 연도·월의 야근 여부. 수당 계산 없음</td>
+</tr>
+</tbody>
+</table></div><p>원본 양식은 프로그램에 포함되어 있어 매번 선택할 필요가 없습니다. 이름 검색을 비우고 전체 직원 또는 한 직원을 선택한 뒤 내보냅니다.</p><ul>
+<li>연간대장의 날짜가 28칸을 넘으면 같은 직원의 계속 행으로 이어 씁니다.</li>
+<li>이월·사용 보정은 별도 <strong>이월·보정</strong> 시트에 보존합니다.</li>
+<li>날짜·구분·메모는 <strong>기록상세</strong> 시트에 보존합니다.</li>
+<li>발생일수는 회사에서 설정한 현재 값이며 입사일로 새로 추정하지 않습니다.</li>
+<li>엑셀 내보내기는 현재 자료의 사본을 저장하는 기능입니다. 내보낸 엑셀에서 수정한 값이 프로그램에 자동 반영되지는 않습니다.</li>
+</ul><h2 id="121-인쇄와-엑셀의-차이">12.1 인쇄와 엑셀의 차이</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>구분</th>
+<th>인쇄 / PDF</th>
+<th>엑셀 내보내기</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>보기 쉬운 보고·결재·출력</td>
+<td>제공된 기존 양식의 엑셀 사본 저장</td>
+</tr>
+<tr>
+<td>연간 모양</td>
+<td>직원 한 줄과 월별 사용일 묶음</td>
+<td>직원마다 연차·반차 두 줄과 개별 날짜 칸</td>
+</tr>
+<tr>
+<td>결재란·흑백 선택</td>
+<td>미리보기에서 선택</td>
+<td>인쇄 미리보기의 선택 항목이 자동 적용되지 않음</td>
+</tr>
+<tr>
+<td>프로그램에 다시 반영</td>
+<td>PDF를 수정해도 반영되지 않음</td>
+<td>내보낸 파일을 수정해도 자동 반영되지 않음</td>
+</tr>
+<tr>
+<td>데이터 전체 백업</td>
+<td>아님</td>
+<td>아님</td>
+</tr>
+</tbody>
+</table></div><div class="ik-note is-tip"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.9V16h5v-.2c0-.8.4-1.5 1-1.9A6 6 0 0 0 12 3z"></path></svg>팁</p>
+<p>자료를 안전하게 보관하려면 별도의 <code>.db</code> 백업을 사용하세요. 인쇄물·엑셀 사본만으로 직원 순서·확인 사항·변경 이력까지 전체 복원하는 것은 지원하지 않습니다.</p>
+</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#11-인쇄와-pdf-저장"><small>← 앞 장 11</small><b>인쇄와 PDF 저장</b></a><a class="is-next" href="#13-추가-엑셀-가져오기와-확인-사항"><small>다음 장 13 →</small><b>추가 엑셀 가져오기와 확인 사항</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="13-추가-엑셀-가져오기와-확인-사항" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 13</p><h1>추가 엑셀 가져오기와 확인 사항</h1></header><h2 id="131-추가-자료-가져오기">13.1 추가 자료 가져오기</h2><p><strong>엑셀 가져오기</strong>에서 지원하는 연간대장·월별표·야근표를 선택합니다. 같은 구조의 파일을 함께 선택할 수 있습니다. 첫 연도 자료는 연간대장과 월별표를 함께 선택하세요.</p><ul>
+<li>월별표가 있는 연도는 월별표를 사용량 기준으로 삼습니다.</li>
+<li>동일한 내용의 파일은 건너뜁니다.</li>
+<li>기존 직원·날짜·메모와 충돌하면 현재 값을 보존하고 확인 사항에 남깁니다.</li>
+<li>수정한 엑셀을 재가져와도 현재 자료 전체를 자동 교체하지 않습니다.</li>
+<li>새 파일에 없는 기록을 자동 삭제하지 않습니다.</li>
+<li>읽기나 검증이 실패하면 이번 가져오기 전체를 취소합니다.</li>
+</ul><h2 id="132-확인-사항-처리">13.2 확인 사항 처리</h2><figure class="ik-shot" id="shot-lv_issues"><div class="ik-shot-frame" style="aspect-ratio:1366/820;max-width:1366px"><img alt="확인 사항 화면" decoding="async" height="820" loading="lazy" src="../assets/shots/leave/lv_issues.webp" width="1366"/></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">확인 사항. 가져온 자료의 차이를 검토하고 확인 메모를 남깁니다. 확인 처리만으로 기록이 바뀌지는 않습니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption></figure><p><strong>확인 사항</strong>에서 날짜 차이, 이름 확인, 과거 집계 보정 등을 검토합니다. 해당 항목을 선택해 확인 메모를 저장합니다.</p><div class="ik-note is-caution"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 3 2.5 20h19z"></path><path d="M12 10v4M12 17h.01"></path></svg>주의</p>
+<p>확인 처리는 휴가 기록이나 잔여일수를 바꾸지 않습니다. 실제 수정은 해당 직원·휴가·발생일수 화면에서 수행합니다. <strong>가져온 원문 보기</strong>는 원본 값과 수식을 읽기 전용으로 보여 주며 수식을 실행하지 않습니다.</p>
+</div><h2 id="133-포함된-초기-자료의-기준">13.3 포함된 초기 자료의 기준</h2><p>초기 2026년 사용량은 월별표 기준, 발생일수·입사일은 연간대장 기준입니다. 연간대장에만 있는 2026년 날짜는 중복 차감하지 않고 확인 사항에 남겼습니다. 출근·대체근무·X·첫출근 등은 근태 메모로 보존합니다. 과거 연도의 날짜 합계와 저장 집계가 다른 항목은 사용 보정과 확인 사항을 함께 확인하세요.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#12-제공-양식으로-엑셀-내보내기"><small>← 앞 장 12</small><b>제공 양식으로 엑셀 내보내기</b></a><a class="is-next" href="#14-저장백업복원"><small>다음 장 14 →</small><b>저장·백업·복원</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="14-저장백업복원" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 14</p><h1>저장·백업·복원</h1></header><h2 id="141-저장">14.1 저장</h2><p>입력창에서 저장을 누른 내용은 즉시 데이터 파일에 반영되고 프로그램을 다시 실행해도 유지됩니다. 현재 데이터 파일의 위치는 아래 상태줄에서 확인합니다.</p><h2 id="142-백업">14.2 백업</h2><p><strong>백업·복원 → 백업 파일 저장</strong>으로 직원·휴가·야근·확인 사항·원문·표시 순서·변경 이력을 하나의 <code>.db</code> 파일에 보관합니다. 외장 저장장치 등 별도 위치에도 사본을 보관하세요.</p><p>프로그램 시작 시 하루 한 번, 가져오기·복원 전에는 <code>데이터/자동백업</code>에 자동 백업합니다. 자동 백업과 같은 PC의 데이터는 PC 고장 때 함께 손실될 수 있으므로 별도 위치의 백업도 필요합니다.</p><h2 id="143-복원">14.3 복원</h2><div class="ik-note is-caution"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 3 2.5 20h19z"></path><path d="M12 10v4M12 17h.01"></path></svg>주의</p>
+<p><strong>백업·복원 → 백업에서 복원</strong>은 현재 자료 전체를 선택한 백업 내용으로 교체합니다. 여러 파일의 일부 내용을 합치는 기능은 아닙니다. 현재 자료는 교체 전에 자동 백업하며, 손상된 파일이나 지원하지 않는 데이터는 적용하지 않습니다.</p>
+</div><p><strong>데이터 폴더 열기</strong>로 저장 위치를 확인하고, <strong>변경 이력 보기</strong>에서 기록한 작업을 살펴볼 수 있습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#13-추가-엑셀-가져오기와-확인-사항"><small>← 앞 장 13</small><b>추가 엑셀 가져오기와 확인 사항</b></a><a class="is-next" href="#15-자주-묻는-질문"><small>다음 장 15 →</small><b>자주 묻는 질문</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="15-자주-묻는-질문" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 15</p><h1>자주 묻는 질문</h1></header><details class="ik-qa" id="q-잔여가-미설정으로-나옵니다"><summary>Q. 잔여가 미설정으로 나옵니다.</summary><div class="ik-qa-a"><div><p>해당 연도의 발생일수를 설정했는지 확인합니다.</p></div></div></details><details class="ik-qa" id="q-같은-날짜를-등록할-수-없습니다"><summary>Q. 같은 날짜를 등록할 수 없습니다.</summary><div class="ik-qa-a"><div><p>해당 직원의 휴가 내역 또는 야근 기록에서 기존 기록을 확인합니다.</p></div></div></details><details class="ik-qa" id="q-일괄-등록이-저장되지-않습니다"><summary>Q. 일괄 등록이 저장되지 않습니다.</summary><div class="ik-qa-a"><div><p>중복·입사 전·퇴사 후 날짜가 표시된 직원과 선택 대상을 확인합니다.</p></div></div></details><details class="ik-qa" id="q-날짜-칸이-보이지-않습니다"><summary>Q. 날짜 칸이 보이지 않습니다.</summary><div class="ik-qa-a"><div><p>날짜 영역을 가로로 스크롤합니다. 월별표·야근표의 이름과 합계 열은 고정됩니다.</p></div></div></details><details class="ik-qa" id="q-월을-바꿔도-연월차-관리-내용이-같습니다"><summary>Q. 월을 바꿔도 연·월차 관리 내용이 같습니다.</summary><div class="ik-qa-a"><div><p>연·월차 관리는 해당 연도 전체를 조회합니다.</p></div></div></details><details class="ik-qa" id="q-검색-결과와-인쇄-결과가-다릅니다"><summary>Q. 검색 결과와 인쇄 결과가 다릅니다.</summary><div class="ik-qa-a"><div><p>인쇄·엑셀은 상단 직원 선택 기준입니다. 검색을 비우고 출력 범위를 확인합니다.</p></div></div></details><details class="ik-qa" id="q-새-버전에서-최근-입력-기록이-없습니다"><summary>Q. 새 버전에서 최근 입력 기록이 없습니다.</summary><div class="ik-qa-a"><div><p>새 폴더의 초기 자료인지 확인하고 이전 버전의 백업을 복원합니다.</p></div></div></details><details class="ik-qa" id="q-다른-pc로-옮긴-뒤-자료가-없습니다"><summary>Q. 다른 PC로 옮긴 뒤 자료가 없습니다.</summary><div class="ik-qa-a"><div><p>실행 파일뿐 아니라 <code>데이터</code>·<code>_internal</code>을 포함한 폴더 전체를 옮겼는지 확인합니다.</p></div></div></details><details class="ik-qa" id="q-엑셀에서-고친-내용이-프로그램에-보이지-않습니다"><summary>Q. 엑셀에서 고친 내용이 프로그램에 보이지 않습니다.</summary><div class="ik-qa-a"><div><p>내보낸 엑셀과 프로그램 데이터는 자동 동기화하지 않습니다.</p></div></div></details><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#14-저장백업복원"><small>← 앞 장 14</small><b>저장·백업·복원</b></a><a class="is-next" href="#16-단축키"><small>다음 장 16 →</small><b>단축키</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="16-단축키" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 16</p><h1>단축키</h1></header><div class="ik-table"><table>
+<thead>
+<tr>
+<th>단축키</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl+1~6</td>
+<td>왼쪽 메뉴의 화면 이동</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>F</kbd></td>
+<td>이름 검색</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>P</kbd></td>
+<td>현재 화면 인쇄 / PDF</td>
+</tr>
+<tr>
+<td><kbd>F5</kbd></td>
+<td>새로 고침</td>
+</tr>
+<tr>
+<td><kbd>F1</kbd></td>
+<td>사용 방법</td>
+</tr>
+<tr>
+<td>표에서 화살표</td>
+<td>선택 칸 이동</td>
+</tr>
+<tr>
+<td>표에서 Enter</td>
+<td>선택 칸 입력</td>
+</tr>
+<tr>
+<td>직원 순서 창에서 Alt+↑·Alt+↓</td>
+<td>직원 순서 이동</td>
+</tr>
+<tr>
+<td>입력창에서 Esc</td>
+<td>취소·닫기</td>
+</tr>
+</tbody>
+</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#15-자주-묻는-질문"><small>← 앞 장 15</small><b>자주 묻는 질문</b></a><a class="is-next" href="#17-자주-하는-업무별-예시"><small>다음 장 17 →</small><b>자주 하는 업무별 예시</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="17-자주-하는-업무별-예시" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 17</p><h1>자주 하는 업무별 예시</h1></header><h2 id="171-예시-a--직원-한-명의-반차-등록">17.1 예시 A · 직원 한 명의 반차 등록</h2><ol class="ik-steps is-plain"><li><div><p>연·월차 관리에서 조회 연도를 선택합니다.</p></div></li><li><div><p>직원 목록에서 한 명을 선택합니다.</p></div></li><li><div><p>반차 행의 빈 사용일 칸을 더블클릭합니다.</p></div></li><li><div><p>날짜와 메모를 입력하고 구분이 반차인지 확인합니다.</p></div></li><li><div><p>저장합니다.</p></div></li><li><div><p>반차 행에 날짜가 추가되고 사용량이 0.5일 늘었는지 확인합니다.</p></div></li><li><div><p>해당 월의 월별표와 휴가 내역에서도 같은 기록을 확인합니다.</p></div></li></ol><h2 id="172-예시-b--직원-여러-명에게-같은-날-연차-등록">17.2 예시 B · 직원 여러 명에게 같은 날 연차 등록</h2><ol class="ik-steps is-plain"><li><div><p>왼쪽 휴가 등록을 엽니다.</p></div></li><li><div><p>대상 직원을 체크합니다.</p></div></li><li><div><p>날짜와 연차 구분을 선택합니다.</p></div></li><li><div><p>중복·입사 전·퇴사 후 안내가 없는지 확인합니다.</p></div></li><li><div><p>요약의 인원과 ‘연차 1일씩’을 확인합니다.</p></div></li><li><div><p>저장하고 월별표에서 각 직원의 기록을 확인합니다.</p></div></li></ol><h2 id="173-예시-c--잘못-등록한-연차-날짜-변경">17.3 예시 C · 잘못 등록한 연차 날짜 변경</h2><ol class="ik-steps is-plain"><li><div><p>휴가 내역에서 조회 연도와 직원을 고릅니다.</p></div></li><li><div><p>기존 날짜의 행을 선택하고 선택 수정을 누릅니다.</p></div></li><li><div><p>올바른 일자로 바꾸고 저장합니다.</p></div></li><li><div><p>기존 날짜에서는 기록이 없어지고 새 날짜로 옮겨졌는지 확인합니다.</p></div></li><li><div><p>같은 구분·일수로 날짜만 옮겼다면 해당 연도 내 총 사용량은 유지됩니다.</p></div></li></ol><h2 id="174-예시-d--월별표에-출근-메모만-남기기">17.4 예시 D · 월별표에 출근 메모만 남기기</h2><ol class="ik-steps is-plain"><li><div><p>월별 근태표에서 직원과 날짜 칸을 선택합니다.</p></div></li><li><div><p>입력창에서 근태 메모만을 선택합니다.</p></div></li><li><div><p>‘대체근무’ 등 메모를 입력하고 저장합니다.</p></div></li><li><div><p>차감 없이 메모가 표시되는지 확인합니다.</p></div></li><li><div><p>기존 휴가가 있던 날짜라면 휴가가 메모로 대체된 점도 확인합니다.</p></div></li></ol><h2 id="175-예시-e--한-직원의-연간대장-엑셀-저장">17.5 예시 E · 한 직원의 연간대장 엑셀 저장</h2><ol class="ik-steps is-plain"><li><div><p>상단에서 원하는 연도와 직원을 선택합니다.</p></div></li><li><div><p>이름 검색어를 지웁니다. 직원 선택은 그대로 둡니다.</p></div></li><li><div><p>엑셀 내보내기에서 연간대장을 선택합니다.</p></div></li><li><div><p>저장 폴더와 파일 이름을 지정합니다.</p></div></li><li><div><p>엑셀에서 성명·연도·날짜·사용·잔여를 확인합니다.</p></div></li><li><div><p>이월·보정 및 기록상세 시트도 확인합니다.</p></div></li></ol><h2 id="176-예시-f--직원-순서를-바꾸고-다음-실행에서-확인">17.6 예시 F · 직원 순서를 바꾸고 다음 실행에서 확인</h2><ol class="ik-steps is-plain"><li><div><p>직원 관리에서 표시 순서 창을 엽니다.</p></div></li><li><div><p>직원을 원하는 위치로 이동합니다.</p></div></li><li><div><p>순서 저장을 누릅니다.</p></div></li><li><div><p>연·월차 관리와 월별표에서 같은 직원들의 표시 순서를 확인합니다.</p></div></li><li><div><p>종료 후 다시 실행해 순서가 유지되는지 확인합니다.</p></div></li></ol><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#16-단축키"><small>← 앞 장 16</small><b>단축키</b></a><a class="is-next" href="#18-월말연말-점검-순서"><small>다음 장 18 →</small><b>월말·연말 점검 순서</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="18-월말연말-점검-순서" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 18</p><h1>월말·연말 점검 순서</h1></header><h2 id="181-월말">18.1 월말</h2><ol class="ik-steps is-plain"><li><div><p>대상 연도·월과 전체 직원 범위를 확인합니다.</p></div></li><li><div><p>휴가 내역과 월별 근태표의 날짜·구분·차감을 대조합니다.</p></div></li><li><div><p>근태 메모를 휴가로 잘못 넣은 항목이 없는지 확인합니다.</p></div></li><li><div><p>야근 기록의 날짜와 메모를 확인합니다.</p></div></li><li><div><p>확인 사항의 미확인 항목을 검토하고 필요한 실제 수정을 진행합니다.</p></div></li><li><div><p>인쇄 또는 엑셀 사본을 저장합니다.</p></div></li><li><div><p>별도 위치에 데이터 백업을 저장합니다.</p></div></li></ol><h2 id="182-연말새-연도-전환">18.2 연말·새 연도 전환</h2><ol class="ik-steps is-plain"><li><div><p>해당 연도 전체의 연·월차 관리와 휴가 내역을 확인합니다.</p></div></li><li><div><p>발생·이월·사용 보정과 잔여를 검토합니다.</p></div></li><li><div><p>연간대장 엑셀과 필요한 보고서를 보관합니다.</p></div></li><li><div><p>전체 <code>.db</code> 백업을 저장합니다.</p></div></li><li><div><p>조회 연도를 바꾸고 새 연도의 확정 발생·이월 값을 설정합니다.</p></div></li><li><div><p>과거 연도 기록을 그대로 보존한 상태에서 새 연도 입력을 시작합니다.</p></div></li></ol><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#17-자주-하는-업무별-예시"><small>← 앞 장 17</small><b>자주 하는 업무별 예시</b></a><a class="is-next" href="#19-문제가-생겼을-때-확인하는-순서"><small>다음 장 19 →</small><b>문제가 생겼을 때 확인하는 순서</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="19-문제가-생겼을-때-확인하는-순서" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 19</p><h1>문제가 생겼을 때 확인하는 순서</h1></header><h2 id="191-기록이-보이지-않을-때">19.1 기록이 보이지 않을 때</h2><ol class="ik-steps is-plain"><li><div><p>조회 연도가 맞는지 확인합니다.</p></div></li><li><div><p>월별표·야근표라면 월도 확인합니다.</p></div></li><li><div><p>상단 직원 선택과 이름 검색을 확인합니다.</p></div></li><li><div><p>화면 필터를 전체로 바꿉니다.</p></div></li><li><div><p>F5로 새로 고침합니다.</p></div></li><li><div><p>새 프로그램 폴더를 사용 중이라면 이전 백업을 복원했는지 확인합니다.</p></div></li><li><div><p>아래 상태줄의 데이터 폴더가 평소 사용하던 위치인지 확인합니다.</p></div></li></ol><div class="ik-note is-caution"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 3 2.5 20h19z"></path><path d="M12 10v4M12 17h.01"></path></svg>주의</p>
+<p>조회 조건을 확인하기 전에 원본 엑셀을 반복해서 가져오지 마세요. 재가져오기는 현재 자료를 통째로 되돌리는 기능이 아닙니다.</p>
+</div><h2 id="192-잔여가-예상과-다를-때">19.2 잔여가 예상과 다를 때</h2><ol class="ik-steps is-plain"><li><div><p>연간 기준의 잔여와 월 사용량을 비교한 것은 아닌지 확인합니다.</p></div></li><li><div><p>발생일수가 미설정인지 실제 0일인지 구분합니다.</p></div></li><li><div><p>해당 연도의 발생·이월·사용 보정 값을 확인합니다.</p></div></li><li><div><p>휴가 내역에서 직원의 연차·반차·대체휴무·기타를 확인합니다.</p></div></li><li><div><p>연차·반차 날짜와 메모를 검토하고 실제 오류가 있는 항목만 수정합니다.</p></div></li></ol><div class="ik-note is-caution"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 3 2.5 20h19z"></path><path d="M12 10v4M12 17h.01"></path></svg>주의</p>
+<p>확인 사항에 확인 표시만 남기거나 근거 없이 보정 값을 넣어 잔여를 맞추지 말고, 실제 설정·날짜 내역을 먼저 대조하세요.</p>
+</div><h2 id="193-인쇄엑셀-출력이-예상과-다를-때">19.3 인쇄·엑셀 출력이 예상과 다를 때</h2><ol class="ik-steps is-plain"><li><div><p>상단의 연도·월과 직원 선택을 확인합니다.</p></div></li><li><div><p>이름 검색을 비웁니다.</p></div></li><li><div><p>화면 필터가 출력 범위를 뜻하지 않는다는 점을 확인합니다.</p></div></li><li><div><p>인쇄와 엑셀 중 필요한 출력 방식을 선택했는지 확인합니다.</p></div></li><li><div><p>기록을 바꾼 뒤라면 이전 미리보기나 엑셀을 다시 보는 대신 새로 생성합니다.</p></div></li></ol><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#18-월말연말-점검-순서"><small>← 앞 장 18</small><b>월말·연말 점검 순서</b></a><a class="is-next" href="#20-파일과-보관-위치"><small>다음 장 20 →</small><b>파일과 보관 위치</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="20-파일과-보관-위치" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 20</p><h1>파일과 보관 위치</h1></header><div class="ik-table"><table>
+<thead>
+<tr>
+<th>파일·폴더</th>
+<th>역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>연차관리.exe</td>
+<td>프로그램 실행 파일</td>
+</tr>
+<tr>
+<td>_internal</td>
+<td>실행에 필요한 구성 파일·화면 자료·내장 양식</td>
+</tr>
+<tr>
+<td>데이터/연차관리.db</td>
+<td>현재 사용 중인 전체 데이터</td>
+</tr>
+<tr>
+<td>데이터/자동백업</td>
+<td>프로그램이 생성하는 자동 백업</td>
+</tr>
+<tr>
+<td>데이터/인쇄미리보기</td>
+<td>생성 시점의 인쇄용 HTML 사본</td>
+</tr>
+<tr>
+<td>사용자가 저장한 .db</td>
+<td>수동 전체 백업. 별도 위치 보관 권장</td>
+</tr>
+<tr>
+<td>사용자가 저장한 .xlsx</td>
+<td>양식별 엑셀 출력 사본</td>
+</tr>
+<tr>
+<td>브라우저에서 저장한 .pdf</td>
+<td>인쇄용 보고서 사본</td>
+</tr>
+</tbody>
+</table></div><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>파일 이름이 같아도 폴더가 다르면 서로 다른 데이터일 수 있습니다. 복원하거나 다른 PC로 옮기기 전에는 날짜와 저장 위치를 확인하세요.</p>
+</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#19-문제가-생겼을-때-확인하는-순서"><small>← 앞 장 19</small><b>문제가 생겼을 때 확인하는 순서</b></a><a class="is-next" href="#21-기능-범위와-제한"><small>다음 장 21 →</small><b>기능 범위와 제한</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="21-기능-범위와-제한" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 21</p><h1>기능 범위와 제한</h1></header><div class="ik-table"><table>
+<thead>
+<tr>
+<th>구분</th>
+<th>지원 범위</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>휴가 단위</td>
+<td>연차 1일, 반차 0.5일, 대체휴무·기타 0일</td>
+</tr>
+<tr>
+<td>같은 날짜 휴가</td>
+<td>직원당 하루 한 건. 오전·오후 별도 반차 두 건은 지원하지 않음</td>
+</tr>
+<tr>
+<td>발생·이월 설정</td>
+<td>회사에서 확정한 값을 해당 연도에 직접 설정</td>
+</tr>
+<tr>
+<td>야근</td>
+<td>날짜별 여부와 메모. 수당·시급 계산 없음</td>
+</tr>
+<tr>
+<td>사용일 연동</td>
+<td>연·월차 관리·월별표·휴가 내역은 같은 휴가 기록 사용</td>
+</tr>
+<tr>
+<td>출력</td>
+<td>제공 양식 엑셀, 브라우저 인쇄·PDF</td>
+</tr>
+<tr>
+<td>가져오기</td>
+<td>지원하는 구조의 연간대장·월별표·야근표</td>
+</tr>
+<tr>
+<td>백업 복원</td>
+<td>전체 자료 교체. 일부 기록만 합치는 복원은 지원하지 않음</td>
+</tr>
+<tr>
+<td>사용 환경</td>
+<td>로컬 PC. 여러 PC의 동시 편집·자동 동기화 없음</td>
+</tr>
+</tbody>
+</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#20-파일과-보관-위치"><small>← 앞 장 20</small><b>파일과 보관 위치</b></a><a class="is-next" href="#22-용어-정리"><small>다음 장 22 →</small><b>용어 정리</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="22-용어-정리" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 22</p><h1>용어 정리</h1></header><div class="ik-table"><table>
+<thead>
+<tr>
+<th>용어</th>
+<th>뜻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>발생</td>
+<td>해당 연도에 설정한 연차 발생일수</td>
+</tr>
+<tr>
+<td>이월</td>
+<td>잔여 계산에 더하는 이월 값</td>
+</tr>
+<tr>
+<td>날짜별 사용</td>
+<td>날짜로 등록한 휴가의 차감 합계</td>
+</tr>
+<tr>
+<td>사용 보정</td>
+<td>총 사용에 추가하는 조정 값</td>
+</tr>
+<tr>
+<td>총 사용</td>
+<td>날짜별 사용과 사용 보정의 합계</td>
+</tr>
+<tr>
+<td>잔여</td>
+<td>발생 + 이월 − 총 사용</td>
+</tr>
+<tr>
+<td>미설정</td>
+<td>발생일수가 등록되지 않은 상태. 실제 숫자 0과 다름</td>
+</tr>
+<tr>
+<td>근태 메모</td>
+<td>차감 없이 날짜별로 남기는 출근·근무 관련 메모</td>
+</tr>
+<tr>
+<td>확인 사항</td>
+<td>가져온 자료의 차이·모호한 내용 등을 검토하기 위한 항목</td>
+</tr>
+<tr>
+<td>내보내기</td>
+<td>현재 자료를 엑셀 또는 보고서 사본으로 저장하는 작업</td>
+</tr>
+<tr>
+<td>복원</td>
+<td>현재 전체 데이터를 선택한 백업 내용으로 교체하는 작업</td>
+</tr>
+</tbody>
+</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#21-기능-범위와-제한"><small>← 앞 장 21</small><b>기능 범위와 제한</b></a></nav></section>
+<div class="ik-div ik-div-stamp" role="separator" aria-label="검수 완료"><span class="ik-div-layers is-left"><i></i><i></i><i></i></span><span class="ik-stamp"><span><b>검수</b><small>IKAN</small></span></span><span class="ik-div-layers is-right"><i></i><i></i><i></i></span></div><p class="ik-small" style="text-align:center;max-width:none">아이칸 연차관리 사용 설명서 · 기준 버전 0.4.0 · 정리 2026-10-30 · 주식회사 아이칸 사내용</p>
+</main>
+</div>
+<dialog class="ik-zoom" id="ik-zoom" aria-label="화면 크게 보기"><div class="ik-zoom-bar"><b id="ik-zoom-title">화면 크게 보기</b><span>번호를 누르면 설명이 나옵니다 · Esc로 닫기</span><button type="button" class="ik-bar-btn" data-zoom-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>닫기</button></div><div class="ik-zoom-body" id="ik-zoom-body"></div><p class="ik-zoom-note" id="ik-zoom-note" aria-live="polite"></p></dialog>
+<script src="../assets/search-index.js?v=d2d5fafe"></script><script src="../assets/ikan.js?v=d2d5fafe"></script><script src="../assets/sims.js?v=d2d5fafe"></script>
+</body>
+</html>
