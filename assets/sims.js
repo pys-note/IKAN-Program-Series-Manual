@@ -513,6 +513,64 @@
   }
 
 
+  /* ── 목재계산 도우미: 치수 계산식 (v1.2.0 calculate·evaluated와 같은 규칙) ── */
+  function wdCalc(text) {
+    var s = String(text == null ? '' : text).trim().replace(/[×xX]/g, '*').replace(/[÷]/g, '/').replace(/[−–]/g, '-').replace(/,/g, '');
+    if (!s) throw Error('값을 입력하세요');
+    if (s.length > 250) throw Error('수식은 250자 이내로 입력하세요');
+    var tokens = s.match(/\d+(?:\.\d*)?|\.\d+|[()+*/-]/g);
+    if (!tokens || tokens.join('') !== s.replace(/\s/g, '')) throw Error('숫자와 + - * / ( )만 입력하세요');
+    var i = 0;
+    function atom() { var t = tokens[i++]; if (t === '+') return atom(); if (t === '-') return -atom(); if (t === '(') { var n = expr(); if (tokens[i++] !== ')') throw Error('괄호를 확인하세요'); return n; } if (t === undefined || !/^\d|^\./.test(t)) throw Error('수식을 확인하세요'); return Number(t); }
+    function term() { var n = atom(); while (tokens[i] === '*' || tokens[i] === '/') { var op = tokens[i++], v = atom(); if (op === '/' && v === 0) throw Error('0으로 나눌 수 없습니다'); n = op === '*' ? n * v : n / v; } return n; }
+    function expr() { var n = term(); while (tokens[i] === '+' || tokens[i] === '-') { var op = tokens[i++], v = term(); n = op === '+' ? n + v : n - v; } return n; }
+    var n = expr();
+    if (i !== tokens.length || !isFinite(n) || Math.abs(n) > 1e9) throw Error('수식 결과를 확인하세요');
+    return Math.round(n * 1e8) / 1e8;
+  }
+  function wdNum(n) { return Number(n.toFixed(8)).toLocaleString('en-US', { maximumFractionDigits: 8 }); }
+  function wdCalcSim(body) {
+    var P = [
+      { label: '구간 더하기', l: '50+697+50+800+50', w: '50', q: '2' },
+      { label: '양쪽 빼기', l: '930-50-50', w: '50', q: '3' },
+      { label: '괄호·곱하기', l: '(390+50)*2', w: '50', q: '3*2' },
+      { label: '× ÷ 기호', l: '1600×2÷4', w: '450', q: '1' },
+      { label: '쓰는 중', l: '760+', w: '50', q: '1' },
+      { label: '개수 소수', l: '1200', w: '50', q: '1.5' }
+    ];
+    var F = [['l', '길이 / 계산식', 'mm'], ['w', '폭', 'mm'], ['q', '개수', '개']];
+    body.innerHTML = '<div class="sim-row sim-wd-row">' + F.map(function (f) {
+      return '<label class="sim-field sim-wd-cell' + (f[0] === 'l' ? ' is-grow' : '') + '"><span>' + f[1] + '</span><input type="text" maxlength="260" data-k="' + f[0] + '"><small data-r="' + f[0] + '"></small></label>';
+    }).join('') + '</div>' +
+      '<div class="sim-presets"><span>예시</span>' + chips(P) + '</div>' +
+      '<p class="sim-note" data-note aria-live="polite"></p>';
+    var inp = {}, res = {}, note = body.querySelector('[data-note]');
+    F.forEach(function (f) { inp[f[0]] = body.querySelector('input[data-k="' + f[0] + '"]'); res[f[0]] = body.querySelector('[data-r="' + f[0] + '"]'); });
+    function load(p) { inp.l.value = p.l; inp.w.value = p.w; inp.q.value = p.q; run(); }
+    body.querySelectorAll('.ik-sim-chip').forEach(function (b) { b.addEventListener('click', function () { load(P[+b.dataset.i]); }); });
+    function run() {
+      var v = {}, errs = [];
+      F.forEach(function (f) {
+        var k = f[0], raw = inp[k].value, el = res[k];
+        try {
+          var n = wdCalc(raw);
+          if (n <= 0) throw Error('0보다 커야 합니다');
+          if (k === 'q' && (!Number.isInteger(n) || n > 100000)) throw Error('개수는 1~100,000 정수입니다');
+          v[k] = n; inp[k].classList.remove('is-bad');
+          var plain = /^\d+(?:\.\d+)?$/.test(String(raw).trim());
+          el.textContent = plain ? '' : wdNum(n) + ' ' + f[2]; el.className = 'sim-ok';
+        } catch (e) {
+          inp[k].classList.add('is-bad'); el.textContent = '입력 확인'; el.className = 'sim-err-inline';
+          errs.push(f[1].split(' ')[0] + ': ' + e.message);
+        }
+      });
+      note.innerHTML = errs.length
+        ? '<b class="sim-err-inline">입력 확인</b> · ' + errs.map(esc).join(' / ') + '<br>오류가 남은 행은 집계·미리보기에서 빠지고, 인쇄·Excel·CSV 저장 전에 고치라는 안내가 나옵니다.'
+        : '발주서에는 계산식 대신 <b>' + wdNum(v.l) + ' × ' + wdNum(v.w) + '</b> · <b>' + wdNum(v.q) + '개</b>로 나옵니다. 계산식은 입력 칸과 작업 파일에 그대로 남습니다.';
+    }
+    F.forEach(function (f) { inp[f[0]].addEventListener('input', run); }); load(P[0]);
+  }
+
   /* ── 북마크 설치 단추: 누르면 실행 대신 안내, 코드 복사 ── */
   document.querySelectorAll('.bm-install').forEach(function (fig) {
     var a = fig.querySelector('[data-bm]'), msg = fig.querySelector('[data-bm-msg]'), btn = fig.querySelector('[data-bm-copy]');
@@ -524,11 +582,11 @@
       (navigator.clipboard && window.isSecureContext ? navigator.clipboard.writeText(v) : Promise.reject()).catch(fallback).then(function () { say('복사했습니다. 북마크 URL 칸에 붙여넣으세요.'); });
     });
   });
-  var SIMS = { 'pk-dates': pkDates, 'pk-count': pkCount, 'wo-dates': woDates, 'wo-partial': woPartial, 'lb-start': lbStart, 'lb-offset': lbOffset, 'lb-preview': lbPreview, 'pl-scale': plScale, 'pl-bump': plBump, 'pl-num': plNum, 'dr-date': drDate, 'dr-row': drRow, 'dr-cut': drCut, 'srm-range': srmRange };
+  var SIMS = { 'pk-dates': pkDates, 'pk-count': pkCount, 'wo-dates': woDates, 'wo-partial': woPartial, 'lb-start': lbStart, 'lb-offset': lbOffset, 'lb-preview': lbPreview, 'pl-scale': plScale, 'pl-bump': plBump, 'pl-num': plNum, 'dr-date': drDate, 'dr-row': drRow, 'dr-cut': drCut, 'srm-range': srmRange, 'wd-calc': wdCalcSim };
   document.querySelectorAll('.ik-sim[data-sim]').forEach(function (fig) {
     var fn = SIMS[fig.getAttribute('data-sim')], body = fig.querySelector('.ik-sim-body');
     if (!fn || !body) return;
     try { fn(body); fig.classList.add('is-ready'); } catch (err) { body.innerHTML = '<p class="sim-err">체험 화면을 불러오지 못했습니다.</p>'; }
   });
-  window.IKAN_SIM = { packCount: packCount, prevBiz: prevBiz, nextBiz: nextBiz };
+  window.IKAN_SIM = { wdCalc: wdCalc, packCount: packCount, prevBiz: prevBiz, nextBiz: nextBiz };
 })();

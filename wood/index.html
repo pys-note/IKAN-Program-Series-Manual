@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>목재계산 도우미 사용 설명서 v1.2.0</title>
+<meta name="description" content="도면을 보면서 작업번호·두께별 카드에 부재 치수와 개수를 계산식으로 입력하고, 작업번호별 발주서·동일 규격 합산표로 정리해 인쇄·PDF·Excel로 업체에 전달합니다.">
+<link rel="icon" href="../assets/icons/wood.svg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="../assets/ikan.css?v=f3586e40">
+</head>
+<body class="ik-app-wood">
+<a class="ik-skip" href="#main">본문 바로가기</a>
+<header class="ik-bar"><div class="ik-bar-in"><a class="ik-bar-home" href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg><span>매뉴얼 홈</span></a><i class="ik-bar-sep"></i><div class="ik-bar-title"><img class="ik-bar-icon" src="../assets/icons/wood.svg" alt=""><span><small>WOOD ORDER HELPER · USER MANUAL</small><b>목재계산 도우미</b></span></div><div class="ik-bar-tools"><span class="ik-bar-ver ik-bar-hide-s">v1.2.0</span><button class="ik-bar-btn ik-bar-hide-s" type="button" data-font="-1" aria-label="본문 글자 작게">가−</button><button class="ik-bar-btn ik-bar-hide-s" type="button" data-font="1" aria-label="본문 글자 크게">가+</button><button class="ik-bar-btn ik-bar-hide-s" type="button" data-print><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></svg>인쇄</button><details class="ik-apps"><summary class="ik-bar-btn" aria-label="다른 프로그램 매뉴얼"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.2"/></svg><span class="ik-bar-hide-s">다른 매뉴얼</span></summary><div class="ik-apps-menu"><a href="../index.html"><span style="display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--ik-navy);color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg></span><span><b>매뉴얼 홈</b><span>모든 프로그램 · 전체 검색</span></span></a><hr><a href="../workorders/index.html"><img src="../assets/icons/workorders.svg" alt=""><span><b>아이칸 작업지시서 관리자</b><span>0.24.16</span></span></a><a href="../plot/index.html"><img src="../assets/icons/plot.svg" alt=""><span><b>도면 확대 인쇄</b><span>v2.7</span></span></a><a href="../packing/index.html"><img src="../assets/icons/packing.png" alt=""><span><b>아이칸 포장 카운트</b><span>0.1.11</span></span></a><a href="../labels/index.html"><img src="../assets/icons/labels.svg" alt=""><span><b>아이칸 라벨 출력기</b><span>v2</span></span></a><a href="../daily/index.html"><img src="../assets/icons/daily.svg" alt=""><span><b>아이칸 일일기록정리</b><span>0.6.3</span></span></a><a href="../leave/index.html"><img src="../assets/icons/leave.svg" alt=""><span><b>아이칸 연차관리</b><span>0.5.1</span></span></a><a href="../srm/index.html"><img src="../assets/icons/srm.svg" alt=""><span><b>PO 상세수집</b><span>v1.1</span></span></a><a href="../wood/index.html" aria-current="page"><img src="../assets/icons/wood.svg" alt=""><span><b>목재계산 도우미</b><span>v1.2.0</span></span></a></div></details></div></div></header>
+<div class="ik-shell">
+<nav class="ik-toc" aria-label="목차"><details open id="toc-box"><summary>목차 · 이 매뉴얼에서 찾기</summary><div class="ik-find"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><label class="sr" for="find">이 매뉴얼에서 찾기</label><input id="find" type="search" placeholder="이 매뉴얼에서 찾기  /" autocomplete="off"></div><div class="ik-find-state" id="find-state" role="status" aria-live="polite"></div><div class="ik-toc-label">Contents · 17장</div><ol><li><a href="#1-이-도구로-하는-일"><span class="n">01</span><span>이 도구로 하는 일</span></a></li><li><a href="#2-실행과-첫-화면"><span class="n">02</span><span>실행과 첫 화면</span></a></li><li><a href="#3-화면-구성"><span class="n">03</span><span>화면 구성</span></a></li><li><a href="#4-빠른-시작--한-건을-발주서까지"><span class="n">04</span><span>빠른 시작 — 한 건을 발주서까지</span></a></li><li><a href="#5-작업-카드로-입력하기"><span class="n">05</span><span>작업 카드로 입력하기</span></a></li><li><a href="#6-부재-추가삭제와-계산식"><span class="n">06</span><span>부재 추가·삭제와 계산식</span></a></li><li><a href="#7-도면을-보면서-입력하기"><span class="n">07</span><span>도면을 보면서 입력하기</span></a></li><li><a href="#8-검색과-여러-행-붙여넣기"><span class="n">08</span><span>검색과 여러 행 붙여넣기</span></a></li><li><a href="#9-발주서-미리보기"><span class="n">09</span><span>발주서 미리보기</span></a></li><li><a href="#10-인쇄와-pdf-저장"><span class="n">10</span><span>인쇄와 PDF 저장</span></a></li><li><a href="#11-excel-저장과-csv-저장"><span class="n">11</span><span>Excel 저장과 CSV 저장</span></a></li><li><a href="#12-작업-저장열기와-자동-보관"><span class="n">12</span><span>작업 저장·열기와 자동 보관</span></a></li><li><a href="#13-엑셀-가져오기"><span class="n">13</span><span>엑셀 가져오기</span></a></li><li><a href="#14-단축키"><span class="n">14</span><span>단축키</span></a></li><li><a href="#15-기본-예시-자료"><span class="n">15</span><span>기본 예시 자료</span></a></li><li><a href="#16-할-수-있는-일과-없는-일"><span class="n">16</span><span>할 수 있는 일과 없는 일</span></a></li><li><a href="#17-자주-묻는-질문과-문제-해결"><span class="n">17</span><span>자주 묻는 질문과 문제 해결</span></a></li></ol><div class="ik-toc-foot">기준 버전 <b>v1.2.0</b> · 정리 2026-11-05<br>인터넷 없이도 이 페이지를 저장해 볼 수 있습니다.</div></details></nav>
+<main class="ik-sheet" id="main" data-manual="wood">
+<section class="ik-chapter is-first" id="cover"><div class="ik-cover"><img class="ik-cover-icon" src="../assets/icons/wood.svg" alt="목재계산 도우미 아이콘"><div><p class="ik-cover-kind">USER MANUAL · v1.2.0</p><h1 class="ik-cover-title">목재계산 도우미</h1><p class="ik-cover-meta"><span>도면을 보면서 작업번호·두께별 카드에 부재 치수와 개수를 계산식으로 입력하고, 작업번호별 발주서·동일 규격 합산표로 정리해 인쇄·PDF·Excel로 업체에 전달합니다.</span></p></div></div><ul class=ik-docinfo><li><b>기준 버전</b>v1.2.0</li><li><b>기준일</b>2026-11-05</li><li><b>실행</b>목재_발주_도우미_v1.2.html (Chrome·Edge)</li><li><b>필요</b>없음 (설치·로그인·인터넷 불필요)</li><li><b>성격</b>작업지시서 관리자와 별도인 독립 HTML 도구</li></ul><div class=ik-cover-intro><p><strong>목재계산 도우미</strong>는 브라우저에서 여는 HTML 파일 하나로 된 도구입니다. 화면 맨 위에는 <strong>목재 발주 도우미</strong>라고 나옵니다. 이 매뉴얼에서는 <strong>목재계산 도우미</strong>라고 부릅니다.</p><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>아이칸 작업지시서 관리자 안에 있는 메뉴가 아닙니다. 관리자 프로그램과 따로, <code>목재_발주_도우미_v1.2.html</code> 파일을 직접 열어 씁니다. 관리자의 <code>.ikanwork</code> 작업과도 연결되지 않습니다.</p>
+</div></div><div class=ik-quick><a href="#4-빠른-시작--한-건을-발주서까지"><b>처음 사용하는 분</b><small>한 건을 발주서까지 11단계</small></a><a href="#62-계산식-쓰기"><b>치수를 계산식으로</b><small>카드 입력과 계산식</small></a><a href="#10-인쇄와-pdf-저장"><b>업체에 보낼 때</b><small>인쇄·PDF·Excel 두 시트</small></a></div><div class="ik-div ik-div-dim" role="separator" aria-label="주식회사 아이칸"><i class="ik-div-tick"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M0 5 L12 0.8 V9.2 Z"/></svg><i class="ik-div-line"></i><span class="ik-div-label"><span class="ik-div-ko">주식회사 아이칸</span><span class="ik-div-en">IKAN CO., LTD.</span></span><i class="ik-div-line"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M12 5 L0 0.8 V9.2 Z"/></svg><i class="ik-div-tick"></i></div></section>
+<div id="find-empty" class="ik-empty" hidden><b>일치하는 장이 없습니다.</b>더 짧은 단어나 다른 표현으로 찾아보세요. 예: 싱크볼 → 씽크볼, 뒤턱 → 뒷턱</div>
+<section class="ik-chapter" id="1-이-도구로-하는-일" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 01</p><h1>이 도구로 하는 일</h1></header><p>도면에 그려진 목재 부재를 <strong>사람이 보고 판단해서</strong> 재단 치수와 개수를 넣으면, 이 도구가 계산하고 발주서와 합산표로 정리합니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>단계</th>
+<th>하는 일</th>
+<th>이 매뉴얼</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>도면 확인</td>
+<td>도면 PDF·사진을 입력 화면 옆에 띄웁니다.</td>
+<td>7장</td>
+</tr>
+<tr>
+<td>작업 세트 만들기</td>
+<td>작업번호·두께별로 입력 카드를 만듭니다.</td>
+<td>4~5장</td>
+</tr>
+<tr>
+<td>부재 입력</td>
+<td>①②③ 부재마다 길이·폭·개수를 넣습니다. 계산식을 써도 됩니다.</td>
+<td>5~6장</td>
+</tr>
+<tr>
+<td>출력 확인</td>
+<td>작업번호별 발주서 또는 동일 규격 합산표로 봅니다.</td>
+<td>9장</td>
+</tr>
+<tr>
+<td>업체 전달</td>
+<td>인쇄·PDF 또는 Excel(발주서·합산표 두 시트)로 만듭니다.</td>
+<td>10~11장</td>
+</tr>
+<tr>
+<td>작업 보관</td>
+<td><code>.wood.json</code> 작업 파일로 저장해 다시 고칠 수 있게 둡니다.</td>
+<td>12장</td>
+</tr>
+</tbody>
+</table></div><p>길이·폭 칸에 <code>50+697+50+800+50</code>처럼 계산식을 넣을 수 있어서, 계산기로 따로 계산해 옮겨 적지 않아도 됩니다. 계산식은 작업 파일에 남고, 발주서에는 계산된 숫자만 나옵니다.</p><div class="ik-note is-caution"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 3 2.5 20h19z"></path><path d="M12 10v4M12 17h.01"></path></svg>주의</p>
+<p>도면을 자동으로 읽는 기능은 없습니다. 어느 부재가 몇 mm인지는 사람이 정합니다. 원자재 본수, 원장 배치, 로스율도 계산하지 않습니다(16장).</p>
+</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-next" href="#2-실행과-첫-화면"><small>다음 장 02 →</small><b>실행과 첫 화면</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="2-실행과-첫-화면" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 02</p><h1>실행과 첫 화면</h1></header><h2 id="21-실행하기">2.1 실행하기</h2><ol class="ik-steps is-plain"><li><div><p>배포 ZIP을 받았다면 압축을 풉니다.</p></div></li><li><div><p><code>목재_발주_도우미_v1.2.html</code>을 <strong>Chrome</strong> 또는 <strong>Edge</strong>로 엽니다. 더블클릭해서 다른 프로그램이 열리면 파일을 브라우저 창으로 끌어다 놓습니다.</p></div></li><li><div><p>설치·로그인이 없고 인터넷도 필요하지 않습니다.</p></div></li></ol><h2 id="22-처음-열면-들어-있는-예시-자료">2.2 처음 열면 들어 있는 예시 자료</h2><p>배포본에는 원본 엑셀 <code>목재계산_정리_원본형식_v2.xlsx</code>에서 가져온 <strong>103품목·194개</strong>가 예시로 들어 있습니다(26T·18T). 이 숫자는 예시 자료의 값일 뿐 정해진 값이 아닙니다.</p><p>새 발주서를 만들 때는 <span class="ik-ui">새 작업</span>을 누릅니다. 예시 자료는 15장을 보세요.</p><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>한 번 고친 뒤에는 브라우저에 자동 보관된 자료가 열립니다(12.3). 처음 예시 자료가 아니라 마지막으로 작업하던 내용이 보이는 것이 정상입니다.</p>
+</div><figure class="ik-shot" id="shot-wd_01_sample"><div class="ik-shot-frame" style="aspect-ratio:1600/1000;max-width:1600px"><img alt="목재계산 도우미 v1.2.0을 처음 열었을 때 화면. 예시 자료 103품목이 카드 3열로 보임" decoding="async" height="1000" loading="lazy" src="../assets/shots/wood/wd_01_sample.webp" width="1600"/><button aria-label="1번 상단 집계" class="ik-pin" data-pin="1" style="left:2.06%;top:28.40%" type="button">1</button><button aria-label="2번 미지정 카드" class="ik-pin" data-pin="2" style="left:5.12%;top:56.90%" type="button">2</button><button aria-label="3번 새 작업" class="ik-pin" data-pin="3" style="left:68.94%;top:6.60%" type="button">3</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">처음 열었을 때(배포본 예시 자료 103품목·194개). 맨 앞 카드가 작업번호 미지정인 3품목입니다. 새 발주서는 [새 작업]으로 시작합니다. 리눅스에서 찍어 글꼴이 Windows 화면과 조금 다릅니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>상단 집계</b>작업번호 23 · 품목 103 · 194개 · 총 길이 m. 예시 자료의 값입니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>미지정 카드</b>원본에 작업번호가 없던 3품목. 실제로 쓸 때 맞는 작업번호로 고칩니다.</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>새 작업</b>확인 후 빈 작업으로 시작합니다. 제목은 목재 발주서, 발주일은 오늘.</span></li></ol></figure><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#1-이-도구로-하는-일"><small>← 앞 장 01</small><b>이 도구로 하는 일</b></a><a class="is-next" href="#3-화면-구성"><small>다음 장 03 →</small><b>화면 구성</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="3-화면-구성" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 03</p><h1>화면 구성</h1></header><figure class="ik-shot" id="shot-wd_02_main"><div class="ik-shot-frame" style="aspect-ratio:1600/1000;max-width:1600px"><img alt="목재계산 도우미 치수 입력 화면. 문서 정보, 집계, 탭, 도구 막대, 작업번호별 입력 카드 3열" decoding="async" height="1000" loading="lazy" src="../assets/shots/wood/wd_02_main.webp" width="1600"/><button aria-label="1번 상단 메뉴" class="ik-pin" data-pin="1" style="left:66.38%;top:4.80%" type="button">1</button><button aria-label="2번 문서 정보" class="ik-pin" data-pin="2" style="left:2.50%;top:16.00%" type="button">2</button><button aria-label="3번 상단 집계" class="ik-pin" data-pin="3" style="left:2.50%;top:26.80%" type="button">3</button><button aria-label="4번 자동 보관 표시" class="ik-pin" data-pin="4" style="left:89.25%;top:26.80%" type="button">4</button><button aria-label="5번 탭" class="ik-pin" data-pin="5" style="left:2.00%;top:32.20%" type="button">5</button><button aria-label="6번 검색" class="ik-pin" data-pin="6" style="left:2.25%;top:38.80%" type="button">6</button><button aria-label="7번 작업 세트 추가" class="ik-pin" data-pin="7" style="left:14.75%;top:38.80%" type="button">7</button><button aria-label="8번 행 추가 · 선택 삭제 · 되돌리기" class="ik-pin" data-pin="8" style="left:22.88%;top:38.80%" type="button">8</button><button aria-label="9번 도면 PDF / 사진 보기" class="ik-pin" data-pin="9" style="left:69.25%;top:38.80%" type="button">9</button><button aria-label="10번 붙여넣기 · Excel · CSV" class="ik-pin" data-pin="10" style="left:79.12%;top:38.80%" type="button">10</button><button aria-label="11번 간단 계산" class="ik-pin" data-pin="11" style="left:2.12%;top:47.40%" type="button">11</button><button aria-label="12번 작업번호 · 두께" class="ik-pin" data-pin="12" style="left:5.00%;top:55.00%" type="button">12</button><button aria-label="13번 부재 번호" class="ik-pin" data-pin="13" style="left:1.25%;top:65.00%" type="button">13</button><button aria-label="14번 계산 결과" class="ik-pin" data-pin="14" style="left:12.25%;top:70.20%" type="button">14</button><button aria-label="15번 메모 · + 부재 추가" class="ik-pin" data-pin="15" style="left:27.25%;top:86.60%" type="button">15</button><button aria-label="16번 같은 작업번호, 다른 두께" class="ik-pin" data-pin="16" style="left:69.75%;top:54.80%" type="button">16</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">치수 입력 화면 (가상 예시 작업). 번호를 누르면 아래 설명이 강조됩니다. 리눅스에서 찍어 글꼴이 Windows 화면과 조금 다릅니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>상단 메뉴</b><span class="ik-ui">새 작업</span> · <span class="ik-ui">작업 열기</span> · <span class="ik-ui">작업 저장</span> · <span class="ik-ui">엑셀 가져오기</span> · <span class="ik-ui">발주서 인쇄 / PDF</span>.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>문서 정보</b>문서 제목 · 발주일 · 받는 업체 · 전달 메모. 발주서 머리와 아래쪽에 나옵니다.</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>상단 집계</b>작업번호 수 · 품목(행) 수 · 개수 합계 · 총 길이 m(참고값). 오류 행은 개수·총 길이에서 빠집니다.</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>자동 보관 표시</b>고친 내용이 이 브라우저에 자동 보관됩니다. 장기 보관은 <span class="ik-ui">작업 저장</span>으로.</span></li><li data-pin="5"><span class="ik-pin-n">5</span><span><b>탭</b><span class="ik-ui">치수 입력</span> · <span class="ik-ui">발주서 미리보기</span> · <span class="ik-ui">사용방법</span>.</span></li><li data-pin="6"><span class="ik-pin-n">6</span><span><b>검색</b>작업번호·메모로 입력 화면만 좁힙니다. 발주서·Excel·CSV는 늘 전체 자료.</span></li><li data-pin="7"><span class="ik-pin-n">7</span><span><b>작업 세트 추가</b>새 카드를 만듭니다. 임시 이름 `새 작업 1`을 실제 작업번호로 고칩니다.</span></li><li data-pin="8"><span class="ik-pin-n">8</span><span><b>행 추가 · 선택 삭제 · 되돌리기</b>되돌리기는 최대 30단계. 다시 실행 버튼은 없습니다.</span></li><li data-pin="9"><span class="ik-pin-n">9</span><span><b>도면 PDF / 사진 보기</b>도면을 카드 오른쪽에 띄웁니다(7장).</span></li><li data-pin="10"><span class="ik-pin-n">10</span><span><b>붙여넣기 · Excel · CSV</b><span class="ik-ui">여러 행 붙여넣기</span> · <span class="ik-ui">Excel 저장</span>(발주서·합산표 두 시트) · <span class="ik-ui">CSV 저장</span>.</span></li><li data-pin="11"><span class="ik-pin-n">11</span><span><b>간단 계산</b>따로 쓰는 계산기. 결과가 부재 목록에 들어가지 않습니다.</span></li><li data-pin="12"><span class="ik-pin-n">12</span><span><b>작업번호 · 두께</b>카드 위쪽에서 한 번 입력. 고치면 그 카드의 부재 전체가 바뀝니다.</span></li><li data-pin="13"><span class="ik-pin-n">13</span><span><b>부재 번호</b>①②③은 카드 안의 지금 순서입니다. 지우면 다시 매겨집니다.</span></li><li data-pin="14"><span class="ik-pin-n">14</span><span><b>계산 결과</b>계산식을 넣으면 칸 아래에 결과가 나옵니다. 계산식은 그대로 남습니다.</span></li><li data-pin="15"><span class="ik-pin-n">15</span><span><b>메모 · + 부재 추가</b><span class="ik-ui">메모</span>는 이 카드의 빈 메모 칸을 펼칩니다(내용이 있는 메모는 늘 보임). <span class="ik-ui">+ 부재 추가</span>는 카드 끝에 한 줄을 더하며 작업번호·두께·폭을 이어받습니다.</span></li><li data-pin="16"><span class="ik-pin-n">16</span><span><b>같은 작업번호, 다른 두께</b>2611-001이라도 18T는 별도 카드입니다.</span></li></ol></figure><h2 id="31-상단-메뉴">3.1 상단 메뉴</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>버튼</th>
+<th>하는 일</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="ik-ui">새 작업</span></td>
+<td>한 번 확인한 뒤 빈 작업을 시작합니다. 문서 제목은 <code>목재 발주서</code>, 발주일은 오늘이 됩니다.</td>
+</tr>
+<tr>
+<td><span class="ik-ui">작업 열기</span></td>
+<td>저장해 둔 <code>.wood.json</code> 작업 파일을 엽니다. 지금 목록을 바꾸기 전에 확인합니다.</td>
+</tr>
+<tr>
+<td><span class="ik-ui">작업 저장</span></td>
+<td>문서 정보·품목·계산식을 <code>.wood.json</code> 파일로 내려받습니다.</td>
+</tr>
+<tr>
+<td><span class="ik-ui">엑셀 가져오기</span></td>
+<td>지원하는 XLSX·CSV·TSV에서 품목을 읽어 옵니다(13장).</td>
+</tr>
+<tr>
+<td><span class="ik-ui">발주서 인쇄 / PDF</span></td>
+<td>지금 고른 출력 양식으로 브라우저 인쇄 창을 엽니다(10장).</td>
+</tr>
+</tbody>
+</table></div><h2 id="32-문서-정보">3.2 문서 정보</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>칸</th>
+<th>뜻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>문서 제목</td>
+<td>발주서 맨 위 제목입니다.</td>
+</tr>
+<tr>
+<td>발주일</td>
+<td>발주서에 찍히는 날짜입니다.</td>
+</tr>
+<tr>
+<td>받는 업체</td>
+<td>전달할 업체명입니다. 발주서에 <code>받는 곳</code>으로 나옵니다.</td>
+</tr>
+<tr>
+<td>전달 메모</td>
+<td>납기·배송 같은 공통 메모입니다. 발주서 아래에 나옵니다.</td>
+</tr>
+</tbody>
+</table></div><h2 id="33-상단-집계">3.3 상단 집계</h2><ul>
+<li><strong>작업번호:</strong> 서로 다른 작업번호가 몇 개인지</li>
+<li><strong>품목:</strong> 입력한 부재 행 수</li>
+<li><strong>개:</strong> 오류 없는 품목의 개수 합계</li>
+<li><strong>총 길이 m:</strong> 품목마다 <code>길이 × 개수</code>를 더해 m로 바꾼 참고값</li>
+</ul><div class="ik-note is-caution"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 3 2.5 20h19z"></path><path d="M12 10v4M12 17h.01"></path></svg>주의</p>
+<p>입력 오류가 있는 행은 개·총 길이에서 빠집니다. 오류가 남아 있을 때의 집계를 최종 발주량으로 쓰지 마세요. 총 길이는 참고값이며 발주 수량을 대신하지 않습니다.</p>
+</div><h2 id="34-탭">3.4 탭</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>탭</th>
+<th>쓰는 곳</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="ik-ui">치수 입력</span></td>
+<td>작업번호별 카드에서 부재를 넣고 고칩니다.</td>
+</tr>
+<tr>
+<td><span class="ik-ui">발주서 미리보기</span></td>
+<td>작업번호별 발주서나 동일 규격 합산표를 확인합니다.</td>
+</tr>
+<tr>
+<td><span class="ik-ui">사용방법</span></td>
+<td>프로그램 안의 짧은 안내입니다.</td>
+</tr>
+</tbody>
+</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#2-실행과-첫-화면"><small>← 앞 장 02</small><b>실행과 첫 화면</b></a><a class="is-next" href="#4-빠른-시작--한-건을-발주서까지"><small>다음 장 04 →</small><b>빠른 시작 — 한 건을 발주서까지</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="4-빠른-시작--한-건을-발주서까지" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 04</p><h1>빠른 시작 — 한 건을 발주서까지</h1></header><ol class="ik-steps is-plain"><li><div><p>기존 작업을 고치려면 <span class="ik-ui">작업 열기</span>, 새로 만들려면 <span class="ik-ui">새 작업</span>을 누릅니다.</p></div></li><li><div><p>문서 제목·발주일·받는 업체·전달 메모를 넣습니다.</p></div></li><li><div><p>필요하면 <span class="ik-ui">도면 PDF / 사진 보기</span>로 도면을 옆에 띄웁니다(7장).</p></div></li><li><div><p><span class="ik-ui">+ 작업 세트 추가</span>를 눌러 카드를 만듭니다.</p></div></li><li><div><p>카드 위쪽에 <strong>작업번호</strong>와 <strong>두께</strong>를 넣습니다.</p></div></li><li><div><p>도면의 ①, ②, ③ 부재를 보면서 <strong>길이·폭·개수</strong>를 넣습니다.</p></div></li><li><div><p>같은 작업의 다음 부재는 카드 아래 <span class="ik-ui">+ 부재 추가</span>로 넣습니다.</p></div></li><li><div><p>빨간 입력 오류 안내가 보이면 고칩니다(6.3).</p></div></li><li><div><p><span class="ik-ui">발주서 미리보기</span>에서 작업번호별 발주서와 합산표를 확인합니다.</p></div></li><li><div><p><span class="ik-ui">발주서 인쇄 / PDF</span> 또는 <span class="ik-ui">Excel 저장</span>으로 업체에 보낼 자료를 만듭니다.</p></div></li><li><div><p><span class="ik-ui">작업 저장</span>으로 다시 고칠 때 쓸 <code>.wood.json</code> 파일을 따로 보관합니다.</p></div></li></ol><div class="ik-note is-tip"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.9V16h5v-.2c0-.8.4-1.5 1-1.9A6 6 0 0 0 12 3z"></path></svg>팁</p>
+<p>업체에 보내는 파일(PDF·Excel)과 나중에 다시 고칠 파일(<code>.wood.json</code>)은 다릅니다. 둘 다 저장해 두세요(12.1).</p>
+</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#3-화면-구성"><small>← 앞 장 03</small><b>화면 구성</b></a><a class="is-next" href="#5-작업-카드로-입력하기"><small>다음 장 05 →</small><b>작업 카드로 입력하기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="5-작업-카드로-입력하기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 05</p><h1>작업 카드로 입력하기</h1></header><h2 id="51-카드가-묶이는-기준">5.1 카드가 묶이는 기준</h2><p>입력 카드 하나는 <strong>작업번호와 두께가 같은 행</strong>의 묶음입니다. 같은 작업번호라도 26T와 18T가 있으면 카드가 두 장입니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>고치는 곳</th>
+<th>바뀌는 범위</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>카드 위쪽의 작업번호·두께</td>
+<td>그 카드에 든 <strong>부재 전체</strong></td>
+</tr>
+<tr>
+<td>부재 줄의 길이·폭·개수</td>
+<td>그 <strong>부재 한 줄</strong>만</td>
+</tr>
+</tbody>
+</table></div><div class="ik-note is-caution"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 3 2.5 20h19z"></path><path d="M12 10v4M12 17h.01"></path></svg>주의</p>
+<p>카드 위쪽의 작업번호나 두께를 다른 카드와 같게 고치면 두 카드가 하나로 합쳐져 보입니다. 부재 하나만 다른 두께로 옮기는 칸은 없습니다. 이때는 그 부재를 지우고 맞는 카드에 다시 넣으세요.</p>
+</div><h2 id="52-카드-안의-칸">5.2 카드 안의 칸</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>칸</th>
+<th>넣는 법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>작업번호</td>
+<td>카드 위쪽. 숫자가 아니어도 됩니다(예: <code>2611-001</code>).</td>
+</tr>
+<tr>
+<td>두께 T</td>
+<td>카드 위쪽. <code>26</code>, <code>18</code>처럼 숫자만 넣습니다. T는 화면이 붙여 줍니다.</td>
+</tr>
+<tr>
+<td>부재</td>
+<td>①~⑳, 21번째부터 <code>(21)</code>처럼 표시됩니다. 직접 넣는 칸이 아닙니다.</td>
+</tr>
+<tr>
+<td>길이 / 계산식</td>
+<td>mm 길이 또는 계산식</td>
+</tr>
+<tr>
+<td>폭</td>
+<td>mm 폭 또는 계산식</td>
+</tr>
+<tr>
+<td>개수</td>
+<td>양의 정수 또는 결과가 양의 정수인 계산식(예: <code>3*2</code>)</td>
+</tr>
+<tr>
+<td>메모</td>
+<td>부재별 선택 입력. 카드 아래 <span class="ik-ui">메모</span> 버튼으로 빈 메모 칸을 펼칩니다. 내용이 있는 메모는 항상 보입니다.</td>
+</tr>
+</tbody>
+</table></div><p>카드 아래 왼쪽에는 그 카드의 <code>품목 수 · 개수 합계</code>가 나옵니다.</p><h2 id="53-부재-번호는-지금-순서입니다">5.3 부재 번호는 지금 순서입니다</h2><p>①②③은 카드 안에서 <strong>지금 몇 번째 줄인지</strong>를 나타냅니다. 부재를 지우면 남은 줄의 번호가 다시 매겨집니다. 도면 번호와 맞추려면 도면 순서대로 넣으세요.</p><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>입력 화면은 ①②③처럼 동그라미 번호이고, 발주서 표의 No.는 1·2·3입니다.</p>
+</div><h2 id="54-화면-폭에-따른-배치">5.4 화면 폭에 따른 배치</h2><p>넓은 화면은 카드 3개, 중간 폭은 2개, 좁은 화면은 1개씩 가로로 놓입니다. 도면을 옆에 띄워 입력 칸이 좁아지면 저절로 줄어듭니다. 열 수를 고르는 버튼은 없습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#4-빠른-시작--한-건을-발주서까지"><small>← 앞 장 04</small><b>빠른 시작 — 한 건을 발주서까지</b></a><a class="is-next" href="#6-부재-추가삭제와-계산식"><small>다음 장 06 →</small><b>부재 추가·삭제와 계산식</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="6-부재-추가삭제와-계산식" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 06</p><h1>부재 추가·삭제와 계산식</h1></header><h2 id="61-추가삭제되돌리기">6.1 추가·삭제·되돌리기</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>버튼</th>
+<th>하는 일</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="ik-ui">+ 작업 세트 추가</span></td>
+<td>새 카드를 만듭니다. 이름은 <code>새 작업 1</code> 같은 임시 이름이므로 실제 작업번호로 고칩니다. 빈 부재 한 줄이 함께 생깁니다.</td>
+</tr>
+<tr>
+<td>카드의 <span class="ik-ui">+ 부재 추가</span></td>
+<td>그 카드 마지막 부재 뒤에 줄을 더합니다. 작업번호·두께와 마지막 부재의 폭을 이어받고, 길이는 빈칸, 개수는 1입니다.</td>
+</tr>
+<tr>
+<td>위쪽 <span class="ik-ui">+ 행 추가</span></td>
+<td>체크한 행 가운데 목록상 마지막 행(체크가 없으면 전체 마지막 행)의 작업번호·두께·폭을 이어받습니다. 원하는 작업에 넣을 때는 카드의 <span class="ik-ui">+ 부재 추가</span>가 더 확실합니다.</td>
+</tr>
+<tr>
+<td>부재 오른쪽 <strong>×</strong></td>
+<td>그 부재 한 줄을 지웁니다.</td>
+</tr>
+<tr>
+<td>행 체크 + <span class="ik-ui">선택 삭제</span></td>
+<td>체크한 부재를 한꺼번에 지웁니다. 카드 위쪽 체크는 그 카드에 보이는 부재를 모두 체크합니다.</td>
+</tr>
+<tr>
+<td><span class="ik-ui">되돌리기</span></td>
+<td>최근 편집·추가·삭제·불러오기를 최대 30단계까지 되돌립니다. 다시 실행 버튼은 없습니다.</td>
+</tr>
+</tbody>
+</table></div><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>행 체크는 지우기용입니다. 체크한 품목만 골라 인쇄하는 기능은 없습니다. 발주서에는 언제나 전체 품목이 나옵니다.</p>
+</div><h2 id="62-계산식-쓰기">6.2 계산식 쓰기</h2><p>길이·폭·개수(두께도) 칸에 계산식을 넣으면 칸 아래에 결과가 작게 나옵니다. 계산식은 그대로 남아서 언제든 고칠 수 있습니다. 숫자만 넣으면 아래 결과는 나오지 않습니다.</p><ul>
+<li>쓸 수 있는 것: <code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>( )</code>, 소수</li>
+<li>곱하기는 <code>×</code>, 나누기는 <code>÷</code>로 써도 됩니다.</li>
+<li>Excel 셀 주소(<code>A1</code>)나 <code>SUM</code> 같은 함수는 쓸 수 없습니다.</li>
+</ul><div class="ik-table"><table>
+<thead>
+<tr>
+<th>입력</th>
+<th style="text-align: right;">결과</th>
+<th>예</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>50+697+50+800+50</code></td>
+<td style="text-align: right;">1,647</td>
+<td>도면의 여러 구간 더하기</td>
+</tr>
+<tr>
+<td><code>930-50-50</code></td>
+<td style="text-align: right;">830</td>
+<td>전체 길이에서 양쪽 빼기</td>
+</tr>
+<tr>
+<td><code>(390+50)*2</code></td>
+<td style="text-align: right;">880</td>
+<td>괄호와 곱하기</td>
+</tr>
+<tr>
+<td><code>3*2</code></td>
+<td style="text-align: right;">6</td>
+<td>개수 칸에서</td>
+</tr>
+</tbody>
+</table></div><div class="ik-example"><span class="ik-example-tag">예시</span>
+<p>예: 위 계산식은 사용법을 보여 주는 예입니다. 어떤 구간을 더하고 뺄지는 도면마다 사람이 정합니다. 모든 도면에 맞는 목재 설계 공식이 아닙니다.</p>
+</div><p>위쪽 <strong>간단 계산</strong> 칸은 따로 쓰는 계산기입니다. 여기 결과는 부재 목록에 들어가지 않습니다. 발주할 치수는 카드의 칸에 넣으세요.</p><figure class="ik-shot is-small" id="shot-wd_03_card"><div class="ik-shot-frame" style="aspect-ratio:527/489;max-width:527px"><img alt="입력 카드 하나. 계산식 아래 결과 1,647 mm, 830 mm, 오류 칸 760+ 아래 입력 확인" decoding="async" height="489" loading="lazy" src="../assets/shots/wood/wd_03_card.webp" width="527"/><button aria-label="1번 입력 확인 띠" class="ik-pin" data-pin="1" style="left:95.83%;top:6.13%" type="button">1</button><button aria-label="2번 계산 결과" class="ik-pin" data-pin="2" style="left:28.46%;top:44.99%" type="button">2</button><button aria-label="3번 오류 칸" class="ik-pin" data-pin="3" style="left:49.72%;top:83.84%" type="button">3</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">계산식과 결과, 오류 표시. 쓰다 만 계산식(`760+`)은 칸이 붉어지고 위쪽 띠에 오류 행이 나옵니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>입력 확인 띠</b>오류 행 수와 내용(작업번호 · 칸 · 이유)이 나옵니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>계산 결과</b>`50+697+50+800+50` → 1,647 mm</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>오류 칸</b>고치면 바로 사라집니다. 오류가 남아 있으면 인쇄·Excel·CSV 저장 전에 안내합니다.</span></li></ol></figure><!-- 직접 해 보기: 목재계산 도우미 치수 계산식 (동작은 assets/sims.js wd-calc) -->
+<figure class="ik-sim" data-sim="wd-calc">
+<div class="ik-sim-head"><span class="ik-sim-tag">직접 해 보기</span><b>부재 한 줄에 계산식 넣어 보기</b><small>길이·폭·개수 칸에 계산식을 넣으면 도우미 v1.2.0과 같은 규칙으로 결과와 입력 확인을 보여 줍니다.</small></div>
+<div class="ik-sim-body" data-noindex=""><p class="sim-nojs">이 체험은 스크립트가 켜진 브라우저에서 동작합니다.</p></div>
+<figcaption>화면 안에서만 계산하는 연습용입니다. 실제 도우미의 작업에는 영향이 없습니다.</figcaption>
+</figure>
+<h2 id="63-입력-오류">6.3 입력 오류</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>기준</th>
+<th>오류가 되는 경우</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>작업번호</td>
+<td>비어 있을 때</td>
+</tr>
+<tr>
+<td>두께·길이·폭</td>
+<td>0이거나 음수일 때</td>
+</tr>
+<tr>
+<td>개수</td>
+<td>정수가 아니거나 1~100,000 밖일 때</td>
+</tr>
+<tr>
+<td>계산식</td>
+<td>0으로 나누기, 괄호가 맞지 않음, 쓸 수 없는 글자, 250자 넘음</td>
+</tr>
+</tbody>
+</table></div><p>오류가 있는 칸은 붉게 바뀌고 아래에 <code>입력 확인</code>이 나옵니다. 계산식 위쪽의 붉은 띠에는 오류 행 수와 내용이 나옵니다. <code>760+</code>처럼 계산식을 아직 다 쓰지 않았을 때도 잠깐 오류로 보입니다.</p><div class="ik-note is-caution"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 3 2.5 20h19z"></path><path d="M12 10v4M12 17h.01"></path></svg>주의</p>
+<p>오류가 남아 있으면 <span class="ik-ui">발주서 인쇄 / PDF</span>, <span class="ik-ui">Excel 저장</span>, <span class="ik-ui">CSV 저장</span>을 누를 때 먼저 고치라고 안내합니다. 미리보기에서는 오류 행이 빠져 보일 수 있으니, 오류를 모두 고친 뒤 품목 수를 확인하세요.</p>
+</div><p>계산 결과는 소수 8자리 정도까지 다룹니다. 아주 긴 소수까지 정확히 맞추는 계산기는 아닙니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#5-작업-카드로-입력하기"><small>← 앞 장 05</small><b>작업 카드로 입력하기</b></a><a class="is-next" href="#7-도면을-보면서-입력하기"><small>다음 장 07 →</small><b>도면을 보면서 입력하기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="7-도면을-보면서-입력하기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 07</p><h1>도면을 보면서 입력하기</h1></header><figure class="ik-shot" id="shot-wd_04_reference"><div class="ik-shot-frame" style="aspect-ratio:1600/1000;max-width:1600px"><img alt="입력 카드 오른쪽에 참고 도면 이미지가 열린 화면. 카드가 2열로 줄어듦" decoding="async" height="1000" loading="lazy" src="../assets/shots/wood/wd_04_reference.webp" width="1600"/><button aria-label="1번 참고 도면" class="ik-pin" data-pin="1" style="left:56.56%;top:53.50%" type="button">1</button><button aria-label="2번 닫기" class="ik-pin" data-pin="2" style="left:70.12%;top:53.50%" type="button">2</button><button aria-label="3번 카드 배치" class="ik-pin" data-pin="3" style="left:29.25%;top:52.30%" type="button">3</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">도면을 옆에 띄운 화면 (매뉴얼용 가상 도면). 입력 칸이 좁아져 카드가 2열이 되었습니다. 리눅스에서 찍어 글꼴이 Windows 화면과 조금 다릅니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>참고 도면</b>고른 파일 이름이 나옵니다. 도면은 작업 파일에 저장되지 않습니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>닫기</b>도면 칸을 접습니다.</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>카드 배치</b>도면 칸만큼 좁아지면 3열 → 2열 → 1열로 저절로 바뀝니다.</span></li></ol></figure><ol class="ik-steps is-plain"><li><div><p><span class="ik-ui">도면 PDF / 사진 보기</span>를 누릅니다.</p></div></li><li><div><p>참고할 PDF나 사진 파일을 고릅니다.</p></div></li><li><div><p>입력 카드 오른쪽에 도면이 나오고, <strong>참고 도면</strong> 옆에 파일 이름이 나옵니다.</p></div></li><li><div><p>도면의 부재 번호와 카드의 ①②③을 맞춰 가며 치수를 넣습니다.</p></div></li><li><div><p>다 보면 <span class="ik-ui">닫기</span>로 도면 칸을 접습니다.</p></div></li></ol><p>PDF 확대·쪽 넘기기는 브라우저의 PDF 보기 기능을 씁니다. 화면이 좁으면 도면 칸이 카드 아래로 내려갈 수 있습니다.</p><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>도면은 사람이 보는 참고용입니다. 선·번호·형광 표시를 읽어 치수를 계산하지 않으며, 도면 원본도 바꾸지 않습니다. 도면 파일은 작업 파일에 저장되지 않으므로 다음에 열 때 다시 고릅니다.</p>
+</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#6-부재-추가삭제와-계산식"><small>← 앞 장 06</small><b>부재 추가·삭제와 계산식</b></a><a class="is-next" href="#8-검색과-여러-행-붙여넣기"><small>다음 장 08 →</small><b>검색과 여러 행 붙여넣기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="8-검색과-여러-행-붙여넣기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 08</p><h1>검색과 여러 행 붙여넣기</h1></header><h2 id="81-작업번호메모-검색">8.1 작업번호·메모 검색</h2><p><strong>작업번호 / 메모</strong> 검색 칸에 글자를 넣으면 입력 화면에 맞는 행만 보입니다.</p><ul>
+<li>검색 중에도 부재 번호는 그 작업 안의 원래 순서대로 나옵니다.</li>
+<li>검색 중 카드 위쪽 체크는 지금 보이는 행만 체크합니다.</li>
+</ul><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>검색은 입력 화면만 좁힙니다. 발주서·Excel·CSV에는 언제나 <strong>전체 자료</strong>가 나옵니다.</p>
+</div><h2 id="82-excel에서-여러-행-붙여넣기">8.2 Excel에서 여러 행 붙여넣기</h2><figure class="ik-shot" id="shot-wd_05_paste"><div class="ik-shot-frame" style="aspect-ratio:920/460;max-width:920px"><img alt="여러 행 붙여넣기 창. 제목 줄과 두 줄의 품목이 붙여넣어져 있음" decoding="async" height="460" loading="lazy" src="../assets/shots/wood/wd_05_paste.webp" width="920"/><button aria-label="1번 붙여넣는 곳" class="ik-pin" data-pin="1" style="left:3.26%;top:21.74%" type="button">1</button><button aria-label="2번 목록에 추가" class="ik-pin" data-pin="2" style="left:5.43%;top:80.87%" type="button">2</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">여러 행 붙여넣기 창. 첫 줄의 `작업번호` 제목 줄은 건너뛰고, 계산식(`930-50-50`)도 그대로 들어갑니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>붙여넣는 곳</b>작업번호 → 두께 → 길이 → 폭 → 개수 → 메모 순서, 탭으로 구분.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>목록에 추가</b>지금 목록 뒤에 더합니다. 틀린 줄이 있으면 아래에 줄 번호가 나옵니다.</span></li></ol></figure><ol class="ik-steps is-plain"><li><div><p><span class="ik-ui">여러 행 붙여넣기</span>를 누릅니다.</p></div></li><li><div><p>Excel에서 아래 순서의 열을 복사해 붙여넣습니다.</p></div></li><li><div><p><span class="ik-ui">목록에 추가</span>를 누릅니다.</p></div></li></ol><div class="ik-table"><table>
+<thead>
+<tr>
+<th>열</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>항목</td>
+<td>작업번호</td>
+<td>두께</td>
+<td>길이</td>
+<td>폭</td>
+<td>개수</td>
+<td>메모(선택)</td>
+</tr>
+<tr>
+<td>예</td>
+<td>2110603</td>
+<td>26</td>
+<td>390</td>
+<td>50</td>
+<td>2</td>
+<td></td>
+</tr>
+</tbody>
+</table></div><ul>
+<li>Excel에서 복사하면 열은 탭으로 나뉩니다.</li>
+<li>첫 줄이 <code>작업번호</code>로 시작하는 제목 줄이면 건너뜁니다.</li>
+<li>계산식도 붙여넣을 수 있습니다. 두께 뒤의 <code>T</code>는 지웁니다.</li>
+<li>붙여넣은 줄을 모두 검사한 뒤 넣습니다. 한 줄이라도 틀리면 창 아래에 몇 번째 줄인지 나오며, 고쳐서 다시 누릅니다.</li>
+</ul><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>붙여넣기는 지금 목록 <strong>뒤에 더합니다</strong>. 13장의 <span class="ik-ui">엑셀 가져오기</span>는 목록을 <strong>바꿉니다</strong>.</p>
+</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#7-도면을-보면서-입력하기"><small>← 앞 장 07</small><b>도면을 보면서 입력하기</b></a><a class="is-next" href="#9-발주서-미리보기"><small>다음 장 09 →</small><b>발주서 미리보기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="9-발주서-미리보기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 09</p><h1>발주서 미리보기</h1></header><h2 id="91-출력-양식">9.1 출력 양식</h2><p><span class="ik-ui">발주서 미리보기</span> 탭의 <strong>출력 양식</strong>에서 고릅니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>양식</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>작업번호별 발주서</td>
+<td>두께별로 나누고, 작업번호마다 카드에 No.·길이 × 폭·개수를 보여 줍니다. 카드 제목 줄에 작업번호와 그 작업의 개수 합계가 나옵니다.</td>
+</tr>
+<tr>
+<td>동일 규격 합산표</td>
+<td>두께·길이·폭이 같은 품목을 합쳐 개수와 관련 작업번호를 보여 줍니다.</td>
+</tr>
+</tbody>
+</table></div><p>발주서 위쪽에는 문서 제목, 발주일, 받는 곳, 그 두께의 작업번호 수·품목 수·발주 개수가 나오고, 아래에는 전달 메모가 나옵니다.</p><figure class="ik-shot" id="shot-wd_06_report"><div class="ik-shot-frame" style="aspect-ratio:1100/949;max-width:1100px"><img alt="작업번호별 발주서 미리보기. 26T와 18T가 점선으로 나뉘고 작업번호 카드마다 No, 길이×폭, 개수" decoding="async" height="949" loading="lazy" src="../assets/shots/wood/wd_06_report.webp" width="1100"/><button aria-label="1번 두께 구분" class="ik-pin" data-pin="1" style="left:2.73%;top:22.55%" type="button">1</button><button aria-label="2번 작업 카드" class="ik-pin" data-pin="2" style="left:20.91%;top:27.61%" type="button">2</button><button aria-label="3번 품목 메모" class="ik-pin" data-pin="3" style="left:20.91%;top:35.41%" type="button">3</button><button aria-label="4번 전달 메모" class="ik-pin" data-pin="4" style="left:2.73%;top:48.89%" type="button">4</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">작업번호별 발주서 (품목 메모 표시 켬). 홀수 줄의 아주 옅은 초록(#FAFDF9)은 화면에서 거의 흰색으로 보입니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>두께 구분</b>두께마다 따로 시작합니다. 인쇄하면 새 장입니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>작업 카드</b>작업번호와 그 작업의 개수 합계.</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>품목 메모</b>품목 메모 표시를 켜면 치수 아래에 나옵니다.</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>전달 메모</b>문서 정보의 공통 메모.</span></li></ol></figure><h2 id="92-합산-기준">9.2 합산 기준</h2><ul>
+<li><strong>두께·길이·폭이 모두 같은</strong> 품목의 개수를 더합니다.</li>
+<li>작업번호가 달라도 규격이 같으면 합쳐집니다. 관련 작업번호는 모두 적힙니다.</li>
+<li>길이 500·폭 50과 길이 50·폭 500은 다른 규격으로 봅니다.</li>
+<li>작업번호별 발주서에서는 같은 규격이 여러 번 나와도 입력한 줄 그대로 둡니다.</li>
+</ul><figure class="ik-shot" id="shot-wd_07_sizes"><div class="ik-shot-frame" style="aspect-ratio:1100/1023;max-width:1100px"><img alt="동일 규격 합산표. 두께, 길이×폭, 개수, 작업번호 열" decoding="async" height="1023" loading="lazy" src="../assets/shots/wood/wd_07_sizes.webp" width="1100"/><button aria-label="1번 합산 개수" class="ik-pin" data-pin="1" style="left:63.64%;top:30.01%" type="button">1</button><button aria-label="2번 관련 작업번호" class="ik-pin" data-pin="2" style="left:81.82%;top:30.01%" type="button">2</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">동일 규격 합산표. 1,647 × 50은 2611-001의 2개와 2611-002의 1개가 합쳐져 3개입니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>합산 개수</b>두께·길이·폭이 모두 같은 품목만 합칩니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>관련 작업번호</b>합쳐진 작업번호가 모두 적힙니다.</span></li></ol></figure><h2 id="93-줄-색과-두께별-장">9.3 줄 색과 두께별 장</h2><ul>
+<li>표의 1·3·5번째 같은 홀수 줄에 아주 옅은 초록(<code>#FAFDF9</code>)이 들어갑니다. 거의 흰색에 가까운 색이라 화면에서 잘 안 보일 수 있습니다. 화면·인쇄·Excel에 모두 들어갑니다.</li>
+<li>26T와 18T처럼 두께가 바뀌면 <strong>새 장</strong>에서 시작합니다. 화면에서는 점선으로 나뉩니다.</li>
+<li>한 두께의 내용이 많으면 여러 장으로 이어집니다. 한 두께가 꼭 한 장에 들어가는 것은 아닙니다.</li>
+</ul><figure class="ik-shot" id="shot-wd_08_pages"><div class="ik-shot-frame" style="aspect-ratio:1696/518;max-width:1696px"><img alt="인쇄 결과 두 쪽. 1쪽 26T, 2쪽 18T" decoding="async" height="518" loading="lazy" src="../assets/shots/wood/wd_08_pages.webp" width="1696"/></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">인쇄(PDF) 결과의 위쪽 부분. 두께가 바뀌는 18T는 새 장에서 시작합니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption></figure><h2 id="94-메모-표시">9.4 메모 표시</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>메모</th>
+<th>발주서에서</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>부재별 메모</td>
+<td><strong>품목 메모 표시</strong>를 켜면 치수 아래에 나오고, 끄면 숨깁니다.</td>
+</tr>
+<tr>
+<td>전달 메모</td>
+<td>문서 정보의 공통 메모로, 발주서 아래에 늘 나옵니다.</td>
+</tr>
+</tbody>
+</table></div><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>입력 카드의 <span class="ik-ui">메모</span> 버튼은 입력 칸을 펼치는 버튼이고, <strong>품목 메모 표시</strong>는 출력에 넣을지 고르는 칸입니다.</p>
+</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#8-검색과-여러-행-붙여넣기"><small>← 앞 장 08</small><b>검색과 여러 행 붙여넣기</b></a><a class="is-next" href="#10-인쇄와-pdf-저장"><small>다음 장 10 →</small><b>인쇄와 PDF 저장</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="10-인쇄와-pdf-저장" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 10</p><h1>인쇄와 PDF 저장</h1></header><ol class="ik-steps is-plain"><li><div><p>출력 양식을 고르고 내용과 개수를 확인합니다.</p></div></li><li><div><p><span class="ik-ui">발주서 인쇄 / PDF</span>를 누릅니다(<kbd>Ctrl</kbd>+<kbd>P</kbd>).</p></div></li><li><div><p>브라우저 인쇄 창에서 프린터를 고르거나 <strong>PDF로 저장</strong>을 고릅니다.</p></div></li><li><div><p><strong>A4 세로·배율 100%</strong>로 확인합니다.</p></div></li><li><div><p><strong>머리글과 바닥글</strong>을 끄면 파일 주소·브라우저 날짜가 찍히지 않습니다.</p></div></li><li><div><p>옅은 홀수 줄 색을 인쇄에 남기려면 <strong>배경 그래픽</strong>을 켭니다. 이름은 브라우저마다 조금 다를 수 있습니다.</p></div></li></ol><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>PDF가 정해진 폴더에 저절로 저장되지 않습니다. 저장 위치는 인쇄 창에서 고릅니다.</p>
+</div><p>화면 미리보기와 Excel은 각자 따로 배치하므로, 같은 품목이라도 쪽 수와 카드 위치까지 똑같지는 않을 수 있습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#9-발주서-미리보기"><small>← 앞 장 09</small><b>발주서 미리보기</b></a><a class="is-next" href="#11-excel-저장과-csv-저장"><small>다음 장 11 →</small><b>Excel 저장과 CSV 저장</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="11-excel-저장과-csv-저장" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 11</p><h1>Excel 저장과 CSV 저장</h1></header><h2 id="111-excel-저장">11.1 Excel 저장</h2><p><span class="ik-ui">치수 입력</span> 탭의 <span class="ik-ui">Excel 저장</span>을 누르면 <code>.xlsx</code> 파일을 내려받습니다. 지금 보고 있는 양식만이 아니라 <strong>두 시트를 함께</strong> 만듭니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>시트</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>발주서</td>
+<td>작업번호별 카드 배치, No.·길이 × 폭·개수, 두께 구분. 품목 메모 표시가 켜져 있으면 치수 옆에 메모</td>
+</tr>
+<tr>
+<td>합산표</td>
+<td>두께·길이·폭별 합산 개수와 관련 작업번호</td>
+</tr>
+</tbody>
+</table></div><ul>
+<li>계산식이 아니라 <strong>계산 결과</strong>를 넣습니다. Excel 수식으로 옮기지 않습니다.</li>
+<li>개수와 합산표의 치수는 숫자 칸입니다. 발주서 시트의 <code>길이 × 폭</code>은 보기용 글자입니다.</li>
+<li>홀수 줄 색과 두께가 바뀔 때 쪽 나눔이 들어갑니다.</li>
+<li>발주서 시트는 A4 세로로 인쇄되게 설정되어 있고, 내용이 많으면 다음 장으로 이어집니다.</li>
+</ul><div class="ik-note is-caution"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 3 2.5 20h19z"></path><path d="M12 10v4M12 17h.01"></path></svg>주의</p>
+<p>Excel에서 고친 내용은 도우미로 돌아오지 않습니다. 다시 고칠 때는 <code>.wood.json</code>을 여세요. 내보낸 Excel 발주서를 <span class="ik-ui">엑셀 가져오기</span>로 다시 읽어 작업을 이어 갈 수는 없습니다.</p>
+</div><p>부재 메모가 길면 발주서 시트의 <code>길이 × 폭</code> 칸에 다 보이지 않을 수 있습니다. 업체에 보내기 전에 Excel에서 한 번 열어 확인하세요.</p><figure class="ik-shot" id="shot-wd_09_excel"><div class="ik-shot-frame" style="aspect-ratio:1137/469;max-width:1137px"><img alt="Excel 저장 파일의 발주서 시트와 합산표 시트를 인쇄 모양으로 본 그림" decoding="async" height="469" loading="lazy" src="../assets/shots/wood/wd_09_excel.webp" width="1137"/></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">[Excel 저장] 파일 하나에 발주서·합산표 두 시트가 들어 있습니다(품목 메모 표시 끔). LibreOffice로 열어 찍은 그림이라 Excel에서는 글꼴·간격이 조금 다를 수 있습니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption></figure><h2 id="112-csv-저장">11.2 CSV 저장</h2><p><span class="ik-ui">CSV 저장</span>은 작업번호·두께·길이·폭·개수·메모의 단순 목록입니다. Excel로 열 수 있지만 카드 모양·줄 색·쪽 나눔은 없습니다. 숫자는 계산 결과이고, 부재 메모는 품목 메모 표시와 상관없이 목록에 들어갑니다.</p><h2 id="113-파일-이름">11.3 파일 이름</h2><p>작업 저장·Excel·CSV·수정 내용 포함 HTML의 기본 이름은 <code>발주일_문서제목</code> 뒤에 확장자를 붙인 꼴입니다.</p><div class="ik-example"><span class="ik-example-tag">예시</span>
+<p>예: <code>2026-11-05_목재 발주서.xlsx</code></p>
+</div><p>저장 위치와 같은 이름 파일 처리는 브라우저의 다운로드 설정을 따릅니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#10-인쇄와-pdf-저장"><small>← 앞 장 10</small><b>인쇄와 PDF 저장</b></a><a class="is-next" href="#12-작업-저장열기와-자동-보관"><small>다음 장 12 →</small><b>작업 저장·열기와 자동 보관</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="12-작업-저장열기와-자동-보관" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 12</p><h1>작업 저장·열기와 자동 보관</h1></header><h2 id="121-목적에-맞는-파일">12.1 목적에 맞는 파일</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>파일</th>
+<th>쓰는 곳</th>
+<th>계산식 다시 고치기</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.wood.json</code></td>
+<td>작업을 다시 열어 고치기, 다른 PC로 옮기기</td>
+<td>됨</td>
+</tr>
+<tr>
+<td>수정 내용 포함 <code>.html</code></td>
+<td>지금 자료가 든 도우미 파일째 보관</td>
+<td>됨</td>
+</tr>
+<tr>
+<td><code>.xlsx</code></td>
+<td>업체 전달, Excel로 확인·인쇄</td>
+<td>안 됨 (결과 숫자만)</td>
+</tr>
+<tr>
+<td><code>.csv</code></td>
+<td>단순 품목 목록 전달</td>
+<td>안 됨 (결과 숫자만)</td>
+</tr>
+<tr>
+<td><code>.pdf</code></td>
+<td>모양을 확정해 전달·인쇄</td>
+<td>안 됨</td>
+</tr>
+</tbody>
+</table></div><h2 id="122-작업-저장과-작업-열기">12.2 작업 저장과 작업 열기</h2><p><span class="ik-ui">작업 저장</span>(<kbd>Ctrl</kbd>+<kbd>S</kbd>)은 다음을 <code>.wood.json</code>에 담습니다.</p><ul>
+<li>문서 정보(제목·발주일·업체·전달 메모)</li>
+<li>부재 목록과 입력한 계산식, 부재 메모</li>
+<li>출력 양식 선택, 품목 메모 표시 설정</li>
+</ul><p>도면 파일, 행 체크 상태, 되돌리기 기록, 간단 계산 칸은 저장되지 않습니다. 도면은 필요할 때 다시 고릅니다.</p><p><span class="ik-ui">작업 열기</span>로 파일을 고르면 지금 목록을 바꿀지 묻고, 저장된 작업 <strong>전체를</strong> 엽니다. 지금 목록 뒤에 더하는 기능이 아닙니다.</p><h2 id="123-브라우저-자동-보관">12.3 브라우저 자동 보관</h2><p>고친 내용은 지금 쓰는 브라우저에 자동으로 보관됩니다. 화면 위쪽 오른쪽에 <code>이 브라우저에 자동 보관됨</code>이 나옵니다.</p><div class="ik-note is-caution"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 3 2.5 20h19z"></path><path d="M12 10v4M12 17h.01"></path></svg>주의</p>
+<p>HTML 파일 위치나 이름을 바꾸거나, 다른 브라우저·다른 PC에서 열거나, 브라우저 데이터를 지우면 자동 보관 자료가 이어지지 않을 수 있습니다. 오래 보관하거나 PC를 옮길 때는 반드시 <span class="ik-ui">작업 저장</span>을 쓰세요.</p>
+</div><p>자동 보관은 원본 엑셀에 저장하거나 서버에 백업하는 기능이 아닙니다. 내려받은 작업 파일을 자동으로 덮어쓰지도 않습니다.</p><h2 id="124-수정-내용-포함-html-저장">12.4 수정 내용 포함 HTML 저장</h2><p><span class="ik-ui">발주서 미리보기</span> 탭의 <span class="ik-ui">수정 내용 포함 HTML 저장</span>은 지금 자료가 들어 있는 도우미 HTML을 내려받습니다. 그 파일을 열면 저장한 자료로 시작합니다. 도면 파일은 들어 있지 않습니다.</p><h2 id="125-새-버전으로-자료-옮기기">12.5 새 버전으로 자료 옮기기</h2><ol class="ik-steps is-plain"><li><div><p>쓰던 버전에서 <span class="ik-ui">작업 저장</span>을 누릅니다.</p></div></li><li><div><p>새 버전 HTML을 엽니다.</p></div></li><li><div><p><span class="ik-ui">작업 열기</span>로 저장한 <code>.wood.json</code>을 엽니다.</p></div></li></ol><p>지금 버전은 이전 버전의 형식1 작업 파일을 읽을 수 있습니다. HTML만 새 파일로 바꾸면 브라우저에 남은 이전 자료가 저절로 넘어온다고 기대하지 마세요.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#11-excel-저장과-csv-저장"><small>← 앞 장 11</small><b>Excel 저장과 CSV 저장</b></a><a class="is-next" href="#13-엑셀-가져오기"><small>다음 장 13 →</small><b>엑셀 가져오기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="13-엑셀-가져오기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 13</p><h1>엑셀 가져오기</h1></header><h2 id="131-읽을-수-있는-형식">13.1 읽을 수 있는 형식</h2><ol class="ik-steps is-plain"><li><div><p>원본 엑셀처럼 <strong>B:F / H:L / N:R</strong> 세 묶음에 작업번호별 목록이 있는 XLSX</p></div></li><li><div><p>A열부터 <code>작업번호, 두께, 길이, 폭, 개수, 메모</code>가 있는 <strong>간단 표</strong> XLSX. 첫 줄 A열 제목이 <code>작업번호</code>여야 합니다.</p></div></li><li><div><p>간단 표와 같은 열 순서의 <strong>CSV·TSV</strong></p></div></li></ol><h2 id="132-가져오기-순서">13.2 가져오기 순서</h2><ol class="ik-steps is-plain"><li><div><p><span class="ik-ui">엑셀 가져오기</span>를 누르고 파일을 고릅니다.</p></div></li><li><div><p>시트가 여럿이면 가져올 <strong>시트 번호</strong>를 묻습니다. 목록의 번호를 넣습니다.</p></div></li><li><div><p>가져올 품목 수를 확인하고 <strong>확인</strong>을 누릅니다.</p></div></li></ol><p>가져오면 <strong>지금 품목 목록을 바꿉니다</strong>. 문서 제목·발주일·받는 업체·전달 메모는 그대로 둡니다. 원본 엑셀은 바꾸지 않습니다.</p><div class="ik-note is-caution"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 3 2.5 20h19z"></path><path d="M12 10v4M12 17h.01"></path></svg>주의</p>
+<p>모든 Excel 양식을 읽지는 않습니다. 도우미에서 내보낸 카드형 발주서 XLSX도 작업 파일처럼 다시 읽을 수 없습니다. 작업을 이어 가려면 <code>.wood.json</code>을 쓰세요.</p>
+</div><p>읽기 오류나 지원하지 않는 압축 방식 안내가 나오면 최신 Chrome·Edge로 다시 해 보거나, Excel에서 간단 표로 정리해 CSV로 저장한 뒤 가져옵니다.</p><h2 id="133-파일-크기-기준">13.3 파일 크기 기준</h2><ul>
+<li>작업 파일·가져오기 파일: 20MB 이하</li>
+<li>작업 열기·간단 표·붙여넣기: 최대 10,000행</li>
+</ul><p>자료가 많으면 화면이 느려질 수 있습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#12-작업-저장열기와-자동-보관"><small>← 앞 장 12</small><b>작업 저장·열기와 자동 보관</b></a><a class="is-next" href="#14-단축키"><small>다음 장 14 →</small><b>단축키</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="14-단축키" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 14</p><h1>단축키</h1></header><div class="ik-table"><table>
+<thead>
+<tr>
+<th>누르는 키</th>
+<th>동작</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>S</kbd></td>
+<td>작업 저장</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>P</kbd></td>
+<td>발주서 인쇄 / PDF</td>
+</tr>
+<tr>
+<td>부재의 길이·폭·개수 칸에서 Enter</td>
+<td>같은 카드의 다음 칸으로 이동</td>
+</tr>
+<tr>
+<td>카드 마지막 개수 칸에서 Enter</td>
+<td>그 카드에 부재 한 줄 추가</td>
+</tr>
+<tr>
+<td>카드 안에서 <kbd>Ctrl</kbd>+<kbd>Enter</kbd></td>
+<td>그 카드에 부재 추가</td>
+</tr>
+<tr>
+<td>카드 밖에서 <kbd>Ctrl</kbd>+<kbd>Enter</kbd></td>
+<td>위쪽 <span class="ik-ui">+ 행 추가</span>와 같음</td>
+</tr>
+</tbody>
+</table></div><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>작업을 되돌릴 때는 화면의 <span class="ik-ui">되돌리기</span> 버튼을 쓰세요. 작업 되돌리기·다시 실행용 단축키는 따로 정해져 있지 않습니다.</p>
+</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#13-엑셀-가져오기"><small>← 앞 장 13</small><b>엑셀 가져오기</b></a><a class="is-next" href="#15-기본-예시-자료"><small>다음 장 15 →</small><b>기본 예시 자료</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="15-기본-예시-자료" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 15</p><h1>기본 예시 자료</h1></header><p>배포본에는 원본 <code>목재계산_정리_원본형식_v2.xlsx</code>의 <strong>103품목·194개</strong>가 들어 있습니다(26T·18T).</p><p>원본에 작업번호가 없던 맨 앞 세 품목은 작업번호를 <strong>미지정</strong>으로 남겼습니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>길이 × 폭</th>
+<th style="text-align: right;">개수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1647 × 50</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>100 × 50</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>1597 × 50</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table></div><p>실제로 쓸 때는 맞는 작업번호를 넣으세요. 도우미가 작업번호를 짐작해서 채운 것이 아닙니다. 원본의 <code>☆ 75 × 75, 24개</code> 품목은 메모에 ☆를 남겼습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#14-단축키"><small>← 앞 장 14</small><b>단축키</b></a><a class="is-next" href="#16-할-수-있는-일과-없는-일"><small>다음 장 16 →</small><b>할 수 있는 일과 없는 일</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="16-할-수-있는-일과-없는-일" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 16</p><h1>할 수 있는 일과 없는 일</h1></header><h2 id="161-할-수-있는-일">16.1 할 수 있는 일</h2><ul>
+<li>도면을 보며 작업번호·두께·부재별 치수·개수 입력</li>
+<li>사칙연산 계산식의 결과 계산</li>
+<li>카드형 입력, ①②③ 부재 번호, 화면 폭에 따른 1~3열 배치</li>
+<li>부재 추가·삭제·선택 삭제·되돌리기</li>
+<li>참고 PDF·사진 보기</li>
+<li>작업번호별 발주서와 동일 규격 합산표</li>
+<li>두께별 쪽 나눔과 아주 옅은 홀수 줄 색</li>
+<li>인쇄·PDF, 두 시트 XLSX, 목록 CSV 저장</li>
+<li>작업 파일 저장·열기, 수정 내용 포함 HTML 저장</li>
+</ul><h2 id="162-하지-않는-일">16.2 하지 않는 일</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>하지 않는 일</th>
+<th>대신</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>도면을 읽어 부재를 뽑아내는 자동 인식·AI 계산</td>
+<td>사람이 도면을 보고 입력</td>
+</tr>
+<tr>
+<td>원자재 길이에 맞춘 최적 재단·원장 배치·로스율</td>
+<td>따로 계산</td>
+</tr>
+<tr>
+<td>원자재 본수·합판 원장 매수 추정</td>
+<td>따로 계산</td>
+</tr>
+<tr>
+<td>업체에 이메일·메신저로 자동 발주</td>
+<td>PDF·Excel을 직접 보내기</td>
+</tr>
+<tr>
+<td>여러 사람 동시 편집·서버 동기화</td>
+<td><code>.wood.json</code>을 주고받기</td>
+</tr>
+<tr>
+<td>작업지시서 관리자 <code>.ikanwork</code>와 연결</td>
+<td>따로 사용</td>
+</tr>
+<tr>
+<td>도면 PDF에 작업번호·부재 번호 기록</td>
+<td>필요하면 도면 확대 인쇄로 출력물에 표시</td>
+</tr>
+<tr>
+<td>부재를 끌어서 순서 바꾸기</td>
+<td>지우고 다시 넣기</td>
+</tr>
+<tr>
+<td>고른 품목만 인쇄</td>
+<td>전체 출력 후 확인</td>
+</tr>
+</tbody>
+</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#15-기본-예시-자료"><small>← 앞 장 15</small><b>기본 예시 자료</b></a><a class="is-next" href="#17-자주-묻는-질문과-문제-해결"><small>다음 장 17 →</small><b>자주 묻는 질문과 문제 해결</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="17-자주-묻는-질문과-문제-해결" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 17</p><h1>자주 묻는 질문과 문제 해결</h1></header><details class="ik-qa" id="처음-열었는데-모르는-자료가-들어-있어요"><summary>처음 열었는데 모르는 자료가 들어 있어요</summary><div class="ik-qa-a"><div><p>배포본의 예시 자료(103품목)이거나 이 브라우저에 자동 보관된 지난 작업입니다. 새로 시작하려면 <span class="ik-ui">새 작업</span>을 누릅니다. 지난 작업이 필요하면 먼저 <span class="ik-ui">작업 저장</span>으로 보관하세요.</p></div></div></details><details class="ik-qa" id="개수-합계가-생각보다-적어요"><summary>개수 합계가 생각보다 적어요</summary><div class="ik-qa-a"><div><p>오류가 있는 행은 집계와 미리보기에서 빠집니다. 계산식 위쪽의 붉은 띠와 <code>입력 확인</code> 표시가 있는 칸을 고친 뒤 다시 확인하세요(6.3).</p></div></div></details><details class="ik-qa" id="같은-작업번호인데-카드가-두-장이에요"><summary>같은 작업번호인데 카드가 두 장이에요</summary><div class="ik-qa-a"><div><p>두께가 다르면 카드가 나뉩니다(5.1). 두께를 잘못 넣었다면 카드 위쪽 두께를 고치세요. 그 카드 부재가 모두 바뀝니다.</p></div></div></details><details class="ik-qa" id="인쇄-버튼을-눌렀는데-고치라고만-나와요"><summary>인쇄 버튼을 눌렀는데 고치라고만 나와요</summary><div class="ik-qa-a"><div><p>입력 오류가 남아 있습니다. 오류를 모두 고친 뒤 다시 누르세요. <span class="ik-ui">Excel 저장</span>과 <span class="ik-ui">CSV 저장</span>도 같습니다.</p></div></div></details><details class="ik-qa" id="인쇄물에-줄-색이-안-나와요"><summary>인쇄물에 줄 색이 안 나와요</summary><div class="ik-qa-a"><div><p>색이 원래 거의 흰색에 가깝습니다(<code>#FAFDF9</code>). 인쇄 창에서 <strong>배경 그래픽</strong>이 꺼져 있으면 아예 빠집니다.</p></div></div></details><details class="ik-qa" id="인쇄물에-파일-주소와-날짜가-찍혀요"><summary>인쇄물에 파일 주소와 날짜가 찍혀요</summary><div class="ik-qa-a"><div><p>브라우저 인쇄 창의 <strong>머리글과 바닥글</strong>을 끄세요.</p></div></div></details><details class="ik-qa" id="26t와-18t가-왜-따로-인쇄되나요"><summary>26T와 18T가 왜 따로 인쇄되나요</summary><div class="ik-qa-a"><div><p>두께가 바뀌면 새 장에서 시작하도록 되어 있습니다(9.3). 업체가 두께별로 나눠 보기 쉽게 하려는 것입니다.</p></div></div></details><details class="ik-qa" id="다른-pc에서-열었더니-작업이-없어요"><summary>다른 PC에서 열었더니 작업이 없어요</summary><div class="ik-qa-a"><div><p>자동 보관은 그 PC의 그 브라우저에만 남습니다. 원래 PC에서 <span class="ik-ui">작업 저장</span>한 <code>.wood.json</code>을 옮겨 <span class="ik-ui">작업 열기</span>로 여세요(12.3).</p></div></div></details><details class="ik-qa" id="보낸-excel을-고쳐서-다시-가져오고-싶어요"><summary>보낸 Excel을 고쳐서 다시 가져오고 싶어요</summary><div class="ik-qa-a"><div><p>내보낸 발주서 XLSX는 다시 읽을 수 없습니다. 도우미에서 <code>.wood.json</code>을 열어 고친 뒤 다시 저장하세요(11.1).</p></div></div></details><details class="ik-qa" id="엑셀-가져오기에서-오류가-나요"><summary>엑셀 가져오기에서 오류가 나요</summary><div class="ik-qa-a"><div><p>지원하는 세 형식인지 확인하세요(13.1). 간단 표라면 첫 줄 A열이 <code>작업번호</code>인지 봅니다. 오류 메시지에 나온 줄 번호의 두께·길이·폭·개수를 확인합니다. 그래도 안 되면 Excel에서 간단 표 CSV로 저장해 가져옵니다.</p></div></div></details><details class="ik-qa" id="도면이-작업-파일에-같이-안-들어가요"><summary>도면이 작업 파일에 같이 안 들어가요</summary><div class="ik-qa-a"><div><p>도면은 참고용이라 저장하지 않습니다(7장). 다음에 열 때 <span class="ik-ui">도면 PDF / 사진 보기</span>로 다시 고르세요.</p></div></div></details><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#16-할-수-있는-일과-없는-일"><small>← 앞 장 16</small><b>할 수 있는 일과 없는 일</b></a></nav></section>
+<div class="ik-div ik-div-stamp" role="separator" aria-label="검수 완료"><span class="ik-div-layers is-left"><i></i><i></i><i></i></span><span class="ik-stamp"><span><b>검수</b><small>IKAN</small></span></span><span class="ik-div-layers is-right"><i></i><i></i><i></i></span></div><p class="ik-small" style="text-align:center;max-width:none">목재계산 도우미 사용 설명서 · 기준 버전 v1.2.0 · 정리 2026-11-05 · 주식회사 아이칸 사내용</p>
+</main>
+</div>
+<dialog class="ik-zoom" id="ik-zoom" aria-label="화면 크게 보기"><div class="ik-zoom-bar"><b id="ik-zoom-title">화면 크게 보기</b><span>번호를 누르면 설명이 나옵니다 · Esc로 닫기</span><button type="button" class="ik-bar-btn" data-zoom-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>닫기</button></div><div class="ik-zoom-body" id="ik-zoom-body"></div><p class="ik-zoom-note" id="ik-zoom-note" aria-live="polite"></p></dialog>
+<script src="../assets/search-index.js?v=f3586e40"></script><script src="../assets/ikan.js?v=f3586e40"></script><script src="../assets/sims.js?v=f3586e40"></script>
+</body>
+</html>

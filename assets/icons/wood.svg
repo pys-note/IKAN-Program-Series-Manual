@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+<!-- 목재계산 도우미: 발주서 + 각재 두 개 + 줄자 + 부재 번호 -->
+<defs>
+  <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EEF2EC"/></linearGradient>
+  <linearGradient id="head" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2F5E48"/><stop offset="1" stop-color="#1F4434"/></linearGradient>
+  <linearGradient id="plankTop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F1C98A"/><stop offset="1" stop-color="#D9A262"/></linearGradient>
+  <linearGradient id="plankSide" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C98B4C"/><stop offset="1" stop-color="#A86B34"/></linearGradient>
+  <radialGradient id="endgrain" cx=".45" cy=".45" r=".7"><stop offset="0" stop-color="#F6D7A5"/><stop offset="1" stop-color="#D49A58"/></radialGradient>
+  <linearGradient id="tape" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD24D"/><stop offset="1" stop-color="#F2AE1C"/></linearGradient>
+  <linearGradient id="badge" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4E8A68"/><stop offset="1" stop-color="#2B5E43"/></linearGradient>
+  <filter id="b6" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6"/></filter>
+  <filter id="b2" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2"/></filter>
+</defs>
+<!-- 발주서 -->
+<rect x="44" y="22" width="150" height="190" rx="14" fill="#0B1A12" opacity=".22" filter="url(#b6)"/>
+<rect x="40" y="16" width="150" height="190" rx="14" fill="url(#paper)" stroke="#C9D5CC" stroke-width="2"/>
+<path d="M40 30a14 14 0 0 1 14-14h122a14 14 0 0 1 14 14v18H40z" fill="url(#head)"/>
+<rect x="56" y="27" width="64" height="9" rx="4.5" fill="#FFFFFF" opacity=".9"/>
+<rect x="148" y="27" width="28" height="9" rx="4.5" fill="#AD763C"/>
+<g fill="#FAFDF9"><rect x="52" y="62" width="126" height="16" rx="3"/><rect x="52" y="94" width="126" height="16" rx="3"/></g>
+<g stroke="#D5DFD7" stroke-width="2"><path d="M52 78h126M52 94h126M52 110h126M52 126h126"/></g>
+<g fill="#9AAFA2"><rect x="58" y="67" width="10" height="6" rx="3"/><rect x="58" y="83" width="10" height="6" rx="3"/><rect x="58" y="99" width="10" height="6" rx="3"/><rect x="58" y="115" width="10" height="6" rx="3"/></g>
+<g fill="#3D5248"><rect x="78" y="67" width="54" height="6" rx="3"/><rect x="78" y="83" width="42" height="6" rx="3"/><rect x="78" y="99" width="60" height="6" rx="3"/><rect x="78" y="115" width="36" height="6" rx="3"/></g>
+<g fill="#2F5E48"><rect x="160" y="67" width="12" height="6" rx="3"/><rect x="160" y="83" width="12" height="6" rx="3"/><rect x="160" y="99" width="12" height="6" rx="3"/><rect x="160" y="115" width="12" height="6" rx="3"/></g>
+<!-- 각재 두 개 -->
+<rect x="22" y="150" width="200" height="74" rx="10" fill="#2A1A0A" opacity=".28" filter="url(#b6)"/>
+<g>
+  <path d="M30 186l150-22 26 12-150 22z" fill="url(#plankTop)"/>
+  <path d="M56 198l150-22v24l-150 22z" fill="url(#plankSide)"/>
+  <path d="M30 186l26 12v24l-26-12z" fill="url(#endgrain)" stroke="#A86B34" stroke-width="1.5"/>
+  <g fill="none" stroke="#A86B34" stroke-width="1.6" opacity=".7"><ellipse cx="43" cy="204" rx="6" ry="8" transform="rotate(-24 43 204)"/><ellipse cx="43" cy="204" rx="2.6" ry="3.6" transform="rotate(-24 43 204)"/></g>
+  <g fill="none" stroke="#B9813F" stroke-width="1.6" opacity=".55" stroke-linecap="round"><path d="M72 182c30-5 60-8 96-14"/><path d="M90 188c26-4 48-7 80-12"/><path d="M110 192c20-3 40-6 66-10"/></g>
+</g>
+<g>
+  <path d="M58 158l138-20 24 11-138 20z" fill="url(#plankTop)"/>
+  <path d="M82 169l138-20v22l-138 20z" fill="url(#plankSide)"/>
+  <path d="M58 158l24 11v22l-24-11z" fill="url(#endgrain)" stroke="#A86B34" stroke-width="1.5"/>
+  <g fill="none" stroke="#A86B34" stroke-width="1.6" opacity=".7"><ellipse cx="70" cy="174.5" rx="5.6" ry="7.4" transform="rotate(-24 70 174.5)"/><ellipse cx="70" cy="174.5" rx="2.4" ry="3.3" transform="rotate(-24 70 174.5)"/></g>
+  <g fill="none" stroke="#B9813F" stroke-width="1.6" opacity=".55" stroke-linecap="round"><path d="M98 154c28-4 56-8 88-12"/><path d="M118 159c22-3 42-6 70-10"/></g>
+</g>
+<!-- 줄자 -->
+<rect x="20" y="226" width="196" height="20" rx="5" fill="url(#tape)" stroke="#C98A0F" stroke-width="1.5"/>
+<g stroke="#5A3D06" stroke-width="2" stroke-linecap="round"><path d="M34 226v9M50 226v6M66 226v9M82 226v6M98 226v9M114 226v6M130 226v9M146 226v6M162 226v9M178 226v6M194 226v9"/></g>
+<!-- 부재 번호 배지 -->
+<circle cx="206" cy="60" r="38" fill="#0B1A12" opacity=".25" filter="url(#b2)"/>
+<circle cx="204" cy="56" r="36" fill="url(#badge)" stroke="#FFFFFF" stroke-width="5"/>
+<circle cx="204" cy="56" r="22" fill="none" stroke="#FFFFFF" stroke-width="4"/>
+<path d="M199 46l7-5v30" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
