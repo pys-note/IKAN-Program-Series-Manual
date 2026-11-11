@@ -853,3 +853,8 @@ img{max-width:100%}
 .sim-wd-cell input{width:100%;font-family:var(--ik-mono)!important;font-size:13.5px}
 .sim-wd-cell input.is-bad{border-color:#D9897F;background:#FFF4F2}
 .sim-wd-cell small{min-height:18px;font-size:12px;font-weight:600}
+
+/* ── v12 새 프로그램 강조색 (기존 색과 겹치지 않게) ── */
+.ik-app-jpstatement{--ik-accent:#B3326E;--ik-accent-ink:#8C2253;--ik-accent-soft:#FAE8F0}
+.ik-app-drawing{--ik-accent:#8C5B3E;--ik-accent-ink:#6B432B;--ik-accent-soft:#F5ECE6}
+.ik-app-ncassist{--ik-accent:#4A6378;--ik-accent-ink:#344A5C;--ik-accent-soft:#E8EEF3}
