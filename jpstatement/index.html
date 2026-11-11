@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>아이칸 재팬한샘 거래명세서 사용 설명서 0.5.0</title>
+<meta name="description" content="분류 엑셀·PO 상세수집 단가·SRM 납품서 PDF를 대조해 재팬한샘 도쿄·오사카 거래명세서를 납품서 순번대로 채우고, 적재정보서·파렛트별 라벨·포장 표지까지 이어서 뽑습니다.">
+<link rel="icon" href="../assets/icons/jpstatement.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="../assets/ikan.css?v=5ac61482">
+</head>
+<body class="ik-app-jpstatement">
+<a class="ik-skip" href="#main">본문 바로가기</a>
+<header class="ik-bar"><div class="ik-bar-in"><a class="ik-bar-home" href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg><span>매뉴얼 홈</span></a><i class="ik-bar-sep"></i><div class="ik-bar-title"><img class="ik-bar-icon" src="../assets/icons/jpstatement.png" alt=""><span><small>IKAN JAPAN HANSSEM STATEMENT · USER MANUAL</small><b>아이칸 재팬한샘 거래명세서</b></span></div><div class="ik-bar-tools"><span class="ik-bar-ver ik-bar-hide-s">0.5.0</span><button class="ik-bar-btn ik-bar-hide-s" type="button" data-font="-1" aria-label="본문 글자 작게">가−</button><button class="ik-bar-btn ik-bar-hide-s" type="button" data-font="1" aria-label="본문 글자 크게">가+</button><button class="ik-bar-btn ik-bar-hide-s" type="button" data-print><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></svg>인쇄</button><details class="ik-apps"><summary class="ik-bar-btn" aria-label="다른 프로그램 매뉴얼"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.2"/></svg><span class="ik-bar-hide-s">다른 매뉴얼</span></summary><div class="ik-apps-menu"><a href="../index.html"><span style="display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--ik-navy);color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg></span><span><b>매뉴얼 홈</b><span>모든 프로그램 · 전체 검색</span></span></a><hr><a href="../workorders/index.html"><img src="../assets/icons/workorders.svg" alt=""><span><b>아이칸 작업지시서 관리자</b><span>0.24.39</span></span></a><a href="../plot/index.html"><img src="../assets/icons/plot.svg" alt=""><span><b>도면 확대 인쇄</b><span>v2.11</span></span></a><a href="../packing/index.html"><img src="../assets/icons/packing.png" alt=""><span><b>아이칸 포장 카운트</b><span>0.1.13</span></span></a><a href="../drawing/index.html"><img src="../assets/icons/drawing.svg" alt=""><span><b>아이칸 제작 도면</b><span>0.14.3</span></span></a><a href="../labels/index.html"><img src="../assets/icons/labels.svg" alt=""><span><b>아이칸 라벨 출력기</b><span>v3</span></span></a><a href="../jpstatement/index.html" aria-current="page"><img src="../assets/icons/jpstatement.png" alt=""><span><b>아이칸 재팬한샘 거래명세서</b><span>0.5.0</span></span></a><a href="../daily/index.html"><img src="../assets/icons/daily.svg" alt=""><span><b>아이칸 일일기록정리</b><span>0.6.3</span></span></a><a href="../leave/index.html"><img src="../assets/icons/leave.svg" alt=""><span><b>아이칸 연차관리</b><span>0.5.1</span></span></a><a href="../srm/index.html"><img src="../assets/icons/srm.svg" alt=""><span><b>PO 상세수집</b><span>v1.1</span></span></a><a href="../wood/index.html"><img src="../assets/icons/wood.svg" alt=""><span><b>목재계산 도우미</b><span>v1.2.0</span></span></a><a href="../ncassist/index.html"><img src="../assets/icons/ncassist.svg" alt=""><span><b>아이칸 타공 위치 입력 보조</b><span>0.1.0</span></span></a></div></details></div></div></header>
+<div class="ik-shell">
+<nav class="ik-toc" aria-label="목차"><details open id="toc-box"><summary>목차 · 이 매뉴얼에서 찾기</summary><div class="ik-find"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><label class="sr" for="find">이 매뉴얼에서 찾기</label><input id="find" type="search" placeholder="이 매뉴얼에서 찾기  /" autocomplete="off"></div><div class="ik-find-state" id="find-state" role="status" aria-live="polite"></div><div class="ik-toc-label">Contents · 19장</div><ol><li><a href="#1-프로그램-개요"><span class="n">01</span><span>프로그램 개요</span></a></li><li><a href="#2-설치와-실행"><span class="n">02</span><span>설치와 실행</span></a></li><li><a href="#3-준비할-자료"><span class="n">03</span><span>준비할 자료</span></a></li><li><a href="#4-빠른-작업-순서"><span class="n">04</span><span>빠른 작업 순서</span></a></li><li><a href="#5-화면-구성"><span class="n">05</span><span>화면 구성</span></a></li><li><a href="#6-자료-넣기"><span class="n">06</span><span>자료 넣기</span></a></li><li><a href="#7-대조-규칙"><span class="n">07</span><span>대조 규칙</span></a></li><li><a href="#8-거래명세서-탭-도쿄--오사카"><span class="n">08</span><span>거래명세서 탭 (도쿄 / 오사카)</span></a></li><li><a href="#9-항목-추가수기-입력"><span class="n">09</span><span>항목 추가·수기 입력</span></a></li><li><a href="#10-분류-대조-탭"><span class="n">10</span><span>분류 대조 탭</span></a></li><li><a href="#11-적재정보서와-파렛트"><span class="n">11</span><span>적재정보서와 파렛트</span></a></li><li><a href="#12-파렛트별-라벨"><span class="n">12</span><span>파렛트별 라벨</span></a></li><li><a href="#13-포장-표지"><span class="n">13</span><span>포장 표지</span></a></li><li><a href="#14-엑셀-저장과-인쇄"><span class="n">14</span><span>엑셀 저장과 인쇄</span></a></li><li><a href="#15-작업-저장열기"><span class="n">15</span><span>작업 저장·열기</span></a></li><li><a href="#16-확인-목록"><span class="n">16</span><span>확인 목록</span></a></li><li><a href="#17-단축키"><span class="n">17</span><span>단축키</span></a></li><li><a href="#18-문제-해결-faq"><span class="n">18</span><span>문제 해결 (FAQ)</span></a></li><li><a href="#19-버전-이력"><span class="n">19</span><span>버전 이력</span></a></li></ol><div class="ik-toc-foot">기준 버전 <b>0.5.0</b> · 정리 2026-11-12<br>인터넷 없이도 이 페이지를 저장해 볼 수 있습니다.</div></details></nav>
+<main class="ik-sheet" id="main" data-manual="jpstatement">
+<section class="ik-chapter is-first" id="cover"><div class="ik-cover"><img class="ik-cover-icon" src="../assets/icons/jpstatement.png" alt="아이칸 재팬한샘 거래명세서 아이콘"><div><p class="ik-cover-kind">USER MANUAL · 0.5.0</p><h1 class="ik-cover-title">아이칸 재팬한샘 거래명세서</h1><p class="ik-cover-meta"><span>분류 엑셀·PO 상세수집 단가·SRM 납품서 PDF를 대조해 재팬한샘 도쿄·오사카 거래명세서를 납품서 순번대로 채우고, 적재정보서·파렛트별 라벨·포장 표지까지 이어서 뽑습니다.</span></p></div></div><ul class=ik-docinfo><li><b>기준 버전</b>0.5.0</li><li><b>기준일</b>2026-11-12</li><li><b>운영체제</b>Windows 10/11 64비트</li><li><b>필요</b>바로 인쇄할 때만 Microsoft Excel 데스크톱</li></ul><div class=ik-cover-intro><p>재팬한샘(도쿄·오사카) 납품분의 <strong>거래명세서</strong>와 <strong>적재정보서</strong>를 만드는 프로그램입니다.
+분류 엑셀, PO 상세수집 단가, 한샘 SRM 납품서 PDF를 서로 대조해서 <strong>납품서 순번 그대로</strong> 명세서를 채우고, 파렛트별 라벨·포장 표지까지 이어서 뽑습니다.</p><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>이 매뉴얼의 화면과 예시는 모두 <strong>가상 자료</strong>입니다. 현장명(見本邸A 등)·오더번호(9000001xx)·작업번호·단가는 실제 납품과 관계없는 값입니다.</p>
+</div></div><div class=ik-quick><a href="#4-빠른-작업-순서"><b>처음 사용하는 분</b><small>빠른 작업 순서 10단계</small></a><a href="#11-적재정보서와-파렛트"><b>파렛트를 나누는 분</b><small>적재정보서·라벨·표지</small></a><a href="#18-문제-해결-faq"><b>막힌 부분을 찾는 분</b><small>문제 해결 FAQ</small></a></div><div class="ik-div ik-div-dim" role="separator" aria-label="주식회사 아이칸"><i class="ik-div-tick"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M0 5 L12 0.8 V9.2 Z"/></svg><i class="ik-div-line"></i><span class="ik-div-label"><span class="ik-div-ko">주식회사 아이칸</span><span class="ik-div-en">IKAN CO., LTD.</span></span><i class="ik-div-line"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M12 5 L0 0.8 V9.2 Z"/></svg><i class="ik-div-tick"></i></div></section>
+<div id="find-empty" class="ik-empty" hidden><b>일치하는 장이 없습니다.</b>더 짧은 단어나 다른 표현으로 찾아보세요. 예: 싱크볼 → 씽크볼, 뒤턱 → 뒷턱</div>
+<section class="ik-chapter" id="1-프로그램-개요" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 01</p><h1>프로그램 개요</h1></header><p>엑셀로 손으로 옮겨 적던 재팬한샘 거래명세서를 자료 세 가지로 자동으로 만듭니다. 사람은 <strong>아이칸단가만 입력</strong>하고, 확인 목록에 뜬 몇 줄만 눈으로 보면 됩니다.</p><h2 id="1-1-주요-기능-한눈에-보기">1-1. 주요 기능 한눈에 보기</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>기능</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>자료 세 가지 대조</td>
+<td>분류(라벨 자료) · 단가(PO 상세수집) · 납품서 PDF를 오더번호·재질·규격으로 짝지음</td>
+</tr>
+<tr>
+<td>거래명세서</td>
+<td>도쿄·오사카 따로, 납품서 PDF 순번 그대로. 한샘단가·금액 자동, 아이칸단가는 입력</td>
+</tr>
+<tr>
+<td>비고 자동</td>
+<td>아이칸금액이 한샘금액보다 <strong>클 때만</strong> <code>아이칸 금액</code></td>
+</tr>
+<tr>
+<td>분류에 순번 기록</td>
+<td>분류 행마다 납품서 순번(예: <code>도쿄 7</code>)을 붙여 복사하거나 새 엑셀로 저장</td>
+</tr>
+<tr>
+<td>적재정보서</td>
+<td>체크해서 적재(파렛트)를 나누면 <code>도쿄 1</code>·<code>도쿄 2</code> … 시트로 저장</td>
+</tr>
+<tr>
+<td>파렛트별 라벨</td>
+<td>파렛트마다 분류 행(BG 포함)을 라벨로 — 내장 라벨 출력기로 바로 인쇄</td>
+</tr>
+<tr>
+<td>포장 표지</td>
+<td>파렛트마다 <code>IKAN/JAPAN HANSSEM</code> · <code>취급주의</code> · <code>TOKYO 1</code> 3장</td>
+</tr>
+<tr>
+<td>바로 인쇄</td>
+<td>거래명세서·적재정보서·포장 표지를 골라 프린터로 (Excel 필요)</td>
+</tr>
+<tr>
+<td>작업 저장</td>
+<td><code>.ikanjp</code> 파일 — 입력한 단가·나눈 적재까지 그대로 이어서 작업</td>
+</tr>
+</tbody>
+</table></div><h2 id="1-2-하지-않는-일">1-2. 하지 않는 일</h2><ul>
+<li>원본 엑셀·PDF는 <strong>읽기만</strong> 합니다. 고치거나 덮어쓰지 않습니다.</li>
+<li>한샘 SRM에 접속하거나 무엇을 보내지 않습니다. 납품서 PDF·단가는 사람이 받아 둔 파일을 씁니다.</li>
+<li><strong>작업번호는 화면 전용</strong>입니다. 엑셀·인쇄에는 나가지 않습니다.</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-next" href="#2-설치와-실행"><small>다음 장 02 →</small><b>설치와 실행</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="2-설치와-실행" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 02</p><h1>설치와 실행</h1></header><ol class="ik-steps is-plain"><li><div><p>실행 중인 재팬한샘 거래명세서를 닫습니다.</p></div></li><li><div><p><code>IkanJpStatement_0.5.0.msi</code>를 더블클릭해 설치합니다. 관리자 권한이 필요 없는 <strong>사용자별 설치</strong>입니다.</p></div></li><li><div><p>시작 메뉴의 <strong>아이칸 재팬한샘 거래명세서</strong>로 실행합니다.</p></div></li></ol><p>새 버전도 같은 방법으로 설치하면 기존 설치를 바꿔 줍니다. 작업 파일(<code>.ikanjp</code>)과 설정은 그대로 남습니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>항목</th>
+<th>위치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>설치 폴더</td>
+<td><code>%LOCALAPPDATA%\Programs\IkanJpStatement</code></td>
+</tr>
+<tr>
+<td>설정(마지막 폴더·프린터)</td>
+<td><code>%LOCALAPPDATA%\IkanJpStatement\settings.json</code></td>
+</tr>
+<tr>
+<td>인쇄·라벨용 임시 파일</td>
+<td><code>%LOCALAPPDATA%\IkanJpStatement\</code> 아래 (매번 새로 만듦)</td>
+</tr>
+</tbody>
+</table></div><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>설치 파일 없이 쓰는 휴대용 묶음(<code>IkanJpStatement_0.5.0_portable.zip</code>)도 있습니다. 압축을 풀고 폴더째 두고 <code>IkanJpStatement.exe</code>를 실행합니다.</p>
+</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#1-프로그램-개요"><small>← 앞 장 01</small><b>프로그램 개요</b></a><a class="is-next" href="#3-준비할-자료"><small>다음 장 03 →</small><b>준비할 자료</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="3-준비할-자료" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 03</p><h1>준비할 자료</h1></header><div class="ik-table"><table>
+<thead>
+<tr>
+<th>자료</th>
+<th>내용</th>
+<th>넣는 곳</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>분류</td>
+<td>일본한샘 분류 8열: 現場名 · ITEM · 色 · SIZE · 號室 · No.(작업번호) · 매수 · 라벨색</td>
+<td>왼쪽 <strong>분류</strong> 카드 <code>[엑셀]</code> 또는 <code>[붙여넣기]</code></td>
+</tr>
+<tr>
+<td>도쿄·오사카 단가</td>
+<td>PO 상세수집 8열: 자재명 · 납품처 · 저장소 · 수량 · 단위 · 단가 · 합계 · 오더번호</td>
+<td>분류 엑셀에 <code>도쿄</code>·<code>오사카</code> 시트가 있으면 <strong>분류를 열 때 같이 읽힘</strong>. 따로 <code>[엑셀]</code>·<code>[붙여넣기]</code>도 됨</td>
+</tr>
+<tr>
+<td>도쿄·오사카 납품서</td>
+<td>한샘 SRM <code>납 품 서 (집계)</code> PDF</td>
+<td>지역 카드의 <code>[PDF 열기]</code></td>
+</tr>
+</tbody>
+</table></div><ul>
+<li>라벨색 <strong>블루 = 도쿄, 레드 = 오사카</strong>입니다. 라벨색이 빈 행은 규격으로 지역을 찾고 '확인'으로 표시합니다.</li>
+<li>분류의 <strong>BG 행은 납품서와 대조하지 않습니다.</strong> (라벨·파렛트에는 들어갑니다 → 12장)</li>
+<li>단가는 <a href="../srm/index.html">PO 상세수집</a> 북마크로 모은 표를 그대로 씁니다.</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#2-설치와-실행"><small>← 앞 장 02</small><b>설치와 실행</b></a><a class="is-next" href="#4-빠른-작업-순서"><small>다음 장 04 →</small><b>빠른 작업 순서</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="4-빠른-작업-순서" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 04</p><h1>빠른 작업 순서</h1></header><ol class="ik-steps is-plain"><li><div><p><strong>분류</strong> 카드 <code>[엑셀]</code> → 분류 파일을 고릅니다. <code>도쿄</code>·<code>오사카</code> 시트가 있으면 단가도 함께 들어옵니다.</p></div></li><li><div><p>도쿄 <strong>납품서</strong> 카드 <code>[PDF 열기]</code>, 오사카도 같은 방법으로 엽니다.</p></div></li><li><div><p>왼쪽 위 <strong>오류 · 확인 · 참고</strong> 숫자를 봅니다. 오류가 있으면 눌러서 확인 목록으로 갑니다(16장).</p></div></li><li><div><p><strong>도쿄 거래명세서</strong> 탭에서 아이칸단가를 입력합니다(행을 고르고 숫자 → <kbd>Enter</kbd>).</p></div></li><li><div><p>오사카도 같은 방법으로 입력합니다.</p></div></li><li><div><p><strong>분류 대조</strong> 탭에서 '납품서에 없음' 행(샘플 등)을 확인하고 필요하면 순번을 직접 지정합니다.</p></div></li><li><div><p><strong>적재정보서</strong> 탭에서 파렛트를 나눕니다(체크 → <code>[체크 → 새 적재]</code>).</p></div></li><li><div><p>파렛트마다 <code>[라벨 출력…]</code>으로 라벨을, <code>[포장 표지 저장…]</code>으로 표지를 뽑습니다.</p></div></li><li><div><p><code>[엑셀 저장]</code>(<kbd>Ctrl</kbd>+<kbd>E</kbd>) 또는 <code>[인쇄]</code>(<kbd>Ctrl</kbd>+<kbd>P</kbd>)로 명세서·적재정보서를 냅니다.</p></div></li><li><div><p><code>[작업 저장]</code>(<kbd>Ctrl</kbd>+<kbd>S</kbd>)으로 <code>.ikanjp</code>를 남겨 둡니다.</p></div></li></ol><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#3-준비할-자료"><small>← 앞 장 03</small><b>준비할 자료</b></a><a class="is-next" href="#5-화면-구성"><small>다음 장 05 →</small><b>화면 구성</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="5-화면-구성" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 05</p><h1>화면 구성</h1></header><figure class="ik-shot" id="shot-js_01_tokyo"><div class="ik-shot-frame" style="aspect-ratio:1440/1000;max-width:1440px"><img alt="재팬한샘 거래명세서 도쿄 거래명세서 탭 화면(가상 자료)" decoding="async" height="1000" loading="lazy" src="../assets/shots/jpstatement/js_01_tokyo.webp" width="1440"/><button aria-label="1번 오류·확인·참고" class="ik-pin" data-pin="1" style="left:12.85%;top:12.50%" type="button">1</button><button aria-label="2번 분류 카드" class="ik-pin" data-pin="2" style="left:4.51%;top:20.20%" type="button">2</button><button aria-label="3번 납품서 카드" class="ik-pin" data-pin="3" style="left:5.00%;top:44.40%" type="button">3</button><button aria-label="4번 명세서 날짜" class="ik-pin" data-pin="4" style="left:45.28%;top:14.00%" type="button">4</button><button aria-label="5번 아이칸단가 ✎" class="ik-pin" data-pin="5" style="left:57.08%;top:21.40%" type="button">5</button><button aria-label="6번 비고" class="ik-pin" data-pin="6" style="left:81.60%;top:27.20%" type="button">6</button><button aria-label="7번 확인 칸" class="ik-pin" data-pin="7" style="left:94.17%;top:29.90%" type="button">7</button><button aria-label="8번 소계" class="ik-pin" data-pin="8" style="left:48.61%;top:90.20%" type="button">8</button><button aria-label="9번 + 항목 추가" class="ik-pin" data-pin="9" style="left:30.00%;top:93.80%" type="button">9</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">도쿄 거래명세서 탭 — 가상 자료 10행. 2번 행은 아이칸금액이 한샘금액보다 커서 비고가 붙고, 2~5번은 같은 오더·같은 품목이라 '면적 기준'으로 단가가 붙었습니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>오류·확인·참고</b>확인 목록의 개수. 누르면 <span class="ik-ui">확인 목록</span> 탭으로 갑니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>분류 카드</b><span class="ik-ui">엑셀</span>·<span class="ik-ui">붙여넣기</span>로 분류를 넣습니다. 이름 앞 점 색이 상태(초록 들어옴 · 갈색 확인할 것).</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>납품서 카드</b><span class="ik-ui">PDF 열기</span>로 SRM 납품서 PDF를 엽니다. 납품번호·납품일·행 수가 나옵니다.</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>명세서 날짜</b>기본은 납품일. 2026-11-20처럼 고쳐 쓸 수 있습니다.</span></li><li data-pin="5"><span class="ik-pin-n">5</span><span><b>아이칸단가 ✎</b>행을 고르고 숫자를 치면 입력 칸이 열립니다. Enter = 저장하고 다음 행.</span></li><li data-pin="6"><span class="ik-pin-n">6</span><span><b>비고</b>아이칸금액이 한샘금액보다 클 때만 '아이칸 금액'.</span></li><li data-pin="7"><span class="ik-pin-n">7</span><span><b>확인 칸</b>'면적 기준' 등 한 번 볼 것. 작업번호·확인 칸은 화면 전용입니다.</span></li><li data-pin="8"><span class="ik-pin-n">8</span><span><b>소계</b>수량·한샘금액·아이칸금액(입력 행 수)·비고 건수.</span></li><li data-pin="9"><span class="ik-pin-n">9</span><span><b>+ 항목 추가</b>납품서에 없는 항목을 직접 넣습니다(수기 항목).</span></li></ol></figure><div class="ik-table"><table>
+<thead>
+<tr>
+<th>구역</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>상단 막대</td>
+<td>버전·작업 이름, <code>[새 작업]</code> <code>[작업 열기]</code> <code>[작업 저장]</code> <code>[엑셀 저장 Ctrl+E]</code> <code>[인쇄 Ctrl+P]</code></td>
+</tr>
+<tr>
+<td>왼쪽 <strong>자료</strong></td>
+<td>오류·확인·참고 개수, 분류 카드, 도쿄·오사카의 단가·납품서 카드. 카드 이름 앞 점: 초록 = 들어옴, 갈색 = 확인할 것 있음, 빨강 = 오류, 회색 = 아직 없음</td>
+</tr>
+<tr>
+<td>가운데 탭</td>
+<td>도쿄 거래명세서 · 오사카 거래명세서 · 분류 대조 · 적재정보서 · 확인 목록 (<strong>Ctrl+1~5</strong>)</td>
+</tr>
+</tbody>
+</table></div><p>카드마다 <code>[비우기]</code>가 있습니다. 잘못 넣은 자료만 비우고 다시 넣을 수 있습니다. 분류를 바꾸면 직접 지정했던 순번은 비워집니다(분류 행이 달라졌을 때만).</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#4-빠른-작업-순서"><small>← 앞 장 04</small><b>빠른 작업 순서</b></a><a class="is-next" href="#6-자료-넣기"><small>다음 장 06 →</small><b>자료 넣기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="6-자료-넣기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 06</p><h1>자료 넣기</h1></header><h2 id="6-1-분류">6-1. 분류</h2><ul>
+<li><code>[엑셀]</code>: 분류 엑셀을 고릅니다. 첫 시트(또는 <code>분류</code> 시트)의 8열을 읽고, 같은 파일의 <code>도쿄</code>·<code>오사카</code> 시트를 단가로 함께 읽습니다.</li>
+<li><code>[붙여넣기]</code>: 엑셀에서 8열을 복사해 창에 붙여넣습니다. 머리글 행이 있어도 됩니다.</li>
+<li>카드 아래에 <code>19행 · BG 2 제외 · 짝 16/17 · 짝 없음 1</code>처럼 요약이 나옵니다.</li>
+</ul><h2 id="6-2-단가-도쿄오사카">6-2. 단가 (도쿄·오사카)</h2><ul>
+<li>분류 엑셀에 시트가 있으면 따로 할 일이 없습니다.</li>
+<li>따로 넣을 때는 지역 <strong>단가</strong> 카드 <code>[엑셀]</code>(시트 선택) 또는 <code>[붙여넣기]</code>. PO 상세수집 결과 8열 그대로 붙여넣습니다.</li>
+<li>오더번호 앞 <code>0</code>은 있어도 없어도 같은 오더로 봅니다.</li>
+</ul><h2 id="6-3-납품서-pdf">6-3. 납품서 PDF</h2><ul>
+<li>지역 <strong>납품서</strong> 카드 <code>[PDF 열기]</code> → SRM에서 받은 <code>납 품 서 (집계)</code> PDF.</li>
+<li>납품번호·납품일·행 수를 읽어 카드에 보여 줍니다. 명세서 날짜의 기본값이 납품일입니다.</li>
+<li>글자를 고를 수 없는(사진처럼 찍힌) PDF는 읽지 못합니다. SRM에서 다시 내려받아 주세요.</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#5-화면-구성"><small>← 앞 장 05</small><b>화면 구성</b></a><a class="is-next" href="#7-대조-규칙"><small>다음 장 07 →</small><b>대조 규칙</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="7-대조-규칙" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 07</p><h1>대조 규칙</h1></header><h2 id="7-1-분류--납품서">7-1. 분류 ↔ 납품서</h2><p>재질 + 규격(가로*세로)이 같으면 짝입니다.</p><ul>
+<li><code>C031</code>과 <code>RS301</code>은 같은 재질로 봅니다.</li>
+<li>가로·세로가 바뀐 채로 같으면 짝짓되 '확인'으로 표시합니다.</li>
+<li>납품서 한 행의 <strong>수량만큼만</strong> 분류 행을 받습니다. 같은 규격이 다 차면 남는 분류 행은 '같은 규격 납품 수량이 이미 다 찼습니다'.</li>
+<li>샘플(예: <code>東京SR 150*150</code>)처럼 납품서와 구성이 다른 행은 '납품서에 없음'으로 남습니다 → <strong>분류 대조</strong> 탭에서 직접 지정합니다(10장).</li>
+</ul><h2 id="7-2-납품서--단가">7-2. 납품서 ↔ 단가</h2><p>오더번호 + 자재명(<code>E12T WI790 TWDN</code>)이 같은 것끼리 짝입니다.</p><ul>
+<li>같은 오더에 같은 자재가 여러 개면 <strong>수량이 같은 것끼리</strong> 묶고, 그 안에서 <strong>면적(가로×세로)이 큰 행에 더 비싼 단가</strong>를 붙입니다. 면적이 같으면 오더 순번 순서입니다.</li>
+<li>이렇게 붙인 행은 확인 칸에 <strong>'면적 기준'</strong> 으로 표시됩니다. 금액을 한 번 봐 주세요.</li>
+<li>단가를 못 찾은 행은 '오류(단가 없음)'. 한샘단가를 직접 입력하면 오류가 풀립니다.</li>
+</ul><div class="ik-example"><span class="ik-example-tag">예시</span>
+<p>예: 오더 900000101에 <code>TWDN</code> 두 줄 — 1095*220(면적 240,900)과 740*415(면적 307,100). 단가 자료에 92,100과 98,600이 있으면 <strong>740*415에 98,600</strong>, 1095*220에 92,100이 붙습니다.</p>
+</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#6-자료-넣기"><small>← 앞 장 06</small><b>자료 넣기</b></a><a class="is-next" href="#8-거래명세서-탭-도쿄--오사카"><small>다음 장 08 →</small><b>거래명세서 탭 (도쿄 / 오사카)</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="8-거래명세서-탭-도쿄--오사카" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 08</p><h1>거래명세서 탭 (도쿄 / 오사카)</h1></header><p>납품서 PDF 순번 그대로 한 줄씩 나옵니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NO</td>
+<td>납품서 순번. 수기 항목은 납품서 다음 번호</td>
+</tr>
+<tr>
+<td>오더번호 · 색상 · 품명 · 규격</td>
+<td>납품서에서 (규격은 가로, 세로 두 칸)</td>
+</tr>
+<tr>
+<td>수량 · 단위</td>
+<td>수량, 단위는 <code>SET</code></td>
+</tr>
+<tr>
+<td>아이칸단가 ✎ · 아이칸금액</td>
+<td>직접 입력, 금액 = 단가 × 수량</td>
+</tr>
+<tr>
+<td>한샘단가 · 한샘금액</td>
+<td>단가 자료에서. 직접 고치면 옆에 <code>*</code></td>
+</tr>
+<tr>
+<td>비고</td>
+<td>아이칸금액 &gt; 한샘금액일 때만 <code>아이칸 금액</code></td>
+</tr>
+<tr>
+<td>‖ 작업번호(화면) · 확인</td>
+<td><strong>화면 전용</strong>. 엑셀·인쇄에 나가지 않음</td>
+</tr>
+</tbody>
+</table></div><h2 id="8-1-아이칸단가-입력">8-1. 아이칸단가 입력</h2><ol class="ik-steps is-plain"><li><div><p>행을 고르고 숫자를 바로 칩니다(또는 <kbd>F2</kbd>). 입력 칸이 열립니다.</p></div></li><li><div><p><kbd>Enter</kbd> = 저장하고 다음 행, <kbd>Esc</kbd> = 취소, <kbd>Delete</kbd> = 지우기.</p></div></li><li><div><p>다른 곳에서 복사한 단가 여러 줄은 첫 행을 고르고 <kbd>Ctrl</kbd>+<kbd>V</kbd> — 아래로 차례로 들어갑니다.</p></div></li></ol><p><code>[아이칸단가 모두 지우기]</code>는 지금 지역의 아이칸단가만 지웁니다.</p><h2 id="8-2-비고-규칙">8-2. 비고 규칙</h2><ul>
+<li>아이칸금액이 한샘금액보다 <strong>클 때만</strong> <code>아이칸 금액</code>.</li>
+<li>같거나 작으면 공란, 아이칸단가가 비어 있어도 공란.</li>
+<li>엑셀에는 수식으로 들어가서, 엑셀에서 단가를 고쳐도 비고가 다시 계산됩니다.</li>
+</ul><h2 id="8-3-한샘단가-고치기">8-3. 한샘단가 고치기</h2><p>한샘단가 칸을 두 번 누르면 직접 입력할 수 있습니다. 고친 값 옆에 <code>*</code>가 붙습니다. 값을 지우면 원래 단가로 돌아갑니다.</p><h2 id="8-4-날짜소계복사">8-4. 날짜·소계·복사</h2><ul>
+<li><strong>명세서 날짜</strong>는 납품일이 기본값입니다. 고치려면 <code>2026-11-20</code>처럼 입력합니다.</li>
+<li>아래 <strong>소계</strong>: 수량 · 한샘금액 · 아이칸금액(입력 n/전체) · 비고 건수.</li>
+<li>행을 골라 <kbd>Ctrl</kbd>+<kbd>C</kbd> → 엑셀 칸 순서대로 복사됩니다(작업번호 제외). <kbd>Ctrl</kbd>+<kbd>A</kbd>는 전체 선택.</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#7-대조-규칙"><small>← 앞 장 07</small><b>대조 규칙</b></a><a class="is-next" href="#9-항목-추가수기-입력"><small>다음 장 09 →</small><b>항목 추가·수기 입력</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="9-항목-추가수기-입력" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 09</p><h1>항목 추가·수기 입력</h1></header><figure class="ik-shot is-small" id="shot-js_06_manual"><div class="ik-shot-frame" style="aspect-ratio:520/417;max-width:520px"><img alt="항목 추가 창" decoding="async" height="417" loading="lazy" src="../assets/shots/jpstatement/js_06_manual.webp" width="520"/><button aria-label="1번 오더번호~단가" class="ik-pin" data-pin="1" style="left:39.04%;top:35.01%" type="button">1</button><button aria-label="2번 작업번호(화면용)" class="ik-pin" data-pin="2" style="left:37.50%;top:72.42%" type="button">2</button><button aria-label="3번 추가" class="ik-pin" data-pin="3" style="left:62.31%;top:91.61%" type="button">3</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">거래명세서 항목 추가 창(수기 입력). 명세서 맨 뒤에 붙고 NO는 납품서 다음 번호입니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>오더번호~단가</b>납품서처럼 오더번호·색상·품명·규격·수량·단가를 넣습니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>작업번호(화면용)</b>화면에만 보입니다. 엑셀·인쇄에 나가지 않습니다.</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>추가</b>명세서 맨 뒤에 파란 글씨로 붙습니다.</span></li></ol></figure><p>납품서에 없는 항목을 명세서에 직접 넣습니다.</p><ol class="ik-steps is-plain"><li><div><p>거래명세서 탭 아래 <code>[+ 항목 추가]</code>.</p></div></li><li><div><p>오더번호 · 색상 · 품명 · 규격(가로·세로) · 수량 · 한샘단가 · 아이칸단가 · 작업번호(화면용)를 입력합니다.</p></div></li><li><div><p><code>[추가]</code> → 명세서 <strong>맨 뒤</strong>에 붙고, NO는 납품서 다음 번호로 이어집니다.</p></div></li></ol><ul>
+<li>수기 항목은 <strong>파란 글씨</strong>, 확인 칸 '수기 항목'.</li>
+<li>두 번 누르거나 <code>[항목 수정…]</code>으로 고치고, <code>[항목 삭제]</code>로 지웁니다.</li>
+<li>엑셀·인쇄·적재정보서에는 다른 행과 똑같이 나갑니다. 분류 대조·단가 대조에는 쓰이지 않습니다.</li>
+</ul><div class="ik-note"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>참고</p>
+<p>수기 항목이 든 작업 파일은 0.4.0 이상에서만 열립니다.</p>
+</div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#8-거래명세서-탭-도쿄--오사카"><small>← 앞 장 08</small><b>거래명세서 탭 (도쿄 / 오사카)</b></a><a class="is-next" href="#10-분류-대조-탭"><small>다음 장 10 →</small><b>분류 대조 탭</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="10-분류-대조-탭" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 10</p><h1>분류 대조 탭</h1></header><figure class="ik-shot" id="shot-js_02_class"><div class="ik-shot-frame" style="aspect-ratio:1440/1000;max-width:1440px"><img alt="분류 대조 탭 — 분류 행별 납품서 순번과 파렛트" decoding="async" height="1000" loading="lazy" src="../assets/shots/jpstatement/js_02_class.webp" width="1440"/><button aria-label="1번 거르기" class="ik-pin" data-pin="1" style="left:35.07%;top:17.70%" type="button">1</button><button aria-label="2번 파렛트" class="ik-pin" data-pin="2" style="left:58.54%;top:17.70%" type="button">2</button><button aria-label="3번 라벨 출력 (위 파렛트)" class="ik-pin" data-pin="3" style="left:59.03%;top:21.60%" type="button">3</button><button aria-label="4번 라벨용 분류 복사" class="ik-pin" data-pin="4" style="left:71.88%;top:21.60%" type="button">4</button><button aria-label="5번 납품서 순번" class="ik-pin" data-pin="5" style="left:78.19%;top:26.20%" type="button">5</button><button aria-label="6번 파렛트" class="ik-pin" data-pin="6" style="left:84.44%;top:26.20%" type="button">6</button><button aria-label="7번 납품서에 없음" class="ik-pin" data-pin="7" style="left:90.28%;top:61.60%" type="button">7</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">분류 대조 탭. 13행(東京SR 150*150 샘플)은 '납품서에 없음', BG 행은 회색 'BG 제외'지만 파렛트는 정해져 라벨에 들어갑니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>거르기</b>전체 / 짝 없음·확인만 / 짝 있음만, BG 숨기기.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>파렛트</b>한 파렛트 행만 보기. 아래 라벨 출력·복사도 이 파렛트 기준.</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>라벨 출력 (위 파렛트)</b>내장 라벨 출력기를 그 파렛트 라벨이 채워진 채로 엽니다.</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>라벨용 분류 복사</b>그 파렛트의 분류 8열(BG 포함)을 복사합니다.</span></li><li data-pin="5"><span class="ik-pin-n">5</span><span><b>납품서 순번</b>분류 행에 붙은 납품서 순번. 두 번 누르면 직접 지정.</span></li><li data-pin="6"><span class="ik-pin-n">6</span><span><b>파렛트</b>이 분류 행 라벨이 들어갈 파렛트.</span></li><li data-pin="7"><span class="ik-pin-n">7</span><span><b>납품서에 없음</b>샘플처럼 구성이 다른 행. 두 번 눌러 순번을 지정하거나 그대로 둡니다.</span></li></ol></figure><p>분류 행마다 붙은 <strong>납품서 순번</strong>(예: <code>도쿄 7</code>)과 <strong>파렛트</strong>를 보여 줍니다. 인쇄 도면에 순번을 손으로 적을 때 이 표를 봅니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>위쪽 거르기</th>
+<th>뜻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>전체 / 짝 없음·확인만 / 짝 있음만</td>
+<td>상태로 거르기</td>
+</tr>
+<tr>
+<td>BG 숨기기</td>
+<td>BG 행 감추기 (회색 'BG 제외')</td>
+</tr>
+<tr>
+<td>파렛트</td>
+<td>한 파렛트 행만 보기 (라벨 복사·출력도 이 파렛트 기준)</td>
+</tr>
+<tr>
+<td>찾기</td>
+<td>현장명·작업번호·규격 등으로 찾기</td>
+</tr>
+</tbody>
+</table></div><h2 id="10-1-순번-직접-지정">10-1. 순번 직접 지정</h2><ol class="ik-steps is-plain"><li><div><p>행을 두 번 누르거나 <kbd>Enter</kbd> → <strong>순번 지정</strong> 창.</p></div></li><li><div><p>납품서 행을 골라 <code>[이 순번으로 지정]</code>, 또는 <code>['없음'으로 지정]</code>.</p></div></li><li><div><p>직접 지정한 행은 <strong>파란 글씨</strong>이며 자동 대조보다 우선합니다. <code>[자동으로 되돌리기]</code>로 되돌립니다.</p></div></li></ol><p>샘플(150*150 등)이나 납품서 구성이 다른 특수 행은 사람이 판단해서 여기서 붙여 줍니다.</p><figure class="ik-shot is-small" id="shot-js_03_assign"><div class="ik-shot-frame" style="aspect-ratio:760/520;max-width:760px"><img alt="순번 지정 창" decoding="async" height="520" loading="lazy" src="../assets/shots/jpstatement/js_03_assign.webp" width="760"/><button aria-label="1번 분류 행" class="ik-pin" data-pin="1" style="left:12.50%;top:11.15%" type="button">1</button><button aria-label="2번 같은 재질만 보기" class="ik-pin" data-pin="2" style="left:9.87%;top:23.27%" type="button">2</button><button aria-label="3번 붙은 분류" class="ik-pin" data-pin="3" style="left:78.95%;top:30.77%" type="button">3</button><button aria-label="4번 자동으로 되돌리기" class="ik-pin" data-pin="4" style="left:10.79%;top:93.65%" type="button">4</button><button aria-label="5번 '없음'으로 지정" class="ik-pin" data-pin="5" style="left:27.89%;top:93.65%" type="button">5</button><button aria-label="6번 이 순번으로 지정" class="ik-pin" data-pin="6" style="left:73.95%;top:93.65%" type="button">6</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">순번 지정 창 — 분류 13행(샘플)에 붙일 납품서 행을 고릅니다. 같은 재질만 보기가 기본입니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>분류 행</b>지정할 분류 행의 현장명·재질·규격·작업번호·라벨색.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>같은 재질만 보기</b>끄면 그 지역 납품서 행이 모두 보입니다. ★ = 재질·규격이 같은 행.</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>붙은 분류</b>그 납품서 행에 이미 붙은 분류 행 번호.</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>자동으로 되돌리기</b>직접 지정을 지우고 자동 대조로.</span></li><li data-pin="5"><span class="ik-pin-n">5</span><span><b>'없음'으로 지정</b>이 행은 납품서와 짝이 없다고 확정.</span></li><li data-pin="6"><span class="ik-pin-n">6</span><span><b>이 순번으로 지정</b>고른 납품서 행에 붙입니다(파란 글씨, 자동보다 우선).</span></li></ol></figure><h2 id="10-2-순번을-분류-엑셀로">10-2. 순번을 분류 엑셀로</h2><ul>
+<li><code>[순번 열 복사]</code>: 분류 행 순서대로 순번만 복사 → 원래 분류 엑셀의 <strong>빈 열 첫 칸</strong>에 붙여넣기.</li>
+<li><code>[분류+순번 엑셀 저장…]</code>: 원래 분류 파일을 <strong>새 이름으로</strong> 저장하면서 빈 칸(號室 E열이 비었으면 E열, 아니면 첫 빈 열)에 순번을 적습니다. 원본에는 덮어쓰지 않습니다.</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#9-항목-추가수기-입력"><small>← 앞 장 09</small><b>항목 추가·수기 입력</b></a><a class="is-next" href="#11-적재정보서와-파렛트"><small>다음 장 11 →</small><b>적재정보서와 파렛트</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="11-적재정보서와-파렛트" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 11</p><h1>적재정보서와 파렛트</h1></header><figure class="ik-shot" id="shot-js_04_load"><div class="ik-shot-frame" style="aspect-ratio:1440/1000;max-width:1440px"><img alt="적재정보서 탭 — 도쿄 적재 2개와 파렛트별 출력" decoding="async" height="1000" loading="lazy" src="../assets/shots/jpstatement/js_04_load.webp" width="1440"/><button aria-label="1번 지역" class="ik-pin" data-pin="1" style="left:39.93%;top:14.00%" type="button">1</button><button aria-label="2번 체크 → 새 적재" class="ik-pin" data-pin="2" style="left:30.00%;top:18.30%" type="button">2</button><button aria-label="3번 기존 적재에 추가" class="ik-pin" data-pin="3" style="left:48.61%;top:18.30%" type="button">3</button><button aria-label="4번 남은 행 모두" class="ik-pin" data-pin="4" style="left:68.61%;top:18.30%" type="button">4</button><button aria-label="5번 체크 칸" class="ik-pin" data-pin="5" style="left:27.36%;top:22.60%" type="button">5</button><button aria-label="6번 나눈 적재" class="ik-pin" data-pin="6" style="left:84.03%;top:30.00%" type="button">6</button><button aria-label="7번 라벨 파일 저장" class="ik-pin" data-pin="7" style="left:74.03%;top:86.20%" type="button">7</button><button aria-label="8번 포장 표지 저장" class="ik-pin" data-pin="8" style="left:83.12%;top:86.20%" type="button">8</button><button aria-label="9번 분류 복사" class="ik-pin" data-pin="9" style="left:78.33%;top:90.50%" type="button">9</button><button aria-label="10번 라벨 출력…" class="ik-pin" data-pin="10" style="left:94.86%;top:90.50%" type="button">10</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">적재정보서 탭 — 도쿄를 2개 적재(TOKYO 1 · TOKYO 2)로 나눈 상태. 오사카는 1개라 번호 없이 OSAKA입니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>지역</b>도쿄 / 오사카를 바꿉니다.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>체크 → 새 적재</b>체크한 행으로 새 적재를 만듭니다.</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>기존 적재에 추가</b>목록에서 적재를 고르고 <span class="ik-ui">에 추가</span>.</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>남은 행 모두</b>아직 안 나눈 행 전부를 새 적재로.</span></li><li data-pin="5"><span class="ik-pin-n">5</span><span><b>체크 칸</b>누르거나 Space. 머리글 ☐은 보이는 행 전체.</span></li><li data-pin="6"><span class="ik-pin-n">6</span><span><b>나눈 적재</b>시트 이름 · 파렛트 이름 · 행 · 수량 · 한샘금액.</span></li><li data-pin="7"><span class="ik-pin-n">7</span><span><b>라벨 파일 저장</b>파렛트 묶음이 든 라벨 출력기 v3용 파일(.json).</span></li><li data-pin="8"><span class="ik-pin-n">8</span><span><b>포장 표지 저장</b>파렛트마다 3장짜리 포장 표지 엑셀.</span></li><li data-pin="9"><span class="ik-pin-n">9</span><span><b>분류 복사</b>고른 파렛트의 분류 8열(BG 포함)을 복사.</span></li><li data-pin="10"><span class="ik-pin-n">10</span><span><b>라벨 출력…</b>내장 라벨 출력기를 브라우저로 엽니다.</span></li></ol></figure><h2 id="11-1-적재-나누기">11-1. 적재 나누기</h2><ol class="ik-steps is-plain"><li><div><p>위에서 <code>[도쿄]</code> / <code>[오사카]</code>를 고릅니다.</p></div></li><li><div><p>첫 칸 ☐을 누르거나 행을 고르고 <kbd>Space</kbd>로 체크합니다. 머리글 ☐은 보이는 행 전체 체크/해제.</p></div></li><li><div><p><code>[체크 → 새 적재]</code>, 또는 <code>[도쿄 1 ▾] [에 추가]</code>로 기존 적재에 넣습니다.</p></div></li><li><div><p>마지막에 <code>[남은 행 모두 → 새 적재]</code>.</p></div></li></ol><ul>
+<li><code>[체크 행 적재 빼기]</code>: 적재에서 뺍니다. <code>[적재 지우기]</code>: 그 적재를 없애고 번호를 앞으로 당깁니다.</li>
+<li><code>적재 안 된 행만</code>을 켜면 아직 나누지 않은 행만 보입니다.</li>
+<li>오른쪽 <strong>나눈 적재</strong> 표에 시트별 행 수·수량·한샘금액이 나옵니다. <code>[이 적재 행 체크]</code>로 그 적재의 행을 다시 고를 수 있습니다.</li>
+</ul><p>적재정보서 행은 <strong>납품서 순번 순서</strong>이고, NO는 시트 안에서 1부터 다시 매깁니다.</p><h2 id="11-2-이름-규칙--적재가-하나면-번호-없음">11-2. 이름 규칙 — 적재가 하나면 번호 없음</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>지역의 적재 수</th>
+<th>화면</th>
+<th>적재정보서 시트</th>
+<th>파렛트(라벨·표지)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1개 (또는 안 나눔)</td>
+<td>도쿄</td>
+<td><code>도쿄 적재</code> (날짜 칸 <code>(도쿄)</code>)</td>
+<td><code>TOKYO</code></td>
+</tr>
+<tr>
+<td>2개 이상</td>
+<td>도쿄 1, 도쿄 2 …</td>
+<td><code>도쿄 1</code>, <code>도쿄 2</code> …</td>
+<td><code>TOKYO 1</code>, <code>TOKYO 2</code> …</td>
+</tr>
+</tbody>
+</table></div><p>오사카도 같습니다(<code>OSAKA</code>, <code>OSAKA 1</code> …). 적재를 나누지 않은 지역은 전체가 한 파렛트입니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#10-분류-대조-탭"><small>← 앞 장 10</small><b>분류 대조 탭</b></a><a class="is-next" href="#12-파렛트별-라벨"><small>다음 장 12 →</small><b>파렛트별 라벨</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="12-파렛트별-라벨" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 12</p><h1>파렛트별 라벨</h1></header><p>라벨은 <strong>분류 행 그대로</strong>(現場名·ITEM·色·SIZE·號室·No.·매수·라벨색)입니다. 납품서 순번은 넣지 않고, <strong>BG도 포함</strong>합니다.</p><h2 id="12-1-어느-파렛트로-가나">12-1. 어느 파렛트로 가나</h2><ul>
+<li>납품서와 짝이 있는 분류 행 → 그 납품서 행이 들어간 파렛트.</li>
+<li>BG·샘플처럼 짝이 없는 행 → 같은 지역·<strong>같은 작업번호</strong>가 든 파렛트(샘플은 같은 재질 우선). 여럿이면 첫 파렛트.</li>
+<li>그래도 못 정한 행은 '파렛트를 못 정한 분류 행'으로 알려 주고 라벨에서 빠집니다. 분류 대조 탭에서 순번을 지정하면 들어갑니다.</li>
+</ul><h2 id="12-2-내장-라벨-출력기로-바로-인쇄">12-2. 내장 라벨 출력기로 바로 인쇄</h2><ol class="ik-steps is-plain"><li><div><p>적재정보서 탭 오른쪽 아래 <code>[분류 복사 TOKYO 1 ▾]</code>에서 파렛트를 고르고 <code>[라벨 출력…]</code>.
+   (분류 대조 탭에서는 <code>파렛트</code>를 고르고 <code>[라벨 출력 (위 파렛트)…]</code>)</p></div></li><li><div><p>기본 브라우저에 <strong>아이칸 라벨 출력기</strong>가 그 파렛트 라벨이 채워진 채로 열립니다.</p></div></li><li><div><p>남은 라벨지가 있으면 시작 칸을 누르고, <code>[인쇄]</code>.</p></div></li></ol><ul>
+<li>프린터 위치 보정(X/Y)·색 번짐은 단독 라벨 출력기에서 맞춰 둔 값을 <strong>처음 한 번 이어받고</strong>, 그 뒤로는 따로 기억합니다.</li>
+<li>단독 라벨 출력기에서 작업 중이던 내용은 건드리지 않습니다.</li>
+<li>사용법은 <a href="../labels/index.html">아이칸 라벨 출력기</a> 매뉴얼과 같습니다(묶음 보기·시작 칸).</li>
+</ul><figure class="ik-shot" id="shot-js_08_labels"><div class="ik-shot-frame" style="aspect-ratio:1440/900;max-width:1440px"><img alt="내장 라벨 출력기 — TOKYO 1 파렛트" decoding="async" height="900" loading="lazy" src="../assets/shots/jpstatement/js_08_labels.webp" width="1440"/><button aria-label="1번 연결 표시" class="ik-pin" data-pin="1" style="left:20.83%;top:3.33%" type="button">1</button><button aria-label="2번 묶음" class="ik-pin" data-pin="2" style="left:62.85%;top:9.33%" type="button">2</button><button aria-label="3번 보정 X·Y" class="ik-pin" data-pin="3" style="left:87.15%;top:13.33%" type="button">3</button><button aria-label="4번 시작 칸" class="ik-pin" data-pin="4" style="left:65.28%;top:19.56%" type="button">4</button><button aria-label="5번 인쇄" class="ik-pin" data-pin="5" style="left:95.28%;top:3.22%" type="button">5</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">거래명세서에서 연 내장 라벨 출력기(TOKYO 1, 7장). BG 행(7번)도 같은 파렛트 라벨로 들어왔습니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>연결 표시</b>'재팬한샘 거래명세서에서 연결됨 · 날짜 · 파렛트'.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>묶음</b>파렛트 묶음. 한 파렛트만 보고 인쇄할 수 있습니다.</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>보정 X·Y</b>단독 라벨 출력기 값을 처음 한 번 이어받고 그 뒤로 따로 기억합니다.</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>시작 칸</b>남은 라벨지는 장마다 시작할 칸을 눌러 지정합니다.</span></li><li data-pin="5"><span class="ik-pin-n">5</span><span><b>인쇄</b>브라우저 인쇄 창이 열립니다.</span></li></ol></figure><h2 id="12-3-라벨-파일분류-복사">12-3. 라벨 파일·분류 복사</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>단추</th>
+<th>결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[라벨 파일 저장…]</code></td>
+<td><code>아이칸라벨_YYYYMMDD_파렛트.json</code> — 단독 라벨 출력기 <strong>v3</strong>에서 <code>[불러오기]</code>. 행마다 묶음 = 파렛트 이름</td>
+</tr>
+<tr>
+<td><code>[복사]</code> (분류 복사 옆)</td>
+<td>고른 파렛트의 분류 8열을 복사 → 라벨 출력기 <code>[엑셀에서 붙여넣기]</code>나 엑셀에 붙여넣기</td>
+</tr>
+<tr>
+<td><code>[라벨용 분류 복사 (위 파렛트)]</code></td>
+<td>분류 대조 탭에서 같은 기능. <code>전체</code>면 9번째 열에 묶음까지</td>
+</tr>
+</tbody>
+</table></div><p>복사는 화면 거르기(BG 숨기기·찾기)와 상관없이 그 파렛트 <strong>전체</strong>가 들어갑니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#11-적재정보서와-파렛트"><small>← 앞 장 11</small><b>적재정보서와 파렛트</b></a><a class="is-next" href="#13-포장-표지"><small>다음 장 13 →</small><b>포장 표지</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="13-포장-표지" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 13</p><h1>포장 표지</h1></header><ol class="ik-steps is-plain"><li><div><p>적재정보서 탭 <code>[포장 표지 저장…]</code> → <code>포장표지_YYYYMMDD.xlsx</code>.</p></div></li><li><div><p>파렛트마다 <code>IKAN/JAPAN HANSSEM</code> · <code>취급주의</code> · <code>TOKYO 1</code> <strong>3장</strong>이 차례로 들어 있습니다.</p></div></li><li><div><p>엑셀에서 <strong>전체 통합 문서 인쇄</strong>, 또는 프로그램의 <code>[인쇄]</code>에서 포장 표지를 고릅니다.</p></div></li></ol><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#12-파렛트별-라벨"><small>← 앞 장 12</small><b>파렛트별 라벨</b></a><a class="is-next" href="#14-엑셀-저장과-인쇄"><small>다음 장 14 →</small><b>엑셀 저장과 인쇄</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="14-엑셀-저장과-인쇄" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 14</p><h1>엑셀 저장과 인쇄</h1></header><h2 id="14-1-엑셀-저장-ctrle">14-1. 엑셀 저장 (Ctrl+E)</h2><ol class="ik-steps is-plain"><li><div><p><code>[엑셀 저장]</code> → 저장할 시트(거래명세서 · 적재정보서)를 체크합니다.</p></div></li><li><div><p><code>[저장 위치 고르기…]</code> → <code>거래명세서_YYYYMMDD.xlsx</code>.</p></div></li></ol><ul>
+<li>시트: <code>도쿄</code>·<code>오사카</code> 거래명세서 + <code>도쿄 1</code>·<code>도쿄 2</code>(또는 <code>도쿄 적재</code>) … 적재정보서(제목 <code>적재정보서</code>).</li>
+<li>금액·소계·비고는 <strong>수식</strong>이라 엑셀에서 단가를 고쳐도 다시 계산됩니다.</li>
+<li>오류(단가 없음)가 남아 있으면 그 칸은 빈 칸으로 저장된다고 알려 줍니다.</li>
+</ul><h2 id="14-2-바로-인쇄-ctrlp">14-2. 바로 인쇄 (Ctrl+P)</h2><ol class="ik-steps is-plain"><li><div><p><code>[인쇄]</code> → 거래명세서 · 적재정보서 · 포장 표지 중 찍을 것을 체크합니다.</p></div></li><li><div><p>프린터와 부수를 고르고 <code>[인쇄]</code>.</p></div></li></ol><ul>
+<li>엑셀 저장과 같은 양식을 데스크톱 Excel로 보냅니다. <strong>Excel이 설치되어 있어야</strong> 합니다.</li>
+<li>Windows 기본 프린터는 바꾸지 않습니다. 마지막에 고른 프린터를 기억합니다.</li>
+<li>오류가 남아 있거나 적재에 안 들어간 행이 있으면 한 번 더 묻습니다.</li>
+</ul><figure class="ik-shot is-small" id="shot-js_07_print"><div class="ik-shot-frame" style="aspect-ratio:560/616;max-width:560px"><img alt="인쇄 창" decoding="async" height="616" loading="lazy" src="../assets/shots/jpstatement/js_07_print.webp" width="560"/><button aria-label="1번 거래명세서" class="ik-pin" data-pin="1" style="left:11.07%;top:20.45%" type="button">1</button><button aria-label="2번 적재정보서" class="ik-pin" data-pin="2" style="left:11.07%;top:35.23%" type="button">2</button><button aria-label="3번 포장 표지" class="ik-pin" data-pin="3" style="left:11.07%;top:54.38%" type="button">3</button><button aria-label="4번 프린터" class="ik-pin" data-pin="4" style="left:7.14%;top:76.14%" type="button">4</button><button aria-label="5번 인쇄" class="ik-pin" data-pin="5" style="left:65.18%;top:94.32%" type="button">5</button></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">인쇄 창 — 거래명세서·적재정보서·포장 표지를 골라 한 번에 보냅니다(데스크톱 Excel 필요).</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption><ol class="ik-shot-legend"><li data-pin="1"><span class="ik-pin-n">1</span><span><b>거래명세서</b>지역별 명세서. 묶음마다 <span class="ik-ui">모두</span>·<span class="ik-ui">해제</span>.</span></li><li data-pin="2"><span class="ik-pin-n">2</span><span><b>적재정보서</b>나눈 적재마다 한 장.</span></li><li data-pin="3"><span class="ik-pin-n">3</span><span><b>포장 표지</b>파렛트마다 3장(IKAN · 취급주의 · 파렛트 이름).</span></li><li data-pin="4"><span class="ik-pin-n">4</span><span><b>프린터</b>마지막에 고른 프린터를 기억합니다. Windows 기본 프린터는 바꾸지 않습니다.</span></li><li data-pin="5"><span class="ik-pin-n">5</span><span><b>인쇄</b>위→아래 순서로 보냅니다.</span></li></ol></figure><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#13-포장-표지"><small>← 앞 장 13</small><b>포장 표지</b></a><a class="is-next" href="#15-작업-저장열기"><small>다음 장 15 →</small><b>작업 저장·열기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="15-작업-저장열기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 15</p><h1>작업 저장·열기</h1></header><div class="ik-table"><table>
+<thead>
+<tr>
+<th>단추</th>
+<th>결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[작업 저장]</code> <kbd>Ctrl</kbd>+<kbd>S</kbd></td>
+<td><code>.ikanjp</code> 작업 파일 — 읽은 자료 내용, 아이칸단가, 고친 한샘단가, 직접 지정한 순번, 나눈 적재, 날짜, 수기 항목</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd></td>
+<td>다른 이름으로 저장</td>
+</tr>
+<tr>
+<td><code>[작업 열기]</code> <kbd>Ctrl</kbd>+<kbd>O</kbd></td>
+<td><code>.ikanjp</code> 열기</td>
+</tr>
+<tr>
+<td><code>[새 작업]</code> <kbd>Ctrl</kbd>+<kbd>N</kbd></td>
+<td>빈 작업 (저장 안 한 내용이 있으면 먼저 묻기)</td>
+</tr>
+</tbody>
+</table></div><ul>
+<li>작업 파일에는 원본 파일 자체가 아니라 <strong>읽은 내용</strong>이 들어갑니다. 원본 엑셀·PDF가 없는 PC에서도 열립니다.</li>
+<li>원본을 바꿨다면 해당 카드에서 다시 읽으면 됩니다. 납품서가 바뀌면 없어진 행은 적재에서 빠집니다.</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#14-엑셀-저장과-인쇄"><small>← 앞 장 14</small><b>엑셀 저장과 인쇄</b></a><a class="is-next" href="#16-확인-목록"><small>다음 장 16 →</small><b>확인 목록</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="16-확인-목록" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 16</p><h1>확인 목록</h1></header><figure class="ik-shot" id="shot-js_05_issues"><div class="ik-shot-frame" style="aspect-ratio:1440/1000;max-width:1440px"><img alt="확인 목록 탭" decoding="async" height="1000" loading="lazy" src="../assets/shots/jpstatement/js_05_issues.webp" width="1440"/></div><figcaption><span class="ik-shot-tag">실제 화면</span><span class="ik-shot-cap">확인 목록 — 오류·확인·참고. 두 번 누르면 해당 탭의 그 행으로 이동합니다.</span><button class="ik-shot-zoom" data-zoom="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg><span>크게 보기</span></button></figcaption></figure><div class="ik-table"><table>
+<thead>
+<tr>
+<th>등급</th>
+<th>뜻</th>
+<th>예</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>오류</td>
+<td>꼭 봐야 함. 그대로면 빈 칸</td>
+<td>단가 없음</td>
+</tr>
+<tr>
+<td>확인</td>
+<td>한 번 볼 것</td>
+<td>면적 기준 단가, 가로·세로 뒤바뀜, 납품서에 없음</td>
+</tr>
+<tr>
+<td>참고</td>
+<td>알고만 있으면 됨</td>
+<td>샘플 행의 '분류 매수 1 / 납품 15' 같은 차이</td>
+</tr>
+</tbody>
+</table></div><p>항목을 두 번 누르면 해당 탭·행으로 이동합니다. 왼쪽 위 숫자를 눌러도 이 탭이 열립니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#15-작업-저장열기"><small>← 앞 장 15</small><b>작업 저장·열기</b></a><a class="is-next" href="#17-단축키"><small>다음 장 17 →</small><b>단축키</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="17-단축키" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 17</p><h1>단축키</h1></header><div class="ik-table"><table>
+<thead>
+<tr>
+<th>키</th>
+<th>동작</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>N</kbd> / <kbd>Ctrl</kbd>+<kbd>O</kbd></td>
+<td>새 작업 / 작업 열기</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>S</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd></td>
+<td>작업 저장 / 다른 이름으로</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>E</kbd></td>
+<td>엑셀 저장</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>P</kbd></td>
+<td>인쇄</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>1</kbd> ~ <kbd>Ctrl</kbd>+<kbd>5</kbd></td>
+<td>탭 이동</td>
+</tr>
+<tr>
+<td>숫자 · <kbd>F2</kbd></td>
+<td>아이칸단가 입력 시작</td>
+</tr>
+<tr>
+<td><kbd>Enter</kbd> / <kbd>Esc</kbd> / <kbd>Delete</kbd></td>
+<td>입력 저장·다음 행 / 취소 / 지우기</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>V</kbd> · <kbd>Ctrl</kbd>+<kbd>C</kbd> · <kbd>Ctrl</kbd>+<kbd>A</kbd></td>
+<td>단가 여러 줄 붙여넣기 · 행 복사 · 전체 선택</td>
+</tr>
+<tr>
+<td><kbd>Space</kbd></td>
+<td>적재정보서 체크</td>
+</tr>
+</tbody>
+</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#16-확인-목록"><small>← 앞 장 16</small><b>확인 목록</b></a><a class="is-next" href="#18-문제-해결-faq"><small>다음 장 18 →</small><b>문제 해결 (FAQ)</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="18-문제-해결-faq" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 18</p><h1>문제 해결 (FAQ)</h1></header><details class="ik-qa"><summary>한샘단가가 비어 있고 '오류(단가 없음)'가 떠요.</summary><div class="ik-qa-a"><div><p>단가 자료에 그 오더번호 + 자재명이 없습니다. 단가 시트가 그 날짜 것인지 확인하고, 맞다면 한샘단가 칸을 두 번 눌러 직접 입력합니다.</p></div></div></details><details class="ik-qa"><summary>같은 품목인데 단가가 서로 바뀐 것 같아요.</summary><div class="ik-qa-a"><div><p>같은 오더·같은 자재는 면적이 큰 행에 비싼 단가를 붙입니다('면적 기준' 표시). 실제와 다르면 한샘단가를 직접 고칩니다.</p></div></div></details><details class="ik-qa"><summary>분류 행이 '납품서에 없음'으로 남아요.</summary><div class="ik-qa-a"><div><p>샘플처럼 납품서와 구성이 다른 행입니다. 분류 대조 탭에서 두 번 눌러 납품서 행을 직접 지정하거나 '없음'으로 둡니다.</p></div></div></details><details class="ik-qa"><summary>파렛트가 하나인데 TOKYO 1로 나와요.</summary><div class="ik-qa-a"><div><p>0.5.0부터는 적재가 하나면 번호 없이 <code>TOKYO</code>입니다. 이전 버전이면 업데이트합니다.</p></div></div></details><details class="ik-qa"><summary>라벨 출력에서 몇 행이 빠졌다고 나와요.</summary><div class="ik-qa-a"><div><p>짝도 없고 같은 작업번호 파렛트도 없는 행입니다. 분류 대조 탭에서 순번을 지정하면 그 파렛트로 들어갑니다.</p></div></div></details><details class="ik-qa"><summary>인쇄를 누르면 Excel 오류가 나요.</summary><div class="ik-qa-a"><div><p>바로 인쇄는 데스크톱 Excel이 필요합니다. Excel이 없으면 <code>[엑셀 저장]</code>으로 파일을 만든 뒤 다른 PC에서 인쇄합니다.</p></div></div></details><details class="ik-qa"><summary>작업번호가 엑셀에 안 나와요.</summary><div class="ik-qa-a"><div><p>작업번호는 화면 전용이라 엑셀·인쇄에 넣지 않습니다(의도된 동작).</p></div></div></details><details class="ik-qa"><summary>납품서 PDF를 열었는데 0행이에요.</summary><div class="ik-qa-a"><div><p>글자 정보가 없는 PDF(스캔본 등)입니다. SRM에서 <code>납 품 서 (집계)</code>를 PDF로 다시 받아 주세요.</p></div></div></details><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#17-단축키"><small>← 앞 장 17</small><b>단축키</b></a><a class="is-next" href="#19-버전-이력"><small>다음 장 19 →</small><b>버전 이력</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="19-버전-이력" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 19</p><h1>버전 이력</h1></header><div class="ik-table"><table>
+<thead>
+<tr>
+<th>버전</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.5.0</td>
+<td>적재가 1개면 번호 없음(<code>도쿄 적재</code>·<code>TOKYO</code>), 라벨 출력기 내장</td>
+</tr>
+<tr>
+<td>0.4.0</td>
+<td>파렛트별 라벨용 분류 복사(BG 포함), 거래명세서 항목 추가·수기 입력</td>
+</tr>
+<tr>
+<td>0.3.0</td>
+<td>프로그램 안에서 바로 인쇄, 같은 오더·같은 품목은 면적 큰 행에 비싼 단가</td>
+</tr>
+<tr>
+<td>0.2.0</td>
+<td>파렛트별 라벨 파일·포장 표지</td>
+</tr>
+<tr>
+<td>0.1.0</td>
+<td>첫 배포 — 대조·거래명세서·분류 순번·적재정보서·엑셀 저장</td>
+</tr>
+</tbody>
+</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#18-문제-해결-faq"><small>← 앞 장 18</small><b>문제 해결 (FAQ)</b></a></nav></section>
+<div class="ik-div ik-div-stamp" role="separator" aria-label="검수 완료"><span class="ik-div-layers is-left"><i></i><i></i><i></i></span><span class="ik-stamp"><span><b>검수</b><small>IKAN</small></span></span><span class="ik-div-layers is-right"><i></i><i></i><i></i></span></div><p class="ik-small" style="text-align:center;max-width:none">아이칸 재팬한샘 거래명세서 사용 설명서 · 기준 버전 0.5.0 · 정리 2026-11-12 · 주식회사 아이칸 사내용</p>
+</main>
+</div>
+<dialog class="ik-zoom" id="ik-zoom" aria-label="화면 크게 보기"><div class="ik-zoom-bar"><b id="ik-zoom-title">화면 크게 보기</b><span>번호를 누르면 설명이 나옵니다 · Esc로 닫기</span><button type="button" class="ik-bar-btn" data-zoom-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>닫기</button></div><div class="ik-zoom-body" id="ik-zoom-body"></div><p class="ik-zoom-note" id="ik-zoom-note" aria-live="polite"></p></dialog>
+<script src="../assets/search-index.js?v=5ac61482"></script><script src="../assets/ikan.js?v=5ac61482"></script><script src="../assets/sims.js?v=5ac61482"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>아이칸 타공 위치 입력 보조 사용 설명서 0.1.0</title>
+<meta name="description" content="한샘 원본이나 관리자 작업 데이터로 워터젯(NcEditor)에 넣을 타공 X/Y를 계산·검토하고 USB 작업 파일로 옮깁니다. 0.1.0은 검토·시뮬레이션 단계로, 기계에 자동 입력하지 않습니다.">
+<link rel="icon" href="../assets/icons/ncassist.svg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="../assets/ikan.css?v=5ac61482">
+</head>
+<body class="ik-app-ncassist">
+<a class="ik-skip" href="#main">본문 바로가기</a>
+<header class="ik-bar"><div class="ik-bar-in"><a class="ik-bar-home" href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg><span>매뉴얼 홈</span></a><i class="ik-bar-sep"></i><div class="ik-bar-title"><img class="ik-bar-icon" src="../assets/icons/ncassist.svg" alt=""><span><small>IKAN CUT ASSIST · USER MANUAL</small><b>아이칸 타공 위치 입력 보조</b></span></div><div class="ik-bar-tools"><span class="ik-bar-ver ik-bar-hide-s">0.1.0</span><button class="ik-bar-btn ik-bar-hide-s" type="button" data-font="-1" aria-label="본문 글자 작게">가−</button><button class="ik-bar-btn ik-bar-hide-s" type="button" data-font="1" aria-label="본문 글자 크게">가+</button><button class="ik-bar-btn ik-bar-hide-s" type="button" data-print><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></svg>인쇄</button><details class="ik-apps"><summary class="ik-bar-btn" aria-label="다른 프로그램 매뉴얼"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.2"/></svg><span class="ik-bar-hide-s">다른 매뉴얼</span></summary><div class="ik-apps-menu"><a href="../index.html"><span style="display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--ik-navy);color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg></span><span><b>매뉴얼 홈</b><span>모든 프로그램 · 전체 검색</span></span></a><hr><a href="../workorders/index.html"><img src="../assets/icons/workorders.svg" alt=""><span><b>아이칸 작업지시서 관리자</b><span>0.24.39</span></span></a><a href="../plot/index.html"><img src="../assets/icons/plot.svg" alt=""><span><b>도면 확대 인쇄</b><span>v2.11</span></span></a><a href="../packing/index.html"><img src="../assets/icons/packing.png" alt=""><span><b>아이칸 포장 카운트</b><span>0.1.13</span></span></a><a href="../drawing/index.html"><img src="../assets/icons/drawing.svg" alt=""><span><b>아이칸 제작 도면</b><span>0.14.3</span></span></a><a href="../labels/index.html"><img src="../assets/icons/labels.svg" alt=""><span><b>아이칸 라벨 출력기</b><span>v3</span></span></a><a href="../jpstatement/index.html"><img src="../assets/icons/jpstatement.png" alt=""><span><b>아이칸 재팬한샘 거래명세서</b><span>0.5.0</span></span></a><a href="../daily/index.html"><img src="../assets/icons/daily.svg" alt=""><span><b>아이칸 일일기록정리</b><span>0.6.3</span></span></a><a href="../leave/index.html"><img src="../assets/icons/leave.svg" alt=""><span><b>아이칸 연차관리</b><span>0.5.1</span></span></a><a href="../srm/index.html"><img src="../assets/icons/srm.svg" alt=""><span><b>PO 상세수집</b><span>v1.1</span></span></a><a href="../wood/index.html"><img src="../assets/icons/wood.svg" alt=""><span><b>목재계산 도우미</b><span>v1.2.0</span></span></a><a href="../ncassist/index.html" aria-current="page"><img src="../assets/icons/ncassist.svg" alt=""><span><b>아이칸 타공 위치 입력 보조</b><span>0.1.0</span></span></a></div></details></div></div></header>
+<div class="ik-shell">
+<nav class="ik-toc" aria-label="목차"><details open id="toc-box"><summary>목차 · 이 매뉴얼에서 찾기</summary><div class="ik-find"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><label class="sr" for="find">이 매뉴얼에서 찾기</label><input id="find" type="search" placeholder="이 매뉴얼에서 찾기  /" autocomplete="off"></div><div class="ik-find-state" id="find-state" role="status" aria-live="polite"></div><div class="ik-toc-label">Contents · 11장</div><ol><li><a href="#1-프로그램-개요"><span class="n">01</span><span>프로그램 개요</span></a></li><li><a href="#2-설치"><span class="n">02</span><span>설치</span></a></li><li><a href="#3-자료-불러오기"><span class="n">03</span><span>자료 불러오기</span></a></li><li><a href="#4-좌표-기준"><span class="n">04</span><span>좌표 기준</span></a></li><li><a href="#5-목록과-검토"><span class="n">05</span><span>목록과 검토</span></a></li><li><a href="#6-수정제외수기-추가"><span class="n">06</span><span>수정·제외·수기 추가</span></a></li><li><a href="#7-usb-작업-저장열기"><span class="n">07</span><span>USB 작업 저장·열기</span></a></li><li><a href="#8-검토용-좌표-csv"><span class="n">08</span><span>검토용 좌표 CSV</span></a></li><li><a href="#9-화면-시뮬레이션"><span class="n">09</span><span>화면 시뮬레이션</span></a></li><li><a href="#10-문제-해결-faq"><span class="n">10</span><span>문제 해결 (FAQ)</span></a></li><li><a href="#11-버전-이력"><span class="n">11</span><span>버전 이력</span></a></li></ol><div class="ik-toc-foot">기준 버전 <b>0.1.0</b> · 정리 2026-11-12<br>인터넷 없이도 이 페이지를 저장해 볼 수 있습니다.</div></details></nav>
+<main class="ik-sheet" id="main" data-manual="ncassist">
+<section class="ik-chapter is-first" id="cover"><div class="ik-cover"><img class="ik-cover-icon" src="../assets/icons/ncassist.svg" alt="아이칸 타공 위치 입력 보조 아이콘"><div><p class="ik-cover-kind">USER MANUAL · 0.1.0</p><h1 class="ik-cover-title">아이칸 타공 위치 입력 보조</h1><p class="ik-cover-meta"><span>한샘 원본이나 관리자 작업 데이터로 워터젯(NcEditor)에 넣을 타공 X/Y를 계산·검토하고 USB 작업 파일로 옮깁니다. 0.1.0은 검토·시뮬레이션 단계로, 기계에 자동 입력하지 않습니다.</span></p></div></div><ul class=ik-docinfo><li><b>기준 버전</b>0.1.0</li><li><b>기준일</b>2026-11-12</li><li><b>운영체제</b>Windows 10/11 64비트</li><li><b>단계</b>검토·시뮬레이션 (NcEditor 자동 입력 없음)</li></ul><div class=ik-cover-intro><p>레이저(워터젯) 제어 프로그램 <strong>Weihong Ncstudio / NcEditor</strong>에 넣을 타공 위치를, 한샘 원본 엑셀이나 작업지시서 관리자 작업 데이터에서 <strong>계산·검토</strong>하는 보조 프로그램입니다. 지금 손으로 계산하는 좌표를 미리 계산해 두고, 사람이 확인한 결과를 USB 작업 파일로 기계 PC에 옮기는 데까지 씁니다.</p><div class="ik-note is-caution"><p class="ik-note-tag"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 3 2.5 20h19z"></path><path d="M12 10v4M12 17h.01"></path></svg>주의</p>
+<p>0.1.0은 <strong>미완성 단계</strong>입니다. NcEditor에 좌표를 자동으로 입력하지 않고, 가공 파일(DXF/NCE)을 만들지 않으며, 기계를 움직이지 않습니다. "시뮬레이션"은 이 프로그램 화면 안에서 좌표를 차례로 보여 주는 기능입니다.</p>
+</div></div><div class=ik-quick><a href="#1-1-지금-되는-것--아직-안-되는-것"><b>처음 사용하는 분</b><small>되는 것 / 안 되는 것</small></a><a href="#4-좌표-기준"><b>좌표 기준이 궁금한 분</b><small>원점·X/Y 계산식</small></a><a href="#7-usb-작업-저장열기"><b>기계 PC로 옮길 때</b><small>USB 작업 저장·열기</small></a></div><div class="ik-div ik-div-dim" role="separator" aria-label="주식회사 아이칸"><i class="ik-div-tick"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M0 5 L12 0.8 V9.2 Z"/></svg><i class="ik-div-line"></i><span class="ik-div-label"><span class="ik-div-ko">주식회사 아이칸</span><span class="ik-div-en">IKAN CO., LTD.</span></span><i class="ik-div-line"></i><svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M12 5 L0 0.8 V9.2 Z"/></svg><i class="ik-div-tick"></i></div></section>
+<div id="find-empty" class="ik-empty" hidden><b>일치하는 장이 없습니다.</b>더 짧은 단어나 다른 표현으로 찾아보세요. 예: 싱크볼 → 씽크볼, 뒤턱 → 뒷턱</div>
+<section class="ik-chapter" id="1-프로그램-개요" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 01</p><h1>프로그램 개요</h1></header><h2 id="1-1-지금-되는-것--아직-안-되는-것">1-1. 지금 되는 것 / 아직 안 되는 것</h2><div class="ik-table"><table>
+<thead>
+<tr>
+<th>지금 되는 것 (0.1.0)</th>
+<th>아직 안 되는 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>원본 엑셀·<code>.ikanwork</code>에서 타공 좌표 계산</td>
+<td>NcEditor 화면 자동 입력·입력값 재확인</td>
+</tr>
+<tr>
+<td>상판별 실제 비율 그림과 계산 근거 확인</td>
+<td>DXF/NCE 가공 파일 생성, 가공 시작</td>
+</tr>
+<tr>
+<td>수치 수정·제외·수기 타공 추가</td>
+<td>CAD 특수 형상 읽기, 종이/PDF 작업지시서 OCR</td>
+</tr>
+<tr>
+<td>확인 완료 처리, 검토용 좌표 CSV</td>
+<td>회전·반전 도면의 장비 좌표 자동 변환</td>
+</tr>
+<tr>
+<td><code>.ikancut</code> USB 작업 저장·열기</td>
+<td>Z 분할 상판 타공의 실제 조각 배정 자동 결정</td>
+</tr>
+<tr>
+<td>화면 안 좌표 시뮬레이션</td>
+<td>완성 <code>.xlsx</code> 직접 읽기</td>
+</tr>
+</tbody>
+</table></div><p>다음 단계(자동 입력)를 연결하려면 <strong>기계 PC의 실제 NcEditor 입력 화면</strong>과 같은 작업의 <strong>정답 X/Y 사례</strong>가 필요합니다. 사무실 PC에는 모션 제어 카드가 없어 NcEditor가 "Controller Not Found"로 열리므로 입력 화면을 확인하지 못했습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-next" href="#2-설치"><small>다음 장 02 →</small><b>설치</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="2-설치" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 02</p><h1>설치</h1></header><ol class="ik-steps is-plain"><li><div><p><code>IkanCutAssist_0.1.0.msi</code>를 실행해 설치합니다.</p></div></li><li><div><p>시작 메뉴의 <strong>아이칸 타공 위치 입력 보조</strong>로 실행합니다.</p></div></li></ol><ul>
+<li>작업지시서 관리자·일일기록정리·포장 카운트와 따로 설치되며 그 프로그램들을 바꾸지 않습니다.</li>
+<li>USB 작업 파일을 다른 PC(기계 PC 등)에서 열려면 그 PC에도 이 프로그램을 설치합니다.</li>
+<li>설치 파일에는 Ncstudio·장비 드라이버가 들어 있지 않습니다.</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#1-프로그램-개요"><small>← 앞 장 01</small><b>프로그램 개요</b></a><a class="is-next" href="#3-자료-불러오기"><small>다음 장 03 →</small><b>자료 불러오기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="3-자료-불러오기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 03</p><h1>자료 불러오기</h1></header><p>원본과 작업 데이터는 <strong>한 번에 하나</strong>를 고릅니다.</p><h2 id="3-1-원본-엑셀">3-1. 원본 엑셀</h2><p>작업지시서에 쓰던 한샘 원본 <code>.xlsx</code>를 고릅니다.</p><ul>
+<li>상판별 씽크볼·쿡탑의 규격과 위치를 읽어 좌표를 계산합니다.</li>
+<li>품목 순서를 유지하고, 수량이 여러 개면 타공도 수량만큼 나눕니다.</li>
+<li>한 주문의 타공을 한 상판에 몰지 않고 원본의 해당 품목에 연결합니다.</li>
+<li>원본에 작업지시서 번호가 없으면 비어 있고, 수정 창에서 넣을 수 있습니다.</li>
+</ul><h2 id="3-2-작업-데이터-ikanwork">3-2. 작업 데이터 (<code>.ikanwork</code>)</h2><p>관리자에서 내보낸 작업 데이터를 고릅니다.</p><ul>
+<li>'작업지시서 작성'과 '완성 엑셀 수정' 목록이 둘 다 있으면 쓸 목록을 고릅니다. 수정안·편집 초안은 자동으로 쓰지 않습니다.</li>
+<li>적용된 도면이 있으면 <strong>도면의 실제 mm 위치</strong>를 씁니다. 도면에서 지운 타공은 다시 만들지 않고 제외합니다.</li>
+<li>표의 취소선은 도면 삭제와 별개라, 도면에 남은 타공은 목록에 남깁니다.</li>
+<li>표와 저장 도면이 서로 맞지 않는 주문은 확인 대상으로 빼고 관리자에서 다시 확인하라고 안내합니다.</li>
+<li>도면이 없는 작업은 표 정보를 씁니다.</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#2-설치"><small>← 앞 장 02</small><b>설치</b></a><a class="is-next" href="#4-좌표-기준"><small>다음 장 04 →</small><b>좌표 기준</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="4-좌표-기준" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 04</p><h1>좌표 기준</h1></header><ul>
+<li>각 상판의 <strong>왼쪽 아래 = (0, 0)</strong>, 단위 mm.</li>
+<li>상판 방향은 <strong>도면 그대로</strong>(회전·반전하지 않음).</li>
+<li>사각 타공의 입력점은 타공의 <strong>왼쪽 아래</strong>: X = 좌시작, Y = 전면값.</li>
+<li>원형 타공의 입력점은 <strong>원의 중심</strong>.</li>
+</ul><div class="ik-table"><table>
+<thead>
+<tr>
+<th>원본 위치 기준</th>
+<th>좌시작(X) 계산</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>씽크볼 우시작</td>
+<td>상판 W − 우시작 − 타공 W</td>
+</tr>
+<tr>
+<td>쿡탑 우센터</td>
+<td>상판 W − 우센터 − 타공 W ÷ 2</td>
+</tr>
+<tr>
+<td>쿡탑 좌센터</td>
+<td>좌센터 − 타공 W ÷ 2</td>
+</tr>
+</tbody>
+</table></div><div class="ik-example"><span class="ik-example-tag">예시</span>
+<p>예: 상판 1640, 쿡탑 560, 우센터 1190, 전면값 70 → <strong>X = 170, Y = 70</strong>.</p>
+</div><ul>
+<li>원형은 수정 창에서 원형을 고르고 W/H에 같은 지름을 넣습니다. 좌시작·전면값에는 원을 둘러싼 사각형의 왼쪽 아래 여백을 넣고, 표시 X/Y는 거기에 반지름을 더한 <strong>중심 좌표</strong>입니다.</li>
+<li>출력 도면의 축척·배율깨기·화면 위치로 거꾸로 계산하지 않습니다.</li>
+<li>졸리컷에 따른 실제 재단 후 치수, 직사각형이 아닌 코너, 조립 방향은 현장 자료와 비교해야 합니다.</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#3-자료-불러오기"><small>← 앞 장 03</small><b>자료 불러오기</b></a><a class="is-next" href="#5-목록과-검토"><small>다음 장 05 →</small><b>목록과 검토</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="5-목록과-검토" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 05</p><h1>목록과 검토</h1></header><p>목록에는 상태 · 작업지시서 번호 · 담당 · 오더번호 · 원본 행/반복 조각 · 타공 종류·코드 · X/Y가 나옵니다. 고르면 아래에 상판과 타공의 실제 비율 그림, 오른쪽에 규격과 계산 근거가 보입니다.</p><div class="ik-table"><table>
+<thead>
+<tr>
+<th>상태</th>
+<th>뜻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>검토 대기</td>
+<td>계산은 됐지만 아직 확인하지 않음</td>
+</tr>
+<tr>
+<td>수치 확인</td>
+<td>필수 수치가 없거나 상판 범위를 벗어나는 등 문제 있음</td>
+</tr>
+<tr>
+<td>확인 완료</td>
+<td>작업자가 직접 확인 완료함</td>
+</tr>
+<tr>
+<td>제외</td>
+<td>좌표 출력·시뮬레이션에서 뺌</td>
+</tr>
+</tbody>
+</table></div><ol class="ik-steps is-plain"><li><div><p>목록을 클릭하거나 <kbd>Ctrl</kbd>/<kbd>Shift</kbd>로 여러 개 고릅니다. 전체는 <code>[전체 선택]</code> 또는 <kbd>Ctrl</kbd>+<kbd>A</kbd>.</p></div></li><li><div><p>두 번 누르거나 <code>[선택 수치 수정]</code>으로 고칩니다.</p></div></li><li><div><p>맞으면 <code>[선택 확인 완료]</code> — 고른 항목에만 적용됩니다.</p></div></li></ol><p>수치를 고치거나 제외/복구하면 확인 상태가 풀립니다. 주의사항이 있는 정상 수치는 한 번 더 보고 완료하세요.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#4-좌표-기준"><small>← 앞 장 04</small><b>좌표 기준</b></a><a class="is-next" href="#6-수정제외수기-추가"><small>다음 장 06 →</small><b>수정·제외·수기 추가</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="6-수정제외수기-추가" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 06</p><h1>수정·제외·수기 추가</h1></header><ul>
+<li>수정 창: 오더번호 · 작업지시서 번호 · 코드, 상판 W/H, 타공 W/H, 좌시작 · 전면값, 형상(사각/원형).</li>
+<li>원본 파일은 고치지 않습니다. 상판 W/H 수정도 <strong>고른 타공에만</strong> 적용되니 같은 상판의 다른 타공은 따로 확인하세요.</li>
+<li><code>X</code>·<code>999999</code> 같은 비정상 수치, 좌/우시작 30mm 미만 현장타공은 제외합니다.</li>
+<li>범위 초과·규격 미등록은 좌표를 비워 두고 확인을 요청합니다(임의로 0을 넣지 않음).</li>
+<li>잘못된 수치가 남아 있으면 확인 완료·좌표 출력이 되지 않습니다.</li>
+<li><code>[수기 타공 추가]</code>: 자료에 없는 타공을 추가합니다. 상판을 고른 상태면 오더와 상판 크기를 기본값으로 씁니다.</li>
+<li>추가타공 수량만 있고 위치·형상이 없는 원본 항목은 확인사항에 표시만 하고 위치를 추측하지 않습니다.</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#5-목록과-검토"><small>← 앞 장 05</small><b>목록과 검토</b></a><a class="is-next" href="#7-usb-작업-저장열기"><small>다음 장 07 →</small><b>USB 작업 저장·열기</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="7-usb-작업-저장열기" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 07</p><h1>USB 작업 저장·열기</h1></header><ol class="ik-steps is-plain"><li><div><p><code>[USB 작업 저장]</code> → USB나 PC 폴더를 고릅니다. 파일은 <code>.ikancut</code>.</p></div></li><li><div><p>기계 PC에서 <code>[USB 작업 열기]</code>로 원본 없이 이어서 확인합니다.</p></div></li></ol><ul>
+<li>좌표 · 상판 정보 · 확인 상태 · 수기 수정 · 제외 항목 · 출처를 함께 저장합니다. 미확인 항목도 들어가므로 중간 상태를 남길 수 있습니다.</li>
+<li>이 파일은 보조 프로그램 전용입니다. <strong>NcEditor가 직접 읽는 파일이 아니며</strong>, <code>.ikanwork</code>와도 다른 형식입니다.</li>
+<li>형식·무결성 검사에 실패하면 지금 목록을 바꾸지 않습니다. 기존 저장 파일은 새 파일 저장이 성공한 뒤에만 바뀝니다.</li>
+<li>새 자료를 읽을 때는 저장 안 한 변경을 버릴지 묻고, 끝낼 때는 저장 · 버림 · 취소를 고릅니다.</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#6-수정제외수기-추가"><small>← 앞 장 06</small><b>수정·제외·수기 추가</b></a><a class="is-next" href="#8-검토용-좌표-csv"><small>다음 장 08 →</small><b>검토용 좌표 CSV</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="8-검토용-좌표-csv" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 08</p><h1>검토용 좌표 CSV</h1></header><p><code>[선택 확인 좌표 CSV]</code>는 고른 항목 중 <strong>확인 완료된 가공 대상만</strong> 저장합니다.</p><ul>
+<li>고른 대상에 미확인·잘못된 수치가 있으면 먼저 확인하라고 합니다. 제외 항목은 넣지 않습니다.</li>
+<li>전부 내보내려면 전체 선택 후 실행합니다.</li>
+<li>CSV는 사람이 보는 <strong>검토용 표</strong>이며 기계용 가공 파일이 아닙니다.</li>
+</ul><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#7-usb-작업-저장열기"><small>← 앞 장 07</small><b>USB 작업 저장·열기</b></a><a class="is-next" href="#9-화면-시뮬레이션"><small>다음 장 09 →</small><b>화면 시뮬레이션</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="9-화면-시뮬레이션" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 09</p><h1>화면 시뮬레이션</h1></header><ol class="ik-steps is-plain"><li><div><p>처음이라면 <code>[시뮬레이션 예제]</code>를 엽니다.</p></div></li><li><div><p><code>[전체 선택]</code> → <code>[선택 확인 완료]</code> → <code>[선택 좌표 시뮬레이션]</code>.</p></div></li><li><div><p>상판과 X/Y가 차례로 표시됩니다. <code>[중지]</code> 또는 <kbd>Esc</kbd>로 멈춥니다.</p></div></li></ol><p>실제 자료도 같은 방법입니다. 외부 프로그램·프린터·기계로는 아무것도 보내지 않습니다.</p><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#8-검토용-좌표-csv"><small>← 앞 장 08</small><b>검토용 좌표 CSV</b></a><a class="is-next" href="#10-문제-해결-faq"><small>다음 장 10 →</small><b>문제 해결 (FAQ)</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="10-문제-해결-faq" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 10</p><h1>문제 해결 (FAQ)</h1></header><details class="ik-qa"><summary>좌표가 비어 있고 '수치 확인'이에요.</summary><div class="ik-qa-a"><div><p>범위를 벗어났거나 규격이 등록되지 않은 타공입니다. 원본·도면을 보고 수정 창에서 값을 넣은 뒤 확인 완료합니다.</p></div></div></details><details class="ik-qa"><summary>관리자 도면에서 지운 타공이 목록에 없어요.</summary><div class="ik-qa-a"><div><p>정상입니다. 적용된 도면에서 제거된 타공은 다시 만들지 않습니다. 필요하면 수기 타공으로 추가합니다.</p></div></div></details><details class="ik-qa"><summary>작업 데이터를 열었더니 일부 주문이 빠져요.</summary><div class="ik-qa-a"><div><p>표와 저장 도면이 맞지 않는 주문입니다. 관리자에서 해당 주문의 도면을 다시 확인(적용)하고 내보내세요.</p></div></div></details><details class="ik-qa"><summary>기계 PC의 NcEditor에 바로 넣을 수 있나요?</summary><div class="ik-qa-a"><div><p>아직 아닙니다. 0.1.0은 계산·검토까지입니다. 확인한 X/Y를 보며 사람이 입력합니다.</p></div></div></details><details class="ik-qa"><summary>같은 상판인데 상판 크기를 고쳤더니 다른 타공은 그대로예요.</summary><div class="ik-qa-a"><div><p>상판 W/H 수정은 고른 타공 항목에만 적용됩니다. 같은 상판의 다른 타공도 각각 고치세요.</p></div></div></details><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#9-화면-시뮬레이션"><small>← 앞 장 09</small><b>화면 시뮬레이션</b></a><a class="is-next" href="#11-버전-이력"><small>다음 장 11 →</small><b>버전 이력</b></a></nav></section><div class="ik-div ik-div-edge ik-div-chap" role="separator"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M1 15 V9 A8 8 0 0 1 9 1 H15"/></svg><i class="ik-div-line"></i><i class="ik-div-bar"></i><span class="ik-div-mark">IKAN</span><i class="ik-div-bar"></i><i class="ik-div-line"></i><svg viewBox="0 0 16 16" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M15 15 V9 A8 8 0 0 0 7 1 H1"/></svg></div><section class="ik-chapter" id="11-버전-이력" data-chapter><header class="ik-chapter-head"><p class="ik-eyebrow">CHAPTER 11</p><h1>버전 이력</h1></header><div class="ik-table"><table>
+<thead>
+<tr>
+<th>버전</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.1.0</td>
+<td>첫 배포 — 원본·작업 데이터에서 좌표 계산, 검토·수정·제외, <code>.ikancut</code>, 검토용 CSV, 화면 시뮬레이션 (NcEditor 자동 입력 없음)</td>
+</tr>
+</tbody>
+</table></div><nav class="ik-chapnav" aria-label="앞뒤 장"><a class="is-prev" href="#10-문제-해결-faq"><small>← 앞 장 10</small><b>문제 해결 (FAQ)</b></a></nav></section>
+<div class="ik-div ik-div-stamp" role="separator" aria-label="검수 완료"><span class="ik-div-layers is-left"><i></i><i></i><i></i></span><span class="ik-stamp"><span><b>검수</b><small>IKAN</small></span></span><span class="ik-div-layers is-right"><i></i><i></i><i></i></span></div><p class="ik-small" style="text-align:center;max-width:none">아이칸 타공 위치 입력 보조 사용 설명서 · 기준 버전 0.1.0 · 정리 2026-11-12 · 주식회사 아이칸 사내용</p>
+</main>
+</div>
+<dialog class="ik-zoom" id="ik-zoom" aria-label="화면 크게 보기"><div class="ik-zoom-bar"><b id="ik-zoom-title">화면 크게 보기</b><span>번호를 누르면 설명이 나옵니다 · Esc로 닫기</span><button type="button" class="ik-bar-btn" data-zoom-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>닫기</button></div><div class="ik-zoom-body" id="ik-zoom-body"></div><p class="ik-zoom-note" id="ik-zoom-note" aria-live="polite"></p></dialog>
+<script src="../assets/search-index.js?v=5ac61482"></script><script src="../assets/ikan.js?v=5ac61482"></script><script src="../assets/sims.js?v=5ac61482"></script>
+</body>
+</html>
