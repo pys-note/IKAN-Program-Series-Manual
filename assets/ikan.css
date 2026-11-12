@@ -858,3 +858,17 @@ img{max-width:100%}
 .ik-app-jpstatement{--ik-accent:#B3326E;--ik-accent-ink:#8C2253;--ik-accent-soft:#FAE8F0}
 .ik-app-drawing{--ik-accent:#8C5B3E;--ik-accent-ink:#6B432B;--ik-accent-soft:#F5ECE6}
 .ik-app-ncassist{--ik-accent:#4A6378;--ik-accent-ink:#344A5C;--ik-accent-soft:#E8EEF3}
+
+/* ── v12.1 업무 묶음(한샘 / 일본한샘 / 공통) ── */
+.hub-group+.hub-group{margin-top:34px}
+.hub-group-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin:0 0 14px;padding:0 0 10px;border-bottom:2px solid var(--ik-ink)}
+.hub-group-head h3{display:flex;align-items:baseline;gap:8px;margin:0;font-size:19px;font-weight:800;letter-spacing:-.01em;color:var(--ik-ink)}
+.hub-group-head h3 small{display:inline-grid;place-items:center;min-width:24px;height:22px;padding:0 7px;border-radius:11px;background:var(--ik-ink);color:#fff;font:700 12px/1 var(--ik-mono)}
+.hub-group-head p{margin:0;font-size:14px;color:var(--ik-ink-3)}
+.hub-register li.hub-register-group{display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding:12px 14px 6px;border-bottom:1px solid var(--ik-navy-line);background:rgba(255,255,255,.04)}
+.hub-register li.hub-register-group span{font-weight:800;font-size:13px;color:#fff;letter-spacing:.02em}
+.hub-register li.hub-register-group small{font:600 10.5px/1.4 var(--ik-mono);letter-spacing:.14em;color:var(--ik-navy-sub)}
+.ik-apps-group{display:block;padding:9px 10px 3px;font:700 11px/1.4 var(--ik-mono);letter-spacing:.12em;color:var(--ik-ink-3);border-top:1px solid var(--ik-line);margin-top:4px}
+.ik-apps-menu hr+.ik-apps-group{border-top:0;margin-top:0}
+.ik-apps-menu{max-height:min(78vh,720px);overflow:auto}
+@media print{.hub-group-head{break-after:avoid}}
